@@ -1,0 +1,1440 @@
+[{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb092"
+  },
+  "Team": "Almería",
+  "UniqueID": 0,
+  "Control_Possession": 17.63,
+  "Gegenpressing": 14.71,
+  "Direct_Play": 20.51,
+  "Defensive_Counter_Attacking": 6.93,
+  "Tiki_Taka": 8.76,
+  "Counter_Attack": 3.6,
+  "Wing_Play": 14.89,
+  "Low_Block": 12.98
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb093"
+  },
+  "Team": "Arsenal",
+  "UniqueID": 1,
+  "Control_Possession": 14.96,
+  "Gegenpressing": 13.81,
+  "Direct_Play": 9.74,
+  "Defensive_Counter_Attacking": 9.61,
+  "Tiki_Taka": 17.12,
+  "Counter_Attack": 13.82,
+  "Wing_Play": 11.65,
+  "Low_Block": 9.3
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb094"
+  },
+  "Team": "Aston Villa",
+  "UniqueID": 2,
+  "Control_Possession": 20.36,
+  "Gegenpressing": 13.94,
+  "Direct_Play": 16.85,
+  "Defensive_Counter_Attacking": 7.53,
+  "Tiki_Taka": 10.06,
+  "Counter_Attack": 5.33,
+  "Wing_Play": 16.48,
+  "Low_Block": 9.47
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb095"
+  },
+  "Team": "Atalanta",
+  "UniqueID": 3,
+  "Control_Possession": 19,
+  "Gegenpressing": 13.41,
+  "Direct_Play": 14.73,
+  "Defensive_Counter_Attacking": 3.3,
+  "Tiki_Taka": 11.26,
+  "Counter_Attack": 9.73,
+  "Wing_Play": 13.31,
+  "Low_Block": 15.26
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb096"
+  },
+  "Team": "Athletic Bilbao",
+  "UniqueID": 4,
+  "Control_Possession": 16.81,
+  "Gegenpressing": 14.57,
+  "Direct_Play": 15.12,
+  "Defensive_Counter_Attacking": 6.37,
+  "Tiki_Taka": 10.72,
+  "Counter_Attack": 8.51,
+  "Wing_Play": 13.32,
+  "Low_Block": 14.59
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb097"
+  },
+  "Team": "Atlético Madrid",
+  "UniqueID": 5,
+  "Control_Possession": 20.17,
+  "Gegenpressing": 12.45,
+  "Direct_Play": 14.45,
+  "Defensive_Counter_Attacking": 5.69,
+  "Tiki_Taka": 14.08,
+  "Counter_Attack": 10.99,
+  "Wing_Play": 10.57,
+  "Low_Block": 11.59
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb098"
+  },
+  "Team": "Augsburg",
+  "UniqueID": 6,
+  "Control_Possession": 14.06,
+  "Gegenpressing": 15.68,
+  "Direct_Play": 19.88,
+  "Defensive_Counter_Attacking": 6.65,
+  "Tiki_Taka": 7.12,
+  "Counter_Attack": 2.37,
+  "Wing_Play": 12.38,
+  "Low_Block": 21.86
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb099"
+  },
+  "Team": "Barcelona",
+  "UniqueID": 7,
+  "Control_Possession": 8.39,
+  "Gegenpressing": 12.87,
+  "Direct_Play": 12.52,
+  "Defensive_Counter_Attacking": 9.32,
+  "Tiki_Taka": 17.4,
+  "Counter_Attack": 17.18,
+  "Wing_Play": 11.21,
+  "Low_Block": 11.11
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09a"
+  },
+  "Team": "Bayer Leverkusen",
+  "UniqueID": 8,
+  "Control_Possession": 19.44,
+  "Gegenpressing": 13.86,
+  "Direct_Play": 12.61,
+  "Defensive_Counter_Attacking": 6.95,
+  "Tiki_Taka": 15.89,
+  "Counter_Attack": 10.4,
+  "Wing_Play": 9.14,
+  "Low_Block": 11.7
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09b"
+  },
+  "Team": "Bayern München",
+  "UniqueID": 9,
+  "Control_Possession": 7.09,
+  "Gegenpressing": 15.37,
+  "Direct_Play": 12.73,
+  "Defensive_Counter_Attacking": 7.08,
+  "Tiki_Taka": 16.08,
+  "Counter_Attack": 15.87,
+  "Wing_Play": 11.93,
+  "Low_Block": 13.84
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09c"
+  },
+  "Team": "Bochum",
+  "UniqueID": 10,
+  "Control_Possession": 13.31,
+  "Gegenpressing": 16.01,
+  "Direct_Play": 16.34,
+  "Defensive_Counter_Attacking": 2.66,
+  "Tiki_Taka": 9.59,
+  "Counter_Attack": 2.4,
+  "Wing_Play": 16.84,
+  "Low_Block": 22.85
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09d"
+  },
+  "Team": "Bologna",
+  "UniqueID": 11,
+  "Control_Possession": 22.14,
+  "Gegenpressing": 14.86,
+  "Direct_Play": 13.24,
+  "Defensive_Counter_Attacking": 4.08,
+  "Tiki_Taka": 17.26,
+  "Counter_Attack": 5.44,
+  "Wing_Play": 9.4,
+  "Low_Block": 13.59
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09e"
+  },
+  "Team": "Borussia Dortmund",
+  "UniqueID": 12,
+  "Control_Possession": 15,
+  "Gegenpressing": 15.75,
+  "Direct_Play": 12.29,
+  "Defensive_Counter_Attacking": 7.18,
+  "Tiki_Taka": 15.66,
+  "Counter_Attack": 12.42,
+  "Wing_Play": 10.33,
+  "Low_Block": 11.37
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb09f"
+  },
+  "Team": "Borussia M_gladbach",
+  "UniqueID": 13,
+  "Control_Possession": 22.71,
+  "Gegenpressing": 10.57,
+  "Direct_Play": 13.98,
+  "Defensive_Counter_Attacking": 6.11,
+  "Tiki_Taka": 17.49,
+  "Counter_Attack": 12.02,
+  "Wing_Play": 8.56,
+  "Low_Block": 8.55
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a0"
+  },
+  "Team": "Bournemouth",
+  "UniqueID": 14,
+  "Control_Possession": 12.05,
+  "Gegenpressing": 12.06,
+  "Direct_Play": 27.42,
+  "Defensive_Counter_Attacking": 4.78,
+  "Tiki_Taka": 6.13,
+  "Counter_Attack": 6.92,
+  "Wing_Play": 17.07,
+  "Low_Block": 13.56
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a1"
+  },
+  "Team": "Brentford",
+  "UniqueID": 15,
+  "Control_Possession": 16.39,
+  "Gegenpressing": 13.43,
+  "Direct_Play": 17.17,
+  "Defensive_Counter_Attacking": 8.17,
+  "Tiki_Taka": 7.83,
+  "Counter_Attack": 3.81,
+  "Wing_Play": 20.35,
+  "Low_Block": 12.84
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a2"
+  },
+  "Team": "Brest",
+  "UniqueID": 16,
+  "Control_Possession": 18.33,
+  "Gegenpressing": 13.51,
+  "Direct_Play": 17.79,
+  "Defensive_Counter_Attacking": 3.22,
+  "Tiki_Taka": 9.42,
+  "Counter_Attack": 2,
+  "Wing_Play": 18.59,
+  "Low_Block": 17.13
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a3"
+  },
+  "Team": "Brighton",
+  "UniqueID": 17,
+  "Control_Possession": 13.84,
+  "Gegenpressing": 13.98,
+  "Direct_Play": 10.49,
+  "Defensive_Counter_Attacking": 8.94,
+  "Tiki_Taka": 17.27,
+  "Counter_Attack": 14.59,
+  "Wing_Play": 10.28,
+  "Low_Block": 10.61
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a4"
+  },
+  "Team": "Burnley",
+  "UniqueID": 18,
+  "Control_Possession": 12.7,
+  "Gegenpressing": 15.09,
+  "Direct_Play": 11.46,
+  "Defensive_Counter_Attacking": 8.06,
+  "Tiki_Taka": 20.31,
+  "Counter_Attack": 9.42,
+  "Wing_Play": 13.43,
+  "Low_Block": 9.51
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a5"
+  },
+  "Team": "Cagliari",
+  "UniqueID": 19,
+  "Control_Possession": 20.13,
+  "Gegenpressing": 15.05,
+  "Direct_Play": 14.77,
+  "Defensive_Counter_Attacking": 6.27,
+  "Tiki_Taka": 11.03,
+  "Counter_Attack": 4.63,
+  "Wing_Play": 14.59,
+  "Low_Block": 13.52
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a6"
+  },
+  "Team": "Celta de Vigo",
+  "UniqueID": 20,
+  "Control_Possession": 21.25,
+  "Gegenpressing": 15.6,
+  "Direct_Play": 15.21,
+  "Defensive_Counter_Attacking": 5,
+  "Tiki_Taka": 11.74,
+  "Counter_Attack": 4.63,
+  "Wing_Play": 15,
+  "Low_Block": 11.57
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a7"
+  },
+  "Team": "Chelsea",
+  "UniqueID": 21,
+  "Control_Possession": 16.5,
+  "Gegenpressing": 14.71,
+  "Direct_Play": 14.73,
+  "Defensive_Counter_Attacking": 3.92,
+  "Tiki_Taka": 17.69,
+  "Counter_Attack": 8.97,
+  "Wing_Play": 11.99,
+  "Low_Block": 11.49
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a8"
+  },
+  "Team": "Clermont",
+  "UniqueID": 22,
+  "Control_Possession": 20.04,
+  "Gegenpressing": 14.22,
+  "Direct_Play": 16.44,
+  "Defensive_Counter_Attacking": 5.83,
+  "Tiki_Taka": 10.37,
+  "Counter_Attack": 6.03,
+  "Wing_Play": 12.31,
+  "Low_Block": 14.75
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0a9"
+  },
+  "Team": "Crystal Palace",
+  "UniqueID": 23,
+  "Control_Possession": 18.22,
+  "Gegenpressing": 16.63,
+  "Direct_Play": 17.85,
+  "Defensive_Counter_Attacking": 4.19,
+  "Tiki_Taka": 9.32,
+  "Counter_Attack": 5.52,
+  "Wing_Play": 14.22,
+  "Low_Block": 14.06
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0aa"
+  },
+  "Team": "Cádiz",
+  "UniqueID": 24,
+  "Control_Possession": 13.21,
+  "Gegenpressing": 15.06,
+  "Direct_Play": 21.4,
+  "Defensive_Counter_Attacking": 5.6,
+  "Tiki_Taka": 6.37,
+  "Counter_Attack": 4.29,
+  "Wing_Play": 17.52,
+  "Low_Block": 16.57
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ab"
+  },
+  "Team": "Darmstadt 98",
+  "UniqueID": 25,
+  "Control_Possession": 14.74,
+  "Gegenpressing": 15.79,
+  "Direct_Play": 15.66,
+  "Defensive_Counter_Attacking": 5.81,
+  "Tiki_Taka": 9.58,
+  "Counter_Attack": 5.99,
+  "Wing_Play": 16.22,
+  "Low_Block": 16.21
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ac"
+  },
+  "Team": "Deportivo Alavés",
+  "UniqueID": 26,
+  "Control_Possession": 12.59,
+  "Gegenpressing": 13.04,
+  "Direct_Play": 17.49,
+  "Defensive_Counter_Attacking": 8.33,
+  "Tiki_Taka": 6.15,
+  "Counter_Attack": 5.33,
+  "Wing_Play": 22.44,
+  "Low_Block": 14.64
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ad"
+  },
+  "Team": "Eintracht Frankfurt",
+  "UniqueID": 27,
+  "Control_Possession": 19.38,
+  "Gegenpressing": 12.99,
+  "Direct_Play": 15.55,
+  "Defensive_Counter_Attacking": 3.22,
+  "Tiki_Taka": 12.76,
+  "Counter_Attack": 7.98,
+  "Wing_Play": 12.78,
+  "Low_Block": 15.34
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ae"
+  },
+  "Team": "Empoli",
+  "UniqueID": 28,
+  "Control_Possession": 18.27,
+  "Gegenpressing": 12.7,
+  "Direct_Play": 20.02,
+  "Defensive_Counter_Attacking": 5.69,
+  "Tiki_Taka": 8.67,
+  "Counter_Attack": 7.12,
+  "Wing_Play": 15.48,
+  "Low_Block": 12.04
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0af"
+  },
+  "Team": "Everton",
+  "UniqueID": 29,
+  "Control_Possession": 17.09,
+  "Gegenpressing": 13.62,
+  "Direct_Play": 24.4,
+  "Defensive_Counter_Attacking": 4.4,
+  "Tiki_Taka": 8.02,
+  "Counter_Attack": 4.37,
+  "Wing_Play": 14.09,
+  "Low_Block": 13.99
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b0"
+  },
+  "Team": "Fiorentina",
+  "UniqueID": 30,
+  "Control_Possession": 17.75,
+  "Gegenpressing": 14.63,
+  "Direct_Play": 9.75,
+  "Defensive_Counter_Attacking": 13.41,
+  "Tiki_Taka": 14.52,
+  "Counter_Attack": 9,
+  "Wing_Play": 10.19,
+  "Low_Block": 10.74
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b1"
+  },
+  "Team": "Freiburg",
+  "UniqueID": 31,
+  "Control_Possession": 21.98,
+  "Gegenpressing": 14.09,
+  "Direct_Play": 11.87,
+  "Defensive_Counter_Attacking": 5.21,
+  "Tiki_Taka": 12.33,
+  "Counter_Attack": 5.64,
+  "Wing_Play": 13.64,
+  "Low_Block": 15.23
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b2"
+  },
+  "Team": "Frosinone",
+  "UniqueID": 32,
+  "Control_Possession": 16.35,
+  "Gegenpressing": 17.06,
+  "Direct_Play": 12.38,
+  "Defensive_Counter_Attacking": 11.07,
+  "Tiki_Taka": 9.24,
+  "Counter_Attack": 7.41,
+  "Wing_Play": 14.52,
+  "Low_Block": 11.96
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b3"
+  },
+  "Team": "Fulham",
+  "UniqueID": 33,
+  "Control_Possession": 20.6,
+  "Gegenpressing": 12.87,
+  "Direct_Play": 17.46,
+  "Defensive_Counter_Attacking": 4.62,
+  "Tiki_Taka": 10.55,
+  "Counter_Attack": 6.55,
+  "Wing_Play": 15.08,
+  "Low_Block": 12.28
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b4"
+  },
+  "Team": "Genoa",
+  "UniqueID": 34,
+  "Control_Possession": 17.87,
+  "Gegenpressing": 14.53,
+  "Direct_Play": 13.4,
+  "Defensive_Counter_Attacking": 4.54,
+  "Tiki_Taka": 12.53,
+  "Counter_Attack": 7.5,
+  "Wing_Play": 14.6,
+  "Low_Block": 15.03
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b5"
+  },
+  "Team": "Getafe",
+  "UniqueID": 35,
+  "Control_Possession": 13.51,
+  "Gegenpressing": 16.39,
+  "Direct_Play": 19.17,
+  "Defensive_Counter_Attacking": 5.83,
+  "Tiki_Taka": 6.75,
+  "Counter_Attack": 1.17,
+  "Wing_Play": 19.91,
+  "Low_Block": 17.27
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b6"
+  },
+  "Team": "Girona",
+  "UniqueID": 36,
+  "Control_Possession": 20.15,
+  "Gegenpressing": 13.51,
+  "Direct_Play": 12.49,
+  "Defensive_Counter_Attacking": 10.37,
+  "Tiki_Taka": 10.78,
+  "Counter_Attack": 7.25,
+  "Wing_Play": 14.72,
+  "Low_Block": 10.74
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b7"
+  },
+  "Team": "Granada",
+  "UniqueID": 37,
+  "Control_Possession": 18.08,
+  "Gegenpressing": 13.05,
+  "Direct_Play": 13.28,
+  "Defensive_Counter_Attacking": 10.24,
+  "Tiki_Taka": 10.9,
+  "Counter_Attack": 4.36,
+  "Wing_Play": 16.7,
+  "Low_Block": 13.39
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b8"
+  },
+  "Team": "Heidenheim",
+  "UniqueID": 38,
+  "Control_Possession": 17.51,
+  "Gegenpressing": 13.96,
+  "Direct_Play": 14.65,
+  "Defensive_Counter_Attacking": 6.12,
+  "Tiki_Taka": 10.48,
+  "Counter_Attack": 6.93,
+  "Wing_Play": 11.69,
+  "Low_Block": 18.66
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0b9"
+  },
+  "Team": "Hellas Verona",
+  "UniqueID": 39,
+  "Control_Possession": 13.08,
+  "Gegenpressing": 15.04,
+  "Direct_Play": 21.03,
+  "Defensive_Counter_Attacking": 3.3,
+  "Tiki_Taka": 6.68,
+  "Counter_Attack": 2.35,
+  "Wing_Play": 18.61,
+  "Low_Block": 19.9
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ba"
+  },
+  "Team": "Hoffenheim",
+  "UniqueID": 40,
+  "Control_Possession": 17.83,
+  "Gegenpressing": 14.14,
+  "Direct_Play": 15.41,
+  "Defensive_Counter_Attacking": 4.63,
+  "Tiki_Taka": 11.02,
+  "Counter_Attack": 5.29,
+  "Wing_Play": 15.65,
+  "Low_Block": 16.03
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0bb"
+  },
+  "Team": "Internazionale",
+  "UniqueID": 41,
+  "Control_Possession": 20.16,
+  "Gegenpressing": 11.86,
+  "Direct_Play": 11.86,
+  "Defensive_Counter_Attacking": 8.5,
+  "Tiki_Taka": 18.07,
+  "Counter_Attack": 8.08,
+  "Wing_Play": 8.73,
+  "Low_Block": 12.75
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0bc"
+  },
+  "Team": "Juventus",
+  "UniqueID": 42,
+  "Control_Possession": 21.72,
+  "Gegenpressing": 13.77,
+  "Direct_Play": 15.88,
+  "Defensive_Counter_Attacking": 6.22,
+  "Tiki_Taka": 12.79,
+  "Counter_Attack": 5.48,
+  "Wing_Play": 14.28,
+  "Low_Block": 9.85
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0bd"
+  },
+  "Team": "Köln",
+  "UniqueID": 43,
+  "Control_Possession": 19.63,
+  "Gegenpressing": 12.29,
+  "Direct_Play": 16.68,
+  "Defensive_Counter_Attacking": 3.08,
+  "Tiki_Taka": 12.67,
+  "Counter_Attack": 7.1,
+  "Wing_Play": 12.4,
+  "Low_Block": 16.15
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0be"
+  },
+  "Team": "Las Palmas",
+  "UniqueID": 44,
+  "Control_Possession": 12.58,
+  "Gegenpressing": 17.42,
+  "Direct_Play": 11.12,
+  "Defensive_Counter_Attacking": 7.25,
+  "Tiki_Taka": 17.84,
+  "Counter_Attack": 9.84,
+  "Wing_Play": 10.09,
+  "Low_Block": 13.87
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0bf"
+  },
+  "Team": "Lazio",
+  "UniqueID": 45,
+  "Control_Possession": 21.29,
+  "Gegenpressing": 11.11,
+  "Direct_Play": 11.39,
+  "Defensive_Counter_Attacking": 10.42,
+  "Tiki_Taka": 15.96,
+  "Counter_Attack": 11.03,
+  "Wing_Play": 7.79,
+  "Low_Block": 11.01
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c0"
+  },
+  "Team": "Le Havre",
+  "UniqueID": 46,
+  "Control_Possession": 21.23,
+  "Gegenpressing": 13.22,
+  "Direct_Play": 14.23,
+  "Defensive_Counter_Attacking": 6.73,
+  "Tiki_Taka": 14.62,
+  "Counter_Attack": 5.32,
+  "Wing_Play": 11.99,
+  "Low_Block": 12.66
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c1"
+  },
+  "Team": "Lecce",
+  "UniqueID": 47,
+  "Control_Possession": 13.4,
+  "Gegenpressing": 16.9,
+  "Direct_Play": 18.69,
+  "Defensive_Counter_Attacking": 2.13,
+  "Tiki_Taka": 7.81,
+  "Counter_Attack": 2.19,
+  "Wing_Play": 19.87,
+  "Low_Block": 19
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c2"
+  },
+  "Team": "Lens",
+  "UniqueID": 48,
+  "Control_Possession": 16.69,
+  "Gegenpressing": 11.14,
+  "Direct_Play": 12.84,
+  "Defensive_Counter_Attacking": 12.22,
+  "Tiki_Taka": 16.18,
+  "Counter_Attack": 10.62,
+  "Wing_Play": 10.78,
+  "Low_Block": 9.53
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c3"
+  },
+  "Team": "Lille",
+  "UniqueID": 49,
+  "Control_Possession": 14.31,
+  "Gegenpressing": 13.94,
+  "Direct_Play": 13.23,
+  "Defensive_Counter_Attacking": 7.65,
+  "Tiki_Taka": 16.41,
+  "Counter_Attack": 13.04,
+  "Wing_Play": 9.76,
+  "Low_Block": 11.66
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c4"
+  },
+  "Team": "Liverpool",
+  "UniqueID": 50,
+  "Control_Possession": 12.66,
+  "Gegenpressing": 13.18,
+  "Direct_Play": 10.87,
+  "Defensive_Counter_Attacking": 7.66,
+  "Tiki_Taka": 17.8,
+  "Counter_Attack": 12.12,
+  "Wing_Play": 11.2,
+  "Low_Block": 14.51
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c5"
+  },
+  "Team": "Lorient",
+  "UniqueID": 51,
+  "Control_Possession": 21.37,
+  "Gegenpressing": 13.73,
+  "Direct_Play": 18.97,
+  "Defensive_Counter_Attacking": 2.76,
+  "Tiki_Taka": 10.64,
+  "Counter_Attack": 8.01,
+  "Wing_Play": 12.52,
+  "Low_Block": 11.99
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c6"
+  },
+  "Team": "Luton Town",
+  "UniqueID": 52,
+  "Control_Possession": 12.51,
+  "Gegenpressing": 14,
+  "Direct_Play": 13.86,
+  "Defensive_Counter_Attacking": 2.48,
+  "Tiki_Taka": 9.12,
+  "Counter_Attack": 3.23,
+  "Wing_Play": 21.36,
+  "Low_Block": 23.44
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c7"
+  },
+  "Team": "Mainz 05",
+  "UniqueID": 53,
+  "Control_Possession": 12.85,
+  "Gegenpressing": 14.78,
+  "Direct_Play": 13.31,
+  "Defensive_Counter_Attacking": 3.36,
+  "Tiki_Taka": 8.57,
+  "Counter_Attack": 6.32,
+  "Wing_Play": 20.05,
+  "Low_Block": 20.76
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c8"
+  },
+  "Team": "Mallorca",
+  "UniqueID": 54,
+  "Control_Possession": 14.28,
+  "Gegenpressing": 13.44,
+  "Direct_Play": 21.54,
+  "Defensive_Counter_Attacking": 4.78,
+  "Tiki_Taka": 6.75,
+  "Counter_Attack": 2.24,
+  "Wing_Play": 21.15,
+  "Low_Block": 15.82
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0c9"
+  },
+  "Team": "Manchester City",
+  "UniqueID": 55,
+  "Control_Possession": 8.61,
+  "Gegenpressing": 14.01,
+  "Direct_Play": 11.28,
+  "Defensive_Counter_Attacking": 12.98,
+  "Tiki_Taka": 16.18,
+  "Counter_Attack": 18.55,
+  "Wing_Play": 11.57,
+  "Low_Block": 6.82
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ca"
+  },
+  "Team": "Manchester United",
+  "UniqueID": 56,
+  "Control_Possession": 20.17,
+  "Gegenpressing": 15.78,
+  "Direct_Play": 13.98,
+  "Defensive_Counter_Attacking": 3.19,
+  "Tiki_Taka": 15.57,
+  "Counter_Attack": 11.9,
+  "Wing_Play": 7.49,
+  "Low_Block": 11.91
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0cb"
+  },
+  "Team": "Metz",
+  "UniqueID": 57,
+  "Control_Possession": 19.36,
+  "Gegenpressing": 15.38,
+  "Direct_Play": 16.31,
+  "Defensive_Counter_Attacking": 8.43,
+  "Tiki_Taka": 9.97,
+  "Counter_Attack": 6.61,
+  "Wing_Play": 12.4,
+  "Low_Block": 11.54
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0cc"
+  },
+  "Team": "Milan",
+  "UniqueID": 58,
+  "Control_Possession": 19.68,
+  "Gegenpressing": 13.53,
+  "Direct_Play": 11.42,
+  "Defensive_Counter_Attacking": 5.41,
+  "Tiki_Taka": 13.09,
+  "Counter_Attack": 7.73,
+  "Wing_Play": 15.6,
+  "Low_Block": 13.54
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0cd"
+  },
+  "Team": "Monaco",
+  "UniqueID": 59,
+  "Control_Possession": 16.39,
+  "Gegenpressing": 15.39,
+  "Direct_Play": 13.96,
+  "Defensive_Counter_Attacking": 8.26,
+  "Tiki_Taka": 9.88,
+  "Counter_Attack": 9.29,
+  "Wing_Play": 11.34,
+  "Low_Block": 15.49
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ce"
+  },
+  "Team": "Montpellier",
+  "UniqueID": 60,
+  "Control_Possession": 15.27,
+  "Gegenpressing": 15.22,
+  "Direct_Play": 19.41,
+  "Defensive_Counter_Attacking": 5.63,
+  "Tiki_Taka": 7.24,
+  "Counter_Attack": 7.26,
+  "Wing_Play": 15.26,
+  "Low_Block": 14.71
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0cf"
+  },
+  "Team": "Monza",
+  "UniqueID": 61,
+  "Control_Possession": 21.61,
+  "Gegenpressing": 13.45,
+  "Direct_Play": 13.57,
+  "Defensive_Counter_Attacking": 5,
+  "Tiki_Taka": 17.75,
+  "Counter_Attack": 4.52,
+  "Wing_Play": 12.08,
+  "Low_Block": 12.02
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d0"
+  },
+  "Team": "Nantes",
+  "UniqueID": 62,
+  "Control_Possession": 17.71,
+  "Gegenpressing": 16.27,
+  "Direct_Play": 17.37,
+  "Defensive_Counter_Attacking": 4.94,
+  "Tiki_Taka": 8.49,
+  "Counter_Attack": 4.59,
+  "Wing_Play": 17.54,
+  "Low_Block": 13.09
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d1"
+  },
+  "Team": "Napoli",
+  "UniqueID": 63,
+  "Control_Possession": 10.11,
+  "Gegenpressing": 14.26,
+  "Direct_Play": 11.4,
+  "Defensive_Counter_Attacking": 11.21,
+  "Tiki_Taka": 17.01,
+  "Counter_Attack": 14.38,
+  "Wing_Play": 11.64,
+  "Low_Block": 9.99
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d2"
+  },
+  "Team": "Newcastle United",
+  "UniqueID": 64,
+  "Control_Possession": 18.39,
+  "Gegenpressing": 13.25,
+  "Direct_Play": 15.61,
+  "Defensive_Counter_Attacking": 5.84,
+  "Tiki_Taka": 10.66,
+  "Counter_Attack": 11.17,
+  "Wing_Play": 13.95,
+  "Low_Block": 11.13
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d3"
+  },
+  "Team": "Nice",
+  "UniqueID": 65,
+  "Control_Possession": 18.8,
+  "Gegenpressing": 14.91,
+  "Direct_Play": 12.39,
+  "Defensive_Counter_Attacking": 4.66,
+  "Tiki_Taka": 14.91,
+  "Counter_Attack": 8.77,
+  "Wing_Play": 13.86,
+  "Low_Block": 11.71
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d4"
+  },
+  "Team": "Nottingham Forest",
+  "UniqueID": 66,
+  "Control_Possession": 9.92,
+  "Gegenpressing": 12.65,
+  "Direct_Play": 29.18,
+  "Defensive_Counter_Attacking": 4.32,
+  "Tiki_Taka": 5.4,
+  "Counter_Attack": 7.43,
+  "Wing_Play": 14.3,
+  "Low_Block": 16.81
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d5"
+  },
+  "Team": "Olympique Lyonnais",
+  "UniqueID": 67,
+  "Control_Possession": 14.22,
+  "Gegenpressing": 14.47,
+  "Direct_Play": 11.42,
+  "Defensive_Counter_Attacking": 3.96,
+  "Tiki_Taka": 17.27,
+  "Counter_Attack": 12.17,
+  "Wing_Play": 12.9,
+  "Low_Block": 13.59
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d6"
+  },
+  "Team": "Olympique Marseille",
+  "UniqueID": 68,
+  "Control_Possession": 18.74,
+  "Gegenpressing": 11.95,
+  "Direct_Play": 13.09,
+  "Defensive_Counter_Attacking": 6.19,
+  "Tiki_Taka": 15.8,
+  "Counter_Attack": 9.1,
+  "Wing_Play": 12.5,
+  "Low_Block": 12.63
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d7"
+  },
+  "Team": "Osasuna",
+  "UniqueID": 69,
+  "Control_Possession": 17.82,
+  "Gegenpressing": 16.53,
+  "Direct_Play": 17.24,
+  "Defensive_Counter_Attacking": 5.2,
+  "Tiki_Taka": 10.25,
+  "Counter_Attack": 2.78,
+  "Wing_Play": 14.67,
+  "Low_Block": 15.52
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d8"
+  },
+  "Team": "PSG",
+  "UniqueID": 70,
+  "Control_Possession": 9.79,
+  "Gegenpressing": 17.91,
+  "Direct_Play": 11.26,
+  "Defensive_Counter_Attacking": 12.65,
+  "Tiki_Taka": 14.55,
+  "Counter_Attack": 15.55,
+  "Wing_Play": 7.97,
+  "Low_Block": 10.32
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0d9"
+  },
+  "Team": "Rayo Vallecano",
+  "UniqueID": 71,
+  "Control_Possession": 17.76,
+  "Gegenpressing": 17.83,
+  "Direct_Play": 14.15,
+  "Defensive_Counter_Attacking": 3.56,
+  "Tiki_Taka": 10.18,
+  "Counter_Attack": 3.94,
+  "Wing_Play": 17.54,
+  "Low_Block": 15.05
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0da"
+  },
+  "Team": "RB Leipzig",
+  "UniqueID": 72,
+  "Control_Possession": 14.2,
+  "Gegenpressing": 15.44,
+  "Direct_Play": 12.79,
+  "Defensive_Counter_Attacking": 6.73,
+  "Tiki_Taka": 18.6,
+  "Counter_Attack": 10.79,
+  "Wing_Play": 8.3,
+  "Low_Block": 13.16
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0db"
+  },
+  "Team": "Real Betis",
+  "UniqueID": 73,
+  "Control_Possession": 21.1,
+  "Gegenpressing": 16.23,
+  "Direct_Play": 16.56,
+  "Defensive_Counter_Attacking": 4.02,
+  "Tiki_Taka": 11.34,
+  "Counter_Attack": 6.6,
+  "Wing_Play": 12.62,
+  "Low_Block": 11.54
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0dc"
+  },
+  "Team": "Real Madrid",
+  "UniqueID": 74,
+  "Control_Possession": 10.59,
+  "Gegenpressing": 16.81,
+  "Direct_Play": 11.01,
+  "Defensive_Counter_Attacking": 11.64,
+  "Tiki_Taka": 16,
+  "Counter_Attack": 16.15,
+  "Wing_Play": 8.11,
+  "Low_Block": 9.7
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0dd"
+  },
+  "Team": "Real Sociedad",
+  "UniqueID": 75,
+  "Control_Possession": 22.28,
+  "Gegenpressing": 12.18,
+  "Direct_Play": 13.04,
+  "Defensive_Counter_Attacking": 5.3,
+  "Tiki_Taka": 14.46,
+  "Counter_Attack": 7.63,
+  "Wing_Play": 11.98,
+  "Low_Block": 13.15
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0de"
+  },
+  "Team": "Reims",
+  "UniqueID": 76,
+  "Control_Possession": 16.31,
+  "Gegenpressing": 16.52,
+  "Direct_Play": 14.82,
+  "Defensive_Counter_Attacking": 3.7,
+  "Tiki_Taka": 9.31,
+  "Counter_Attack": 8.65,
+  "Wing_Play": 16.68,
+  "Low_Block": 14
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0df"
+  },
+  "Team": "Rennes",
+  "UniqueID": 77,
+  "Control_Possession": 16.31,
+  "Gegenpressing": 14.77,
+  "Direct_Play": 12.93,
+  "Defensive_Counter_Attacking": 5.68,
+  "Tiki_Taka": 16.94,
+  "Counter_Attack": 10.54,
+  "Wing_Play": 11.51,
+  "Low_Block": 11.31
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e0"
+  },
+  "Team": "Roma",
+  "UniqueID": 78,
+  "Control_Possession": 20.4,
+  "Gegenpressing": 12.9,
+  "Direct_Play": 15.57,
+  "Defensive_Counter_Attacking": 8.13,
+  "Tiki_Taka": 9.56,
+  "Counter_Attack": 4.76,
+  "Wing_Play": 12.66,
+  "Low_Block": 16.02
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e1"
+  },
+  "Team": "Salernitana",
+  "UniqueID": 79,
+  "Control_Possession": 17.88,
+  "Gegenpressing": 13.19,
+  "Direct_Play": 20.45,
+  "Defensive_Counter_Attacking": 5.29,
+  "Tiki_Taka": 8.48,
+  "Counter_Attack": 5.26,
+  "Wing_Play": 12.71,
+  "Low_Block": 16.74
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e2"
+  },
+  "Team": "Sassuolo",
+  "UniqueID": 80,
+  "Control_Possession": 21.16,
+  "Gegenpressing": 11.77,
+  "Direct_Play": 14.4,
+  "Defensive_Counter_Attacking": 10.1,
+  "Tiki_Taka": 12.19,
+  "Counter_Attack": 5.76,
+  "Wing_Play": 14.63,
+  "Low_Block": 9.99
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e3"
+  },
+  "Team": "Sevilla",
+  "UniqueID": 81,
+  "Control_Possession": 22.4,
+  "Gegenpressing": 13.76,
+  "Direct_Play": 13.59,
+  "Defensive_Counter_Attacking": 7.03,
+  "Tiki_Taka": 15.12,
+  "Counter_Attack": 4.48,
+  "Wing_Play": 11.84,
+  "Low_Block": 11.78
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e4"
+  },
+  "Team": "Sheffield United",
+  "UniqueID": 82,
+  "Control_Possession": 15.85,
+  "Gegenpressing": 12.96,
+  "Direct_Play": 15.01,
+  "Defensive_Counter_Attacking": 2.07,
+  "Tiki_Taka": 10.19,
+  "Counter_Attack": 7.23,
+  "Wing_Play": 17.42,
+  "Low_Block": 19.26
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e5"
+  },
+  "Team": "Strasbourg",
+  "UniqueID": 83,
+  "Control_Possession": 19.2,
+  "Gegenpressing": 15.56,
+  "Direct_Play": 15.37,
+  "Defensive_Counter_Attacking": 2.53,
+  "Tiki_Taka": 10.51,
+  "Counter_Attack": 2.44,
+  "Wing_Play": 18.79,
+  "Low_Block": 15.58
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e6"
+  },
+  "Team": "Stuttgart",
+  "UniqueID": 84,
+  "Control_Possession": 20.28,
+  "Gegenpressing": 15.79,
+  "Direct_Play": 14,
+  "Defensive_Counter_Attacking": 5.84,
+  "Tiki_Taka": 13.88,
+  "Counter_Attack": 6.32,
+  "Wing_Play": 13.21,
+  "Low_Block": 10.67
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e7"
+  },
+  "Team": "Torino",
+  "UniqueID": 85,
+  "Control_Possession": 19.43,
+  "Gegenpressing": 13.02,
+  "Direct_Play": 11.67,
+  "Defensive_Counter_Attacking": 11.97,
+  "Tiki_Taka": 13.36,
+  "Counter_Attack": 4.05,
+  "Wing_Play": 14.08,
+  "Low_Block": 12.42
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e8"
+  },
+  "Team": "Tottenham Hotspur",
+  "UniqueID": 86,
+  "Control_Possession": 21.12,
+  "Gegenpressing": 12.35,
+  "Direct_Play": 15.71,
+  "Defensive_Counter_Attacking": 5.56,
+  "Tiki_Taka": 13.85,
+  "Counter_Attack": 8.25,
+  "Wing_Play": 12.87,
+  "Low_Block": 10.29
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0e9"
+  },
+  "Team": "Toulouse",
+  "UniqueID": 87,
+  "Control_Possession": 22.49,
+  "Gegenpressing": 13.8,
+  "Direct_Play": 14.97,
+  "Defensive_Counter_Attacking": 3.04,
+  "Tiki_Taka": 13.33,
+  "Counter_Attack": 7.78,
+  "Wing_Play": 10.53,
+  "Low_Block": 14.06
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ea"
+  },
+  "Team": "Udinese",
+  "UniqueID": 88,
+  "Control_Possession": 16.85,
+  "Gegenpressing": 13.63,
+  "Direct_Play": 17.68,
+  "Defensive_Counter_Attacking": 10.58,
+  "Tiki_Taka": 8.55,
+  "Counter_Attack": 6.24,
+  "Wing_Play": 15.05,
+  "Low_Block": 11.43
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0eb"
+  },
+  "Team": "Union Berlin",
+  "UniqueID": 89,
+  "Control_Possession": 16.86,
+  "Gegenpressing": 14.36,
+  "Direct_Play": 14.4,
+  "Defensive_Counter_Attacking": 7.37,
+  "Tiki_Taka": 10.24,
+  "Counter_Attack": 3.99,
+  "Wing_Play": 13.84,
+  "Low_Block": 18.94
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ec"
+  },
+  "Team": "Valencia",
+  "UniqueID": 90,
+  "Control_Possession": 19.44,
+  "Gegenpressing": 15.09,
+  "Direct_Play": 15.54,
+  "Defensive_Counter_Attacking": 4.21,
+  "Tiki_Taka": 11.25,
+  "Counter_Attack": 6.72,
+  "Wing_Play": 14.64,
+  "Low_Block": 13.11
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ed"
+  },
+  "Team": "Villarreal",
+  "UniqueID": 91,
+  "Control_Possession": 19.64,
+  "Gegenpressing": 13.67,
+  "Direct_Play": 11.83,
+  "Defensive_Counter_Attacking": 12.47,
+  "Tiki_Taka": 15.45,
+  "Counter_Attack": 10.58,
+  "Wing_Play": 8.37,
+  "Low_Block": 7.98
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ee"
+  },
+  "Team": "Werder Bremen",
+  "UniqueID": 92,
+  "Control_Possession": 21.57,
+  "Gegenpressing": 13.01,
+  "Direct_Play": 12.6,
+  "Defensive_Counter_Attacking": 1.89,
+  "Tiki_Taka": 13.61,
+  "Counter_Attack": 3.23,
+  "Wing_Play": 15.76,
+  "Low_Block": 18.32
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0ef"
+  },
+  "Team": "West Ham United",
+  "UniqueID": 93,
+  "Control_Possession": 19.4,
+  "Gegenpressing": 11.56,
+  "Direct_Play": 19.49,
+  "Defensive_Counter_Attacking": 7.01,
+  "Tiki_Taka": 9.61,
+  "Counter_Attack": 7.62,
+  "Wing_Play": 14.87,
+  "Low_Block": 10.44
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0f0"
+  },
+  "Team": "Wolfsburg",
+  "UniqueID": 94,
+  "Control_Possession": 18.13,
+  "Gegenpressing": 13.34,
+  "Direct_Play": 17.07,
+  "Defensive_Counter_Attacking": 7.01,
+  "Tiki_Taka": 10.75,
+  "Counter_Attack": 7.64,
+  "Wing_Play": 14.17,
+  "Low_Block": 11.9
+},
+{
+  "_id": {
+    "$oid": "671267ae5ec9fafd03adb0f1"
+  },
+  "Team": "Wolverhampton Wanderers",
+  "UniqueID": 95,
+  "Control_Possession": 22.51,
+  "Gegenpressing": 13.08,
+  "Direct_Play": 16.95,
+  "Defensive_Counter_Attacking": 4.05,
+  "Tiki_Taka": 12.63,
+  "Counter_Attack": 3.84,
+  "Wing_Play": 15.98,
+  "Low_Block": 10.96
+}]
