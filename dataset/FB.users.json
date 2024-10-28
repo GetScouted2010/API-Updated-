@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6718335d608f6bf484745526"
+  },
+  "username": "testuser",
+  "password": "$2a$10$9as8uIu9rBrvK0eOTb7I0utHqLxfkJ8hyWyxBG4ierRvT.hnX8osi",
+  "email": "testuser@testingmail.com",
+  "fullname": "Test User",
+  "role": "Manager",
+  "team": "Arsenal"
+},
+{
+  "_id": {
+    "$oid": "6718dd39547c5ddddb3559f1"
+  },
+  "username": "user2",
+  "password": "",
+  "email": "user2@testingmail.com",
+  "fullname": "User 2",
+  "role": "Manager",
+  "team": "Manchester City"
+}]

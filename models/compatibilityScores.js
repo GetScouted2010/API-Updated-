@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const compatabilityScoresSchema = new Schema({
+const compatibilityScoresSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Almería: {
         type: Number,
@@ -396,4 +396,4 @@ const compatabilityScoresSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model("CompatabilityScores", compatabilityScoresSchema);
+module.exports = mongoose.model("CompatibilityScores", compatibilityScoresSchema);

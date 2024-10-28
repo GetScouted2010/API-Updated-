@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const transferDataSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Player: {
         type: String,

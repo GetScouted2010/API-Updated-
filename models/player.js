@@ -2,9 +2,13 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const playerSchema = new Schema({
+    _id: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
     Total_Score: {
         type: Number,
-        required: true,
+        ref: 'Player'
     },
     UniqueID: {
         type: Number,

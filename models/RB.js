@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const RBSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     No_Nonsense_Full_Back: {
         type: Number,
@@ -26,6 +26,6 @@ const RBSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions'})
+}, { collection: 'RB'})
 
 module.exports = mongoose.model("RB", RBSchema);

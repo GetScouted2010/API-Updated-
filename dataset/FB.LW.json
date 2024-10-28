@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451db"
+  },
+  "UniqueID": 109,
+  "Defensive_Winger": 11.98,
+  "Wide_Playmaker": 16.73,
+  "Wide_Midfielder": 18.13,
+  "Winger": 16.37,
+  "Inverted_Winger": 13.31,
+  "Raumdeuter": 10.73,
+  "Wide_Target_Man": 12.76
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451dc"
+  },
+  "UniqueID": 156,
+  "Defensive_Winger": 19.81,
+  "Wide_Playmaker": 11.27,
+  "Wide_Midfielder": 11.19,
+  "Winger": 12.27,
+  "Inverted_Winger": 16.14,
+  "Raumdeuter": 14.45,
+  "Wide_Target_Man": 14.87
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451dd"
+  },
+  "UniqueID": 182,
+  "Defensive_Winger": 7.58,
+  "Wide_Playmaker": 19.48,
+  "Wide_Midfielder": 16.54,
+  "Winger": 15.08,
+  "Inverted_Winger": 13.63,
+  "Raumdeuter": 15.57,
+  "Wide_Target_Man": 12.12
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451de"
+  },
+  "UniqueID": 196,
+  "Defensive_Winger": 9.84,
+  "Wide_Playmaker": 12.45,
+  "Wide_Midfielder": 21.07,
+  "Winger": 15.16,
+  "Inverted_Winger": 12.4,
+  "Raumdeuter": 16.66,
+  "Wide_Target_Man": 12.42
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451df"
+  },
+  "UniqueID": 225,
+  "Defensive_Winger": 17.86,
+  "Wide_Playmaker": 19.3,
+  "Wide_Midfielder": 14.64,
+  "Winger": 12,
+  "Inverted_Winger": 11.1,
+  "Raumdeuter": 13.41,
+  "Wide_Target_Man": 11.69
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e0"
+  },
+  "UniqueID": 268,
+  "Defensive_Winger": 12.12,
+  "Wide_Playmaker": 12.61,
+  "Wide_Midfielder": 14.76,
+  "Winger": 16.49,
+  "Inverted_Winger": 12.47,
+  "Raumdeuter": 16.8,
+  "Wide_Target_Man": 14.76
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e1"
+  },
+  "UniqueID": 313,
+  "Defensive_Winger": 17.14,
+  "Wide_Playmaker": 11.97,
+  "Wide_Midfielder": 17.07,
+  "Winger": 14.89,
+  "Inverted_Winger": 12.42,
+  "Raumdeuter": 12.38,
+  "Wide_Target_Man": 14.14
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e2"
+  },
+  "UniqueID": 325,
+  "Defensive_Winger": 9.18,
+  "Wide_Playmaker": 14.76,
+  "Wide_Midfielder": 18.67,
+  "Winger": 16.37,
+  "Inverted_Winger": 12.68,
+  "Raumdeuter": 15.17,
+  "Wide_Target_Man": 13.16
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e3"
+  },
+  "UniqueID": 340,
+  "Defensive_Winger": 13.73,
+  "Wide_Playmaker": 16.86,
+  "Wide_Midfielder": 16.38,
+  "Winger": 14.39,
+  "Inverted_Winger": 10.92,
+  "Raumdeuter": 14.06,
+  "Wide_Target_Man": 13.67
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e4"
+  },
+  "UniqueID": 390,
+  "Defensive_Winger": 8.33,
+  "Wide_Playmaker": 10.08,
+  "Wide_Midfielder": 13.74,
+  "Winger": 19.46,
+  "Inverted_Winger": 13.36,
+  "Raumdeuter": 19.35,
+  "Wide_Target_Man": 15.68
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e5"
+  },
+  "UniqueID": 410,
+  "Defensive_Winger": 9.56,
+  "Wide_Playmaker": 14.24,
+  "Wide_Midfielder": 4.15,
+  "Winger": 13.3,
+  "Inverted_Winger": 28.37,
+  "Raumdeuter": 14.38,
+  "Wide_Target_Man": 16
+},
+{
+  "_id": {
+    "$oid": "670e3a31c5756b08673451e6"
+  },
+  "UniqueID": 437,
+  "Defensive_Winger": 11.4,
+  "Wide_Playmaker": 9.43,
+  "Wide_Midfielder": 10.13,
+  "Winger": 19.91,
+  "Inverted_Winger": 14.62,
+  "Raumdeuter": 17.06,
+  "Wide_Target_Man": 17.45
+}]

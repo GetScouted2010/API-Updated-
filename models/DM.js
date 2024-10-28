@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const DMSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Anchor_Man: {
         type: Number,
@@ -26,6 +26,6 @@ const DMSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions'})
+}, { collection: 'DM'})
 
 module.exports = mongoose.model("DM", DMSchema);

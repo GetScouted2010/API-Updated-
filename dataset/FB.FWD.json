@@ -1,0 +1,975 @@
+[{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345164"
+  },
+  "UniqueID": 1,
+  "Advanced_Forward": 11.45,
+  "Poacher": 12.05,
+  "Complete_Forward": 14.32,
+  "Pressing_Forward": 15.75,
+  "Target_Man": 16.52,
+  "Shadow_Striker": 16.3,
+  "Deep_Lying_Forward": 13.61
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345165"
+  },
+  "UniqueID": 2,
+  "Advanced_Forward": 20.72,
+  "Poacher": 13.24,
+  "Complete_Forward": 12.63,
+  "Pressing_Forward": 15.26,
+  "Target_Man": 14.15,
+  "Shadow_Striker": 12.88,
+  "Deep_Lying_Forward": 11.12
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345166"
+  },
+  "UniqueID": 4,
+  "Advanced_Forward": 8.77,
+  "Poacher": 15.06,
+  "Complete_Forward": 10.53,
+  "Pressing_Forward": 9.58,
+  "Target_Man": 19.05,
+  "Shadow_Striker": 19.85,
+  "Deep_Lying_Forward": 17.15
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345167"
+  },
+  "UniqueID": 13,
+  "Advanced_Forward": 8.76,
+  "Poacher": 20.43,
+  "Complete_Forward": 10,
+  "Pressing_Forward": 10.24,
+  "Target_Man": 12.32,
+  "Shadow_Striker": 15.49,
+  "Deep_Lying_Forward": 22.76
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345168"
+  },
+  "UniqueID": 19,
+  "Advanced_Forward": 10.58,
+  "Poacher": 16.9,
+  "Complete_Forward": 12.82,
+  "Pressing_Forward": 13.79,
+  "Target_Man": 13.7,
+  "Shadow_Striker": 12.39,
+  "Deep_Lying_Forward": 19.81
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345169"
+  },
+  "UniqueID": 21,
+  "Advanced_Forward": 10.92,
+  "Poacher": 23.9,
+  "Complete_Forward": 11.58,
+  "Pressing_Forward": 10.07,
+  "Target_Man": 13.8,
+  "Shadow_Striker": 12.31,
+  "Deep_Lying_Forward": 17.42
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516a"
+  },
+  "UniqueID": 29,
+  "Advanced_Forward": 18.16,
+  "Poacher": 11.52,
+  "Complete_Forward": 13.92,
+  "Pressing_Forward": 14.62,
+  "Target_Man": 16.24,
+  "Shadow_Striker": 14.24,
+  "Deep_Lying_Forward": 11.32
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516b"
+  },
+  "UniqueID": 46,
+  "Advanced_Forward": 6.09,
+  "Poacher": 14.42,
+  "Complete_Forward": 13.38,
+  "Pressing_Forward": 13.92,
+  "Target_Man": 16.45,
+  "Shadow_Striker": 17.26,
+  "Deep_Lying_Forward": 18.48
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516c"
+  },
+  "UniqueID": 50,
+  "Advanced_Forward": 7.52,
+  "Poacher": 14.71,
+  "Complete_Forward": 14.62,
+  "Pressing_Forward": 14.99,
+  "Target_Man": 16.07,
+  "Shadow_Striker": 14.06,
+  "Deep_Lying_Forward": 18.03
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516d"
+  },
+  "UniqueID": 62,
+  "Advanced_Forward": 9.3,
+  "Poacher": 13.33,
+  "Complete_Forward": 17.68,
+  "Pressing_Forward": 13.28,
+  "Target_Man": 18.37,
+  "Shadow_Striker": 11.52,
+  "Deep_Lying_Forward": 16.52
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516e"
+  },
+  "UniqueID": 64,
+  "Advanced_Forward": 9.72,
+  "Poacher": 14.79,
+  "Complete_Forward": 10.32,
+  "Pressing_Forward": 17.86,
+  "Target_Man": 10.67,
+  "Shadow_Striker": 21.92,
+  "Deep_Lying_Forward": 14.72
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734516f"
+  },
+  "UniqueID": 73,
+  "Advanced_Forward": 9.94,
+  "Poacher": 13.26,
+  "Complete_Forward": 14.9,
+  "Pressing_Forward": 13.7,
+  "Target_Man": 14.33,
+  "Shadow_Striker": 16.9,
+  "Deep_Lying_Forward": 16.96
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345170"
+  },
+  "UniqueID": 87,
+  "Advanced_Forward": 14.46,
+  "Poacher": 22.73,
+  "Complete_Forward": 11.94,
+  "Pressing_Forward": 12.36,
+  "Target_Man": 11.87,
+  "Shadow_Striker": 14.71,
+  "Deep_Lying_Forward": 11.92
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345171"
+  },
+  "UniqueID": 88,
+  "Advanced_Forward": 11.25,
+  "Poacher": 15.75,
+  "Complete_Forward": 12.25,
+  "Pressing_Forward": 13.26,
+  "Target_Man": 23.19,
+  "Shadow_Striker": 7.5,
+  "Deep_Lying_Forward": 16.8
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345172"
+  },
+  "UniqueID": 89,
+  "Advanced_Forward": 10.8,
+  "Poacher": 14.24,
+  "Complete_Forward": 17.05,
+  "Pressing_Forward": 14.35,
+  "Target_Man": 15.93,
+  "Shadow_Striker": 9.99,
+  "Deep_Lying_Forward": 17.64
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345173"
+  },
+  "UniqueID": 93,
+  "Advanced_Forward": 9.99,
+  "Poacher": 14.48,
+  "Complete_Forward": 15.3,
+  "Pressing_Forward": 13.63,
+  "Target_Man": 18.84,
+  "Shadow_Striker": 12.66,
+  "Deep_Lying_Forward": 15.11
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345174"
+  },
+  "UniqueID": 94,
+  "Advanced_Forward": 16.59,
+  "Poacher": 13.88,
+  "Complete_Forward": 14.22,
+  "Pressing_Forward": 15.06,
+  "Target_Man": 8.71,
+  "Shadow_Striker": 21.29,
+  "Deep_Lying_Forward": 10.25
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345175"
+  },
+  "UniqueID": 100,
+  "Advanced_Forward": 8.8,
+  "Poacher": 12.98,
+  "Complete_Forward": 17.47,
+  "Pressing_Forward": 15.25,
+  "Target_Man": 17.56,
+  "Shadow_Striker": 12.67,
+  "Deep_Lying_Forward": 15.28
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345176"
+  },
+  "UniqueID": 101,
+  "Advanced_Forward": 4.16,
+  "Poacher": 23.13,
+  "Complete_Forward": 11.46,
+  "Pressing_Forward": 1.7,
+  "Target_Man": 11.81,
+  "Shadow_Striker": 25.97,
+  "Deep_Lying_Forward": 21.77
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345177"
+  },
+  "UniqueID": 102,
+  "Advanced_Forward": 11.25,
+  "Poacher": 11.98,
+  "Complete_Forward": 14.58,
+  "Pressing_Forward": 13.13,
+  "Target_Man": 14.12,
+  "Shadow_Striker": 20.89,
+  "Deep_Lying_Forward": 14.05
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345178"
+  },
+  "UniqueID": 105,
+  "Advanced_Forward": 8.19,
+  "Poacher": 16.99,
+  "Complete_Forward": 13.33,
+  "Pressing_Forward": 11.91,
+  "Target_Man": 15.67,
+  "Shadow_Striker": 12.15,
+  "Deep_Lying_Forward": 21.77
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345179"
+  },
+  "UniqueID": 110,
+  "Advanced_Forward": 9.42,
+  "Poacher": 20.96,
+  "Complete_Forward": 14.38,
+  "Pressing_Forward": 12.99,
+  "Target_Man": 8.66,
+  "Shadow_Striker": 15.86,
+  "Deep_Lying_Forward": 17.73
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517a"
+  },
+  "UniqueID": 114,
+  "Advanced_Forward": 9.45,
+  "Poacher": 13.4,
+  "Complete_Forward": 14.7,
+  "Pressing_Forward": 13.42,
+  "Target_Man": 17.63,
+  "Shadow_Striker": 15.32,
+  "Deep_Lying_Forward": 16.08
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517b"
+  },
+  "UniqueID": 116,
+  "Advanced_Forward": 7.73,
+  "Poacher": 23.31,
+  "Complete_Forward": 14.29,
+  "Pressing_Forward": 6,
+  "Target_Man": 10.38,
+  "Shadow_Striker": 14.9,
+  "Deep_Lying_Forward": 23.39
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517c"
+  },
+  "UniqueID": 119,
+  "Advanced_Forward": 9.75,
+  "Poacher": 17.88,
+  "Complete_Forward": 13.82,
+  "Pressing_Forward": 9.72,
+  "Target_Man": 16.46,
+  "Shadow_Striker": 12.58,
+  "Deep_Lying_Forward": 19.79
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517d"
+  },
+  "UniqueID": 126,
+  "Advanced_Forward": 12.16,
+  "Poacher": 11.93,
+  "Complete_Forward": 19.26,
+  "Pressing_Forward": 13.54,
+  "Target_Man": 19.24,
+  "Shadow_Striker": 10.2,
+  "Deep_Lying_Forward": 13.65
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517e"
+  },
+  "UniqueID": 131,
+  "Advanced_Forward": 10.03,
+  "Poacher": 12.39,
+  "Complete_Forward": 16.32,
+  "Pressing_Forward": 15.5,
+  "Target_Man": 15.72,
+  "Shadow_Striker": 14.97,
+  "Deep_Lying_Forward": 15.07
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734517f"
+  },
+  "UniqueID": 132,
+  "Advanced_Forward": 7.32,
+  "Poacher": 14.83,
+  "Complete_Forward": 15.63,
+  "Pressing_Forward": 9.38,
+  "Target_Man": 20.43,
+  "Shadow_Striker": 15.38,
+  "Deep_Lying_Forward": 17.03
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345180"
+  },
+  "UniqueID": 135,
+  "Advanced_Forward": 9.84,
+  "Poacher": 19.53,
+  "Complete_Forward": 12.98,
+  "Pressing_Forward": 11.24,
+  "Target_Man": 11.98,
+  "Shadow_Striker": 12.77,
+  "Deep_Lying_Forward": 21.65
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345181"
+  },
+  "UniqueID": 137,
+  "Advanced_Forward": 12.28,
+  "Poacher": 26.06,
+  "Complete_Forward": 17.64,
+  "Pressing_Forward": 9.06,
+  "Target_Man": 11.91,
+  "Shadow_Striker": 16.72,
+  "Deep_Lying_Forward": 6.33
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345182"
+  },
+  "UniqueID": 143,
+  "Advanced_Forward": 12.26,
+  "Poacher": 14.88,
+  "Complete_Forward": 11.84,
+  "Pressing_Forward": 10.76,
+  "Target_Man": 16.87,
+  "Shadow_Striker": 15.33,
+  "Deep_Lying_Forward": 18.05
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345183"
+  },
+  "UniqueID": 145,
+  "Advanced_Forward": 7.92,
+  "Poacher": 16.68,
+  "Complete_Forward": 15.98,
+  "Pressing_Forward": 12.12,
+  "Target_Man": 19.89,
+  "Shadow_Striker": 9.02,
+  "Deep_Lying_Forward": 18.4
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345184"
+  },
+  "UniqueID": 162,
+  "Advanced_Forward": 13.98,
+  "Poacher": 11.75,
+  "Complete_Forward": 21.44,
+  "Pressing_Forward": 12.02,
+  "Target_Man": 14.76,
+  "Shadow_Striker": 15.24,
+  "Deep_Lying_Forward": 10.81
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345185"
+  },
+  "UniqueID": 163,
+  "Advanced_Forward": 10.73,
+  "Poacher": 13.14,
+  "Complete_Forward": 16.02,
+  "Pressing_Forward": 15.19,
+  "Target_Man": 18.51,
+  "Shadow_Striker": 10.63,
+  "Deep_Lying_Forward": 15.78
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345186"
+  },
+  "UniqueID": 165,
+  "Advanced_Forward": 7.89,
+  "Poacher": 23.97,
+  "Complete_Forward": 13.9,
+  "Pressing_Forward": 6.5,
+  "Target_Man": 11.81,
+  "Shadow_Striker": 17.22,
+  "Deep_Lying_Forward": 18.71
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345187"
+  },
+  "UniqueID": 168,
+  "Advanced_Forward": 10.48,
+  "Poacher": 10.94,
+  "Complete_Forward": 15.52,
+  "Pressing_Forward": 18.18,
+  "Target_Man": 17.32,
+  "Shadow_Striker": 15.77,
+  "Deep_Lying_Forward": 11.79
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345188"
+  },
+  "UniqueID": 173,
+  "Advanced_Forward": 11.95,
+  "Poacher": 19.68,
+  "Complete_Forward": 14.46,
+  "Pressing_Forward": 16.11,
+  "Target_Man": 13.1,
+  "Shadow_Striker": 14.97,
+  "Deep_Lying_Forward": 9.72
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345189"
+  },
+  "UniqueID": 179,
+  "Advanced_Forward": 13.52,
+  "Poacher": 11.02,
+  "Complete_Forward": 17.1,
+  "Pressing_Forward": 15.09,
+  "Target_Man": 14.79,
+  "Shadow_Striker": 18.07,
+  "Deep_Lying_Forward": 10.41
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518a"
+  },
+  "UniqueID": 183,
+  "Advanced_Forward": 15.14,
+  "Poacher": 10.73,
+  "Complete_Forward": 13.3,
+  "Pressing_Forward": 18.51,
+  "Target_Man": 17.55,
+  "Shadow_Striker": 12.65,
+  "Deep_Lying_Forward": 12.11
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518b"
+  },
+  "UniqueID": 191,
+  "Advanced_Forward": 12.63,
+  "Poacher": 20.05,
+  "Complete_Forward": 14.87,
+  "Pressing_Forward": 11.08,
+  "Target_Man": 14.53,
+  "Shadow_Striker": 12.07,
+  "Deep_Lying_Forward": 14.77
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518c"
+  },
+  "UniqueID": 194,
+  "Advanced_Forward": 9.76,
+  "Poacher": 18.72,
+  "Complete_Forward": 12.02,
+  "Pressing_Forward": 10.48,
+  "Target_Man": 12.78,
+  "Shadow_Striker": 13.92,
+  "Deep_Lying_Forward": 22.32
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518d"
+  },
+  "UniqueID": 197,
+  "Advanced_Forward": 13.79,
+  "Poacher": 11.82,
+  "Complete_Forward": 16.46,
+  "Pressing_Forward": 15.67,
+  "Target_Man": 17.61,
+  "Shadow_Striker": 12.2,
+  "Deep_Lying_Forward": 12.46
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518e"
+  },
+  "UniqueID": 203,
+  "Advanced_Forward": 12.46,
+  "Poacher": 12.67,
+  "Complete_Forward": 13.68,
+  "Pressing_Forward": 16.7,
+  "Target_Man": 16.13,
+  "Shadow_Striker": 16.17,
+  "Deep_Lying_Forward": 12.19
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734518f"
+  },
+  "UniqueID": 206,
+  "Advanced_Forward": 14.02,
+  "Poacher": 13.21,
+  "Complete_Forward": 20.27,
+  "Pressing_Forward": 13.6,
+  "Target_Man": 13.88,
+  "Shadow_Striker": 13.24,
+  "Deep_Lying_Forward": 11.77
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345190"
+  },
+  "UniqueID": 219,
+  "Advanced_Forward": 10.5,
+  "Poacher": 14.2,
+  "Complete_Forward": 14.28,
+  "Pressing_Forward": 11.1,
+  "Target_Man": 22.2,
+  "Shadow_Striker": 10.96,
+  "Deep_Lying_Forward": 16.74
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345191"
+  },
+  "UniqueID": 238,
+  "Advanced_Forward": 10.64,
+  "Poacher": 14.32,
+  "Complete_Forward": 17.27,
+  "Pressing_Forward": 12.5,
+  "Target_Man": 18.32,
+  "Shadow_Striker": 10.1,
+  "Deep_Lying_Forward": 16.87
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345192"
+  },
+  "UniqueID": 247,
+  "Advanced_Forward": 8.44,
+  "Poacher": 15.59,
+  "Complete_Forward": 12.88,
+  "Pressing_Forward": 9.67,
+  "Target_Man": 16.04,
+  "Shadow_Striker": 19.11,
+  "Deep_Lying_Forward": 18.28
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345193"
+  },
+  "UniqueID": 259,
+  "Advanced_Forward": 12.33,
+  "Poacher": 16.1,
+  "Complete_Forward": 14.66,
+  "Pressing_Forward": 10.27,
+  "Target_Man": 18.13,
+  "Shadow_Striker": 11.13,
+  "Deep_Lying_Forward": 17.39
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345194"
+  },
+  "UniqueID": 260,
+  "Advanced_Forward": 8.49,
+  "Poacher": 14.18,
+  "Complete_Forward": 14.82,
+  "Pressing_Forward": 13.71,
+  "Target_Man": 16.95,
+  "Shadow_Striker": 14.35,
+  "Deep_Lying_Forward": 17.5
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345195"
+  },
+  "UniqueID": 265,
+  "Advanced_Forward": 13.7,
+  "Poacher": 15.74,
+  "Complete_Forward": 12.42,
+  "Pressing_Forward": 13.1,
+  "Target_Man": 18.64,
+  "Shadow_Striker": 10.57,
+  "Deep_Lying_Forward": 15.83
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345196"
+  },
+  "UniqueID": 269,
+  "Advanced_Forward": 8.41,
+  "Poacher": 12.3,
+  "Complete_Forward": 13.17,
+  "Pressing_Forward": 15.22,
+  "Target_Man": 16.87,
+  "Shadow_Striker": 20.04,
+  "Deep_Lying_Forward": 14
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345197"
+  },
+  "UniqueID": 280,
+  "Advanced_Forward": 8.95,
+  "Poacher": 11.62,
+  "Complete_Forward": 15.15,
+  "Pressing_Forward": 14.2,
+  "Target_Man": 16.27,
+  "Shadow_Striker": 19.23,
+  "Deep_Lying_Forward": 14.57
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345198"
+  },
+  "UniqueID": 297,
+  "Advanced_Forward": 7.05,
+  "Poacher": 15.03,
+  "Complete_Forward": 12.41,
+  "Pressing_Forward": 13.2,
+  "Target_Man": 15.41,
+  "Shadow_Striker": 17.34,
+  "Deep_Lying_Forward": 19.55
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b0867345199"
+  },
+  "UniqueID": 303,
+  "Advanced_Forward": 9.68,
+  "Poacher": 14.41,
+  "Complete_Forward": 14.33,
+  "Pressing_Forward": 11.67,
+  "Target_Man": 17,
+  "Shadow_Striker": 17.42,
+  "Deep_Lying_Forward": 15.49
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519a"
+  },
+  "UniqueID": 330,
+  "Advanced_Forward": 6.63,
+  "Poacher": 24.15,
+  "Complete_Forward": 14.32,
+  "Pressing_Forward": 7.65,
+  "Target_Man": 11.43,
+  "Shadow_Striker": 19.15,
+  "Deep_Lying_Forward": 16.67
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519b"
+  },
+  "UniqueID": 348,
+  "Advanced_Forward": 16.23,
+  "Poacher": 10.95,
+  "Complete_Forward": 12.99,
+  "Pressing_Forward": 16.89,
+  "Target_Man": 17.61,
+  "Shadow_Striker": 13.04,
+  "Deep_Lying_Forward": 12.3
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519c"
+  },
+  "UniqueID": 362,
+  "Advanced_Forward": 12.19,
+  "Poacher": 12.17,
+  "Complete_Forward": 16.85,
+  "Pressing_Forward": 17.21,
+  "Target_Man": 17.04,
+  "Shadow_Striker": 10.74,
+  "Deep_Lying_Forward": 13.8
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519d"
+  },
+  "UniqueID": 371,
+  "Advanced_Forward": 11.15,
+  "Poacher": 12.35,
+  "Complete_Forward": 14.22,
+  "Pressing_Forward": 17.06,
+  "Target_Man": 18.18,
+  "Shadow_Striker": 10.93,
+  "Deep_Lying_Forward": 16.1
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519e"
+  },
+  "UniqueID": 374,
+  "Advanced_Forward": 9.98,
+  "Poacher": 19.18,
+  "Complete_Forward": 14.37,
+  "Pressing_Forward": 12.87,
+  "Target_Man": 15.38,
+  "Shadow_Striker": 12.15,
+  "Deep_Lying_Forward": 16.08
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b086734519f"
+  },
+  "UniqueID": 377,
+  "Advanced_Forward": 7.22,
+  "Poacher": 16.71,
+  "Complete_Forward": 12.42,
+  "Pressing_Forward": 11.47,
+  "Target_Man": 21.4,
+  "Shadow_Striker": 11.72,
+  "Deep_Lying_Forward": 19.05
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a0"
+  },
+  "UniqueID": 378,
+  "Advanced_Forward": 14.29,
+  "Poacher": 14.12,
+  "Complete_Forward": 11.68,
+  "Pressing_Forward": 14.14,
+  "Target_Man": 17.74,
+  "Shadow_Striker": 11.26,
+  "Deep_Lying_Forward": 16.77
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a1"
+  },
+  "UniqueID": 380,
+  "Advanced_Forward": 12.47,
+  "Poacher": 12.04,
+  "Complete_Forward": 16.66,
+  "Pressing_Forward": 13.51,
+  "Target_Man": 18.4,
+  "Shadow_Striker": 11.77,
+  "Deep_Lying_Forward": 15.16
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a2"
+  },
+  "UniqueID": 386,
+  "Advanced_Forward": 16.48,
+  "Poacher": 14.95,
+  "Complete_Forward": 11.82,
+  "Pressing_Forward": 15.5,
+  "Target_Man": 14.95,
+  "Shadow_Striker": 12.57,
+  "Deep_Lying_Forward": 13.71
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a3"
+  },
+  "UniqueID": 403,
+  "Advanced_Forward": 13.3,
+  "Poacher": 10.13,
+  "Complete_Forward": 19.26,
+  "Pressing_Forward": 18.93,
+  "Target_Man": 15.1,
+  "Shadow_Striker": 12.11,
+  "Deep_Lying_Forward": 11.17
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a4"
+  },
+  "UniqueID": 414,
+  "Advanced_Forward": 8.35,
+  "Poacher": 13.73,
+  "Complete_Forward": 12.92,
+  "Pressing_Forward": 10.61,
+  "Target_Man": 16.27,
+  "Shadow_Striker": 20.17,
+  "Deep_Lying_Forward": 17.96
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a5"
+  },
+  "UniqueID": 421,
+  "Advanced_Forward": 9.94,
+  "Poacher": 22.8,
+  "Complete_Forward": 13.46,
+  "Pressing_Forward": 7.22,
+  "Target_Man": 11.88,
+  "Shadow_Striker": 13.83,
+  "Deep_Lying_Forward": 20.87
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a6"
+  },
+  "UniqueID": 423,
+  "Advanced_Forward": 8.35,
+  "Poacher": 21.46,
+  "Complete_Forward": 12.39,
+  "Pressing_Forward": 12.08,
+  "Target_Man": 14.84,
+  "Shadow_Striker": 10.96,
+  "Deep_Lying_Forward": 19.92
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a7"
+  },
+  "UniqueID": 441,
+  "Advanced_Forward": 9.76,
+  "Poacher": 16.25,
+  "Complete_Forward": 13.46,
+  "Pressing_Forward": 11.85,
+  "Target_Man": 19.25,
+  "Shadow_Striker": 12.08,
+  "Deep_Lying_Forward": 17.36
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a8"
+  },
+  "UniqueID": 444,
+  "Advanced_Forward": 9.67,
+  "Poacher": 13.24,
+  "Complete_Forward": 15.04,
+  "Pressing_Forward": 15.11,
+  "Target_Man": 17.67,
+  "Shadow_Striker": 15.19,
+  "Deep_Lying_Forward": 14.09
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451a9"
+  },
+  "UniqueID": 449,
+  "Advanced_Forward": 15.34,
+  "Poacher": 14.4,
+  "Complete_Forward": 18.25,
+  "Pressing_Forward": 13.01,
+  "Target_Man": 18.35,
+  "Shadow_Striker": 7.71,
+  "Deep_Lying_Forward": 12.94
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451aa"
+  },
+  "UniqueID": 450,
+  "Advanced_Forward": 14.09,
+  "Poacher": 12.91,
+  "Complete_Forward": 14.7,
+  "Pressing_Forward": 11.75,
+  "Target_Man": 20.97,
+  "Shadow_Striker": 10.73,
+  "Deep_Lying_Forward": 14.84
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451ab"
+  },
+  "UniqueID": 456,
+  "Advanced_Forward": 13.73,
+  "Poacher": 17.75,
+  "Complete_Forward": 12.1,
+  "Pressing_Forward": 15.97,
+  "Target_Man": 13.13,
+  "Shadow_Striker": 10.61,
+  "Deep_Lying_Forward": 16.72
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451ac"
+  },
+  "UniqueID": 458,
+  "Advanced_Forward": 0,
+  "Poacher": 0,
+  "Complete_Forward": 0,
+  "Pressing_Forward": 0,
+  "Target_Man": 0,
+  "Shadow_Striker": 0,
+  "Deep_Lying_Forward": 0
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451ad"
+  },
+  "UniqueID": 491,
+  "Advanced_Forward": 15.62,
+  "Poacher": 10.2,
+  "Complete_Forward": 19.62,
+  "Pressing_Forward": 19.62,
+  "Target_Man": 16.97,
+  "Shadow_Striker": 8.46,
+  "Deep_Lying_Forward": 9.51
+},
+{
+  "_id": {
+    "$oid": "670e3a1fc5756b08673451ae"
+  },
+  "UniqueID": 499,
+  "Advanced_Forward": 10.6,
+  "Poacher": 15.7,
+  "Complete_Forward": 15.66,
+  "Pressing_Forward": 15.92,
+  "Target_Man": 12.74,
+  "Shadow_Striker": 12.43,
+  "Deep_Lying_Forward": 16.94
+}]

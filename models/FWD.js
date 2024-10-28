@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const FWDSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Advanced_Forward: {
         type: Number,
@@ -34,6 +34,6 @@ const FWDSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions'})
+}, { collection: 'FWD'})
 
 module.exports = mongoose.model("FWD", FWDSchema);

@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const CMSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Deep_Lying_Playmaker: {
         type: Number,
@@ -34,6 +34,6 @@ const CMSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions'})
+}, { collection: 'CM'})
 
 module.exports = mongoose.model("CM", CMSchema);

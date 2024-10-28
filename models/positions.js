@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const positionSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     }
 }, { collection: 'positions'})
 

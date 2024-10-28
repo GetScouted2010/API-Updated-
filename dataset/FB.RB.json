@@ -1,0 +1,473 @@
+[{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451e8"
+  },
+  "UniqueID": 12,
+  "No_Nonsense_Full_Back": 21.21,
+  "Complete_Wing_Back": 23.32,
+  "Inverted_Wing_Back": 16.6,
+  "Full_Back": 22.62,
+  "Wing_Back": 16.25
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451e9"
+  },
+  "UniqueID": 18,
+  "No_Nonsense_Full_Back": 20.64,
+  "Complete_Wing_Back": 18.6,
+  "Inverted_Wing_Back": 18.4,
+  "Full_Back": 24.5,
+  "Wing_Back": 17.86
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ea"
+  },
+  "UniqueID": 30,
+  "No_Nonsense_Full_Back": 23.03,
+  "Complete_Wing_Back": 19.75,
+  "Inverted_Wing_Back": 15.09,
+  "Full_Back": 25.82,
+  "Wing_Back": 16.31
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451eb"
+  },
+  "UniqueID": 31,
+  "No_Nonsense_Full_Back": 19.26,
+  "Complete_Wing_Back": 20.25,
+  "Inverted_Wing_Back": 18.39,
+  "Full_Back": 27.41,
+  "Wing_Back": 14.69
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ec"
+  },
+  "UniqueID": 47,
+  "No_Nonsense_Full_Back": 19.87,
+  "Complete_Wing_Back": 24.82,
+  "Inverted_Wing_Back": 18.58,
+  "Full_Back": 20.32,
+  "Wing_Back": 16.41
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ed"
+  },
+  "UniqueID": 57,
+  "No_Nonsense_Full_Back": 22.01,
+  "Complete_Wing_Back": 19.71,
+  "Inverted_Wing_Back": 22.79,
+  "Full_Back": 13.72,
+  "Wing_Back": 21.77
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ee"
+  },
+  "UniqueID": 71,
+  "No_Nonsense_Full_Back": 16.14,
+  "Complete_Wing_Back": 11.7,
+  "Inverted_Wing_Back": 27.85,
+  "Full_Back": 14.29,
+  "Wing_Back": 30.03
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ef"
+  },
+  "UniqueID": 91,
+  "No_Nonsense_Full_Back": 19.55,
+  "Complete_Wing_Back": 13.98,
+  "Inverted_Wing_Back": 23.3,
+  "Full_Back": 18.28,
+  "Wing_Back": 24.88
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f0"
+  },
+  "UniqueID": 92,
+  "No_Nonsense_Full_Back": 23.48,
+  "Complete_Wing_Back": 20.34,
+  "Inverted_Wing_Back": 22.69,
+  "Full_Back": 15.96,
+  "Wing_Back": 17.52
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f1"
+  },
+  "UniqueID": 128,
+  "No_Nonsense_Full_Back": 21.24,
+  "Complete_Wing_Back": 23.69,
+  "Inverted_Wing_Back": 19.61,
+  "Full_Back": 17.49,
+  "Wing_Back": 17.97
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f2"
+  },
+  "UniqueID": 201,
+  "No_Nonsense_Full_Back": 24.89,
+  "Complete_Wing_Back": 19.47,
+  "Inverted_Wing_Back": 20.61,
+  "Full_Back": 17.93,
+  "Wing_Back": 17.09
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f3"
+  },
+  "UniqueID": 232,
+  "No_Nonsense_Full_Back": 24.8,
+  "Complete_Wing_Back": 14.62,
+  "Inverted_Wing_Back": 19.42,
+  "Full_Back": 23.17,
+  "Wing_Back": 17.99
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f4"
+  },
+  "UniqueID": 239,
+  "No_Nonsense_Full_Back": 21.58,
+  "Complete_Wing_Back": 24.38,
+  "Inverted_Wing_Back": 18.81,
+  "Full_Back": 19.87,
+  "Wing_Back": 15.35
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f5"
+  },
+  "UniqueID": 240,
+  "No_Nonsense_Full_Back": 20.74,
+  "Complete_Wing_Back": 25.91,
+  "Inverted_Wing_Back": 15.23,
+  "Full_Back": 24.78,
+  "Wing_Back": 13.34
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f6"
+  },
+  "UniqueID": 245,
+  "No_Nonsense_Full_Back": 18.33,
+  "Complete_Wing_Back": 7.89,
+  "Inverted_Wing_Back": 34.5,
+  "Full_Back": 14.34,
+  "Wing_Back": 24.93
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f7"
+  },
+  "UniqueID": 252,
+  "No_Nonsense_Full_Back": 18.63,
+  "Complete_Wing_Back": 22.14,
+  "Inverted_Wing_Back": 18.98,
+  "Full_Back": 26.26,
+  "Wing_Back": 14
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f8"
+  },
+  "UniqueID": 263,
+  "No_Nonsense_Full_Back": 22.58,
+  "Complete_Wing_Back": 12.26,
+  "Inverted_Wing_Back": 24.61,
+  "Full_Back": 18.94,
+  "Wing_Back": 21.6
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451f9"
+  },
+  "UniqueID": 270,
+  "No_Nonsense_Full_Back": 15.1,
+  "Complete_Wing_Back": 15.67,
+  "Inverted_Wing_Back": 22.76,
+  "Full_Back": 24.06,
+  "Wing_Back": 22.4
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451fa"
+  },
+  "UniqueID": 272,
+  "No_Nonsense_Full_Back": 13.53,
+  "Complete_Wing_Back": 15.21,
+  "Inverted_Wing_Back": 25.7,
+  "Full_Back": 17.49,
+  "Wing_Back": 28.08
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451fb"
+  },
+  "UniqueID": 274,
+  "No_Nonsense_Full_Back": 14.62,
+  "Complete_Wing_Back": 19.33,
+  "Inverted_Wing_Back": 29.09,
+  "Full_Back": 9.25,
+  "Wing_Back": 27.7
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451fc"
+  },
+  "UniqueID": 275,
+  "No_Nonsense_Full_Back": 23.18,
+  "Complete_Wing_Back": 21.48,
+  "Inverted_Wing_Back": 15.85,
+  "Full_Back": 24.77,
+  "Wing_Back": 14.72
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451fd"
+  },
+  "UniqueID": 279,
+  "No_Nonsense_Full_Back": 15.24,
+  "Complete_Wing_Back": 18.05,
+  "Inverted_Wing_Back": 21.71,
+  "Full_Back": 23.83,
+  "Wing_Back": 21.18
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451fe"
+  },
+  "UniqueID": 306,
+  "No_Nonsense_Full_Back": 24.7,
+  "Complete_Wing_Back": 19.39,
+  "Inverted_Wing_Back": 18.85,
+  "Full_Back": 20.82,
+  "Wing_Back": 16.24
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b08673451ff"
+  },
+  "UniqueID": 333,
+  "No_Nonsense_Full_Back": 27.35,
+  "Complete_Wing_Back": 13.87,
+  "Inverted_Wing_Back": 19.5,
+  "Full_Back": 17.39,
+  "Wing_Back": 21.88
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345200"
+  },
+  "UniqueID": 356,
+  "No_Nonsense_Full_Back": 20.66,
+  "Complete_Wing_Back": 22.76,
+  "Inverted_Wing_Back": 18.39,
+  "Full_Back": 22.59,
+  "Wing_Back": 15.61
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345201"
+  },
+  "UniqueID": 364,
+  "No_Nonsense_Full_Back": 20.39,
+  "Complete_Wing_Back": 20.06,
+  "Inverted_Wing_Back": 21.04,
+  "Full_Back": 19.35,
+  "Wing_Back": 19.16
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345202"
+  },
+  "UniqueID": 367,
+  "No_Nonsense_Full_Back": 0,
+  "Complete_Wing_Back": 0,
+  "Inverted_Wing_Back": 0,
+  "Full_Back": 0,
+  "Wing_Back": 0
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345203"
+  },
+  "UniqueID": 369,
+  "No_Nonsense_Full_Back": 21.08,
+  "Complete_Wing_Back": 15.95,
+  "Inverted_Wing_Back": 22.02,
+  "Full_Back": 23.53,
+  "Wing_Back": 17.42
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345204"
+  },
+  "UniqueID": 383,
+  "No_Nonsense_Full_Back": 12.2,
+  "Complete_Wing_Back": 11.41,
+  "Inverted_Wing_Back": 29.91,
+  "Full_Back": 17.45,
+  "Wing_Back": 29.04
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345205"
+  },
+  "UniqueID": 398,
+  "No_Nonsense_Full_Back": 19.57,
+  "Complete_Wing_Back": 23.32,
+  "Inverted_Wing_Back": 21.63,
+  "Full_Back": 15.2,
+  "Wing_Back": 20.28
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345206"
+  },
+  "UniqueID": 402,
+  "No_Nonsense_Full_Back": 11.79,
+  "Complete_Wing_Back": 19.09,
+  "Inverted_Wing_Back": 30.89,
+  "Full_Back": 11.82,
+  "Wing_Back": 26.41
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345207"
+  },
+  "UniqueID": 405,
+  "No_Nonsense_Full_Back": 17.99,
+  "Complete_Wing_Back": 24.46,
+  "Inverted_Wing_Back": 15.65,
+  "Full_Back": 27.43,
+  "Wing_Back": 14.47
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345208"
+  },
+  "UniqueID": 407,
+  "No_Nonsense_Full_Back": 6.92,
+  "Complete_Wing_Back": 20.09,
+  "Inverted_Wing_Back": 27.62,
+  "Full_Back": 23.39,
+  "Wing_Back": 21.99
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345209"
+  },
+  "UniqueID": 418,
+  "No_Nonsense_Full_Back": 20.62,
+  "Complete_Wing_Back": 16.24,
+  "Inverted_Wing_Back": 25.76,
+  "Full_Back": 16.33,
+  "Wing_Back": 21.05
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520a"
+  },
+  "UniqueID": 428,
+  "No_Nonsense_Full_Back": 20.75,
+  "Complete_Wing_Back": 15.55,
+  "Inverted_Wing_Back": 18.9,
+  "Full_Back": 26.2,
+  "Wing_Back": 18.6
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520b"
+  },
+  "UniqueID": 433,
+  "No_Nonsense_Full_Back": 18.95,
+  "Complete_Wing_Back": 23.27,
+  "Inverted_Wing_Back": 14.61,
+  "Full_Back": 28.18,
+  "Wing_Back": 14.99
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520c"
+  },
+  "UniqueID": 455,
+  "No_Nonsense_Full_Back": 18.49,
+  "Complete_Wing_Back": 18.25,
+  "Inverted_Wing_Back": 22.86,
+  "Full_Back": 11.82,
+  "Wing_Back": 28.58
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520d"
+  },
+  "UniqueID": 459,
+  "No_Nonsense_Full_Back": 21.16,
+  "Complete_Wing_Back": 17.53,
+  "Inverted_Wing_Back": 18.52,
+  "Full_Back": 25.77,
+  "Wing_Back": 17.02
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520e"
+  },
+  "UniqueID": 462,
+  "No_Nonsense_Full_Back": 19.3,
+  "Complete_Wing_Back": 27.01,
+  "Inverted_Wing_Back": 13.45,
+  "Full_Back": 25.87,
+  "Wing_Back": 14.37
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b086734520f"
+  },
+  "UniqueID": 463,
+  "No_Nonsense_Full_Back": 11.22,
+  "Complete_Wing_Back": 14.49,
+  "Inverted_Wing_Back": 31.3,
+  "Full_Back": 20.25,
+  "Wing_Back": 22.74
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345210"
+  },
+  "UniqueID": 464,
+  "No_Nonsense_Full_Back": 0,
+  "Complete_Wing_Back": 0,
+  "Inverted_Wing_Back": 0,
+  "Full_Back": 0,
+  "Wing_Back": 0
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345211"
+  },
+  "UniqueID": 470,
+  "No_Nonsense_Full_Back": 24.4,
+  "Complete_Wing_Back": 20.02,
+  "Inverted_Wing_Back": 22.93,
+  "Full_Back": 13.99,
+  "Wing_Back": 18.66
+},
+{
+  "_id": {
+    "$oid": "670e3a3dc5756b0867345212"
+  },
+  "UniqueID": 476,
+  "No_Nonsense_Full_Back": 17.61,
+  "Complete_Wing_Back": 16.51,
+  "Inverted_Wing_Back": 23.37,
+  "Full_Back": 18.96,
+  "Wing_Back": 23.56
+}]

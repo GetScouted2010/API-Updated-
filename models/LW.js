@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const LWSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Defensive_Winger: {
         type: Number,
@@ -34,6 +34,6 @@ const LWSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions'})
+}, { collection: 'LW'})
 
 module.exports = mongoose.model("LW", LWSchema);

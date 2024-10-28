@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const playstyleSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Team: {
         type: String,

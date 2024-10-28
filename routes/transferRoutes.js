@@ -1,8 +1,10 @@
 const router = require("express").Router();
+const verifyToken = require('../middleware/auth');
+
 const TransferData = require("../models/transferData");
 
-
-router.get("/getAll", async (req, res, next) =>{
+// Route to get all existing transfer data
+router.get("/getAll", verifyToken, async (req, res, next) =>{
     try{
         const transferData = await TransferData.find();
         return res.json(transferData);
@@ -11,22 +13,24 @@ router.get("/getAll", async (req, res, next) =>{
     }
 });
 
-router.get("/get/:id", async ({params: { id } }, res, next) =>{
+// Route to get a specific transfer record by uniqueId
+router.get("/get/:id", verifyToken, async ({params: { id } }, res, next) =>{
     try{
         const found = await TransferData.find({ UniqueID: id });
         if (!found) return next({ status: 404, message: 'No data for the Transfer with the ID: ${id}' });
         return res.json(found);
-    } catch (error) {
-        return next({ status: 400, message: error.message});
+    } catch (err) {
+        return next({ status: 400, message: err.message});
     }
 });
 
-router.get("/find", async ({ query }, res, next) => {
+// Route to query the transfer records collection via query params
+router.get("/find", verifyToken, async ({ query }, res, next) => {
     try{
         const transferData = await TransferData.find(query);
         return res.json(transferData);
-    } catch (error) {
-        return next({ status: 400, message: error.message});
+    } catch (err) {
+        return next({ status: 400, message: err.message});
     } 
 });
 

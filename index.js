@@ -2,24 +2,29 @@ const express = require('express');
 const cors = require('cors');
 const { default: mongoose } = require("mongoose");
 
+// .env import for JWT and DB URL
+require('dotenv').config(); 
+
 const app = express();
 const PORT = 3000;
 
-// Connection URLs
-const mainConnect = require("./connections/mainConnect");
-const testConnect = require("./connections/testConnect");
-
 // Import routes for collection mapping to API
 const playerRoutes = require("./routes/playerRoutes");
-const compatabilityRoutes = require("./routes/compatabilityRoutes");
+const compatibilityRoutes = require("./routes/compatibilityRoutes");
 const transferRoutes = require("./routes/transferRoutes");
 const positionRoutes = require("./routes/positionRoutes");
 const playstyleRoutes = require("./routes/playstyleRoutes");
+const shortlistRoutes = require("./routes/shortlistRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 app.use(cors());
+app.use(express.json());
 
-// Use main URL instead of test URL
-mongoose.connect(mainConnect.url)
+// Allows recognition of x-forwarded-proto header
+app.enable('trust proxy'); 
+
+// Pull DB_URL from .env file for connection to MongoDB
+mongoose.connect(process.env.DB_URL)
 
 const server = app.listen(PORT, (error) =>{
     if(!error)
@@ -28,21 +33,29 @@ const server = app.listen(PORT, (error) =>{
         console.log("Error occurred, server could not start", error)
 });
 
+// Force SSL in production (Must configure load balancer on AWS before deployment)
+if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+      if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(`https://${req.headers.host}${req.url}`);
+      }
+      next();
+    });
+  }
+
+// Log API request route/query and timestamp for each received request into console
 app.use((req, res, next) => {
     console.log(req.method, req.url, new Date());
     return next();
   });
 
-app.get('/', (req, res) =>{
-    res.status(200);
-    res.send("Welcome to root URL");
-})
-
 // Route Configuration
 app.use("/players", playerRoutes);
-app.use("/compatability", compatabilityRoutes);
+app.use("/compatibility", compatibilityRoutes);
 app.use("/transfers", transferRoutes);
 app.use("/positions", positionRoutes);
 app.use("/playstyles", playstyleRoutes);
+app.use("/shortlists", shortlistRoutes);
+app.use("/users", userRoutes);
 
 module.exports = server;

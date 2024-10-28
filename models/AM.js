@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const AMSchema = new Schema({
     UniqueID: {
         type: Number,
-        required: true
+        ref: 'Player'
     },
     Attacking_Midfielder: {
         type: Number,
@@ -22,6 +22,6 @@ const AMSchema = new Schema({
         type: Number,
         required: true
     }
-}, { collection: 'positions' })
+}, { collection: 'AM' })
 
 module.exports = mongoose.model("AM", AMSchema);

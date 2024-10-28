@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6718d6ca547c5ddddb3559da"
+  },
+  "user_id": {
+    "$oid": "6718335d608f6bf484745526"
+  },
+  "listName": "List 1 - Attacking Midfielders",
+  "shortlist": [
+    {
+      "$oid": "670e41c9c5756b0867346646"
+    },
+    {
+      "$oid": "670e41c9c5756b0867346648"
+    },
+    {
+      "$oid": "670e41c9c5756b086734664d"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6718dd6d547c5ddddb3559f3"
+  },
+  "user_id": {
+    "$oid": "6718dd39547c5ddddb3559f1"
+  },
+  "listName": "User 2's Shortlist",
+  "shortlist": []
+},
+{
+  "_id": {
+    "$oid": "671b6db1d5a8840ad872ace9"
+  },
+  "user_id": {
+    "$oid": "6718335d608f6bf484745526"
+  },
+  "listName": "Testing List for Create Method",
+  "shortlist": [
+    {
+      "$oid": "670e41c9c5756b0867346641"
+    }
+  ],
+  "__v": 0
+}]

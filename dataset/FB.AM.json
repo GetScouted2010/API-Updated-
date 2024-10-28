@@ -1,0 +1,650 @@
+[{
+  "_id": {
+    "$oid": "670e39edc5756b0867345063"
+  },
+  "UniqueID": 8,
+  "Attacking_Midfielder": 22.36,
+  "Advanced_Playmaker": 26.19,
+  "Enganche": 32.03,
+  "Trequartista": 19.41
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345064"
+  },
+  "UniqueID": 10,
+  "Attacking_Midfielder": 34.83,
+  "Advanced_Playmaker": 22.76,
+  "Enganche": 22.7,
+  "Trequartista": 19.71
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345065"
+  },
+  "UniqueID": 15,
+  "Attacking_Midfielder": 17.34,
+  "Advanced_Playmaker": 22.63,
+  "Enganche": 37.95,
+  "Trequartista": 22.08
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345066"
+  },
+  "UniqueID": 33,
+  "Attacking_Midfielder": 22.78,
+  "Advanced_Playmaker": 29.25,
+  "Enganche": 29.45,
+  "Trequartista": 18.52
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345067"
+  },
+  "UniqueID": 36,
+  "Attacking_Midfielder": 31.82,
+  "Advanced_Playmaker": 29.32,
+  "Enganche": 19.33,
+  "Trequartista": 19.53
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345068"
+  },
+  "UniqueID": 37,
+  "Attacking_Midfielder": 29.53,
+  "Advanced_Playmaker": 23.87,
+  "Enganche": 28.39,
+  "Trequartista": 18.2
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345069"
+  },
+  "UniqueID": 38,
+  "Attacking_Midfielder": 18.04,
+  "Advanced_Playmaker": 25.5,
+  "Enganche": 30.75,
+  "Trequartista": 25.71
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506a"
+  },
+  "UniqueID": 39,
+  "Attacking_Midfielder": 25.55,
+  "Advanced_Playmaker": 25.04,
+  "Enganche": 30.55,
+  "Trequartista": 18.87
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506b"
+  },
+  "UniqueID": 43,
+  "Attacking_Midfielder": 29.28,
+  "Advanced_Playmaker": 23.74,
+  "Enganche": 27.86,
+  "Trequartista": 19.12
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506c"
+  },
+  "UniqueID": 59,
+  "Attacking_Midfielder": 26.88,
+  "Advanced_Playmaker": 37.14,
+  "Enganche": 17.76,
+  "Trequartista": 18.22
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506d"
+  },
+  "UniqueID": 63,
+  "Attacking_Midfielder": 32.63,
+  "Advanced_Playmaker": 18.83,
+  "Enganche": 24.08,
+  "Trequartista": 24.45
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506e"
+  },
+  "UniqueID": 66,
+  "Attacking_Midfielder": 16.93,
+  "Advanced_Playmaker": 26.43,
+  "Enganche": 30.86,
+  "Trequartista": 25.78
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734506f"
+  },
+  "UniqueID": 74,
+  "Attacking_Midfielder": 24.71,
+  "Advanced_Playmaker": 18.46,
+  "Enganche": 26.87,
+  "Trequartista": 29.95
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345070"
+  },
+  "UniqueID": 81,
+  "Attacking_Midfielder": 25.8,
+  "Advanced_Playmaker": 27.53,
+  "Enganche": 24.6,
+  "Trequartista": 22.07
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345071"
+  },
+  "UniqueID": 82,
+  "Attacking_Midfielder": 28.83,
+  "Advanced_Playmaker": 20.56,
+  "Enganche": 24.96,
+  "Trequartista": 25.65
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345072"
+  },
+  "UniqueID": 86,
+  "Attacking_Midfielder": 31.65,
+  "Advanced_Playmaker": 19.85,
+  "Enganche": 29.37,
+  "Trequartista": 19.13
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345073"
+  },
+  "UniqueID": 97,
+  "Attacking_Midfielder": 20.52,
+  "Advanced_Playmaker": 30.36,
+  "Enganche": 24.95,
+  "Trequartista": 24.17
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345074"
+  },
+  "UniqueID": 107,
+  "Attacking_Midfielder": 31.35,
+  "Advanced_Playmaker": 21.5,
+  "Enganche": 27.41,
+  "Trequartista": 19.74
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345075"
+  },
+  "UniqueID": 117,
+  "Attacking_Midfielder": 13.94,
+  "Advanced_Playmaker": 29.21,
+  "Enganche": 31.01,
+  "Trequartista": 25.84
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345076"
+  },
+  "UniqueID": 121,
+  "Attacking_Midfielder": 32.7,
+  "Advanced_Playmaker": 23.35,
+  "Enganche": 23.92,
+  "Trequartista": 20.02
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345077"
+  },
+  "UniqueID": 134,
+  "Attacking_Midfielder": 32.32,
+  "Advanced_Playmaker": 21.59,
+  "Enganche": 26.23,
+  "Trequartista": 19.86
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345078"
+  },
+  "UniqueID": 150,
+  "Attacking_Midfielder": 16.23,
+  "Advanced_Playmaker": 24.09,
+  "Enganche": 14.83,
+  "Trequartista": 44.85
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345079"
+  },
+  "UniqueID": 153,
+  "Attacking_Midfielder": 26.73,
+  "Advanced_Playmaker": 26.83,
+  "Enganche": 21.69,
+  "Trequartista": 24.76
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507a"
+  },
+  "UniqueID": 169,
+  "Attacking_Midfielder": 25.15,
+  "Advanced_Playmaker": 32.3,
+  "Enganche": 12.8,
+  "Trequartista": 29.75
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507b"
+  },
+  "UniqueID": 170,
+  "Attacking_Midfielder": 34.75,
+  "Advanced_Playmaker": 20.82,
+  "Enganche": 24.18,
+  "Trequartista": 20.25
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507c"
+  },
+  "UniqueID": 171,
+  "Attacking_Midfielder": 0,
+  "Advanced_Playmaker": 0,
+  "Enganche": 0,
+  "Trequartista": 0
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507d"
+  },
+  "UniqueID": 180,
+  "Attacking_Midfielder": 23.59,
+  "Advanced_Playmaker": 22.52,
+  "Enganche": 28.21,
+  "Trequartista": 25.69
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507e"
+  },
+  "UniqueID": 181,
+  "Attacking_Midfielder": 22.43,
+  "Advanced_Playmaker": 36.29,
+  "Enganche": 21.22,
+  "Trequartista": 20.06
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734507f"
+  },
+  "UniqueID": 198,
+  "Attacking_Midfielder": 31.39,
+  "Advanced_Playmaker": 21.16,
+  "Enganche": 28.31,
+  "Trequartista": 19.14
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345080"
+  },
+  "UniqueID": 200,
+  "Attacking_Midfielder": 29.97,
+  "Advanced_Playmaker": 26.07,
+  "Enganche": 25.77,
+  "Trequartista": 18.2
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345081"
+  },
+  "UniqueID": 209,
+  "Attacking_Midfielder": 28.1,
+  "Advanced_Playmaker": 27.72,
+  "Enganche": 24.14,
+  "Trequartista": 20.05
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345082"
+  },
+  "UniqueID": 216,
+  "Attacking_Midfielder": 16.43,
+  "Advanced_Playmaker": 26.74,
+  "Enganche": 32.45,
+  "Trequartista": 24.38
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345083"
+  },
+  "UniqueID": 217,
+  "Attacking_Midfielder": 0,
+  "Advanced_Playmaker": 0,
+  "Enganche": 0,
+  "Trequartista": 0
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345084"
+  },
+  "UniqueID": 218,
+  "Attacking_Midfielder": 31.7,
+  "Advanced_Playmaker": 30.2,
+  "Enganche": 18.58,
+  "Trequartista": 19.52
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345085"
+  },
+  "UniqueID": 223,
+  "Attacking_Midfielder": 0,
+  "Advanced_Playmaker": 0,
+  "Enganche": 0,
+  "Trequartista": 0
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345086"
+  },
+  "UniqueID": 228,
+  "Attacking_Midfielder": 35.61,
+  "Advanced_Playmaker": 31.86,
+  "Enganche": 16.22,
+  "Trequartista": 16.31
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345087"
+  },
+  "UniqueID": 229,
+  "Attacking_Midfielder": 22.48,
+  "Advanced_Playmaker": 38.89,
+  "Enganche": 16.61,
+  "Trequartista": 22.02
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345088"
+  },
+  "UniqueID": 249,
+  "Attacking_Midfielder": 12.54,
+  "Advanced_Playmaker": 24.73,
+  "Enganche": 31.58,
+  "Trequartista": 31.16
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345089"
+  },
+  "UniqueID": 258,
+  "Attacking_Midfielder": 20.04,
+  "Advanced_Playmaker": 21.35,
+  "Enganche": 25.15,
+  "Trequartista": 33.45
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508a"
+  },
+  "UniqueID": 264,
+  "Attacking_Midfielder": 33.5,
+  "Advanced_Playmaker": 27.52,
+  "Enganche": 16.97,
+  "Trequartista": 22.01
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508b"
+  },
+  "UniqueID": 295,
+  "Attacking_Midfielder": 31.14,
+  "Advanced_Playmaker": 20.08,
+  "Enganche": 26.56,
+  "Trequartista": 22.22
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508c"
+  },
+  "UniqueID": 299,
+  "Attacking_Midfielder": 28.18,
+  "Advanced_Playmaker": 25.52,
+  "Enganche": 23.67,
+  "Trequartista": 22.63
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508d"
+  },
+  "UniqueID": 307,
+  "Attacking_Midfielder": 25.24,
+  "Advanced_Playmaker": 30.16,
+  "Enganche": 27.05,
+  "Trequartista": 17.55
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508e"
+  },
+  "UniqueID": 312,
+  "Attacking_Midfielder": 21.33,
+  "Advanced_Playmaker": 44.63,
+  "Enganche": 17.66,
+  "Trequartista": 16.37
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734508f"
+  },
+  "UniqueID": 314,
+  "Attacking_Midfielder": 25.24,
+  "Advanced_Playmaker": 31.53,
+  "Enganche": 18.38,
+  "Trequartista": 24.85
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345090"
+  },
+  "UniqueID": 320,
+  "Attacking_Midfielder": 14.63,
+  "Advanced_Playmaker": 30.72,
+  "Enganche": 33.85,
+  "Trequartista": 20.81
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345091"
+  },
+  "UniqueID": 322,
+  "Attacking_Midfielder": 25.47,
+  "Advanced_Playmaker": 33.61,
+  "Enganche": 21.83,
+  "Trequartista": 19.09
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345092"
+  },
+  "UniqueID": 324,
+  "Attacking_Midfielder": 20.37,
+  "Advanced_Playmaker": 22.48,
+  "Enganche": 27.29,
+  "Trequartista": 29.85
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345093"
+  },
+  "UniqueID": 328,
+  "Attacking_Midfielder": 20.3,
+  "Advanced_Playmaker": 30.36,
+  "Enganche": 23.89,
+  "Trequartista": 25.45
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345094"
+  },
+  "UniqueID": 338,
+  "Attacking_Midfielder": 31.04,
+  "Advanced_Playmaker": 23.71,
+  "Enganche": 30.22,
+  "Trequartista": 15.04
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345095"
+  },
+  "UniqueID": 347,
+  "Attacking_Midfielder": 0,
+  "Advanced_Playmaker": 0,
+  "Enganche": 0,
+  "Trequartista": 0
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345096"
+  },
+  "UniqueID": 349,
+  "Attacking_Midfielder": 22.72,
+  "Advanced_Playmaker": 22.67,
+  "Enganche": 21.94,
+  "Trequartista": 32.66
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345097"
+  },
+  "UniqueID": 359,
+  "Attacking_Midfielder": 20.35,
+  "Advanced_Playmaker": 27.13,
+  "Enganche": 34.85,
+  "Trequartista": 17.66
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345098"
+  },
+  "UniqueID": 379,
+  "Attacking_Midfielder": 34.5,
+  "Advanced_Playmaker": 21.22,
+  "Enganche": 20.84,
+  "Trequartista": 23.44
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b0867345099"
+  },
+  "UniqueID": 389,
+  "Attacking_Midfielder": 24.46,
+  "Advanced_Playmaker": 25.23,
+  "Enganche": 27.38,
+  "Trequartista": 22.93
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509a"
+  },
+  "UniqueID": 391,
+  "Attacking_Midfielder": 23.22,
+  "Advanced_Playmaker": 23.97,
+  "Enganche": 29.1,
+  "Trequartista": 23.7
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509b"
+  },
+  "UniqueID": 393,
+  "Attacking_Midfielder": 27.11,
+  "Advanced_Playmaker": 25.52,
+  "Enganche": 20.04,
+  "Trequartista": 27.32
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509c"
+  },
+  "UniqueID": 409,
+  "Attacking_Midfielder": 30.63,
+  "Advanced_Playmaker": 30.9,
+  "Enganche": 17.95,
+  "Trequartista": 20.52
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509d"
+  },
+  "UniqueID": 431,
+  "Attacking_Midfielder": 29.49,
+  "Advanced_Playmaker": 25.35,
+  "Enganche": 28.98,
+  "Trequartista": 16.18
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509e"
+  },
+  "UniqueID": 445,
+  "Attacking_Midfielder": 30.24,
+  "Advanced_Playmaker": 28.17,
+  "Enganche": 22.06,
+  "Trequartista": 19.52
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b086734509f"
+  },
+  "UniqueID": 457,
+  "Attacking_Midfielder": 22.59,
+  "Advanced_Playmaker": 22.61,
+  "Enganche": 27.56,
+  "Trequartista": 27.25
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b08673450a0"
+  },
+  "UniqueID": 472,
+  "Attacking_Midfielder": 29.49,
+  "Advanced_Playmaker": 22.8,
+  "Enganche": 19.83,
+  "Trequartista": 27.88
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b08673450a1"
+  },
+  "UniqueID": 486,
+  "Attacking_Midfielder": 24.39,
+  "Advanced_Playmaker": 23.57,
+  "Enganche": 33.29,
+  "Trequartista": 18.75
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b08673450a2"
+  },
+  "UniqueID": 492,
+  "Attacking_Midfielder": 36.67,
+  "Advanced_Playmaker": 22.8,
+  "Enganche": 27.01,
+  "Trequartista": 13.52
+},
+{
+  "_id": {
+    "$oid": "670e39edc5756b08673450a3"
+  },
+  "UniqueID": 493,
+  "Attacking_Midfielder": 30,
+  "Advanced_Playmaker": 25.59,
+  "Enganche": 24.76,
+  "Trequartista": 19.65
+}]
