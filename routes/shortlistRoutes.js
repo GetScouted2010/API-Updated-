@@ -9,8 +9,8 @@ router.get("/getLists", verifyToken, async (req, res, next) =>{
         const userId = req.user.id;
         const found = await Shortlist.find( {user_id: userId} ).populate('shortlist');
         return res.json(found);
-    } catch (err) {
-        return next({ status: 400, message: err.message });
+    } catch (error) {
+        return res.status(400).json({ message: "Error fetching Shortlists", error })
     }
 });
 
@@ -40,8 +40,7 @@ router.post('/createList', verifyToken, async (req, res) => {
         record: newList
       });
     } catch (error) {
-      console.error('Error creating shortlist:', error);
-      res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: 'Internal server error' });
     }
 });
 
@@ -73,8 +72,7 @@ router.post('/addToList', verifyToken, async (req, res) => {
         record: updatedRecord
       });
     } catch (error) {
-      console.error('Error adding to shortlist:', error);
-      res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: 'Internal server error' });
     }
 });
 
@@ -107,8 +105,7 @@ router.post('/removeFromList', verifyToken, async (req, res) => {
         record: updatedRecord
       });
     } catch (error) {
-      console.error('Error removing from shortlist:', error);
-      res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: 'Internal server error' });
     }
   });
 

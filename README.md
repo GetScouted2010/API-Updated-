@@ -99,10 +99,12 @@ GET /playstyles/get/:id - Returns the specified playstyle data for the specified
 
 GET /playstyles/find - Returns playstyles that match the parameters of the query passed in through query params in the URL
 
-### Position Routes
-GET /positions/:position/get/:id - position params: "AM", "CB", "CM", "DM", "FWD", "LB", "LW", "RB", "RW", id params: uniqueId of the Player (not objectId). Returns a single object where the :id matches in the relevant positional data collection from the :position param
+GET GET /playstyles/get/:id/graph - Returns the specified playstyle data for the specified UniqueId (not objectId) in radar graph data format
 
-GET /positions/:position/getAll - position params: "AM", "CB", "CM", "DM", "FWD", "LB", "LW", "RB", "RW", returns all objects in the specified positional data collection
+### Position Routes
+GET /positions/get/:id - id params: uniqueId of the Player (not objectId). Returns a single object where the :id matches in the relevant positional data collection
+
+GET /positions/get/:id/graph - id params: uniqueId of the Player (not objectId). Returns a single object where the :id matches in the relevant positional data collection, and provides output in radar chart format
 
 
 

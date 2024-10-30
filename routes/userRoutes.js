@@ -41,7 +41,7 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({ message: 'User created successfully', user: { username, email, fullname, role, team } });
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+      return res.status(500).json({ error: 'Server error' });
   }
 });
 
@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
       // Send the JWT token to the client
       res.json({ token });
     } catch (err) {
-      res.status(500).json({ error: 'Server error' });
+        return res.status(500).json({ error: 'Server error' });
     }
   });
 
@@ -76,8 +76,8 @@ router.get("/getUser", verifyToken, async (req, res, next) =>{
         const userId = req.user.id;
         const found = await User.find( {_id: userId}, {username: 1, email: 1, fullname: 1, role: 1, team: 1} );
         return res.json(found);
-    } catch (err) {
-        return next({ status: 400, message: err.message });
+    } catch (error) {
+        return res.status(400).json({ message: "Error fetching user data", error })
     }
 });
 
