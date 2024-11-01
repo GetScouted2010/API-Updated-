@@ -13,13 +13,14 @@ The current configuration uses a cloud deployment of MongoDB (Atlas). The sectio
 
 ### .env Configuration
 
-By default, this application will pull both a JWT_SECRET and DB_URL from the .env file (file not included for security reasons). To setup a .env file, make a brand new file in the root folder called '.env'. Copy paste the below format and edit as necessary:
+By default, this application will pull a JWT_SECRET, DB_URL and API_KEY from the .env file (file not included for security reasons). To setup a .env file, make a brand new file in the root folder called '.env'. Copy paste the below format and edit as necessary:
 
 ```
 DB_URL=
 JWT_SECRET=
+API_KEY
 ```
-Ensure that both values are filled, as the DB_URL is required to connect to the database instance, and JWT_SECRET is required for encoding/decoding the password strings
+Ensure that all values are filled, as the DB_URL is required to connect to the database instance, the JWT_SECRET is required for encoding/decoding the password strings, and the API_KEY is required to secure all the routes
 
 Without these values, you will not be able to connect to the DB instance, and JWT authentication will not function.
 
@@ -52,6 +53,8 @@ Routes marked with an * do not require a bearer  token to access.
 *POST /users/register - Requires a JSON body containing a 'username', 'password', 'email', 'fullname', 'role' and 'team'. Hashes and stores password, and returns user object upon sucessful creation
 
 *POST /users/login - Requires a JSON body containing a 'username' and 'password' value. Upon successful authentication, returns a Bearer Token for authorization
+
+*GET /users/getTeamsList - Returns a list of teams for registration (referenced from the playstyles collection)
 
 GET /users/getUser - Gets details about the currently logged in user (pulled from Bearer Token)
 

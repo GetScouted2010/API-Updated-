@@ -29,6 +29,7 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ error: 'This username is taken' });
     }
 
+    // Check if the team exists against the playstyles table
     const validTeam = await Team.findOne({ Team: team });
     if (!validTeam) {
       return res.status(400).json({ error: 'Invalid team. Please select a valid team.' });
@@ -92,5 +93,15 @@ router.get("/getUser", verifyToken, async (req, res, next) =>{
         return res.status(400).json({ message: "Error fetching user data", error })
     }
 });
+
+// GET route to pull a list of available teams for registration
+router.get("/getTeamsList", async (req, res, next) => {
+  try{
+    const list = await Team.find({}, {_id: 0, Team: 1});
+    return res.json(list)
+  } catch (error) {
+    return res.status(400).json({ message: "Error fetching list of teams", error })
+  }
+})
 
 module.exports = router;
