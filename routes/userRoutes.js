@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const User = require("../models/users");
+const Team = require("../models/playstyles")
 
 // POST route for creating a user
 router.post('/register', async (req, res) => {
@@ -26,6 +27,11 @@ router.post('/register', async (req, res) => {
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ error: 'This username is taken' });
+    }
+
+    const validTeam = await Team.findOne({ Team: team });
+    if (!validTeam) {
+      return res.status(400).json({ error: 'Invalid team. Please select a valid team.' });
     }
 
     // Hash the password
