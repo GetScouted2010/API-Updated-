@@ -74,7 +74,7 @@ GET /players/get/:id - Returns a player from the players collection where the :i
 
 GET /players/find - Returns players that match the parameters of the query passed in through query params in the URL
 
-GET /players/search - Returns both Players and Teams that contain the value in their name, passed through query params of 'data' in URL (eg. /players/search?data=ter returns all players and teams containing 'ter' in their names)
+GET /players/search - Returns both Players and Teams that contain the value in their name, passed through query params of 'value' in URL (eg. /players/search?value=man returns all players and teams containing 'man' in the beginning of their names)
 
 GET /players/filter - Returns all players that match the queryable filter paramter. This route allows for the use of <= & >= operations (gte and lte) by providing either gte or lte after a double underscore, followed by an equals and the value to compare (example __gte=15). This uses a double underscore as some field names contain a single underscore to seperate words. If I want to query the database for all players with an Age between 19 and 21, I can use the parameters:
 

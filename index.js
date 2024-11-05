@@ -46,6 +46,11 @@ const server = app.listen(PORT, (error) => {
     console.log("Error occurred, server could not start", error)
 });
 
+// Define a health check route
+app.get('/healthcheck', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
+
 // Apply the API key validation middleware to all routes
 app.use(validateApiKey);
 

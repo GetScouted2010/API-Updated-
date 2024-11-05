@@ -35,16 +35,41 @@ router.get("/find", verifyToken, async ({ query }, res, next) => {
 
 // Returns all elements in the 'players' collection that have either a Player name or Team name containing the parameter
 router.get("/search", verifyToken, async ({ query }, res, next) => {
-    const regex = new RegExp(query.value, 'i');  //Regex that will take the value parameter from the url and ignore case
-    try{
-        const playerByName = await Player.find({Player: {$regex: regex}}, {Player: 1, Team: 1, Position: 1}); //Find Players in Player collection that contain the string in param
-        const playerByTeam = await Player.find({Team: {$regex: regex}}, {_id: 0, Team: 1}); //Find teams in the Player collection that contain the string in param
-        const uniqueTeams = Array.from(new Map(playerByTeam.map(Player => [Player.Team, Player])).values()); // Only display unique teams (no double entries)
-        const player = [... new Set([...uniqueTeams, ...playerByName])]; // Merge arrays
-        return res.json(player);
-    } catch (error) {
-        return res.status(500).json({ message: "Error fetching Players", error })
-    } 
+  
+  // Check if 'value' field exists in the query parameter
+  if (!query.value) {
+    return res.status(400).json({ message: 'Value is required.' });
+  }
+
+  try{
+      const tRegex = new RegExp(`\\b${query.value}`, 'i'); // Match beginning of any word in team field
+
+      // Search for players by name, only returning fields 'Player', 'Team', and 'Position'
+      const nameMatches = await Player.find({
+        $or: [
+          { Player: { $regex: `^${query.value}`, $options: 'i' } }, // Match for beginning of First name
+          { Player: { $regex: `\\s${query.value}`, $options: 'i' } } // Match for beginning of Last name
+        ]
+      }).select('Player Team Position -_id');
+
+      // Search for Teams by name (pulled from players collection)
+      const teamMatches = await Player.find({
+        Team: { $regex: tRegex }
+      }).select('Team -_id');
+
+      // Remove duplicate team results as these values are pulled from the players collection
+      const uniqueTeams = Array.from(new Map(teamMatches.map(Player => [Player.Team, Player])).values());
+
+      // Compile and map results to Players and Teams objects for easier readability on frontend
+      const result = {
+        Players: nameMatches,
+        Teams: uniqueTeams
+      };
+
+      res.json(result);
+  } catch (error) {
+      return res.status(500).json({ message: "Error fetching Players", error })
+  } 
 });
 
 // GET route for advanced querying (Player filtering with dynamic ranges)
