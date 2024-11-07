@@ -76,12 +76,18 @@ GET /players/find - Returns players that match the parameters of the query passe
 
 GET /players/search - Returns both Players and Teams that contain the value in their name, passed through query params of 'value' in URL (eg. /players/search?value=man returns all players and teams containing 'man' in the beginning of their names)
 
-GET /players/filter - Returns all players that match the queryable filter paramter. This route allows for the use of <= & >= operations (gte and lte) by providing either gte or lte after a double underscore, followed by an equals and the value to compare (example __gte=15). This uses a double underscore as some field names contain a single underscore to seperate words. If I want to query the database for all players with an Age between 19 and 21, I can use the parameters:
+GET /players/filter - Returns all players that match the queryable filter parameter. This route allows for the use of <= & >= operations (gte and lte) by providing either gte or lte after a double underscore, followed by an equals and the value to compare (example __gte=15). This uses a double underscore as some field names contain a single underscore to seperate words. If I want to query the database for all players with an Age between 19 and 21, I can use the parameters:
 
 ```
 ?Age__lte=21&Age__gte=19
 ```
 This route allows for multiple query parameters using gte, lte, or =
+
+GET /players/csfilter - Returns all players that match the queryable filter parameter. 
+Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue
+team, minRating, maxRating: Specify a team, and the minimum and maximum compatibility score with said team.
+minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue: Specify a lower and upper boundry for the search terms.
+WIP: Additional Filters: selectTeam, selectPosition (ignore for now).
 
 ### Transfer Routes
 GET /transfers/getAll - Returns all transfer data in the transferdata collection
@@ -90,13 +96,15 @@ GET /transfers/get/:id - Returns transfers from the transferdata collection wher
 
 GET /transfers/find - Returns transfers that match the parameters of the query passed in through query params in the URL
 
+GET /transfers/getAverages - Returns the Minimum, Maximum, and Average values for the Age, Transfer Fee, and Market Value of the specified Club or UniqueID in query parameters. (params: Club || UniqueID)
+
 ### Compatibility Routes
 GET /compatibility/getAll - Returns all data in the compatibilityscores collection
 
 GET /compatibility/get/:id - Returns the specified compatibility score data for the specified UniqueId (not objectId)
 
 ### Playstyle Routes
-GET /playstyles/getAll - Returns all data in the playstyles
+GET /playstyles/getAll - Returns all data in the playstyles collection
 
 GET /playstyles/get/:id - Returns the specified playstyle data for the specified UniqueId (not objectId)
 

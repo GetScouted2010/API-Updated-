@@ -23,23 +23,14 @@ const userRoutes = require("./routes/userRoutes");
 app.use(cors());
 app.use(express.json());
 
-// Allows recognition of x-forwarded-proto header
-app.enable('trust proxy');
+// Trust Nginx
+app.set('trust proxy', 1);
 
 // Pull DB_URL from .env file for connection to MongoDB
 mongoose.connect(process.env.DB_URL)
 
-// Force SSL in production (Must configure load balancer on AWS before deployment)
-if (process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(`https://${req.headers.host}${req.url}`);
-    }
-    next();
-  });
-}
-
-const server = app.listen(PORT, (error) => {
+// Force server to run on localhost
+const server = app.listen(PORT, 'localhost', (error) => {
   if (!error)
     console.log("Server is Successfully Running and App is listening on port " + PORT)
   else

@@ -34,4 +34,84 @@ router.get("/find", verifyToken, async ({ query }, res, next) => {
     } 
 });
 
+router.get('/getAverages', verifyToken, async (req, res) => {
+    try {
+        const { Club, UniqueID } = req.query;
+    
+        // Validate input
+        if (!Club && !UniqueID) {
+          return res.status(400).json({ error: 'Please provide a Club or UniqueID query parameter.' });
+        }
+    
+        // Build query
+        const query = {};
+        if (Club) query.Club = Club;
+        if (UniqueID) query.UniqueID = UniqueID;
+    
+        // Fetch matching records
+        const records = await TransferData.find(query);
+    
+        if (!records.length) {
+          return res.status(404).json({ message: 'No matching records found.' });
+        }
+    
+        // Initialize stats
+        const stats = {
+          Age: { min: Infinity, max: -Infinity, sum: 0, count: 0 },
+          Market_Value: { min: Infinity, max: -Infinity, sum: 0, count: 0 },
+          Fee_Cleaned: { min: Infinity, max: -Infinity, sum: 0, count: 0 },
+        };
+    
+        // Calculate stats
+        records.forEach(record => {
+          // Ensure values are numbers and not null/undefined
+          const age = record.Age || 0;
+          const marketValue = record.Market_Value ? parseFloat(record.Market_Value.toFixed(1)) : 0; // Round to 1 decimal place
+          const feeCleaned = record.Fee_Cleaned ? parseFloat(record.Fee_Cleaned.toFixed(1)) : 0; // Round to 1 decimal place
+    
+          // Age calculations
+          stats.Age.min = Math.min(stats.Age.min, age);
+          stats.Age.max = Math.max(stats.Age.max, age);
+          stats.Age.sum += age;
+          stats.Age.count++;
+    
+          // Market_Value calculations
+          stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
+          stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
+          stats.Market_Value.sum += marketValue;
+          stats.Market_Value.count++;
+    
+          // Fee_Cleaned calculations
+          stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
+          stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
+          stats.Fee_Cleaned.sum += feeCleaned;
+          stats.Fee_Cleaned.count++;
+        });
+    
+        // Compute averages and round as specified
+        const response = {
+          Age: {
+            min: stats.Age.min === Infinity ? null : stats.Age.min,
+            max: stats.Age.max === -Infinity ? null : stats.Age.max,
+            avg: stats.Age.count ? Math.round(stats.Age.sum / stats.Age.count) : null, // Round to nearest whole number
+          },
+          Market_Value: {
+            min: stats.Market_Value.min === Infinity ? null : stats.Market_Value.min,
+            max: stats.Market_Value.max === -Infinity ? null : stats.Market_Value.max,
+            avg: stats.Market_Value.count ? parseFloat((stats.Market_Value.sum / stats.Market_Value.count).toFixed(1)) : null, // Round to 1 decimal place
+          },
+          Fee_Cleaned: {
+            min: stats.Fee_Cleaned.min === Infinity ? null : stats.Fee_Cleaned.min,
+            max: stats.Fee_Cleaned.max === -Infinity ? null : stats.Fee_Cleaned.max,
+            avg: stats.Fee_Cleaned.count ? parseFloat((stats.Fee_Cleaned.sum / stats.Fee_Cleaned.count).toFixed(1)) : null, // Round to 1 decimal place
+          },
+        };
+    
+        res.json(response);
+      } catch (error) {
+        console.error('Error fetching records:', error);
+        res.status(500).json({ error: 'Internal server error.' });
+      }
+    });
+
 module.exports = router;
