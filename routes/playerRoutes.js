@@ -169,6 +169,7 @@ router.get('/csfilter', verifyToken, async (req, res) => {
       // Step 4: Project the data to include only necessary fields
       {
         $project: {
+          _id: 1,
           UniqueID: 1,
           Player: 1,
           Team: 1,

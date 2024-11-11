@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const mongoose = require('mongoose');
+
 const verifyToken = require('../middleware/auth');
 
 const Shortlist = require("../models/shortlist");
@@ -13,6 +15,22 @@ router.get("/getLists", verifyToken, async (req, res, next) =>{
         return res.status(400).json({ message: "Error fetching Shortlists", error })
     }
 });
+
+// Route to get all lists created by the currently logged in user
+router.get("/getList/:id", verifyToken, async (req, res, next) =>{
+  try{
+      const userId = req.user.id;
+      const listId = req.params.id;
+      const found = await Shortlist.find( {user_id: userId, _id: listId} ).populate('shortlist');
+      if (!found) {
+        return res.status(404).json({ message: 'List not found' });
+      }
+      return res.json(found);
+  } catch (error) {
+      return res.status(400).json({ message: "Error fetching Shortlists", error })
+  }
+});
+
 
 // Route to create a new list
 router.post('/createList', verifyToken, async (req, res) => {
@@ -108,5 +126,34 @@ router.post('/removeFromList', verifyToken, async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+// Route to delete a shortlist
+router.post('/deleteList', verifyToken, async (req, res) => {
+  const { listId } = req.body;
+
+  // Validate input
+  if (!listId) {
+    return res.status(400).json({ error: 'listId is required' });
+  }
+
+  try {
+    // Find and delete the record
+    const deletedRecord = await Shortlist.findByIdAndDelete(listId);
+
+    // Check if the record was found and deleted
+    if (!deletedRecord) {
+      return res.status(404).json({ error: 'Record not found' });
+    }
+
+    // Return success response
+    res.status(200).json({
+      message: 'Record deleted successfully',
+      record: deletedRecord
+    });
+  } catch (error) {
+    console.error('Error deleting record:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 module.exports = router;

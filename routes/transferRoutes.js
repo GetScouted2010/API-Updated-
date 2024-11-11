@@ -114,4 +114,33 @@ router.get('/getAverages', verifyToken, async (req, res) => {
       }
     });
 
+    router.get('/listClubs', async (req, res) => {
+        try {
+            // Use aggregation to group by 'Club', select a representative 'UniqueID', and sort by 'Club'
+            const uniqueClubs = await TransferData.aggregate([
+              {
+                $group: {
+                  _id: '$Club',
+                  UniqueID: { $first: '$UniqueID' }, // Selects the first UniqueID found for each unique Club
+                },
+              },
+              {
+                $project: {
+                  _id: 0, // Exclude the default '_id' field from the output
+                  Club: '$_id', // Rename the grouped '_id' field to 'Club'
+                  UniqueID: 1, // Include the UniqueID field
+                },
+              },
+              {
+                $sort: { Club: 1 }, // Sorts the results by 'Club' in ascending order (alphabetical)
+              },
+            ]);
+        
+            res.json(uniqueClubs);
+          } catch (error) {
+            console.error('Error fetching unique clubs:', error);
+            res.status(500).json({ error: 'Internal server error.' });
+          }
+        });
+
 module.exports = router;

@@ -47,7 +47,7 @@ The API runs on port 3000, as defined in line 6 of index.js, if you wish to chan
 To stop running the server, use the keybind 'Control + C' whilst the bash window running the API is in focus.
 
 ## Routes
-Routes marked with an * do not require a bearer  token to access.
+Routes marked with an * do not require a bearer token to access.
 
 ### User Routes
 *POST /users/register - Requires a JSON body containing a 'username', 'password', 'email', 'fullname', 'role' and 'team'. Hashes and stores password, and returns user object upon sucessful creation
@@ -66,6 +66,10 @@ POST /shortlists/createList - Requires a JSON body containing a 'listName' value
 POST /shortlists/addToList - Requires a JSON body containing a 'listId' and 'playerId' (both are objectIds, one of the Shortlist element, and the other of the Player element). Upon posting, returns the updated shortlist with the newly added value.
 
 POST /shortists/removeFromList - Requires a JSON body containing a 'listId' and 'playerId' (both are objectIds, one of the Shortlist element, and the other of the Player element). Upon posting, returns the updated shortlist with the specified player object removed
+
+GET /shortlists/getList/:id - Return a shortlist from the shortlists collection where the :id matches the _id of the list object. Will only return the list if it is owned by the currently logged in user (extracted from bearer token)
+
+POST /shortlists/deleteList - Removes an entry from the shortlists collection. Requires a body containing the _id of the list as listId.
 
 ### Player Routes
 GET /players/getAll - Returns all players in the players collection
@@ -97,6 +101,8 @@ GET /transfers/get/:id - Returns transfers from the transferdata collection wher
 GET /transfers/find - Returns transfers that match the parameters of the query passed in through query params in the URL
 
 GET /transfers/getAverages - Returns the Minimum, Maximum, and Average values for the Age, Transfer Fee, and Market Value of the specified Club or UniqueID in query parameters. (params: Club || UniqueID)
+
+*GET /transfers/getClubs - Returns a list of all the unique clubs that have transfer data in the transferdata collection, and sorts them alphabetically.
 
 ### Compatibility Routes
 GET /compatibility/getAll - Returns all data in the compatibilityscores collection
