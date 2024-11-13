@@ -102,6 +102,47 @@ router.get("/getTeamsList", async (req, res, next) => {
   } catch (error) {
     return res.status(400).json({ message: "Error fetching list of teams", error })
   }
-})
+});
+
+// Route to allow the user to update either fullname or password
+router.put('/update', verifyToken, async (req, res) => {
+  const { fullname, oldPassword, newPassword } = req.body;
+  const userId = req.user.id; // Extract userId from req.user (set by verifyToken)
+
+  try {
+    // Find the user by ID
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Update fullname if provided
+    if (fullname) {
+      user.fullname = fullname;
+    }
+
+    // Update password if provided
+    if (oldPassword && newPassword) {
+      // Verify the old password
+      const isMatch = await bcrypt.compare(oldPassword, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ error: 'Old password is incorrect' });
+      }
+
+      // Hash the new password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(newPassword, salt);
+      user.password = hashedPassword;
+    }
+
+    // Save the updated user data
+    await user.save();
+
+    res.json({ message: 'Profile updated successfully', user: { fullname: user.fullname } });
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 
 module.exports = router;

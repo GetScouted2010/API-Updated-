@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const mongoose = require('mongoose');
 
 const verifyToken = require('../middleware/auth');
-
 const Shortlist = require("../models/shortlist");
 
 // Route to get all lists created by the currently logged in user
@@ -152,6 +150,48 @@ router.post('/deleteList', verifyToken, async (req, res) => {
     });
   } catch (error) {
     console.error('Error deleting record:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Route to Search for players inside a specified shortlist
+router.get('/searchList', verifyToken, async (req, res) => {
+  const { listId, playerName } = req.query;
+
+  if(!listId) {
+    return res.status(400).json({ error: 'listId query parameter is required' })
+  }
+
+  if (!playerName) {
+    return res.status(400).json({ error: 'playerName query parameter is required' });
+  }
+
+  try {
+    // Create a regular expression to match the playerName at the beginning of any word
+    const regex = new RegExp(`\\b${playerName}`, 'i'); // \b ensures word boundary, 'i' makes it case insensitive
+
+    // Query the specific Match document by _id and populate the Player data
+    const match = await Shortlist.findById(listId)
+      .populate({
+        path: 'shortlist', // assuming 'shortlist' is the field holding array of objectIDs referencing Player documents
+        match: { Player: { $regex: regex } } // Match players whose Player field starts with the given value (case insensitive)
+      })
+      .exec();
+
+    // Check if the match exists and has populated players
+    if (!match) {
+      return res.status(404).json({ error: 'Match not found' });
+    }
+
+    // Filter out the populated players if no matches are found
+    const filteredPlayers = match.players && match.players.length > 0 ? match.players : [];
+
+    res.json({
+      listId: match._id,
+      players: filteredPlayers
+    });
+  } catch (error) {
+    console.error('Error searching players:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

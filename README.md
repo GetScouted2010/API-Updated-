@@ -58,6 +58,8 @@ Routes marked with an * do not require a bearer token to access.
 
 GET /users/getUser - Gets details about the currently logged in user (pulled from Bearer Token)
 
+PUT /users/update - Allows for the updating of either the fullname or password of the currently logged in user (pulled from bearer token). Accepts the parameters fullname, oldPassword and newPassword. To change only the name, only the fullname parameter needs to be defined. To change the password, both oldPassword and newPassword need to be defined, but not fullname.
+
 ### Shortlist Routes
 GET /shortlists/getList - Gets all shortlists that are owned by the currently authenticated user
 
@@ -71,10 +73,12 @@ GET /shortlists/getList/:id - Return a shortlist from the shortlists collection 
 
 POST /shortlists/deleteList - Removes an entry from the shortlists collection. Requires a body containing the _id of the list as listId.
 
+GET /shortlists/searchList - Searches a specified list for players with any of their names starting with the value defined in the playerName parameter. Requires a listId paramater (objectId of the shortlist), and a playerName parameter.
+
 ### Player Routes
 GET /players/getAll - Returns all players in the players collection
 
-GET /players/get/:id - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId)
+GET /players/get/:id - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into Offensive, Defensive, Passing, Duels, and Goalkeeping statistics.
 
 GET /players/find - Returns players that match the parameters of the query passed in through query params in the URL
 
@@ -87,11 +91,17 @@ GET /players/filter - Returns all players that match the queryable filter parame
 ```
 This route allows for multiple query parameters using gte, lte, or =
 
-GET /players/csfilter - Returns all players that match the queryable filter parameter. 
-Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue
+GET /players/csfilter - Returns all players that match the queryable filter parameter. Also returns pagination metadata.
+
+Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, pageNumber, limitNumber
+
 team, minRating, maxRating: Specify a team, and the minimum and maximum compatibility score with said team.
+
 minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue: Specify a lower and upper boundry for the search terms.
-WIP: Additional Filters: selectTeam, selectPosition (ignore for now).
+
+selectTeam, selectPosition: Filter the results to only show Players that are from 'selectTeam' or that play in 'selectPosition'
+
+pageNumber, limitNumber: pageNumber defines which page of data to load, and limitNumber defines the number of records to return per page (default 10 records per page if not specified).
 
 ### Transfer Routes
 GET /transfers/getAll - Returns all transfer data in the transferdata collection
@@ -100,14 +110,18 @@ GET /transfers/get/:id - Returns transfers from the transferdata collection wher
 
 GET /transfers/find - Returns transfers that match the parameters of the query passed in through query params in the URL
 
-GET /transfers/getAverages - Returns the Minimum, Maximum, and Average values for the Age, Transfer Fee, and Market Value of the specified Club or UniqueID in query parameters. (params: Club || UniqueID)
+GET /transfers/getAverages - Returns the Minimum, Maximum, and Average values for the Age, Transfer Fee, and Market Value of the specified Club or UniqueID and Position in query parameters. Params: Club || UniqueID, Position.
 
-*GET /transfers/getClubs - Returns a list of all the unique clubs that have transfer data in the transferdata collection, and sorts them alphabetically.
+*GET /transfers/listClubs - Returns a list of all the unique clubs that have transfer data in the transferdata collection, and sorts them alphabetically.
+
+*GET /transfers/listPositions - Returns a list of all the unique positions that are contained in the transferdata collection
 
 ### Compatibility Routes
 GET /compatibility/getAll - Returns all data in the compatibilityscores collection
 
 GET /compatibility/get/:id - Returns the specified compatibility score data for the specified UniqueId (not objectId)
+
+*GET /compatibility/teamsList - Returns a list of all the teams that have compatibility scores calculated for them
 
 ### Playstyle Routes
 GET /playstyles/getAll - Returns all data in the playstyles collection
@@ -116,7 +130,7 @@ GET /playstyles/get/:id - Returns the specified playstyle data for the specified
 
 GET /playstyles/find - Returns playstyles that match the parameters of the query passed in through query params in the URL
 
-GET GET /playstyles/get/:id/graph - Returns the specified playstyle data for the specified UniqueId (not objectId) in radar graph data format
+GET /playstyles/get/:id/graph - Returns the specified playstyle data for the specified UniqueId (not objectId) in radar graph data format
 
 ### Position Routes
 GET /positions/get/:id - id params: uniqueId of the Player (not objectId). Returns a single object where the :id matches in the relevant positional data collection

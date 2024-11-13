@@ -23,4 +23,22 @@ router.get("/get/:id", verifyToken, async ({params: { id } }, res, next) =>{
     }
 });
 
+// Route to get all teams that have compatibility scores
+router.get("/teamsList", async (req, res) => {
+    try{
+        const found = await CompatibilityScores.findOne().lean();
+        if(!found){
+            return res.status(404).json({ message: 'No documents found in the collection' });
+        }
+
+        const fields = Object.keys(found).filter(
+            (field) => field !== '_id' && field !== 'UniqueID' && field !== 'Position'
+        );
+
+        res.json(fields);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while retrieving field names' });
+    }
+});
+
 module.exports = router;

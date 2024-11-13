@@ -16,8 +16,136 @@ router.get("/getAll", verifyToken, async (req, res, next) => {
 router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
   try {
     const found = await Player.findOne({ UniqueID: id });
+
     if (!found) return next({ status: 404, message: 'No Player with the ID: ${id}' });
-    return res.json(found);
+
+    const transformedResult = {
+      _id: found._id,
+      UniqueID: found.UniqueID,
+      Player: found.Player,
+      Team: found.Team,
+      Team_within_selected_timeframe: found.Team_within_selected_timeframe,
+      Birth_country: found.Birth_country,
+      Passport_country: found.Passport_country,
+      On_loan: found.On_loan,
+      Position: found.Position,
+      Total_Score: found.Total_Score,
+      Age: found.Age,
+      Foot: found.Foot,
+      Height: found.Height,
+      Weight: found.Weight,
+      Market_value: found.Market_value,
+      Short_Market_Value: found.Short_Market_Value,
+      Contract_expires: found.Contract_expires,
+      Minutes_played: found.Minutes_played,
+      Matches_played: found.Matches_played,
+      Offensive: {
+        Goals: found.Goals,
+        xG: found.xG,
+        Assists: found.Assists,
+        xA: found.xA,
+        xA_per_90: found.xA_per_90,
+        Shot_assists_per_90: found.Shot_assists_per_90,
+        Second_assists_per_90: found.Second_assists_per_90,
+        Third_assists_per_90: found.Third_assists_per_90,
+        Duels_per_90: found.Duels_per_90,
+        Duels_won_percentage: found.Duels_won_percentage,
+        Fouls_per_90: found.Fouls_per_90,
+        Successful_attacking_actions_per_90: found.Successful_attacking_actions_per_90,
+        Goals_per_90: found.Goals_per_90,
+        Non_penalty_goals: found.Non_penalty_goals,
+        Non_penalty_goals_per_90: found.Non_penalty_goals_per_90,
+        xG_per_90: found.xG_per_90,
+        Head_goals: found.Head_goals,
+        Head_goals_per_90: found.Head_goals_per_90,
+        Shots: found.Shots,
+        Shots_per_90: found.Shots_per_90,
+        Shots_on_target_percentage: found.Shots_on_target_percentage,
+        Goal_conversion_percentage: found.Goal_conversion_percentage,
+        Assists_per_90: found.Assists_per_90,
+        Dribbles_per_90: found.Dribbles_per_90,
+        Successful_dribbles_percentage: found.Successful_drribles_percentage,
+        Offensive_duels_per_90: found.Offensive_duels_per_90,
+        Offensive_duels_won_percentage: found.Offensive_duels_won_percentage,
+        Touches_in_box_per_90: found.Touches_in_box_per_90,
+        Progressive_runs_per_90: found.Progressive_runs_per_90,
+        Accelerations_per_90: found.Accelerations_per_90,
+        Free_kicks_per_90: found.Free_kicks_per_90,
+        Direct_free_kicks_per_90: found.Direct_free_kicks_per_90,
+        Direct_free_kicks_on_target_percentage: found.Direct_free_kicks_on_target_percentage,
+        Corners_per_90: found.Corners_per_90,
+        Penalties_taken: found.Penalties_taken,
+        Penalty_conversion_percentage: found.Penalty_conversion_percentage
+      },
+      Defensive: {
+        Successful_defensive_actions_per_90: found.Successful_defensive_actions_per_90,
+        Defensive_duels_per_90: found.Defensive_duels_per_90,
+        Defensive_duels_won_percentage: found.Defensive_duels_won_percentage,
+        Shots_blocked_per_90: found.Shots_blocked_per_90,
+        Interceptions_per_90: found.Interceptions_per_90,
+        PAdj_Interceptions: found.PAdj_Interceptions
+      },
+      Passing: {
+        Crosses_per_90: found.Crosses_per_90,
+        Accurate_crosses_percentage: found.Accurate_crosses_percentage,
+        Crosses_from_left_flank_per_90: found.Crosses_from_left_flank_per_90,
+        Accurate_crosses_from_left_flank_percentage: found.Accurate_crosses_from_left_flank_percentage,
+        Crosses_from_right_flank_per_90: found.Crosses_from_right_flank_per_90,
+        Accurate_crosses_from_right_flank_percentage: found.Accurate_crosses_from_right_flank_percentage,
+        Crosses_to_goalie_box_per_90: found.Crosses_to_goalie_box_per_90,
+        Received_passes_per_90: found.Received_passes_per_90,
+        Received_long_passes_per_90: found.Received_long_passes_per_90,
+        Passes_per_90: found.Passes_per_90,
+        Accurate_passes_percentage: found.Accurate_passes_percentage,
+        Forward_passes_per_90: found.Forward_passes_per_90,
+        Accurate_forward_passes_percentage: found.Accurate_forward_passes_percentage,
+        Back_passes_per_90: found.Back_passes_per_90,
+        Accurate_back_passes_percentage: found.Accurate_back_passes_percentage,
+        Lateral_passes_per_90: found.Lateral_passes_per_90,
+        Accurate_lateral_passes_percentage: found.Accurate_lateral_passes_percentage,
+        Short_medium_passes_per_90: found.Short_medium_passes_per_90,
+        Accurate_short_medium_passes_percentage: found.Accurate_short_medium_passes_percentage,
+        Long_passes_per_90: found.Long_passes_per_90,
+        Accurate_long_passes_percentage: found.Accurate_long_passes_percentage,
+        Average_pass_length_m: found.Average_pass_length_m,
+        Average_long_pass_length_m: found.Average_long_pass_length_m,
+        Smart_passes_per_90: found.Smart_passses_per_90,
+        Accurate_smart_passes_percentage: found.Accurate_smart_passes_percentage,
+        Key_passes_per_90: found.Key_passes_per_90,
+        Passes_to_final_third_per_90: found.Passes_to_final_third_per_90,
+        Accurate_passes_to_final_third_percentage: found.Accurate_passes_to_final_third_percentage,
+        Passes_to_penalty_area_per_90: found.Passes_to_penalty_area_per_90,
+        Accurate_passes_to_penalty_area_percentage: found.Accurate_passes_to_penalty_area_percentage,
+        Through_passes_per_90: found.Through_passes_per_90,
+        Accurate_through_passes_percentage: found.Accurate_through_passes_percentage,
+        Deep_completions_per_90: found.Deep_completions_per_90,
+        Deep_completed_crosses_per_90: found.Deep_completed_crosses_per_90,
+        Progressive_passes_per_90: found.Progressive_passes_per_90,
+        Accurate_progressive_passes_percentage: found.Accurate_progressive_passes_percentage
+      },
+      Duels: {
+        Aerial_duels_per_90: found.Aerial_duels_per_90,
+        Aerial_duels_won_percentage: found.Aerial_duels_won_percentage,
+        Sliding_tackles_per_90: found.Sliding_tackles_per_90,
+        PAdj_Sliding_tackles: found.PAdj_Sliding_tackles,
+        Fouls_suffered_per_90: found.Fouls_suffered_per_90
+      },
+      Goalkeeping: {
+        Conceded_goals: found.Conceded_goals,
+        Conceded_goals_per_90: found.Conceded_goals_per_90,
+        Shots_against: found.Shots_against,
+        Shots_against_per_90: found.Shots_against_per_90,
+        Clean_sheets: found.Clean_sheets,
+        Save_rate_percentage: found.Save_rate_percentage,
+        xG_against: found.xG_against,
+        xG_against_per_90: found.xG_against_per_90,
+        Prevented_goals: found.Prevented_goals,
+        Prevented_goals_per_90: found.Prevented_goals_per_90,
+        Back_passes_received_as_GK_per_90: found.Back_passes_received_as_GK_per_90,
+        Exits_per_90: found.Exits_per_90
+      }
+    }
+    return res.json(transformedResult);
   } catch (error) {
     return res.status(500).json({ message: "Error fetching Players", error })
   }
@@ -102,9 +230,9 @@ router.get('/filter', verifyToken, async (req, res) => {
   }
 });
 
-// WIP - Filter route against Compatability Score
+// Filter route against Compatability Score - Paginated
 router.get('/csfilter', verifyToken, async (req, res) => {
-  const { team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, selectTeam, selectPosition } = req.query;
+  const { team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, selectTeam, selectPosition, page = 1, limit = 10 } = req.query;
 
   // Parse rating and other filters as floats, if provided
   const minRatingValue = minRating ? parseFloat(minRating) : null;
@@ -116,9 +244,12 @@ router.get('/csfilter', verifyToken, async (req, res) => {
   const minMarketValueValue = minMarketValue ? parseFloat(minMarketValue) : null;
   const maxMarketValueValue = maxMarketValue ? parseFloat(maxMarketValue) : null;
 
+  const pageNumber = parseInt(page, 10);
+  const limitNumber = parseInt(limit, 10);
+
   try {
 
-    const playersWithFilteredRatings = await Player.aggregate([
+    const basePipeline = [
       // Step 1: Lookup the compatibilityscores collection to get matching ratings by UniqueID
       {
         $lookup: {
@@ -165,8 +296,21 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           ...(maxMarketValueValue !== null && { Market_value: { $lte: maxMarketValueValue } }),
         },
       },
+    ];
 
-      // Step 4: Project the data to include only necessary fields
+    // Step 5: Count total number of filtered records
+    const totalRecordsResult = await Player.aggregate([
+      ...basePipeline,
+      { $count: "totalRecords" }
+    ]);
+    const totalRecords = totalRecordsResult.length > 0 ? totalRecordsResult[0].totalRecords : 0;
+    const totalPages = Math.ceil(totalRecords / limitNumber);
+
+    // Step 6: Add pagination stages
+    const paginatedPipeline = [
+      ...basePipeline,
+      { $skip: (pageNumber - 1) * limitNumber },
+      { $limit: limitNumber },
       {
         $project: {
           _id: 1,
@@ -183,9 +327,23 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           Matches_played: 1
         },
       },
-    ]);
+    ];
 
-    res.json(playersWithFilteredRatings);
+    // Step 7: Execute pagination query
+    const playersWithFilteredRatings = await Player.aggregate(paginatedPipeline);
+
+    // Step 8: Construct response with pagination metadata
+    const response = {
+      totalRecords,
+      totalPages,
+      currentPage: pageNumber,
+      pageSize: limitNumber,
+      hasNextPage: pageNumber < totalPages,
+      hasPreviousPage: pageNumber > 1,
+      data: playersWithFilteredRatings,
+    }
+
+    res.json(response);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });

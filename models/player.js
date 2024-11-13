@@ -362,7 +362,7 @@ const playerSchema = new Schema({
         type: Number,
         required: true,
     },
-    Accurate_smart_passses_percentage: {
+    Accurate_smart_passes_percentage: {
         type: Number,
         required: true,
     },
