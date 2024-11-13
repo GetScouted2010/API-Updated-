@@ -148,7 +148,7 @@ router.get('/listClubs', async (req, res) => {
   }
 });
 
-router.get('/listPositions', verifyToken, async (req, res) => {
+router.get('/listPositions', async (req, res) => {
   try {
     // Aggregate the collection to find distinct 'Short_Position' values
     const positions = await TransferData.aggregate([
