@@ -334,12 +334,14 @@ router.get('/csfilter', verifyToken, async (req, res) => {
 
     // Step 8: Construct response with pagination metadata
     const response = {
-      totalRecords,
-      totalPages,
-      currentPage: pageNumber,
-      pageSize: limitNumber,
-      hasNextPage: pageNumber < totalPages,
-      hasPreviousPage: pageNumber > 1,
+      pageInfo :{
+        totalRecords,
+        totalPages,
+        currentPage: pageNumber,
+        pageSize: limitNumber,
+        hasNextPage: pageNumber < totalPages,
+        hasPreviousPage: pageNumber > 1,
+      },
       data: playersWithFilteredRatings,
     }
 
