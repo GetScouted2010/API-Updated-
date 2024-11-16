@@ -39,6 +39,8 @@ router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
       Contract_expires: found.Contract_expires,
       Minutes_played: found.Minutes_played,
       Matches_played: found.Matches_played,
+      Yellow_cards: found.Yellow_cards,
+      Red_cards: found.Red_cards,
       Offensive: {
         Goals: found.Goals,
         xG: found.xG,
@@ -64,7 +66,7 @@ router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
         Goal_conversion_percentage: found.Goal_conversion_percentage,
         Assists_per_90: found.Assists_per_90,
         Dribbles_per_90: found.Dribbles_per_90,
-        Successful_dribbles_percentage: found.Successful_drribles_percentage,
+        Successful_dribbles_percentage: found.Successful_dribbles_percentage,
         Offensive_duels_per_90: found.Offensive_duels_per_90,
         Offensive_duels_won_percentage: found.Offensive_duels_won_percentage,
         Touches_in_box_per_90: found.Touches_in_box_per_90,
@@ -109,7 +111,7 @@ router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
         Accurate_long_passes_percentage: found.Accurate_long_passes_percentage,
         Average_pass_length_m: found.Average_pass_length_m,
         Average_long_pass_length_m: found.Average_long_pass_length_m,
-        Smart_passes_per_90: found.Smart_passses_per_90,
+        Smart_passes_per_90: found.Smart_passes_per_90,
         Accurate_smart_passes_percentage: found.Accurate_smart_passes_percentage,
         Key_passes_per_90: found.Key_passes_per_90,
         Passes_to_final_third_per_90: found.Passes_to_final_third_per_90,
@@ -334,12 +336,14 @@ router.get('/csfilter', verifyToken, async (req, res) => {
 
     // Step 8: Construct response with pagination metadata
     const response = {
-      totalRecords,
-      totalPages,
-      currentPage: pageNumber,
-      pageSize: limitNumber,
-      hasNextPage: pageNumber < totalPages,
-      hasPreviousPage: pageNumber > 1,
+      pageInfo:{
+        totalRecords,
+        totalPages,
+        currentPage: pageNumber,
+        pageSize: limitNumber,
+        hasNextPage: pageNumber < totalPages,
+        hasPreviousPage: pageNumber > 1,
+      },
       data: playersWithFilteredRatings,
     }
 
@@ -349,5 +353,677 @@ router.get('/csfilter', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// Route to pull overall graph data for specified player
+router.get("/get/:id/graph/overall", verifyToken, async ({ params: { id } }, res, next) => {
+  try {
+    const found = await Player.findOne({ UniqueID: id });
+
+    if (!found) return next({ status: 404, message: 'No Player with the ID: ${id}' });
+
+    let formattedData = null;
+    let finalData = null;
+    // If the player is not a Goalkeeper
+    if (found.Position !== "GK"){
+      // Format required data
+      formattedData = {
+        "Player": found.Player,
+        Offensive: [
+          {label: "Goals per 90", score: found.Goals_per_90},
+          {label: "Expected Goals per 90", score: found.xG_per_90},
+          {label: "Shots per 90", score: found.Shots_per_90},
+          {label: "Assists per 90", score: found.Assists_per_90},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Successful dribbles %", score: found.Successful_dribbles_percentage},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Progressive runs per 90", score: found.Progressive_runs_per_90},
+          {label: "Shots on target %", score: found.Shots_on_target_percentage},
+          {label: "Non-penalty goals per 90", score: found.Non_penalty_goals_per_90}
+          ]
+        ,
+        Defensive: [
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90},
+          {label: "Defensive duels won %", score: found.Defensive_duels_won_percentage},
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Sucessful defensive actions per 90", score: found.Successful_defensive_actions_per_90},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage},
+          {label: "Fouls per 90", score: found.Fouls_per_90},
+          {label: "Sliding tackles per 90", score: found.Sliding_tackles_per_90},
+          {label: "PAdj Sliding Tackles", score: found.PAdj_Sliding_tackles},
+          {label: "Shots blocked per 90", score: found.Shots_blocked_per_90}
+        ],
+        Passing: [
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Passes to final third per 90", score: found.Passes_to_final_third_per_90},
+          {label: "Smart passes per 90", score: found.Smart_passes_per_90},
+          {label: "Through passes per 90", score: found.Through_passes_per_90},
+          {label: "Passes to penalty area per 90", score: found.Passes_to_penalty_area_per_90},    
+          {label: "Accurate passes to final third %", score: found.Accurate_passes_to_final_third_percentage},
+          {label: "Accurate through passes %", score: found.Accurate_through_passes_percentage}
+        ],
+        Duels: [
+          {label: "Offensive duels per 90", score: found.Offensive_duels_per_90},
+          {label: "Offensive duels won %", score: found.Offensive_duels_won_percentage},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage}
+        ]
+      }
+
+      // Aggregation pipeline to pull the team averages
+      const averagesResult = await Player.aggregate([
+        {
+          $match: { Team_within_selected_timeframe: found.Team_within_selected_timeframe, Position: found.Position } // Filter documents where Team and position matches from the initial found player
+        },
+        {
+          $group: {
+            _id: null, // Grouping by null to aggregate across all matching documents
+            Goals_per_90: { $avg: '$Goals_per_90' },
+            xG_per_90: { $avg: '$xG_per_90' },
+            Shots_per_90: { $avg: '$Shots_per_90' },
+            Assists_per_90: { $avg: '$Assists_per_90' },
+            Dribbles_per_90: { $avg: '$Dribbles_per_90' },
+            Successful_dribbles_percentage: { $avg: '$Successful_dribbles_percentage' },
+            Key_passes_per_90: { $avg: '$Key_passes_per_90' },
+            Progressive_runs_per_90: { $avg: '$Progressive_runs_per_90' },
+            Shots_on_target_percentage: { $avg: '$Shots_on_target_percentage' },
+            Non_penalty_goals_per_90: { $avg: '$Non_penalty_goals_per_90' },
+
+            Defensive_duels_per_90: { $avg: '$Defensive_duels_per_90' },
+            Defensive_duels_won_percentage: { $avg: '$Defensive_duels_won_percentage' },
+            Interceptions_per_90: { $avg: '$Interceptions_per_90' },
+            Successful_defensive_actions_per_90: { $avg: '$Successful_defensive_actions_per_90' },
+            Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+            Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+            Fouls_per_90: { $avg: '$Fouls_per_90' },
+            Sliding_tackles_per_90: { $avg: '$Sliding_tackles_per_90' },
+            PAdj_Sliding_tackles: { $avg: '$PAdj_Sliding_tackles' },
+            Shots_blocked_per_90: { $avg: '$Shots_blocked_per_90' },
+
+            Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+            Passes_per_90: { $avg: '$Passes_per_90' },
+            Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+            Key_passes_per_90: { $avg: '$Key_passes_per_90' },
+            Passes_to_final_third_per_90: { $avg: '$Passes_to_final_third_per_90' },
+            Smart_passes_per_90: { $avg: '$Smart_passes_per_90' },
+            Through_passes_per_90: { $avg: '$Through_passes_per_90' },
+            Passes_to_penalty_area_per_90: { $avg: '$Passes_to_penalty_area_per_90' },
+            Accurate_passes_to_final_third_percentage: { $avg: '$Accurate_passes_to_final_third_percentage' },
+            Accurate_through_passes_percentage: { $avg: '$Accurate_through_passes_percentage' },
+
+            Offensive_duels_per_90: { $avg: '$Offensive_duels_per_90' },
+            Offensive_duels_won_percentage: { $avg: '$Offensive_duels_won_percentage' },
+            Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+            Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+          },
+        },
+      ]);
+
+      // If no matching data, set all average fields to null in one step
+    const averages = averagesResult.length > 0 ? averagesResult[0] : {};
+
+    // Handle rounding and set defaults using a loop
+    const roundedAverages = {};
+    for (const [key, value] of Object.entries(averages)) {
+      roundedAverages[key] = value !== undefined ? Math.round(value * 100) / 100 : null;
+    }
+
+    // Aggregation pipeline to pull the averages from the league
+    const leagueAveragesResult = await Player.aggregate([
+      {
+        $match: { Position: found.Position } // Filter documents where Position is equal to the Position of the found player above
+      },
+      {
+        $group: {
+          _id: null, // Grouping by null to aggregate across all matching documents
+          Goals_per_90: { $avg: '$Goals_per_90' },
+          xG_per_90: { $avg: '$xG_per_90' },
+          Shots_per_90: { $avg: '$Shots_per_90' },
+          Assists_per_90: { $avg: '$Assists_per_90' },
+          Dribbles_per_90: { $avg: '$Dribbles_per_90' },
+          Successful_dribbles_percentage: { $avg: '$Successful_dribbles_percentage' },
+          Key_passes_per_90: { $avg: '$Key_passes_per_90' },
+          Progressive_runs_per_90: { $avg: '$Progressive_runs_per_90' },
+          Shots_on_target_percentage: { $avg: '$Shots_on_target_percentage' },
+          Non_penalty_goals_per_90: { $avg: '$Non_penalty_goals_per_90' },
+
+          Defensive_duels_per_90: { $avg: '$Defensive_duels_per_90' },
+          Defensive_duels_won_percentage: { $avg: '$Defensive_duels_won_percentage' },
+          Interceptions_per_90: { $avg: '$Interceptions_per_90' },
+          Successful_defensive_actions_per_90: { $avg: '$Successful_defensive_actions_per_90' },
+          Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+          Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+          Fouls_per_90: { $avg: '$Fouls_per_90' },
+          Sliding_tackles_per_90: { $avg: '$Sliding_tackles_per_90' },
+          PAdj_Sliding_tackles: { $avg: '$PAdj_Sliding_tackles' },
+          Shots_blocked_per_90: { $avg: '$Shots_blocked_per_90' },
+
+          Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+          Passes_per_90: { $avg: '$Passes_per_90' },
+          Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+          Key_passes_per_90: { $avg: '$Key_passes_per_90' },
+          Passes_to_final_third_per_90: { $avg: '$Passes_to_final_third_per_90' },
+          Smart_passes_per_90: { $avg: '$Smart_passes_per_90' },
+          Through_passes_per_90: { $avg: '$Through_passes_per_90' },
+          Passes_to_penalty_area_per_90: { $avg: '$Passes_to_penalty_area_per_90' },
+          Accurate_passes_to_final_third_percentage: { $avg: '$Accurate_passes_to_final_third_percentage' },
+          Accurate_through_passes_percentage: { $avg: '$Accurate_through_passes_percentage' },
+
+          Offensive_duels_per_90: { $avg: '$Offensive_duels_per_90' },
+          Offensive_duels_won_percentage: { $avg: '$Offensive_duels_won_percentage' },
+          Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+          Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+        },
+      },
+    ]);
+
+    // If no matching data, set all average fields to null in one step
+  const leagueAverage = leagueAveragesResult.length > 0 ? leagueAveragesResult[0] : {};
+
+  // Handle rounding and set defaults using a loop
+  const leagueRoundedAverages = {};
+  for (const [key, value] of Object.entries(leagueAverage)) {
+    leagueRoundedAverages[key] = value !== undefined ? Math.round(value * 100) / 100 : null;
+  }
+      
+        finalData = ({
+          playerData: formattedData,
+          teamData: {
+            Team: found.Team_within_selected_timeframe,
+            Position: found.Position,
+            Offensive: [
+              {label: "Goals per 90", score: roundedAverages.Goals_per_90},
+              {label: "Expected Goals per 90", score: roundedAverages.xG_per_90},
+              {label: "Shots per 90", score: roundedAverages.Shots_per_90},
+              {label: "Assists per 90", score: roundedAverages.Assists_per_90},
+              {label: "Dribbles per 90", score: roundedAverages.Dribbles_per_90},
+              {label: "Successful dribbles %", score: roundedAverages.Successful_dribbles_percentage},
+              {label: "Key passes per 90", score: roundedAverages.Key_passes_per_90},
+              {label: "Progressive runs per 90", score: roundedAverages.Progressive_runs_per_90},
+              {label: "Shots on target %", score: roundedAverages.Shots_on_target_percentage},
+              {label: "Non-penalty goals per 90", score: roundedAverages.Non_penalty_goals_per_90}
+            ],
+            Defensive: [
+              {label: "Defensive duels per 90", score: roundedAverages.Defensive_duels_per_90},
+              {label: "Defensive duels won %", score: roundedAverages.Defensive_duels_won_percentage},
+              {label: "Interceptions per 90", score: roundedAverages.Interceptions_per_90},
+              {label: "Sucessful defensive actions per 90", score: roundedAverages.Successful_defensive_actions_per_90},
+              {label: "Aerial duels per 90", score: roundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: roundedAverages.Aerial_duels_won_percentage},
+              {label: "Fouls per 90", score: roundedAverages.Fouls_per_90},
+              {label: "Sliding tackles per 90", score: roundedAverages.Sliding_tackles_per_90},
+              {label: "PAdj Sliding Tackles", score: roundedAverages.PAdj_Sliding_tackles},
+              {label: "Shots blocked per 90", score: roundedAverages.Shots_blocked_per_90}
+            ],
+            Passing: [
+              {label: "Pass completion %", score: roundedAverages.Accurate_passes_percentage},
+              {label: "Passes per 90", score: roundedAverages.Passes_per_90},
+              {label: "Progressive passes per 90", score: roundedAverages.Progressive_passes_per_90},
+              {label: "Key passes per 90", score: roundedAverages.Key_passes_per_90},
+              {label: "Passes to final third per 90", score: roundedAverages.Passes_to_final_third_per_90},
+              {label: "Smart passes per 90", score: roundedAverages.Smart_passes_per_90},
+              {label: "Through passes per 90", score: roundedAverages.Through_passes_per_90},
+              {label: "Passes to penalty area per 90", score: roundedAverages.Passes_to_penalty_area_per_90},    
+              {label: "Accurate passes to final third %", score: roundedAverages.Accurate_passes_to_final_third_percentage},
+              {label: "Accurate through passes %", score: roundedAverages.Accurate_through_passes_percentage}
+            ],
+            Duels: [
+              {label: "Offensive duels per 90", score: roundedAverages.Offensive_duels_per_90},
+              {label: "Offensive duels won %", score: roundedAverages.Offensive_duels_won_percentage},
+              {label: "Aerial duels per 90", score: roundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: roundedAverages.Aerial_duels_won_percentage}
+            ]
+          },
+          leagueData: {
+            Position: found.Position,
+            Offensive: [
+              {label: "Goals per 90", score: leagueRoundedAverages.Goals_per_90},
+              {label: "Expected Goals per 90", score: leagueRoundedAverages.xG_per_90},
+              {label: "Shots per 90", score: leagueRoundedAverages.Shots_per_90},
+              {label: "Assists per 90", score: leagueRoundedAverages.Assists_per_90},
+              {label: "Dribbles per 90", score: leagueRoundedAverages.Dribbles_per_90},
+              {label: "Successful dribbles %", score: leagueRoundedAverages.Successful_dribbles_percentage},
+              {label: "Key passes per 90", score: leagueRoundedAverages.Key_passes_per_90},
+              {label: "Progressive runs per 90", score: leagueRoundedAverages.Progressive_runs_per_90},
+              {label: "Shots on target %", score: leagueRoundedAverages.Shots_on_target_percentage},
+              {label: "Non-penalty goals per 90", score: leagueRoundedAverages.Non_penalty_goals_per_90}
+            ],
+            Defensive: [
+              {label: "Defensive duels per 90", score: leagueRoundedAverages.Defensive_duels_per_90},
+              {label: "Defensive duels won %", score: leagueRoundedAverages.Defensive_duels_won_percentage},
+              {label: "Interceptions per 90", score: leagueRoundedAverages.Interceptions_per_90},
+              {label: "Sucessful defensive actions per 90", score: leagueRoundedAverages.Successful_defensive_actions_per_90},
+              {label: "Aerial duels per 90", score: leagueRoundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: leagueRoundedAverages.Aerial_duels_won_percentage},
+              {label: "Fouls per 90", score: leagueRoundedAverages.Fouls_per_90},
+              {label: "Sliding tackles per 90", score: leagueRoundedAverages.Sliding_tackles_per_90},
+              {label: "PAdj Sliding Tackles", score: leagueRoundedAverages.PAdj_Sliding_tackles},
+              {label: "Shots blocked per 90", score: leagueRoundedAverages.Shots_blocked_per_90}
+            ],
+            Passing: [
+              {label: "Pass completion %", score: leagueRoundedAverages.Accurate_passes_percentage},
+              {label: "Passes per 90", score: leagueRoundedAverages.Passes_per_90},
+              {label: "Progressive passes per 90", score: leagueRoundedAverages.Progressive_passes_per_90},
+              {label: "Key passes per 90", score: leagueRoundedAverages.Key_passes_per_90},
+              {label: "Passes to final third per 90", score: leagueRoundedAverages.Passes_to_final_third_per_90},
+              {label: "Smart passes per 90", score: leagueRoundedAverages.Smart_passes_per_90},
+              {label: "Through passes per 90", score: leagueRoundedAverages.Through_passes_per_90},
+              {label: "Passes to penalty area per 90", score: leagueRoundedAverages.Passes_to_penalty_area_per_90},    
+              {label: "Accurate passes to final third %", score: leagueRoundedAverages.Accurate_passes_to_final_third_percentage},
+              {label: "Accurate through passes %", score: leagueRoundedAverages.Accurate_through_passes_percentage}
+            ],
+            Duels: [
+              {label: "Offensive duels per 90", score: leagueRoundedAverages.Offensive_duels_per_90},
+              {label: "Offensive duels won %", score: leagueRoundedAverages.Offensive_duels_won_percentage},
+              {label: "Aerial duels per 90", score: leagueRoundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: leagueRoundedAverages.Aerial_duels_won_percentage}
+            ]
+          }
+      })
+    }  
+
+    // If the player is a Goalkeeper
+    else {
+      formattedData = {
+        "Player": found.Player,
+        Offensive: [
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90}
+        ],
+        Defensive: [
+          {label: "Save rate %", score: found.Save_rate_percentage},
+          {label: "Conceded goals per 90", score: found.Conceded_goals_per_90},
+          {label: "Shots against per 90", score: found.Shots_against_per_90},
+          {label: "Clean sheets", score: found.Clean_sheets},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage}
+        ],
+        Passing: [
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes to final third per 90", score: found.Passes_to_final_third_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90}
+        ],
+        Duels: [
+          {label: "Duels per 90", score: found.Duels_per_90},
+          {label: "Duels won %", score: found.Duels_won_percentage},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage}
+        ]
+      }
+
+      // Aggregation pipeline to pull the team averages
+      const averagesResult = await Player.aggregate([
+        {
+          $match: { Team_within_selected_timeframe: found.Team_within_selected_timeframe, Position: found.Position } // Filter documents where Team and Position match that of the found player
+        },
+        {
+          $group: {
+            _id: null, // Grouping by null to aggregate across all matching documents
+            Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+            Passes_per_90: { $avg: '$Passes_per_90' },
+            Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+
+            Save_rate_percentage: { $avg: '$Save_rate_percentage' },
+            Conceded_goals_per_90: { $avg: '$Conceded_goals_per_90' },
+            Shots_against_per_90: { $avg: '$Shots_against_per_90' },
+            Clean_sheets: { $avg: '$Clean_sheets' },
+            Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+            Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+
+            Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+            Passes_to_final_third_per_90: { $avg: '$Passes_to_final_third_per_90' },
+            Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+
+            Duels_per_90: { $avg: '$Duels_per_90' },
+            Duels_won_percentage: { $avg: '$Duels_won_percentage' },
+            Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+            Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+          },
+        },
+      ]);
+
+      // If no matching data, set all average fields to null in one step
+    const averages = averagesResult.length > 0 ? averagesResult[0] : {};
+
+    // Handle rounding and set defaults using a loop
+    const roundedAverages = {};
+    for (const [key, value] of Object.entries(averages)) {
+      roundedAverages[key] = value !== undefined ? Math.round(value * 100) / 100 : null;
+    }
+
+    // Aggregation pipeline to pull the league averages
+    const leagueAveragesResult = await Player.aggregate([
+      {
+        $match: { Position: found.Position } // Filter documents where Position matches that of found player above
+      },
+      {
+        $group: {
+          _id: null, // Grouping by null to aggregate across all matching documents
+          Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+          Passes_per_90: { $avg: '$Passes_per_90' },
+          Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+
+          Save_rate_percentage: { $avg: '$Save_rate_percentage' },
+          Conceded_goals_per_90: { $avg: '$Conceded_goals_per_90' },
+          Shots_against_per_90: { $avg: '$Shots_against_per_90' },
+          Clean_sheets: { $avg: '$Clean_sheets' },
+          Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+          Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+
+          Accurate_passes_percentage: { $avg: '$Accurate_passes_percentage' },
+          Passes_to_final_third_per_90: { $avg: '$Passes_to_final_third_per_90' },
+          Progressive_passes_per_90: { $avg: '$Progressive_passes_per_90' },
+
+          Duels_per_90: { $avg: '$Duels_per_90' },
+          Duels_won_percentage: { $avg: '$Duels_won_percentage' },
+          Aerial_duels_per_90: { $avg: '$Aerial_duels_per_90' },
+          Aerial_duels_won_percentage: { $avg: '$Aerial_duels_won_percentage' },
+        },
+      },
+    ]);
+
+    // If no matching data, set all average fields to null in one step
+  const leagueAverages = leagueAveragesResult.length > 0 ? leagueAveragesResult[0] : {};
+
+  // Handle rounding and set defaults using a loop
+  const leagueRoundedAverages = {};
+  for (const [key, value] of Object.entries(leagueAverages)) {
+    leagueRoundedAverages[key] = value !== undefined ? Math.round(value * 100) / 100 : null;
+  }
+
+      
+        finalData = ({
+          playerData: formattedData,
+          teamData: {
+            Team: found.Team_within_selected_timeframe,
+            Position: found.Position,
+            Offensive: [
+              {label: "Pass completion %", score: roundedAverages.Accurate_passes_percentage},
+              {label: "Passes per 90", score: roundedAverages.Passes_per_90},
+              {label: "Progressive passes per 90", score: roundedAverages.Progressive_passes_per_90}
+            ],
+            Defensive: [
+              {label: "Save rate %", score: roundedAverages.Save_rate_percentage},
+              {label: "Conceded goals per 90", score: roundedAverages.Conceded_goals_per_90},
+              {label: "Shots against per 90", score: roundedAverages.Shots_against_per_90},
+              {label: "Clean sheets", score: roundedAverages.Clean_sheets},
+              {label: "Aerial duels per 90", score: roundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: roundedAverages.Aerial_duels_won_percentage}
+            ],
+            Passing: [
+              {label: "Pass completion %", score: roundedAverages.Accurate_passes_percentage},
+              {label: "Passes to final third per 90", score: roundedAverages.Passes_to_final_third_per_90},
+              {label: "Progressive passes per 90", score: roundedAverages.Progressive_passes_per_90}
+            ],
+            Duels: [
+              {label: "Duels per 90", score: roundedAverages.Duels_per_90},
+              {label: "Duels won %", score: roundedAverages.Duels_won_percentage},
+              {label: "Aerial duels per 90", score: roundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: roundedAverages.Aerial_duels_won_percentage}
+            ]
+          },
+          leagueData: {
+            Position: found.Position,
+            Offensive: [
+              {label: "Pass completion %", score: leagueRoundedAverages.Accurate_passes_percentage},
+              {label: "Passes per 90", score: leagueRoundedAverages.Passes_per_90},
+              {label: "Progressive passes per 90", score: leagueRoundedAverages.Progressive_passes_per_90}
+            ],
+            Defensive: [
+              {label: "Save rate %", score: leagueRoundedAverages.Save_rate_percentage},
+              {label: "Conceded goals per 90", score: leagueRoundedAverages.Conceded_goals_per_90},
+              {label: "Shots against per 90", score: leagueRoundedAverages.Shots_against_per_90},
+              {label: "Clean sheets", score: leagueRoundedAverages.Clean_sheets},
+              {label: "Aerial duels per 90", score: leagueRoundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: leagueRoundedAverages.Aerial_duels_won_percentage}
+            ],
+            Passing: [
+              {label: "Pass completion %", score: leagueRoundedAverages.Accurate_passes_percentage},
+              {label: "Passes to final third per 90", score: leagueRoundedAverages.Passes_to_final_third_per_90},
+              {label: "Progressive passes per 90", score: leagueRoundedAverages.Progressive_passes_per_90}
+            ],
+            Duels: [
+              {label: "Duels per 90", score: leagueRoundedAverages.Duels_per_90},
+              {label: "Duels won %", score: leagueRoundedAverages.Duels_won_percentage},
+              {label: "Aerial duels per 90", score: leagueRoundedAverages.Aerial_duels_per_90},
+              {label: "Aerial duels won %", score: leagueRoundedAverages.Aerial_duels_won_percentage}
+            ]
+          }
+      })
+    }
+
+    res.json(finalData);
+  } catch (error) {
+    return res.status(500).json({ message: "Error fetching Players", error })
+  }
+});
+
+// Route to get positional specific graph data for specified player
+router.get("/get/:id/graph/positional", verifyToken, async ({ params: { id } }, res, next) => {
+  try {
+    const found = await Player.findOne({ UniqueID: id });
+
+    if (!found) return next({ status: 404, message: 'No Player with the ID: ${id}' });
+
+    let formattedData = null;
+
+    if(found.Position === "GK"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Save rate %", score: found.Save_rate_percentage},
+          {label: "Conceded goals per 90", score: found.Conceded_goals_per_90},
+          {label: "Shots against per 90", score: found.Shots_against_per_90},
+          {label: "Clean sheets", score: found.Clean_sheets},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage},
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "RB" || found.Position === "LB"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90},
+          {label: "Defensive duels won %", score: found.Defensive_duels_won_percentage},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Successful dribbles %", score: found.Successful_dribbles_percentage},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Crosses per 90", score: found.Crosses_per_90},
+          {label: "Accurate crosses %", score: found.Accurate_crosses_percentage},
+          {label: "Touches in box per 90", score: found.Touches_in_box_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "CB"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90},
+          {label: "Defensive duels won %", score: found.Defensive_duels_won_percentage},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage},
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "CM"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90}
+        ]
+      }
+    }
+
+    if(found.Position ==="CDM"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90},
+          {label: "Defensive duels won %", score: found.Defensive_duels_won_percentage},
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "AM"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Assists per 90", score: found.Assists_per_90},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Shots per 90", score: found.Shots_per_90},
+          {label: "xG per 90", score: found.xG_per_90},
+          {label: "Successful dribbles %", score: found.Successful_dribbles_percentage},
+          {label: "Pass completion %", score: found.Accurate_passes_percentage}
+        ]
+      }
+    }
+
+    if(found.Position === "RM" || found.Position === "LM"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Crosses per 90", score: found.Crosses_per_90},
+          {label: "Accurate crosses %", score: found.Accurate_crosses_percentage},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Successful dribbles %", score: found.Successful_dribbles_percentage},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Offensive duels per 90", score: found.Offensive_duels_per_90},
+          {label: "Touches in box per 90", score: found.Touches_in_box_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "RW" || found.Position === "LW"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Crosses per 90", score: found.Crosses_per_90},
+          {label: "Accurate crosses %", score: found.Accurate_crosses_percentage},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Successful dribbles %", score: found.Successful_dribbles_percentage},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Offensive duels per 90", score: found.Offensive_duels_per_90},
+          {label: "Touches in box per 90", score: found.Touches_in_box_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "CF"){
+      formattedData = {
+        "Player": found.Player,
+        data: [
+          {label: "Goals per 90", score: found.Goals_per_90},
+          {label: "Shots per 90", score: found.Shots_per_90},
+          {label: "Shots on target %", score: found.Shots_on_target_percentage},
+          {label: "xG per 90", score: found.xG_per_90},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Offensive duels per 90", score: found.Offensive_duels_per_90},
+          {label: "Non-penalty goals per 90", score: found.Non_penalty_goals_per_90}
+        ]
+      }
+    }
+
+    res.json(formattedData);
+  } catch (error) {
+    return res.status(500).json({ message: "Error fetching Players", error })
+  }
+});
+
+// Route for advanced radar charts (Forwards, Midfielders, Defenders)
+router.get("/get/:id/graph/advanced", verifyToken, async ({ params: { id } }, res, next) => {
+  try {
+    const found = await Player.findOne({ UniqueID: id });
+
+    if (!found) return next({ status: 404, message: 'No Player with the ID: ${id}' });
+
+    let formattedData = null;
+
+    if(found.Position === "AM" || found.Position === "RW" || found.Position === "LW" || found.Position === "CF"){
+      formattedData = {
+        "Player": found.Player,
+        "Graph": "Goal-scoring",
+        data: [
+          {label: "Goals per 90", score: found.Goals_per_90},
+          {label: "Non-penalty goals per 90", score: found.Non_penalty_goals_per_90},
+          {label: "xG per 90", score: found.xG_per_90},
+          {label: "Shots per 90", score: found.Shots_per_90},
+          {label: "Shots on target %", score: found.Shots_on_target_percentage},
+          {label: "Goal conversion %", score: found.Goal_conversion_percentage},
+          {label: "Dribbles per 90", score: found.Dribbles_per_90},
+          {label: "Offensive duels per 90", score: found.Offensive_duels_per_90},
+          {label: "Offensive duels won %", score: found.Offensive_duels_won_percentage},
+          {label: "Touches in box per 90", score: found.Touches_in_box_per_90}
+        ]
+      }
+    }
+
+    if(found.Position === "CM" || found.Position === "CDM" || found.Position === "LM" || found.Position === "RM"){
+      formattedData = {
+        "Player": found.Player,
+        "Graph": "Passing",
+        data: [
+          {label: "Pass completion %", score: found.Accurate_passes_percentage},
+          {label: "Passes per 90", score: found.Passes_per_90},
+          {label: "Progressive passes per 90", score: found.Progressive_passes_per_90},
+          {label: "Key passes per 90", score: found.Key_passes_per_90},
+          {label: "Passes to final third per 90", score: found.Passes_to_final_third_per_90},
+          {label: "Passes to penalty area per 90", score: found.Passes_to_penalty_area_per_90},
+          {label: "Accurate passes to final third %", score: found.Accurate_passes_to_final_third_percentage},
+          {label: "Smart passes per 90", score: found.Smart_passes_per_90},
+          {label: "Through passes per 90", score: found.Through_passes_per_90},
+          {label: "Accurate through passes %", score: found.Accurate_through_passes_percentage},
+        ]
+      }
+    }
+
+    if(found.Position === "CB" || found.Position === "RB" || found.Position === "LB"){
+      formattedData = {
+        "Player": found.Player,
+        "Graph": "Defending",
+        data: [
+          {label: "Interceptions per 90", score: found.Interceptions_per_90},
+          {label: "Defensive duels per 90", score: found.Defensive_duels_per_90},
+          {label: "Defensive duels won %", score: found.Defensive_duels_won_percentage},
+          {label: "Aerial duels per 90", score: found.Aerial_duels_per_90},
+          {label: "Aerial duels won %", score: found.Aerial_duels_won_percentage},
+          {label: "Shots blocked per 90", score: found.Shots_blocked_per_90},
+          {label: "Sliding tackles per 90", score: found.Sliding_tackles_per_90},
+          {label: "PAdj Sliding tackles", score: found.PAdj_Sliding_tackles}
+        ]
+      }
+    }
+
+    res.json(formattedData);
+  } catch (error) {
+    return res.status(500).json({ message: "Error fetching Players", error })
+  }
+  });
+
 
 module.exports = router;

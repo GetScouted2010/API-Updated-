@@ -250,7 +250,7 @@ const playerSchema = new Schema({
         type: Number,
         required: true,
     },
-    Successful_drribles_percentage: {
+    Successful_dribbles_percentage: {
         type: Number,
         required: true,
     },
@@ -358,7 +358,7 @@ const playerSchema = new Schema({
         type: Number,
         required: true,
     },
-    Smart_passses_per_90:{
+    Smart_passes_per_90:{
         type: Number,
         required: true,
     },

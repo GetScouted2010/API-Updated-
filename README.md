@@ -103,6 +103,12 @@ selectTeam, selectPosition: Filter the results to only show Players that are fro
 
 pageNumber, limitNumber: pageNumber defines which page of data to load, and limitNumber defines the number of records to return per page (default 10 records per page if not specified).
 
+GET /players/:id/graph/overall - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the overall player stats graphs
+
+GET /players/:id/graph/positional - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the position-specific section of the player profile
+
+GET /players/:id/graph/advanced - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the playing style chart section of the player profile
+
 ### Transfer Routes
 GET /transfers/getAll - Returns all transfer data in the transferdata collection
 
