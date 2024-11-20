@@ -50,7 +50,8 @@ router.get("/get/:id/graph", verifyToken, async ({ params: { id } }, res, next) 
                 label: label.replace(/_/g, " "), 
                 score }));
 
-        res.json({[result.Team]: formattedData});
+        // res.json({[result.Team]: formattedData});
+        res.json({Team: result.Team, data: formattedData});
 
     } catch (error) {
         return res.status(500).json({ message: "Error fetching radar chart data", error });
