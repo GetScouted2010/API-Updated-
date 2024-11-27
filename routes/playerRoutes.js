@@ -17,7 +17,7 @@ const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 // Function to get maximum values of each field in the Player schema
 const getMaxValues = async (...positions) => {
   try {
-    // Ensure positions are provided and limited to 4
+    // Ensure more than one position is provided
     if (positions.length === 0) {
       throw new Error('You must provide 1 or more positions');
     }
