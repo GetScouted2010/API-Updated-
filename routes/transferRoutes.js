@@ -68,6 +68,7 @@ router.get('/getAverages', verifyToken, async (req, res) => {
 
     // Calculate stats
     records.forEach(record => {
+      if(record.is_loan === false && record.loan_status === 0 && record.Movement === "arrival"){
       // Ensure values are numbers and not null/undefined
       const age = record.Age || 0;
       const marketValue = record.Market_Value ? parseFloat(record.Market_Value.toFixed(1)) : 0; // Round to 1 decimal place
@@ -90,7 +91,9 @@ router.get('/getAverages', verifyToken, async (req, res) => {
       stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
       stats.Fee_Cleaned.sum += feeCleaned;
       stats.Fee_Cleaned.count++;
+      }
     });
+
 
     // Compute averages and round as specified
     const response = {

@@ -93,13 +93,15 @@ This route allows for multiple query parameters using gte, lte, or =
 
 GET /players/csfilter - Returns all players that match the queryable filter parameter. Also returns pagination metadata.
 
-Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, pageNumber, limitNumber
+Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, role, pageNumber, limitNumber
 
 team, minRating, maxRating: Specify a team, and the minimum and maximum compatibility score with said team.
 
 minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue: Specify a lower and upper boundry for the search terms.
 
 selectTeam, selectPosition: Filter the results to only show Players that are from 'selectTeam' or that play in 'selectPosition'
+
+role: Filter to show players that have the specified role in their top 2 (use /listRoles to fetch a list of roles for each position), 
 
 pageNumber, limitNumber: pageNumber defines which page of data to load, and limitNumber defines the number of records to return per page (default 10 records per page if not specified).
 
@@ -108,6 +110,8 @@ GET /players/:id/graph/overall - Returns a player from the players collection wh
 GET /players/:id/graph/positional - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the position-specific section of the player profile
 
 GET /players/:id/graph/advanced - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the playing style chart section of the player profile
+
+GET /players/listRoles - Returns a list of the roles for each position
 
 ### Transfer Routes
 GET /transfers/getAll - Returns all transfer data in the transferdata collection

@@ -75,7 +75,7 @@ const transferDataSchema = new Schema({
         required: true
     },
     loan_status: {
-        type: Number,
+        type: Schema.Types.Mixed,
         required: true
     }
 }, { collection: 'transferdata'})
