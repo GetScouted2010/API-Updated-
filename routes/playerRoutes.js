@@ -1895,58 +1895,64 @@ router.get("/get/:id/graph/advanced", verifyToken, async ({ params: { id } }, re
     if (found.Position === "AM" || found.Position === "RW" || found.Position === "LW" || found.Position === "FWD") {
       const maxValues = await getMaxValues('AM', 'RW', 'LW', 'FWD');
       formattedData = {
-        "Player": found.Player,
-        "Graph": "Goal-scoring",
-        data: [
-          { label: "Goals per 90", trueValue: found.Goals_per_90, score: parseFloat(((found.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)) },
-          { label: "Non-penalty goals per 90", trueValue: found.Non_penalty_goals_per_90, score: parseFloat(((found.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)) },
-          { label: "xG per 90", trueValue: found.xG_per_90, score: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)) },
-          { label: "Shots per 90", trueValue: found.Shots_per_90, score: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)) },
-          { label: "Shots on target %", trueValue: found.Shots_on_target_percentage, score: found.Shots_on_target_percentage },
-          { label: "Goal conversion %", trueValue: found.Goal_conversion_percentage, score: found.Goal_conversion_percentage },
-          { label: "Dribbles per 90", trueValue: found.Dribbles_per_90, score: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)) },
-          { label: "Offensive duels per 90", trueValue: found.Offensive_duels_per_90, score: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)) },
-          { label: "Offensive duels won %", trueValue: found.Offensive_duels_won_percentage, score: found.Offensive_duels_won_percentage },
-          { label: "Touches in box per 90", trueValue: found.Touches_in_box_per_90, score: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)) }
-        ]
+        Player: {
+          playerName: found.Player,
+          graph: "Goal-scoring",
+          data: [
+            { label: "Goals per 90", trueValue: found.Goals_per_90, score: parseFloat(((found.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)) },
+            { label: "Non-penalty goals per 90", trueValue: found.Non_penalty_goals_per_90, score: parseFloat(((found.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)) },
+            { label: "xG per 90", trueValue: found.xG_per_90, score: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)) },
+            { label: "Shots per 90", trueValue: found.Shots_per_90, score: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)) },
+            { label: "Shots on target %", trueValue: found.Shots_on_target_percentage, score: found.Shots_on_target_percentage },
+            { label: "Goal conversion %", trueValue: found.Goal_conversion_percentage, score: found.Goal_conversion_percentage },
+            { label: "Dribbles per 90", trueValue: found.Dribbles_per_90, score: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)) },
+            { label: "Offensive duels per 90", trueValue: found.Offensive_duels_per_90, score: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)) },
+            { label: "Offensive duels won %", trueValue: found.Offensive_duels_won_percentage, score: found.Offensive_duels_won_percentage },
+            { label: "Touches in box per 90", trueValue: found.Touches_in_box_per_90, score: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)) }
+          ]
+        }
       }
     }
 
     if (found.Position === "CM" || found.Position === "DM" || found.Position === "LM" || found.Position === "RM") {
       const maxValues = await getMaxValues('CM', 'DM', 'LM', 'RM');
       formattedData = {
-        "Player": found.Player,
-        "Graph": "Passing",
-        data: [
-          { label: "Pass completion %", trueValue: found.Accurate_passes_percentage, score: found.Accurate_passes_percentage },
-          { label: "Passes per 90", trueValue: found.Passes_per_90, score: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)) },
-          { label: "Progressive passes per 90", trueValue: found.Progressive_passes_per_90, score: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)) },
-          { label: "Key passes per 90", trueValue: found.Key_passes_per_90, score: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)) },
-          { label: "Passes to final third per 90", trueValue: found.Passes_to_final_third_per_90, score: parseFloat(((found.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)) },
-          { label: "Passes to penalty area per 90", trueValue: found.Passes_to_penalty_area_per_90, score: parseFloat(((found.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)) },
-          { label: "Accurate passes to final third %", trueValue: found.Accurate_passes_to_final_third_percentage, score: found.Accurate_passes_percentage },
-          { label: "Smart passes per 90", trueValue: found.Smart_passes_per_90, score: parseFloat(((found.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)) },
-          { label: "Through passes per 90", trueValue: found.Through_passes_per_90, score: parseFloat(((found.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)) },
-          { label: "Accurate through passes %", trueValue: found.Accurate_through_passes_percentage, score: found.Accurate_through_passes_percentage },
-        ]
+        Player: {
+          playerName: found.Player,
+          graph: "Passing",
+          data: [
+            { label: "Pass completion %", trueValue: found.Accurate_passes_percentage, score: found.Accurate_passes_percentage },
+            { label: "Passes per 90", trueValue: found.Passes_per_90, score: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)) },
+            { label: "Progressive passes per 90", trueValue: found.Progressive_passes_per_90, score: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)) },
+            { label: "Key passes per 90", trueValue: found.Key_passes_per_90, score: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)) },
+            { label: "Passes to final third per 90", trueValue: found.Passes_to_final_third_per_90, score: parseFloat(((found.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)) },
+            { label: "Passes to penalty area per 90", trueValue: found.Passes_to_penalty_area_per_90, score: parseFloat(((found.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)) },
+            { label: "Accurate passes to final third %", trueValue: found.Accurate_passes_to_final_third_percentage, score: found.Accurate_passes_percentage },
+            { label: "Smart passes per 90", trueValue: found.Smart_passes_per_90, score: parseFloat(((found.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)) },
+            { label: "Through passes per 90", trueValue: found.Through_passes_per_90, score: parseFloat(((found.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)) },
+            { label: "Accurate through passes %", trueValue: found.Accurate_through_passes_percentage, score: found.Accurate_through_passes_percentage },
+          ]
+        }
       }
     }
 
     if (found.Position === "CB" || found.Position === "RB" || found.Position === "LB") {
       const maxValues = await getMaxValues('CB', 'RB', 'LB');
       formattedData = {
-        "Player": found.Player,
-        "Graph": "Defending",
-        data: [
-          { label: "Interceptions per 90", trueValue: found.Interceptions_per_90, score: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)) },
-          { label: "Defensive duels per 90", trueValue: found.Defensive_duels_per_90, score: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)) },
-          { label: "Defensive duels won %", trueValue: found.Defensive_duels_won_percentage, score: found.Defensive_duels_won_percentage },
-          { label: "Aerial duels per 90", trueValue: found.Aerial_duels_per_90, score: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)) },
-          { label: "Aerial duels won %", trueValue: found.Aerial_duels_won_percentage, score: found.Aerial_duels_won_percentage },
-          { label: "Shots blocked per 90", trueValue: found.Shots_blocked_per_90, score: parseFloat(((found.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)) },
-          { label: "Sliding tackles per 90", trueValue: found.Sliding_tackles_per_90, score: parseFloat(((found.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)) },
-          { label: "PAdj Sliding tackles", trueValue: found.PAdj_Sliding_tackles, score: parseFloat(((found.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)) }
-        ]
+        Player: {
+          playerName: found.Player,
+          graph: "Defending",
+          data: [
+            { label: "Interceptions per 90", trueValue: found.Interceptions_per_90, score: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)) },
+            { label: "Defensive duels per 90", trueValue: found.Defensive_duels_per_90, score: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)) },
+            { label: "Defensive duels won %", trueValue: found.Defensive_duels_won_percentage, score: found.Defensive_duels_won_percentage },
+            { label: "Aerial duels per 90", trueValue: found.Aerial_duels_per_90, score: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)) },
+            { label: "Aerial duels won %", trueValue: found.Aerial_duels_won_percentage, score: found.Aerial_duels_won_percentage },
+            { label: "Shots blocked per 90", trueValue: found.Shots_blocked_per_90, score: parseFloat(((found.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)) },
+            { label: "Sliding tackles per 90", trueValue: found.Sliding_tackles_per_90, score: parseFloat(((found.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)) },
+            { label: "PAdj Sliding tackles", trueValue: found.PAdj_Sliding_tackles, score: parseFloat(((found.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)) }
+          ]
+        }
       }
     }
 
