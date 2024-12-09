@@ -29,14 +29,6 @@ app.set('trust proxy', 1);
 // Pull DB_URL from .env file for connection to MongoDB
 mongoose.connect(process.env.DB_URL)
 
-// Force server to run on localhost
-const server = app.listen(PORT, 'localhost', (error) => {
-  if (!error)
-    console.log("Server is Successfully Running and App is listening on port " + PORT)
-  else
-    console.log("Error occurred, server could not start", error)
-});
-
 // Define a health check route
 app.get('/healthcheck', (req, res) => {
   res.status(200).json({ status: 'OK' });
@@ -59,5 +51,20 @@ app.use("/positions", positionRoutes);
 app.use("/playstyles", playstyleRoutes);
 app.use("/shortlists", shortlistRoutes);
 app.use("/users", userRoutes);
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
+  res.status(status).json({ error: message });
+});
+
+// Run Server + Force server to run on localhost
+const server = app.listen(PORT, 'localhost', (error) => {
+  if (!error)
+    console.log("Server is Successfully Running and App is listening on port " + PORT)
+  else
+    console.log("Error occurred, server could not start", error)
+});
 
 module.exports = server;

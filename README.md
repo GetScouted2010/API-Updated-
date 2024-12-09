@@ -113,6 +113,8 @@ GET /players/:id/graph/advanced - Returns a player from the players collection w
 
 GET /players/listRoles - Returns a list of the roles for each position
 
+GET /compare/:id1/:id2 - Returns two player objects (player1 and player2), as well as the percentage difference of all their numerical fields. Also accepts a 'team' parameter to fetch and calculate the compatiblityScore against the specified team, as well as the % difference.
+
 ### Transfer Routes
 GET /transfers/getAll - Returns all transfer data in the transferdata collection
 

@@ -17,7 +17,7 @@ router.get("/getAll", verifyToken, async (req, res, next) => {
 router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
   try {
     const found = await TransferData.find({ UniqueID: id });
-    if (!found) return next({ status: 404, message: 'No data for the Transfer with the ID: ${id}' });
+    if (!found) return next({ status: 404, message: `No data for the Transfer with the ID: ${id}` });
     return res.json(found);
   } catch (error) {
     return res.status(400).json({ message: "Error fetching transfer data", error })
