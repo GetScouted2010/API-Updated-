@@ -6,11 +6,47 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    Almería: {
+    Position: {
+        type: String,
+        required: true
+    },
+    AGF: {
         type: Number,
         required: true
     },
-    Position: {
+    AIK: {
+        type: Number,
+        required: true
+    },
+    AaB: {
+        type: Number,
+        required: true
+    },
+    Aberdeen: {
+        type: Number,
+        required: true
+    },
+    Ajax: {
+        type: Number,
+        required: true
+    },
+    "Almere City": {
+        type: Number,
+        required: true
+    },
+    Anderlecht: {
+        type: Number,
+        required: true
+    },
+    "Angers SCO": {
+        type: Number,
+        required: true
+    },
+    Antwerp: {
+        type: Number,
+        required: true
+    },
+    Arouca: {
         type: Number,
         required: true
     },
@@ -30,11 +66,23 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Atlanta United": {
+        type: Number,
+        required: true
+    },
     "Atlético Madrid": {
         type: Number,
         required: true
     },
     Augsburg: {
+        type: Number,
+        required: true
+    },
+    "Austin FC": {
+        type: Number,
+        required: true
+    },
+    Auxerre: {
         type: Number,
         required: true
     },
@@ -47,6 +95,18 @@ const compatibilityScoresSchema = new Schema({
         required: true
     },
     "Bayern München": {
+        type: Number,
+        required: true
+    },
+    Benfica: {
+        type: Number,
+        required: true
+    },
+    "Blackburn Rovers": {
+        type: Number,
+        required: true
+    },
+    Boavista: {
         type: Number,
         required: true
     },
@@ -82,7 +142,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Bristol City": {
+        type: Number,
+        required: true
+    },
+    Brøndby: {
+        type: Number,
+        required: true
+    },
     Burnley: {
+        type: Number,
+        required: true
+    },
+    "CF Montréal": {
         type: Number,
         required: true
     },
@@ -90,7 +162,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Cardiff City": {
+        type: Number,
+        required: true
+    },
+    "Casa Pia AC": {
+        type: Number,
+        required: true
+    },
     "Celta de Vigo": {
+        type: Number,
+        required: true
+    },
+    Celtic: {
         type: Number,
         required: true
     },
@@ -98,7 +182,31 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
-    Clermont: {
+    "Chicago Fire": {
+        type: Number,
+        required: true
+    },
+    Cincinnati: {
+        type: Number,
+        required: true
+    },
+    "Club Brugge": {
+        type: Number,
+        required: true
+    },
+    "Colorado Rapids": {
+        type: Number,
+        required: true
+    },
+    "Columbus Crew": {
+        type: Number,
+        required: true
+    },
+    "Como": {
+        type: Number,
+        required: true
+    },
+    "Coventry City": {
         type: Number,
         required: true
     },
@@ -106,11 +214,11 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
-    Cádiz: {
+    "DC United": {
         type: Number,
         required: true
     },
-    "Darmstadt 98": {
+    Dallas: {
         type: Number,
         required: true
     },
@@ -118,7 +226,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Derby County": {
+        type: Number,
+        required: true
+    },
+    Djurgården: {
+        type: Number,
+        required: true
+    },
     "Eintracht Frankfurt": {
+        type: Number,
+        required: true
+    },
+    Elfsborg: {
         type: Number,
         required: true
     },
@@ -126,7 +246,31 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    Espanyol: {
+        type: Number,
+        required: true
+    },
+    Estoril: {
+        type: Number,
+        required: true
+    },
+    "Estrela Amadora": {
+        type: Number,
+        required: true
+    },
     Everton: {
+        type: Number,
+        required: true
+    },
+    Famalicão: {
+        type: Number,
+        required: true
+    },
+    Farense: {
+        type: Number,
+        required: true
+    },
+    Feyenoord: {
         type: Number,
         required: true
     },
@@ -134,15 +278,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Fortuna Sittard": {
+        type: Number,
+        required: true
+    },
     Freiburg: {
         type: Number,
         required: true
     },
-    Frosinone: {
+    Fulham: {
         type: Number,
         required: true
     },
-    Fulham: {
+    Genk: {
         type: Number,
         required: true
     },
@@ -154,11 +302,31 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Gil Vicente": {
+        type: Number,
+        required: true
+    },
     Girona: {
         type: Number,
         required: true
     },
-    Granada: {
+    "Go Ahead Eagles": {
+        type: Number,
+        required: true
+    },
+    Groningen: {
+        type: Number,
+        required: true
+    },
+    Halmstad: {
+        type: Number,
+        required: true
+    },
+    Hearts: {
+        type: Number,
+        required: true
+    },
+    Heerenveen: {
         type: Number,
         required: true
     },
@@ -170,7 +338,39 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    Heracles: {
+        type: Number,
+        required: true
+    },
     Hoffenheim: {
+        type: Number,
+        required: true
+    },
+    "Holstein Kiel": {
+        type: Number,
+        required: true
+    },
+    "Houston Dynamo": {
+        type: Number,
+        required: true
+    },
+    "Hull City": {
+        type: Number,
+        required: true
+    },
+    Häcken: {
+        type: Number,
+        required: true
+    },
+    "IFK Göteborg": {
+        type: Number,
+        required: true
+    },
+    "IFK Norrköping": {
+        type: Number,
+        required: true
+    },
+    "Inter Miama": {
         type: Number,
         required: true
     },
@@ -178,11 +378,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Ipswich Town": {
+        type: Number,
+        required: true
+    },
     Juventus: {
         type: Number,
         required: true
     },
-    Köln: {
+    Kalmar: {
+        type: Number,
+        required: true
+    },
+    København: {
         type: Number,
         required: true
     },
@@ -202,6 +410,18 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Leeds United": {
+        type: Number,
+        required: true
+    },
+    Leganés: {
+        type: Number,
+        required: true
+    },
+    "Leicester City": {
+        type: Number,
+        required: true
+    },
     Lens: {
         type: Number,
         required: true
@@ -214,11 +434,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
-    Lorient: {
+    "Los Angeles FC": {
+        type: Number,
+        required: true
+    },
+    "Los Angeles Galaxy": {
         type: Number,
         required: true
     },
     "Luton Town": {
+        type: Number,
+        required: true
+    },
+    Lyngby: {
         type: Number,
         required: true
     },
@@ -230,6 +458,10 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Malmö FF": {
+        type: Number,
+        required: true
+    },
     "Manchester City": {
         type: Number,
         required: true
@@ -238,11 +470,23 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
-    Metz: {
+    Middlesbrough: {
+        type: Number,
+        required: true
+    },
+    Midtjylland: {
         type: Number,
         required: true
     },
     Milan: {
+        type: Number,
+        required: true
+    },
+    Millwall: {
+        type: Number,
+        required: true
+    },
+    "Minnesota United": {
         type: Number,
         required: true
     },
@@ -258,6 +502,18 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    Moreirense: {
+        type: Number,
+        required: true
+    },
+    "NAC Breda": {
+        type: Number,
+        required: true
+    },
+    NEC: {
+        type: Number,
+        required: true
+    },
     Nantes: {
         type: Number,
         required: true
@@ -266,11 +522,35 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Nashville SC": {
+        type: Number,
+        required: true
+    },
+    "New England": {
+        type: Number,
+        required: true
+    },
+    "New York City": {
+        type: Number,
+        required: true
+    },
+    "New York RB": {
+        type: Number,
+        required: true
+    },
     "Newcastle United": {
         type: Number,
         required: true
     },
     Nice: {
+        type: Number,
+        required: true
+    },
+    Nordsjælland: {
+        type: Number,
+        required: true
+    },
+    "Norwich City": {
         type: Number,
         required: true
     },
@@ -286,7 +566,19 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Orlando City": {
+        type: Number,
+        required: true
+    },
     Osasuna: {
+        type: Number,
+        required: true
+    },
+    "Oxford United": {
+        type: Number,
+        required: true
+    },
+    "PEC Zwolle": {
         type: Number,
         required: true
     },
@@ -294,11 +586,59 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
-    "Rayo Vallecano": {
+    PSV: {
+        type: Number,
+        required: true
+    },
+    Parma: {
+        type: Number,
+        required: true
+    },
+    "Philadelphia Union": {
+        type: Number,
+        required: true
+    },
+    "Plymouth Argyle": {
+        type: Number,
+        required: true
+    },
+    "Portland Timbers": {
+        type: Number,
+        required: true
+    },
+    Porto: {
+        type: Number,
+        required: true
+    },
+    Portsmouth: {
+        type: Number,
+        required: true
+    },
+    "Preston North End": {
+        type: Number,
+        required: true
+    },
+    "Queens Park Rangers": {
         type: Number,
         required: true
     },
     "RB Leipzig": {
+        type: Number,
+        required: true
+    },
+    "RKC Waalwijk": {
+        type: Number,
+        required: true
+    },
+    Randers: {
+        type: Number,
+        required: true
+    },
+    Rangers: {
+        type: Number,
+        required: true
+    },
+    "Rayo Vallecano": {
         type: Number,
         required: true
     },
@@ -310,7 +650,15 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Real Salt Lake": {
+        type: Number,
+        required: true
+    },
     "Real Sociedad": {
+        type: Number,
+        required: true
+    },
+    "Real Valladolid": {
         type: Number,
         required: true
     },
@@ -322,15 +670,27 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Rio Ave": {
+        type: Number,
+        required: true
+    },
     Roma: {
         type: Number,
         required: true
     },
-    Salernitana: {
+    "SJ Earthquakes": {
         type: Number,
         required: true
     },
-    Sassuolo: {
+    "Saint-Étienne": {
+        type: Number,
+        required: true
+    },
+    "Santa Clara": {
+        type: Number,
+        required: true
+    },
+    "Seattle Sounders": {
         type: Number,
         required: true
     },
@@ -342,6 +702,46 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Sheffield Wednesday": {
+        type: Number,
+        required: true
+    },
+    Silkeborg: {
+        type: Number,
+        required: true
+    },
+    Sirius: {
+        type: Number,
+        required: true
+    },
+    Southampton: {
+        type: Number,
+        required: true
+    },
+    "Sparta Rotterdam": {
+        type: Number,
+        required: true
+    },
+    "Sporting Braga": {
+        type: Number,
+        required: true
+    },
+    "Sporting CP": {
+        type: Number,
+        required: true
+    },
+    "St_DOT_ Louis City": {
+        type: Number,
+        required: true
+    },
+    "St_DOT_ Pauli": {
+        type: Number,
+        required: true
+    },
+    "Stoke City": {
+        type: Number,
+        required: true
+    },
     Strasbourg: {
         type: Number,
         required: true
@@ -350,7 +750,23 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    Sunderland: {
+        type: Number,
+        required: true
+    },
+    "Swansea City": {
+        type: Number,
+        required: true
+    },
+    SønderjyskE: {
+        type: Number,
+        required: true
+    },
     Torino: {
+        type: Number,
+        required: true
+    },
+    Toronto: {
         type: Number,
         required: true
     },
@@ -362,6 +778,10 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    Twente: {
+        type: Number,
+        required: true
+    },
     Udinese: {
         type: Number,
         required: true
@@ -370,7 +790,27 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Union Saint-Gilloise": {
+        type: Number,
+        required: true
+    },
+    Utrecht: {
+        type: Number,
+        required: true
+    },
     Valencia: {
+        type: Number,
+        required: true
+    },
+    "Vancouver Whitecaps": {
+        type: Number,
+        required: true
+    },
+    Venezia: {
+        type: Number,
+        required: true
+    },
+    Viborg: {
         type: Number,
         required: true
     },
@@ -378,11 +818,35 @@ const compatibilityScoresSchema = new Schema({
         type: Number,
         required: true
     },
+    "Vitória Guimarães": {
+        type: Number,
+        required: true
+    },
+    Värnamo: {
+        type: Number,
+        required: true
+    },
+    "Västerås SK": {
+        type: Number,
+        required: true
+    },
+    Watford: {
+        type: Number,
+        required: true
+    },
     "Werder Bremen": {
         type: Number,
         required: true
     },
+    "West Bromwich Albion": {
+        type: Number,
+        required: true
+    },
     "West Ham United": {
+        type: Number,
+        required: true
+    },
+    "Willem II": {
         type: Number,
         required: true
     },

@@ -12,8 +12,7 @@ const shortlistSchema = new Schema({
         required: true
     },
     shortlist: {
-        type: [Schema.Types.ObjectId],
-        ref: 'Player',
+        type: [Number],
         default: []
     }
 }, { collection: 'shortlist' })

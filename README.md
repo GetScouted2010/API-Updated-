@@ -93,9 +93,11 @@ This route allows for multiple query parameters using gte, lte, or =
 
 GET /players/csfilter - Returns all players that match the queryable filter parameter. Also returns pagination metadata.
 
-Parameters: team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, role, pageNumber, limitNumber
+Parameters: team, league, season, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, role, pageNumber, limitNumber
 
-team, minRating, maxRating: Specify a team, and the minimum and maximum compatibility score with said team.
+team, minRating, maxRating: Specify a team, and the minimum and maximum compatibility score with said team. (Populate team filter with /listTeams)
+
+league, season: Specify a league or season (or both) to search for Players in those specified filters. (Populate filter with /listLeagues and /listSeasons)
 
 minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue: Specify a lower and upper boundry for the search terms.
 
@@ -112,6 +114,12 @@ GET /players/:id/graph/positional - Returns a player from the players collection
 GET /players/:id/graph/advanced - Returns a player from the players collection where the :id matches a UniqueId of the player (not objectId), formatted into graph data for the playing style chart section of the player profile
 
 GET /players/listRoles - Returns a list of the roles for each position
+
+GET /players/listTeams - Returns a list of the Teams available
+
+GET /players/listSeasons - Returns a list of the Seasons available
+
+get /players/listLeagues - Returns a list of the Leagues available
 
 GET /compare/:id1/:id2 - Returns two player objects (player1 and player2), as well as the percentage difference of all their numerical fields. Also accepts a 'team' parameter to fetch and calculate the compatiblityScore against the specified team, as well as the % difference.
 

@@ -10,6 +10,14 @@ const playerSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
+    League: {
+        type: String,
+        required: true,
+    },
+    Season: {
+        type: String,
+        required: true,
+    },
     UniqueID: {
         type: Number,
         required: true,
@@ -46,10 +54,10 @@ const playerSchema = new Schema({
         type: Number,
         required: true,
     },
-    Short_Market_Value: {
-        type: Number,
-        required: true,
-    },
+    // Short_Market_Value: {
+    //     type: Number,
+    //     required: true,
+    // },
     Contract_expires: {
         type: String,
         required: true,

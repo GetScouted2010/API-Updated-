@@ -17,6 +17,34 @@ const Playstyles = require('../models/playstyles');
 
 const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 
+const fs = require('fs');
+const path = require('path');
+
+// Load the field mapping
+const mappingFilePath = path.join(__dirname, '../cs_field_mapping.json');
+let fieldMapping;
+
+try {
+    fieldMapping = JSON.parse(fs.readFileSync(mappingFilePath, 'utf-8'));
+    console.log('Field mapping loaded.');
+} catch (error) {
+    console.error('Error loading cs_field_mapping.json:', error.message);
+}
+
+// Helper functions to use the mapping
+function getOriginalFieldName(sanitizedFieldName) {
+  for (const [original, sanitized] of Object.entries(fieldMapping)) {
+      if (sanitized === sanitizedFieldName) {
+          return original;
+      }
+  }
+  return sanitizedFieldName; // Return as-is if no match found
+}
+
+function getSanitizedFieldName(originalFieldName) {
+  return fieldMapping[originalFieldName] || originalFieldName;
+}
+
 // Function to calculate percentage difference between two specified values
 function calculateSignedPercentageDifference(value1, value2) {
   if (value1 === 0 && value2 === 0) return 0; // Avoid division by zero
@@ -80,6 +108,8 @@ router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
       _id: found._id,
       UniqueID: found.UniqueID,
       Player: found.Player,
+      League: found.League,
+      Season: found.Season,
       Team: found.Team,
       Team_within_selected_timeframe: found.Team_within_selected_timeframe,
       Birth_country: found.Birth_country,
@@ -93,7 +123,7 @@ router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
       Height: found.Height,
       Weight: found.Weight,
       Market_value: found.Market_value,
-      Short_Market_Value: found.Short_Market_Value,
+      // Short_Market_Value: found.Short_Market_Value,
       Contract_expires: found.Contract_expires,
       Minutes_played: found.Minutes_played,
       Matches_played: found.Matches_played,
@@ -285,8 +315,8 @@ router.get('/filter', verifyToken, async (req, res) => {
 
 // Filter route against Compatibility Score - Paginated
 router.get('/csfilter', verifyToken, async (req, res) => {
-  const { team, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, selectTeam, selectPosition, page = 1, limit = 10 } = req.query;
-  let { role } = req.query;
+  const { season, league, minRating, maxRating, minScore, maxScore, minAge, maxAge, minMarketValue, maxMarketValue, selectTeam, selectPosition, page = 1, limit = 10 } = req.query;
+  let { role, team } = req.query;
 
   // Parse rating and other filters as floats, if provided
   const minRatingValue = minRating ? parseFloat(minRating) : null;
@@ -307,6 +337,10 @@ router.get('/csfilter', verifyToken, async (req, res) => {
     // Replace spaces with underscores
     if(role){
       role = role.replace(/\s+/g, '_'); 
+    }
+
+    if(team){
+      team = getSanitizedFieldName(team);
     }
     
     // Check `selectPosition` and validate the `role` in the dynamic collection
@@ -490,6 +524,8 @@ router.get('/csfilter', verifyToken, async (req, res) => {
       {
         $match: {
           ...(dynamicFilter && dynamicFilter),                  // Filter by dynamic UniqueIDs if role and position was specified
+          ...(league && { League: league }),                    // Filter by League if specified
+          ...(season && { Season: season }),                    // Filter by Season if specified
           ...(selectTeam && { Team: selectTeam }),               // Filter by Team if specified
           ...(selectPosition && { Position: selectPosition }),   // Filter by Position if specified
           ...(minScoreValue !== null && { Total_Score: { $gte: minScoreValue } }),
@@ -522,6 +558,8 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           Player: 1,
           Team: 1,
           Team_within_selected_timeframe: 1,
+          League: 1,
+          Season: 1,
           Main_Position: 1,
           Position: 1,
           Compatibility_Score: 1,
@@ -563,7 +601,13 @@ router.get('/csfilter', verifyToken, async (req, res) => {
 // Route to pull overall graph data for specified player
 router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
   const { id } = req.params;
-  const { csteam } = req.query;
+  let { csteam } = req.query;
+
+  let originalCsteam;
+  if(csteam){
+    originalCsteam = csteam;
+    csteam = getSanitizedFieldName(csteam)
+  }
 
   // $group pipeline variable for non-GK
   const avgGroup = {
@@ -681,7 +725,7 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
       // --------------- League Average Calculation
       const leagueAveragesResult = await Player.aggregate([
         {
-          $match: { Position: found.Position } // Filter documents where Position is equal to the Position of the found player above
+          $match: { Position: found.Position, League: found.League } // Filter documents where Position is equal to the Position of the found player above
         },
         {
           $group: avgGroup
@@ -721,7 +765,9 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           Offensive: [
@@ -999,7 +1045,7 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
       // --------------- League Average Calculation
       const leagueAveragesResult = await Player.aggregate([
         {
-          $match: { Position: found.Position } // Filter documents where Position matches that of found player above
+          $match: { Position: found.Position, League: found.League } // Filter documents where Position matches that of found player above
         },
         {
           $group: gkAvgGroup
@@ -1039,7 +1085,9 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           Offensive: [
@@ -1177,7 +1225,12 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
 
   // Pull id and csteam from url
   const { id } = req.params;
-  const { csteam } = req.query;
+  let { csteam } = req.query;
+
+  let originalCsteam = csteam;
+  if(csteam){
+    csteam = getSanitizedFieldName(csteam);
+  }
 
   // $group variable
   const avgGroup = {
@@ -1256,7 +1309,7 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
     // --------------- League Average Calculation
     const leagueAveragesResult = await Player.aggregate([
       {
-        $match: { Position: found.Position } // Filter documents where Position matches that of found player above
+        $match: { Position: found.Position, League: found.League } // Filter documents where Position matches that of found player above
       },
       {
         $group: avgGroup
@@ -1296,7 +1349,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1380,7 +1435,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1450,7 +1507,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1513,7 +1572,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1576,7 +1637,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1632,7 +1695,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1695,7 +1760,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1758,7 +1825,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1821,7 +1890,9 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           Position: found.Position,
           data: [
@@ -1890,7 +1961,12 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
 
   // Pull id and csteam from url
   const { id } = req.params;
-  const { csteam } = req.query;
+  let { csteam } = req.query;
+
+  let originalCsteam = csteam;
+  if(csteam){
+    csteam = getSanitizedFieldName(csteam);
+  }
 
   // $group variable
   const avgGroup = {
@@ -1991,7 +2067,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
     // --------------- League Average Calculation
     const leagueAveragesResult = await Player.aggregate([
       {
-        $match: { Position: { $in: avgPosGroup } } // Filter documents where Position matches that of found player above
+        $match: { Position: { $in: avgPosGroup }, League: found.League } // Filter documents where Position matches that of found player above
       },
       {
         $group: avgGroup
@@ -2032,7 +2108,9 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           graph: "Goal-scoring",
           data: [
@@ -2117,7 +2195,9 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
         Player: {
           playerName: found.Player,
           Team: found.Team_within_selected_timeframe,
-          csteam: csteam,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
           csScore: csValue,
           graph: "Passing",
           data: [
@@ -2201,6 +2281,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
       formattedData = {
         Player: {
           playerName: found.Player,
+          Team: found.Team_within_selected_timeframe,
+          League: found.League,
+          Season: found.Season,
+          csteam: originalCsteam,
+          csScore: csValue,
           graph: "Defending",
           data: [
             {
@@ -2270,6 +2355,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
   }
 });
 
+// GET route to list all Positions
 router.get('/listPositions', async (req, res) => {
   try {
     // Aggregate the collection to find distinct 'Main_Position' values
@@ -2334,6 +2420,93 @@ router.get('/listRoles', verifyToken, async (req, res) => {
   }
 });
 
+// GET route to get all teams that have compatibility scores
+router.get("/listTeams", verifyToken, async (req, res) => {
+    try{
+        const found = await CompatibilityScores.findOne().lean();
+        if(!found){
+            return res.status(404).json({ message: 'No documents found in the collection' });
+        }
+
+        const fields = Object.keys(found)
+        .filter((field) => field !== '_id' && field !== 'UniqueID' && field !== 'Position')
+        .sort();
+
+        // Convert sanitized fields back to their original versions
+        const originalFields = fields.map((field) => getOriginalFieldName(field));
+
+        res.json(originalFields);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while retrieving field names' });
+    }
+});
+
+// GET route to fetch all filterable Seasons
+router.get('/listSeasons', verifyToken, async (req, res) => {
+  try {
+    // Aggregate the collection to find distinct 'Season' values
+    const positions = await Player.aggregate([
+      {
+        // Group by the 'Season' field to get unique values
+        $group: {
+          _id: '$Season'
+        }
+      },
+      {
+        // Rename the field _id to 'Season'
+        $project: {
+          _id: 0,
+          Season: '$_id'
+        }
+      },
+      {
+        // Sort the results alphabetically by 'Season'
+        $sort: {
+          Season: 1
+        }
+      }
+    ]);
+
+    res.json(positions);
+  } catch (error) {
+    console.error('Error fetching unique positions:', error);
+    res.status(500).send('Server error');
+  }
+});
+
+// GET route to fetch all filterable Leagues
+router.get('/listLeagues', verifyToken, async (req, res) => {
+  try {
+    // Aggregate the collection to find distinct 'League' values
+    const positions = await Player.aggregate([
+      {
+        // Group by the 'League' field to get unique values
+        $group: {
+          _id: '$League'
+        }
+      },
+      {
+        // Rename the field _id to 'League'
+        $project: {
+          _id: 0,
+          League: '$_id'
+        }
+      },
+      {
+        // Sort the results alphabetically by 'League'
+        $sort: {
+          League: 1
+        }
+      }
+    ]);
+
+    res.json(positions);
+  } catch (error) {
+    console.error('Error fetching unique positions:', error);
+    res.status(500).send('Server error');
+  }
+});
+
 // GET route to compare two players, outputting both alongside the percentage differences
 router.get('/compare/:id1/:id2', verifyToken, async (req, res) => {
   const { id1, id2 } = req.params;
@@ -2377,7 +2550,7 @@ router.get('/compare/:id1/:id2', verifyToken, async (req, res) => {
       key !== 'UniqueID' &&
       key !== 'Age' &&
       key !== 'Market_value' &&
-      key !== 'Short_Market_Value' &&
+      // key !== 'Short_Market_Value' &&
       key !== 'Height' &&
       key !== 'Weight' &&
       typeof player1[key] === 'number' &&

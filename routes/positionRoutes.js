@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const verifyToken = require('../middleware/auth');
 
-// const Position = require('../models/positions')
 const AM = require("../models/AM");
 const CB = require("../models/CB");
 const CM = require("../models/CM");

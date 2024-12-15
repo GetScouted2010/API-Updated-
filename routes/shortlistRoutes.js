@@ -3,11 +3,16 @@ const router = require("express").Router();
 const verifyToken = require('../middleware/auth');
 const Shortlist = require("../models/shortlist");
 
+const Player = require("../models/player");
+
 // Route to get all lists created by the currently logged in user
 router.get("/getLists", verifyToken, async (req, res, next) =>{
     try{
         const userId = req.user.id;
-        const found = await Shortlist.find( {user_id: userId} ).populate('shortlist');
+        const found = await Shortlist.find( {user_id: userId} ).lean();
+        for (const doc of found) {
+          doc.shortlist = await Player.find({ UniqueID: { $in: doc.shortlist } })
+        }
         return res.json(found);
     } catch (error) {
         return res.status(400).json({ message: "Error fetching Shortlists", error })
