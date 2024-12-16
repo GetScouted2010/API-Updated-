@@ -24,7 +24,10 @@ router.get("/getList/:id", verifyToken, async (req, res, next) =>{
   try{
       const userId = req.user.id;
       const listId = req.params.id;
-      const found = await Shortlist.find( {user_id: userId, _id: listId} ).populate('shortlist');
+      const found = await Shortlist.find( {user_id: userId, _id: listId} ).lean();
+      for (const doc of found) {
+        doc.shortlist = await Player.find({ UniqueID: { $in: doc.shortlist } })
+      }
       if (!found) {
         return res.status(404).json({ message: 'List not found' });
       }
