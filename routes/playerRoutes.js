@@ -2358,12 +2358,12 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
 // GET route to list all Positions
 router.get('/listPositions', async (req, res) => {
   try {
-    // Aggregate the collection to find distinct 'Main_Position' values
+    // Aggregate the collection to find distinct 'Position' values
     const positions = await Player.aggregate([
       {
-        // Group by the 'Main_Position' field to get unique values
+        // Group by the 'Position' field to get unique values
         $group: {
-          _id: '$Main_Position'
+          _id: '$Position'
         }
       },
       {
@@ -2416,7 +2416,7 @@ router.get('/listRoles', verifyToken, async (req, res) => {
     res.json(result);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'An error occurred while fetching collection fields.' });
+    res.status(500).json({ error: 'An error occurred while fetching Roles.' });
   }
 });
 
@@ -2437,7 +2437,7 @@ router.get("/listTeams", verifyToken, async (req, res) => {
 
         res.json(originalFields);
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while retrieving field names' });
+        res.status(500).json({ error: 'An error occurred while retrieving Team names' });
     }
 });
 
@@ -2469,7 +2469,7 @@ router.get('/listSeasons', verifyToken, async (req, res) => {
 
     res.json(positions);
   } catch (error) {
-    console.error('Error fetching unique positions:', error);
+    console.error('Error fetching unique Seasons:', error);
     res.status(500).send('Server error');
   }
 });
@@ -2502,7 +2502,7 @@ router.get('/listLeagues', verifyToken, async (req, res) => {
 
     res.json(positions);
   } catch (error) {
-    console.error('Error fetching unique positions:', error);
+    console.error('Error fetching unique Leagues:', error);
     res.status(500).send('Server error');
   }
 });
