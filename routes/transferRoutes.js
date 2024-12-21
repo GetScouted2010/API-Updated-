@@ -55,9 +55,10 @@ router.get('/getAverages', verifyToken, async (req, res) => {
     // Fetch matching records
     const records = await TransferData.find(query);
 
-    if (!records.length) {
-      return res.status(404).json({ message: 'No matching records found.' });
-    }
+    // Commented out to return N/A for all fields if no matching records were found
+    // if (!records.length) {
+    //   return res.status(404).json({ message: 'No matching records found.' });
+    // }
 
     // Initialize stats
     const stats = {
@@ -98,19 +99,19 @@ router.get('/getAverages', verifyToken, async (req, res) => {
     // Compute averages and round as specified
     const response = {
       Age: {
-        min: stats.Age.min === Infinity ? null : stats.Age.min,
-        max: stats.Age.max === -Infinity ? null : stats.Age.max,
-        avg: stats.Age.count ? Math.round(stats.Age.sum / stats.Age.count) : null, // Round to nearest whole number
+        min: stats.Age.min === Infinity ? "N/A" : stats.Age.min,
+        max: stats.Age.max === -Infinity ? "N/A" : stats.Age.max,
+        avg: stats.Age.count ? Math.round(stats.Age.sum / stats.Age.count) : "N/A", // Round to nearest whole number
       },
       Market_Value: {
-        min: stats.Market_Value.min === Infinity ? null : stats.Market_Value.min,
-        max: stats.Market_Value.max === -Infinity ? null : stats.Market_Value.max,
-        avg: stats.Market_Value.count ? parseFloat((stats.Market_Value.sum / stats.Market_Value.count).toFixed(1)) : null, // Round to 1 decimal place
+        min: stats.Market_Value.min === Infinity ? "N/A" : stats.Market_Value.min,
+        max: stats.Market_Value.max === -Infinity ? "N/A" : stats.Market_Value.max,
+        avg: stats.Market_Value.count ? parseFloat((stats.Market_Value.sum / stats.Market_Value.count).toFixed(1)) : "N/A", // Round to 1 decimal place
       },
       Fee_Cleaned: {
-        min: stats.Fee_Cleaned.min === Infinity ? null : stats.Fee_Cleaned.min,
-        max: stats.Fee_Cleaned.max === -Infinity ? null : stats.Fee_Cleaned.max,
-        avg: stats.Fee_Cleaned.count ? parseFloat((stats.Fee_Cleaned.sum / stats.Fee_Cleaned.count).toFixed(1)) : null, // Round to 1 decimal place
+        min: stats.Fee_Cleaned.min === Infinity ? "N/A" : stats.Fee_Cleaned.min,
+        max: stats.Fee_Cleaned.max === -Infinity ? "N/A" : stats.Fee_Cleaned.max,
+        avg: stats.Fee_Cleaned.count ? parseFloat((stats.Fee_Cleaned.sum / stats.Fee_Cleaned.count).toFixed(1)) : "N/A", // Round to 1 decimal place
       },
     };
 

@@ -5,7 +5,7 @@ const verifyToken = require('../middleware/auth');
 // Return all elements in the 'playstyles' collection
 router.get("/getAll", verifyToken, async (req, res, next) =>{
     try{
-        const found = await Playstyle.find();
+        const found = await Playstyle.find().sort({ UniqueID: 1 });
         return res.json(found);
     } catch (error) {
         return res.status(400).json({ message: "Error fetching playstyles", error })
