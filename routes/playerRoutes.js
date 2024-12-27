@@ -25,18 +25,18 @@ const mappingFilePath = path.join(__dirname, '../cs_field_mapping.json');
 let fieldMapping;
 
 try {
-    fieldMapping = JSON.parse(fs.readFileSync(mappingFilePath, 'utf-8'));
-    console.log('Field mapping loaded.');
+  fieldMapping = JSON.parse(fs.readFileSync(mappingFilePath, 'utf-8'));
+  console.log('Field mapping loaded.');
 } catch (error) {
-    console.error('Error loading cs_field_mapping.json:', error.message);
+  console.error('Error loading cs_field_mapping.json:', error.message);
 }
 
 // Helper functions to use the mapping
 function getOriginalFieldName(sanitizedFieldName) {
   for (const [original, sanitized] of Object.entries(fieldMapping)) {
-      if (sanitized === sanitizedFieldName) {
-          return original;
-      }
+    if (sanitized === sanitizedFieldName) {
+      return original;
+    }
   }
   return sanitizedFieldName; // Return as-is if no match found
 }
@@ -98,15 +98,21 @@ router.get("/getAll", verifyToken, async (req, res, next) => {
 });
 
 // Return element in the 'players' collection with a UniqueID matching that of the id parameter
-router.get("/get/:id", verifyToken, async ({ params: { id } }, res, next) => {
+router.get("/get/:id", verifyToken, async ({ params: { id }, user }, res, next) => {
   try {
     const found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
 
+    // Fetch Compatibility Score based on the logged in user's team
+    const team = user.team;
+    const additionalData = await CompatibilityScores.findOne({ UniqueID: id}).lean();
+    const score = additionalData ? additionalData[team] : null;
+
     const transformedResult = {
       _id: found._id,
       UniqueID: found.UniqueID,
+      Compatibility_Score: score,
       Player: found.Player,
       League: found.League,
       Season: found.Season,
@@ -246,34 +252,105 @@ router.get("/find", verifyToken, async ({ query }, res, next) => {
 });
 
 // Returns all elements in the 'players' collection that have either a Player name or Team name containing the parameter
-router.get("/search", verifyToken, async ({ query }, res, next) => {
-
+router.get("/search", verifyToken, async (req, res, next) => {
+  const { value } = req.query;
   // Check if 'value' field exists in the query parameter
-  if (!query.value) {
-    return res.status(400).json({ message: 'Value is required.' });
+  if (!value) {
+    return res.status(400).json({ message: 'value is required.' });
   }
-
   try {
-    const tRegex = new RegExp(`\\b${query.value}`, 'i'); // Match beginning of any word in team field
+    const team = req.user.team; // Fetch logged in users team
+    const tRegex = new RegExp(`\\b${value}`, 'i'); // Match beginning of any word in team field
 
     // Search for players by name, only returning fields 'Player', 'Team', and 'Position'
     const nameMatches = await Player.find({
       $or: [
-        { Player: { $regex: `^${query.value}`, $options: 'i' } }, // Match for beginning of First name
-        { Player: { $regex: `\\s${query.value}`, $options: 'i' } } // Match for beginning of Last name
+        { Player: { $regex: `^${value}`, $options: 'i' } }, // Match for beginning of First name
+        { Player: { $regex: `\\s${value}`, $options: 'i' } } // Match for beginning of Last name
       ]
-    }).select('UniqueID Player Team Position -_id')
-      .sort({ UniqueID: 1 });
+    }).select('UniqueID Player Team Position Season -_id')
+      .sort({ UniqueID: 1 })
+      .limit(30)
+      .lean();
+
+
+    // Group players by Player, Team, and Position
+    const groupedPlayers = {};
+
+    if (nameMatches.length != 0) {
+
+      nameMatches.forEach(player => {
+        const key = `${player.Player}-${player.Team}-${player.Position}`;
+
+        if (!groupedPlayers[key]) {
+            groupedPlayers[key] = {
+                Player: player.Player,
+                Team: player.Team,
+                Position: player.Position,
+                instances: [], // Initialize the instances array
+            };
+        }
+
+        // Collect season info for each group
+        groupedPlayers[key].instances.push({ UniqueID: player.UniqueID, Season: player.Season });
+    });
+
+    }
+
+    // Fetch additional field dynamically based on Team
+    const nameMatchesScore = await Promise.all(
+      Object.values(groupedPlayers).map(async (group) => {
+          try {
+              // For each UniqueID in the instances array, fetch the Score
+              const updatedInstances = await Promise.all(group.instances.map(async (instanceEntry) => {
+                  try {
+                      // Fetch the score from the OtherCollection based on UniqueID
+                      const additionalData = await CompatibilityScores.findOne({
+                          UniqueID: instanceEntry.UniqueID, // Use the UniqueID from instances entry
+                      }).lean();
+
+                      // Extract the Score from the other collection, based on the team
+                      const score = additionalData ? additionalData[team] : null;
+
+                      // Return the updated instance entry with Score
+                      return {
+                          ...instanceEntry,
+                          Compatibility_Score: score, // Add Score to each instance entry
+                      };
+                  } catch (err) {
+                      console.error(`Error fetching score for UniqueID ${instanceEntry.UniqueID}:`, err);
+                      return {
+                          ...instanceEntry,
+                          Compatibility_Score: null, // Gracefully handle errors by setting Score to null
+                      };
+                  }
+              }));
+
+              // Return the final grouped object with updated instances entries
+              return {
+                  ...group, // Include Player, Team, Position
+                  instances: updatedInstances, // Updated instances array with Score
+              };
+          } catch (err) {
+              console.error(`Error processing player group for ${group.Player}:`, err);
+              return {
+                  ...group,
+                  instances: group.instances.map(instance => ({ ...instance, Compatibility_Score: null })), // Gracefully handle errors
+              };
+          }
+      })
+  );
 
     // Search for Teams by name (pulled from Playstyles collection) - Return 'UniqueID' and 'Team'
     const teamMatches = await Playstyles.find({
       Team: { $regex: tRegex }
     }).select('UniqueID Team -_id')
-      .sort({ UniqueID: 1 });
+      .sort({ UniqueID: 1 })
+      .limit(5);
 
     // Compile and map results to Players and Teams objects for easier readability on frontend
     const result = {
-      Players: nameMatches,
+      Players: nameMatchesScore,
       Teams: teamMatches
     };
 
@@ -334,15 +411,22 @@ router.get('/csfilter', verifyToken, async (req, res) => {
   try {
     let dynamicFilter = null;
 
-    // Replace spaces with underscores
-    if(role){
-      role = role.replace(/\s+/g, '_'); 
+    // Normalize `League` into an array
+    let leagueArray = [];
+    if (league) {
+      leagueArray = Array.isArray(league) ? league : league.split(',');
     }
 
-    if(team){
+    // Normalize `Season` into an array
+    let seasonArray = [];
+    if (season) {
+      seasonArray = Array.isArray(season) ? season : season.split(',');
+    }
+
+    if (team) {
       team = getSanitizedFieldName(team);
     }
-    
+
     // Check `selectPosition` and validate the `role` in the dynamic collection
     if (selectPosition && role) {
       const DynamicModel = models[selectPosition];
@@ -351,38 +435,49 @@ router.get('/csfilter', verifyToken, async (req, res) => {
         return res.status(400).json({ error: `Invalid selectPosition value: ${selectPosition}` });
       }
 
-      // Pipeline to check if role is in top 2 roles for selected player
+      // Split roles by comma and ensure it is an array with up to 2 items
+      const rolesArray = role.split(',').map((role) => role.trim()).filter(Boolean);
+      if (rolesArray.length === 0 || rolesArray.length > 2) {
+        return res
+          .status(400)
+          .json({ error: "Please specify up to 2 roles, separated by commas." });
+      }
+
       const dynamicResults = await DynamicModel.aggregate([
         {
-          // Dynamically resolve roleValue
           $addFields: {
-            roleValue: {
-              $ifNull: [
-                {
-                  $arrayElemAt: [
+            roleValues: {
+              $map: {
+                input: rolesArray, // Array of roles
+                as: "role",
+                in: {
+                  $ifNull: [
                     {
-                      $map: {
-                        input: {
-                          $filter: {
-                            input: { $objectToArray: "$$ROOT" },
-                            as: "field",
-                            cond: { $eq: ["$$field.k", role] }
+                      $arrayElemAt: [
+                        {
+                          $map: {
+                            input: {
+                              $filter: {
+                                input: { $objectToArray: "$$ROOT" },
+                                as: "field",
+                                cond: { $eq: ["$$field.k", "$$role"] }
+                              }
+                            },
+                            as: "filteredField",
+                            in: "$$filteredField.v"
                           }
                         },
-                        as: "filteredField",
-                        in: "$$filteredField.v"
-                      }
+                        0
+                      ]
                     },
-                    0
+                    0 // Default value if field is missing
                   ]
-                },
-                0 // Default value if field is missing
-              ]
+                }
+              }
             }
           }
         },
         {
-          // Combine all fields with the dynamically resolved roleValue
           $addFields: {
             combinedFields: {
               $map: {
@@ -399,7 +494,10 @@ router.get('/csfilter', verifyToken, async (req, res) => {
                         }
                       }
                     },
-                    [{ k: role, v: "$roleValue" }]
+                    rolesArray.map((role, index) => ({
+                      k: role,
+                      v: { $arrayElemAt: ["$roleValues", index] }
+                    }))
                   ]
                 },
                 as: "field",
@@ -412,11 +510,22 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           }
         },
         {
-          // Sort fields and extract the top two
           $project: {
             UniqueID: 1,
-            roleValue: 1,
-            roundedRoleValue: { $round: [{ $toDouble: "$roleValue" }, 2] },
+            roleValues: 1,
+            roundedRoleValues: {
+              $map: {
+                input: "$roleValues",
+                as: "value",
+                in: {
+                  $cond: {
+                    if: { $and: [{ $isNumber: "$$value" }, { $ne: ["$$value", null] }] },
+                    then: { $round: [{ $toDouble: "$$value" }, 2] },
+                    else: null
+                  }
+                }
+              }
+            },
             sortedFields: {
               $slice: [
                 {
@@ -425,7 +534,16 @@ router.get('/csfilter', verifyToken, async (req, res) => {
                       $map: {
                         input: "$combinedFields",
                         as: "field",
-                        in: "$$field"
+                        in: {
+                          k: "$$field.k",
+                          v: {
+                            $cond: {
+                              if: { $and: [{ $isNumber: "$$field.v" }, { $ne: ["$$field.v", null] }] },
+                              then: { $round: [{ $toDouble: "$$field.v" }, 2] },
+                              else: null
+                            }
+                          }
+                        }
                       }
                     },
                     sortBy: { v: -1 }
@@ -437,11 +555,10 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           }
         },
         {
-          // Compute matchDirectly to see if roleValue is in the top two fields
           $project: {
             UniqueID: 1,
-            roleValue: 1,
-            roundedRoleValue: 1,
+            roleValues: 1,
+            roundedRoleValues: 1,
             sortedFields: 1,
             sortedValues: {
               $map: {
@@ -458,9 +575,15 @@ router.get('/csfilter', verifyToken, async (req, res) => {
                       input: "$sortedFields",
                       as: "field",
                       cond: {
-                        $eq: [
+                        $in: [
                           { $round: [{ $toDouble: "$$field.v" }, 2] },
-                          { $round: [{ $toDouble: "$roleValue" }, 2] }
+                          {
+                            $map: {
+                              input: "$roleValues",
+                              as: "value",
+                              in: { $round: [{ $toDouble: "$$value" }, 2] }
+                            }
+                          }
                         ]
                       }
                     }
@@ -524,8 +647,8 @@ router.get('/csfilter', verifyToken, async (req, res) => {
       {
         $match: {
           ...(dynamicFilter && dynamicFilter),                  // Filter by dynamic UniqueIDs if role and position was specified
-          ...(league && { League: league }),                    // Filter by League if specified
-          ...(season && { Season: season }),                    // Filter by Season if specified
+          ...(leagueArray.length && { League: { $in: leagueArray } }),                    // Filter by League if specified
+          ...(seasonArray.length && { Season: { $in: seasonArray } }),                    // Filter by Season if specified
           ...(selectTeam && { Team: selectTeam }),               // Filter by Team if specified
           ...(selectPosition && { Position: selectPosition }),   // Filter by Position if specified
           ...(minScoreValue !== null && { Total_Score: { $gte: minScoreValue } }),
@@ -604,7 +727,7 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
   let { csteam } = req.query;
 
   let originalCsteam;
-  if(csteam){
+  if (csteam) {
     originalCsteam = csteam;
     csteam = getSanitizedFieldName(csteam)
   }
@@ -1228,7 +1351,7 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
   let { csteam } = req.query;
 
   let originalCsteam = csteam;
-  if(csteam){
+  if (csteam) {
     csteam = getSanitizedFieldName(csteam);
   }
 
@@ -1964,7 +2087,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
   let { csteam } = req.query;
 
   let originalCsteam = csteam;
-  if(csteam){
+  if (csteam) {
     csteam = getSanitizedFieldName(csteam);
   }
 
@@ -2007,7 +2130,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
     const found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
-    if (found.Position === "GK") return next({ status: 404, message: 'No advanced graphs for GK Position'});
+    if (found.Position === "GK") return next({ status: 404, message: 'No advanced graphs for GK Position' });
 
     // Fetch max values for specified role
     let maxValues = null;
@@ -2422,23 +2545,23 @@ router.get('/listRoles', verifyToken, async (req, res) => {
 
 // GET route to get all teams that have compatibility scores
 router.get("/listTeams", verifyToken, async (req, res) => {
-    try{
-        const found = await CompatibilityScores.findOne().lean();
-        if(!found){
-            return res.status(404).json({ message: 'No documents found in the collection' });
-        }
-
-        const fields = Object.keys(found)
-        .filter((field) => field !== '_id' && field !== 'UniqueID' && field !== 'Position')
-        .sort();
-
-        // Convert sanitized fields back to their original versions
-        const originalFields = fields.map((field) => getOriginalFieldName(field));
-
-        res.json(originalFields);
-    } catch (error) {
-        res.status(500).json({ error: 'An error occurred while retrieving Team names' });
+  try {
+    const found = await CompatibilityScores.findOne().lean();
+    if (!found) {
+      return res.status(404).json({ message: 'No documents found in the collection' });
     }
+
+    const fields = Object.keys(found)
+      .filter((field) => field !== '_id' && field !== 'UniqueID' && field !== 'Position')
+      .sort();
+
+    // Convert sanitized fields back to their original versions
+    const originalFields = fields.map((field) => getOriginalFieldName(field));
+
+    res.json(originalFields);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while retrieving Team names' });
+  }
 });
 
 // GET route to fetch all filterable Seasons

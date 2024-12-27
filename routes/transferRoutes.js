@@ -40,15 +40,16 @@ router.get('/getAverages', verifyToken, async (req, res) => {
     const { Club, UniqueID, Position } = req.query;
 
     // Validate input
-    if (!Position) {
-      return res.status(400).json({ error: 'Please provide a Position query parameter.' });
-    }
+    // if (!Position) {
+    //   return res.status(400).json({ error: 'Please provide a Position query parameter.' });
+    // }
     if (!Club && !UniqueID) {
       return res.status(400).json({ error: 'Please provide a Club or UniqueID query parameter.' });
     }
 
     // Build query
-    const query = { Short_Position: Position };
+    const query = {};
+    if (Position) query.Short_Position = Position;
     if (Club) query.Club = Club;
     if (UniqueID) query.UniqueID = UniqueID;
 
