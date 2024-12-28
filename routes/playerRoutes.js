@@ -106,7 +106,7 @@ router.get("/get/:id", verifyToken, async ({ params: { id }, user }, res, next) 
 
     // Fetch Compatibility Score based on the logged in user's team
     const team = user.team;
-    const additionalData = await CompatibilityScores.findOne({ UniqueID: id}).lean();
+    const additionalData = await CompatibilityScores.findOne({ UniqueID: id }).lean();
     const score = additionalData ? additionalData[team] : null;
 
     const transformedResult = {
@@ -265,81 +265,50 @@ router.get("/search", verifyToken, async (req, res, next) => {
     // Search for players by name, only returning fields 'Player', 'Team', and 'Position'
     const nameMatches = await Player.find({
       $or: [
-        { Player: { $regex: `^${value}`, $options: 'i' } }, // Match for beginning of First name
-        { Player: { $regex: `\\s${value}`, $options: 'i' } } // Match for beginning of Last name
+        { Player: { $regex: `^${value}`, $options: 'i' }, Season: "Last Calendar Year" }, // Match for beginning of First name
+        { Player: { $regex: `\\s${value}`, $options: 'i' }, Season: "Last Calendar Year" } // Match for beginning of Last name
       ]
     }).select('UniqueID Player Team Position Season -_id')
       .sort({ UniqueID: 1 })
       .limit(30)
       .lean();
 
-
-    // Group players by Player, Team, and Position
-    const groupedPlayers = {};
+    // Remove duplicates based on Player, Team, and Position
+    const uniquePlayers = [];
+    const seen = new Map();
 
     if (nameMatches.length != 0) {
-
-      nameMatches.forEach(player => {
+      for (const player of nameMatches) {
         const key = `${player.Player}-${player.Team}-${player.Position}`;
-
-        if (!groupedPlayers[key]) {
-            groupedPlayers[key] = {
-                Player: player.Player,
-                Team: player.Team,
-                Position: player.Position,
-                instances: [], // Initialize the instances array
-            };
+        if (!seen.has(key)) {
+          seen.set(key, true);
+          uniquePlayers.push(player);
         }
-
-        // Collect season info for each group
-        groupedPlayers[key].instances.push({ UniqueID: player.UniqueID, Season: player.Season });
-    });
-
+      }
     }
 
-    // Fetch additional field dynamically based on Team
+    // Fetch additional field dynamically based on Team and append it to the result
     const nameMatchesScore = await Promise.all(
-      Object.values(groupedPlayers).map(async (group) => {
-          try {
-              // For each UniqueID in the instances array, fetch the Score
-              const updatedInstances = await Promise.all(group.instances.map(async (instanceEntry) => {
-                  try {
-                      // Fetch the score from the OtherCollection based on UniqueID
-                      const additionalData = await CompatibilityScores.findOne({
-                          UniqueID: instanceEntry.UniqueID, // Use the UniqueID from instances entry
-                      }).lean();
+      uniquePlayers.map((player) => {
+        return CompatibilityScores.findOne({ UniqueID: player.UniqueID })
+          .lean() // Use lean() for better performance
+          .then((additionalData) => {
+            // Dynamically extract the field matching the Team value
+            const score = additionalData ? additionalData[team] : null;
 
-                      // Extract the Score from the other collection, based on the team
-                      const score = additionalData ? additionalData[team] : null;
-
-                      // Return the updated instance entry with Score
-                      return {
-                          ...instanceEntry,
-                          Compatibility_Score: score, // Add Score to each instance entry
-                      };
-                  } catch (err) {
-                      console.error(`Error fetching score for UniqueID ${instanceEntry.UniqueID}:`, err);
-                      return {
-                          ...instanceEntry,
-                          Compatibility_Score: null, // Gracefully handle errors by setting Score to null
-                      };
-                  }
-              }));
-
-              // Return the final grouped object with updated instances entries
-              return {
-                  ...group, // Include Player, Team, Position
-                  instances: updatedInstances, // Updated instances array with Score
-              };
-          } catch (err) {
-              console.error(`Error processing player group for ${group.Player}:`, err);
-              return {
-                  ...group,
-                  instances: group.instances.map(instance => ({ ...instance, Compatibility_Score: null })), // Gracefully handle errors
-              };
-          }
+            return {
+              ...player,
+              Compatibility_Score: score, // Label the field as 'Compatibility_Score'
+            };
+          })
+          .catch((err) => {
+            // Handle errors in fetching additional data for each player
+            console.error(`Error fetching additional data for player ${player.UniqueID}:`, err);
+            return { ...player, Score: null }; // Gracefully handle errors
+          });
       })
-  );
+    );
+
 
     // Search for Teams by name (pulled from Playstyles collection) - Return 'UniqueID' and 'Team'
     const teamMatches = await Playstyles.find({
