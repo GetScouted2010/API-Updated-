@@ -693,7 +693,7 @@ router.get('/csfilter', verifyToken, async (req, res) => {
 // Route to pull overall graph data for specified player
 router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
   const { id } = req.params;
-  let { csteam } = req.query;
+  let { csteam, season } = req.query;
 
   let originalCsteam;
   if (csteam) {
@@ -769,9 +769,20 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
 
   try {
 
-    const found = await Player.findOne({ UniqueID: id });
+    let found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
+
+    // If season parameter was provided, find matching player profile
+    let seasonFound;
+    if (season) seasonFound = await Player.findOne({ Player: found.Player, Team: found.Team, Age: found.Age, Birth_country: found.Birth_country, Passport_country: found.Passport_country, Age: found.Age, Season: season });
+
+    if (seasonFound) {
+      found = seasonFound;
+    }
+    if (season && !seasonFound) {
+      return next({ status: 404, message: `No Season Data for Player: ${found.Player} and Season: ${season}` });
+    }
 
     // Fetch max values for specified role
     const maxValues = await getMaxValues(found.Position);
@@ -779,7 +790,7 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
     // Fetch Compatibility Score
     let csValue = null
     if (csteam) {
-      const findScore = await CompatibilityScores.findOne({ UniqueID: id });
+      const findScore = await CompatibilityScores.findOne({ UniqueID: found.UniqueID });
       if (!findScore) {
         csValue = null
       }
@@ -1317,7 +1328,7 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
 
   // Pull id and csteam from url
   const { id } = req.params;
-  let { csteam } = req.query;
+  let { csteam, season } = req.query;
 
   let originalCsteam = csteam;
   if (csteam) {
@@ -1355,9 +1366,21 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
   };
 
   try {
-    const found = await Player.findOne({ UniqueID: id });
+
+    let found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
+
+    // If season parameter was provided, find matching player profile
+    let seasonFound;
+    if (season) seasonFound = await Player.findOne({ Player: found.Player, Team: found.Team, Age: found.Age, Birth_country: found.Birth_country, Passport_country: found.Passport_country, Age: found.Age, Season: season });
+
+    if (seasonFound) {
+      found = seasonFound;
+    }
+    if (season && !seasonFound) {
+      return next({ status: 404, message: `No Season Data for Player: ${found.Player} and Season: ${season}` });
+    }
 
     // Fetch max values for specified role
     const maxValues = await getMaxValues(found.Position);
@@ -1365,7 +1388,7 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
     // Fetch Compatibility Score
     let csValue = null
     if (csteam) {
-      const findScore = await CompatibilityScores.findOne({ UniqueID: id });
+      const findScore = await CompatibilityScores.findOne({ UniqueID: found.UniqueID });
       if (!findScore) {
         csValue = null
       }
@@ -2053,7 +2076,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
 
   // Pull id and csteam from url
   const { id } = req.params;
-  let { csteam } = req.query;
+  let { csteam, season } = req.query;
 
   let originalCsteam = csteam;
   if (csteam) {
@@ -2096,10 +2119,24 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
   };
 
   try {
-    const found = await Player.findOne({ UniqueID: id });
+    let found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
+
+    // No Advanced Goalkeeper Graphs currently
     if (found.Position === "GK") return next({ status: 404, message: 'No advanced graphs for GK Position' });
+
+    // If season parameter was provided, find matching player profile
+    let seasonFound;
+    if (season) seasonFound = await Player.findOne({ Player: found.Player, Team: found.Team, Age: found.Age, Birth_country: found.Birth_country, Passport_country: found.Passport_country, Age: found.Age, Season: season });
+
+    if (seasonFound) {
+      found = seasonFound;
+    }
+    if (season && !seasonFound) {
+      return next({ status: 404, message: `No Season Data for Player: ${found.Player} and Season: ${season}` });
+    }
+    
 
     // Fetch max values for specified role
     let maxValues = null;
@@ -2123,7 +2160,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
     // Fetch Compatibility Score
     let csValue = null
     if (csteam) {
-      const findScore = await CompatibilityScores.findOne({ UniqueID: id });
+      const findScore = await CompatibilityScores.findOne({ UniqueID: found.UniqueID });
       if (!findScore) {
         csValue = null
       }
