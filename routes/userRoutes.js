@@ -108,7 +108,20 @@ router.post('/login', async (req, res) => {
 router.get("/getUser", verifyToken, async (req, res, next) => {
   try {
     const userId = req.user.id;
-    const found = await User.find({ _id: userId }, { username: 1, email: 1, fullname: 1, role: 1, team: 1 });
+    let found = await User.findOne(
+      { _id: userId }, 
+      { username: 1, email: 1, fullname: 1, role: 1, team: 1 }
+  );
+  
+  if (found) {
+      // Fetch the related team document based on the team field from the user
+      const teamFind = await Team.findOne({ Team: found.team });
+  
+      // Add the teamId to the found object if teamFind exists
+      if (teamFind) {
+          found = { ...found._doc, teamId: teamFind.UniqueID };
+      }
+  }
     return res.json(found);
   } catch (error) {
     return res.status(400).json({ message: "Error fetching user data", error })
@@ -184,7 +197,7 @@ router.post('/register2', async (req, res) => {
       }
     }
 
-    if(validTeamPassword.currentUses >= validTeamPassword.maxUses || !validTeamPassword){
+    if (validTeamPassword.currentUses >= validTeamPassword.maxUses || !validTeamPassword) {
       return res.status(400).json({ error: 'Invalid or exhausted team password.' });
     }
 
