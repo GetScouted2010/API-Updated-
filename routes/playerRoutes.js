@@ -405,7 +405,12 @@ router.get('/csfilter', verifyToken, async (req, res) => {
       }
 
       // Split roles by comma and ensure it is an array with up to 2 items
-      const rolesArray = role.split(',').map((role) => role.trim()).filter(Boolean);
+      const rolesArray = role
+        .split(',')
+        .map((role) => role.trim())
+        .filter(Boolean)
+        .map((role) => role.replace(/\s+/g, '_')); // Replace spaces with underscores
+
       if (rolesArray.length === 0 || rolesArray.length > 2) {
         return res
           .status(400)
@@ -2136,7 +2141,7 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
     if (season && !seasonFound) {
       return next({ status: 404, message: `No Season Data for Player: ${found.Player} and Season: ${season}` });
     }
-    
+
 
     // Fetch max values for specified role
     let maxValues = null;
