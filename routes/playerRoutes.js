@@ -664,7 +664,11 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           Age: 1,
           Market_value: 1,
           Minutes_played: 1,
-          Matches_played: 1
+          Matches_played: 1,
+          Contract_expires: 1,
+          Goals: 1,
+          Assists: 1,
+          Foot: 1
         },
       },
       {
