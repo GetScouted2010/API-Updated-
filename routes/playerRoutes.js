@@ -646,6 +646,13 @@ router.get('/csfilter', verifyToken, async (req, res) => {
     // Step 6: Add pagination stages
     const paginatedPipeline = [
       ...basePipeline,
+      {
+        $addFields: {
+          Combined_Score: {
+            $add: ["$Compatibility_Score", "$Total_Score"]
+          }
+        }
+      },
       { $skip: (pageNumber - 1) * limitNumber },
       { $limit: limitNumber },
       {
@@ -672,7 +679,7 @@ router.get('/csfilter', verifyToken, async (req, res) => {
         },
       },
       {
-        $sort: { Compatibility_Score: -1 }
+        $sort: { Combined_Score: -1 }
       }
     ];
 
