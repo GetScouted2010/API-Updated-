@@ -610,6 +610,13 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           },
         },
         {
+          $addFields: {
+            Combined_Score: {
+              $add: ["$Compatibility_Score", "$Total_Score"]
+            }
+          }
+        },
+        {
           $match: {
             Compatibility_Score: { $gte: minRatingValue, $lte: maxRatingValue },
           },
@@ -633,6 +640,9 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           ...(maxMarketValueValue !== null && { Market_value: { $lte: maxMarketValueValue } }),
         },
       },
+      {
+        $sort: { Combined_Score: -1 }
+      }
     ];
 
     // Step 5: Count total number of filtered records
@@ -646,13 +656,6 @@ router.get('/csfilter', verifyToken, async (req, res) => {
     // Step 6: Add pagination stages
     const paginatedPipeline = [
       ...basePipeline,
-      {
-        $addFields: {
-          Combined_Score: {
-            $add: ["$Compatibility_Score", "$Total_Score"]
-          }
-        }
-      },
       { $skip: (pageNumber - 1) * limitNumber },
       { $limit: limitNumber },
       {
@@ -677,9 +680,6 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           Assists: 1,
           Foot: 1
         },
-      },
-      {
-        $sort: { Combined_Score: -1 }
       }
     ];
 
