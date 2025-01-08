@@ -26,10 +26,6 @@ const transferDataSchema = new Schema({
         type: String,
         required: true
     },
-    Market_Value_unedited: {
-        type: Number,
-        required: true
-    },
     Market_Value: {
         type: Number,
         required: true
@@ -42,8 +38,8 @@ const transferDataSchema = new Schema({
         type: String,
         required: true
     },
-    Fee_Scrapped: {
-        type: String,
+    Fee: {
+        type: Number,
         required: true
     },
     Movement: {
@@ -59,14 +55,6 @@ const transferDataSchema = new Schema({
         required: true
     },
     Year: {
-        type: Number,
-        required: true
-    },
-    Fee_Edited: {
-        type: Number,
-        required: true
-    },
-    Fee_Cleaned: {
         type: Number,
         required: true
     },

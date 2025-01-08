@@ -70,29 +70,34 @@ router.get('/getAverages', verifyToken, async (req, res) => {
 
     // Calculate stats
     records.forEach(record => {
-      if(record.is_loan === false && record.loan_status === 0 && record.Movement === "arrival"){
-      // Ensure values are numbers and not null/undefined
-      const age = record.Age || 0;
-      const marketValue = record.Market_Value ? parseFloat(record.Market_Value.toFixed(1)) : 0; // Round to 1 decimal place
-      const feeCleaned = record.Fee_Cleaned ? parseFloat(record.Fee_Cleaned.toFixed(1)) : 0; // Round to 1 decimal place
+      if (record.is_loan === false && record.loan_status === "NA" && record.Movement === "arrival") {
+        // Ensure values are numbers and not null/undefined
+        const age = record.Age || 0;
+        const marketValue = record.Market_Value ? parseFloat((record.Market_Value / 1000000).toFixed(2)) : 0; // Convert Market_Value to millions, round to 2 decimal places
 
-      // Age calculations
-      stats.Age.min = Math.min(stats.Age.min, age);
-      stats.Age.max = Math.max(stats.Age.max, age);
-      stats.Age.sum += age;
-      stats.Age.count++;
+        // Convert Fee to Fee_Cleaned (millions) if Fee is valid
+        const fee = record.Fee;
+        const feeCleaned = typeof fee === "number" && fee > 0 ? parseFloat((fee / 1000000).toFixed(2)) : null; // Convert to millions
 
-      // Market_Value calculations
-      stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
-      stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
-      stats.Market_Value.sum += marketValue;
-      stats.Market_Value.count++;
+        // Age calculations
+        stats.Age.min = Math.min(stats.Age.min, age);
+        stats.Age.max = Math.max(stats.Age.max, age);
+        stats.Age.sum += age;
+        stats.Age.count++;
 
-      // Fee_Cleaned calculations
-      stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
-      stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
-      stats.Fee_Cleaned.sum += feeCleaned;
-      stats.Fee_Cleaned.count++;
+        // Market_Value calculations
+        stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
+        stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
+        stats.Market_Value.sum += marketValue;
+        stats.Market_Value.count++;
+
+        // Fee_Cleaned calculations
+        if (feeCleaned !== null) {
+          stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
+          stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
+          stats.Fee_Cleaned.sum += feeCleaned;
+          stats.Fee_Cleaned.count++;
+        }
       }
     });
 
@@ -107,12 +112,12 @@ router.get('/getAverages', verifyToken, async (req, res) => {
       Market_Value: {
         min: stats.Market_Value.min === Infinity ? "N/A" : stats.Market_Value.min,
         max: stats.Market_Value.max === -Infinity ? "N/A" : stats.Market_Value.max,
-        avg: stats.Market_Value.count ? parseFloat((stats.Market_Value.sum / stats.Market_Value.count).toFixed(1)) : "N/A", // Round to 1 decimal place
+        avg: stats.Market_Value.count ? parseFloat((stats.Market_Value.sum / stats.Market_Value.count).toFixed(2)) : "N/A", // Round to 2 decimal places
       },
       Fee_Cleaned: {
         min: stats.Fee_Cleaned.min === Infinity ? "N/A" : stats.Fee_Cleaned.min,
         max: stats.Fee_Cleaned.max === -Infinity ? "N/A" : stats.Fee_Cleaned.max,
-        avg: stats.Fee_Cleaned.count ? parseFloat((stats.Fee_Cleaned.sum / stats.Fee_Cleaned.count).toFixed(1)) : "N/A", // Round to 1 decimal place
+        avg: stats.Fee_Cleaned.count ? parseFloat((stats.Fee_Cleaned.sum / stats.Fee_Cleaned.count).toFixed(2)) : "N/A", // Round to 2 decimal places
       },
     };
 
