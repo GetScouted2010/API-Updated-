@@ -895,35 +895,55 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Goals_per_90,
+              teamValue: roundedAverages.Goals_per_90,
+              leagueValue: leagueRoundedAverages.Goals_per_90,
+              csteamValue: csteamRoundedAverages.Goals_per_90
             },
             {
               label: "Expected Goals per 90",
               player: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
+              playerValue: found.xG_per_90,
+              teamValue: roundedAverages.xG_per_90,
+              leagueValue: leagueRoundedAverages.xG_per_90,
+              csteamValue: csteamRoundedAverages.xG_per_90
             },
             {
               label: "Shots per 90",
               player: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_per_90,
+              teamValue: roundedAverages.Shots_per_90,
+              leagueValue: leagueRoundedAverages.Shots_per_90,
+              csteamValue: csteamRoundedAverages.Shots_per_90
             },
             {
               label: "Assists per 90",
               player: parseFloat(((found.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
+              playerValue: found.Assists_per_90,
+              teamValue: roundedAverages.Assists_per_90,
+              leagueValue: leagueRoundedAverages.Assists_per_90,
+              csteamValue: csteamRoundedAverages.Assists_per_90
             },
             {
               label: "Dribbles per 90",
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Successful dribbles %",
@@ -937,14 +957,22 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Progressive runs per 90",
               player: parseFloat(((found.Progressive_runs_per_90 / maxValues.Progressive_runs_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_runs_per_90 / maxValues.Progressive_runs_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_runs_per_90 / maxValues.Progressive_runs_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_runs_per_90 / maxValues.Progressive_runs_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_runs_per_90 / maxValues.Progressive_runs_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_runs_per_90,
+              teamValue: roundedAverages.Progressive_runs_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_runs_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_runs_per_90
             },
             {
               label: "Shots on target %",
@@ -958,7 +986,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Non_penalty_goals_per_90,
+              teamValue: roundedAverages.Non_penalty_goals_per_90,
+              leagueValue: leagueRoundedAverages.Non_penalty_goals_per_90,
+              csteamValue: csteamRoundedAverages.Non_penalty_goals_per_90
             }
           ],
           Defensive: [
@@ -967,7 +999,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             },
             {
               label: "Defensive duels won %",
@@ -981,21 +1017,33 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Sucessful defensive actions per 90",
               player: parseFloat(((found.Successful_defensive_actions_per_90 / maxValues.Successful_defensive_actions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Successful_defensive_actions_per_90 / maxValues.Successful_defensive_actions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Successful_defensive_actions_per_90 / maxValues.Successful_defensive_actions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Successful_defensive_actions_per_90 / maxValues.Successful_defensive_actions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Successful_defensive_actions_per_90 / maxValues.Successful_defensive_actions_per_90) * 100).toFixed(2)),
+              playerValue: found.Successful_defensive_actions_per_90,
+              teamValue: roundedAverages.Successful_defensive_actions_per_90,
+              leagueValue: leagueRoundedAverages.Successful_defensive_actions_per_90,
+              csteamValue: csteamRoundedAverages.Successful_defensive_actions_per_90
             },
             {
               label: "Aerial duels per 90",
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1009,28 +1057,44 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Fouls_per_90 / maxValues.Fouls_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Fouls_per_90 / maxValues.Fouls_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Fouls_per_90 / maxValues.Fouls_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Fouls_per_90 / maxValues.Fouls_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Fouls_per_90 / maxValues.Fouls_per_90) * 100).toFixed(2)),
+              playerValue: found.Fouls_per_90,
+              teamValue: roundedAverages.Fouls_per_90,
+              leagueValue: leagueRoundedAverages.Fouls_per_90,
+              csteamValue: csteamRoundedAverages.Fouls_per_90
             },
             {
               label: "Sliding tackles per 90",
               player: parseFloat(((found.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
+              playerValue: found.Sliding_tackles_per_90,
+              teamValue: roundedAverages.Sliding_tackles_per_90,
+              leagueValue: leagueRoundedAverages.Sliding_tackles_per_90,
+              csteamValue: csteamRoundedAverages.Sliding_tackles_per_90
             },
             {
               label: "PAdj Sliding Tackles",
               player: parseFloat(((found.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
+              playerValue: found.PAdj_Sliding_tackles,
+              teamValue: roundedAverages.PAdj_Sliding_tackles,
+              leagueValue: leagueRoundedAverages.PAdj_Sliding_tackles,
+              csteamValue: csteamRoundedAverages.PAdj_Sliding_tackles
             },
             {
               label: "Shots blocked per 90",
               player: parseFloat(((found.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_blocked_per_90,
+              teamValue: roundedAverages.Shots_blocked_per_90,
+              leagueValue: leagueRoundedAverages.Shots_blocked_per_90,
+              csteamValue: csteamRoundedAverages.Shots_blocked_per_90
             }
           ],
           Passing: [
@@ -1046,49 +1110,77 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             },
             {
               label: "Key passes per 90",
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Passes to final third per 90",
               player: parseFloat(((found.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_to_final_third_per_90,
+              teamValue: roundedAverages.Passes_to_final_third_per_90,
+              leagueValue: leagueRoundedAverages.Passes_to_final_third_per_90,
+              csteamValue: csteamRoundedAverages.Passes_to_final_third_per_90
             },
             {
               label: "Smart passes per 90",
               player: parseFloat(((found.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Smart_passes_per_90,
+              teamValue: roundedAverages.Smart_passes_per_90,
+              leagueValue: leagueRoundedAverages.Smart_passes_per_90,
+              csteamValue: csteamRoundedAverages.Smart_passes_per_90
             },
             {
               label: "Through passes per 90",
               player: parseFloat(((found.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Through_passes_per_90,
+              teamValue: roundedAverages.Through_passes_per_90,
+              leagueValue: leagueRoundedAverages.Through_passes_per_90,
+              csteamValue: csteamRoundedAverages.Through_passes_per_90
             },
             {
               label: "Passes to penalty area per 90",
               player: parseFloat(((found.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_to_penalty_area_per_90,
+              teamValue: roundedAverages.Passes_to_penalty_area_per_90,
+              leagueValue: leagueRoundedAverages.Passes_to_penalty_area_per_90,
+              csteamValue: csteamRoundedAverages.Passes_to_penalty_area_per_90
             },
             {
               label: "Accurate passes to final third %",
@@ -1111,7 +1203,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Offensive_duels_per_90,
+              teamValue: roundedAverages.Offensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Offensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Offensive_duels_per_90
             },
             {
               label: "Offensive duels won %",
@@ -1125,7 +1221,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1222,14 +1322,22 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             }
           ],
           Defensive: [
@@ -1245,28 +1353,44 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Conceded_goals_per_90,
+              teamValue: roundedAverages.Conceded_goals_per_90,
+              leagueValue: leagueRoundedAverages.Conceded_goals_per_90,
+              csteamValue: csteamRoundedAverages.Conceded_goals_per_90
             },
             {
               label: "Shots against per 90",
               player: parseFloat(((found.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_against_per_90,
+              teamValue: roundedAverages.Shots_against_per_90,
+              leagueValue: leagueRoundedAverages.Shots_against_per_90,
+              csteamValue: csteamRoundedAverages.Shots_against_per_90
             },
             {
               label: "Clean sheets",
               player: parseFloat(((found.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
+              playerValue: found.Clean_sheets,
+              teamValue: roundedAverages.Clean_sheets,
+              leagueValue: leagueRoundedAverages.Clean_sheets,
+              csteamValue: csteamRoundedAverages.Clean_sheets
             },
             {
               label: "Aerial duels per 90",
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1289,14 +1413,22 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_to_final_third_per_90,
+              teamValue: roundedAverages.Passes_to_final_third_per_90,
+              leagueValue: leagueRoundedAverages.Passes_to_final_third_per_90,
+              csteamValue: csteamRoundedAverages.Passes_to_final_third_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             }
           ],
           Duels: [
@@ -1305,7 +1437,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Duels_per_90 / maxValues.Duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Duels_per_90 / maxValues.Duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Duels_per_90 / maxValues.Duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Duels_per_90 / maxValues.Duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Duels_per_90 / maxValues.Duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Duels_per_90,
+              teamValue: roundedAverages.Duels_per_90,
+              leagueValue: leagueRoundedAverages.Duels_per_90,
+              csteamValue: csteamRoundedAverages.Duels_per_90
             },
             {
               label: "Duels won %",
@@ -1319,7 +1455,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1498,28 +1638,44 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Conceded_goals_per_90 / maxValues.Conceded_goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Conceded_goals_per_90,
+              teamValue: roundedAverages.Conceded_goals_per_90,
+              leagueValue: leagueRoundedAverages.Conceded_goals_per_90,
+              csteamValue: csteamRoundedAverages.Conceded_goals_per_90
             },
             {
               label: "Shots against per 90",
               player: parseFloat(((found.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_against_per_90 / maxValues.Shots_against_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_against_per_90,
+              teamValue: roundedAverages.Shots_against_per_90,
+              leagueValue: leagueRoundedAverages.Shots_against_per_90,
+              csteamValue: csteamRoundedAverages.Shots_against_per_90
             },
             {
               label: "Clean sheets",
               player: parseFloat(((found.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Clean_sheets / maxValues.Clean_sheets) * 100).toFixed(2)),
+              playerValue: found.Clean_sheets,
+              teamValue: roundedAverages.Clean_sheets,
+              leagueValue: leagueRoundedAverages.Clean_sheets,
+              csteamValue: csteamRoundedAverages.Clean_sheets
             },
             {
               label: "Aerial duels per 90",
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1533,7 +1689,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Pass completion %",
@@ -1547,14 +1707,22 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             }
           ]
         }
@@ -1577,7 +1745,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             },
             {
               label: "Defensive duels won %",
@@ -1591,7 +1763,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Successful dribbles %",
@@ -1605,14 +1781,22 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Crosses per 90",
               player: parseFloat(((found.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
+              playerValue: found.Crosses_per_90,
+              teamValue: roundedAverages.Crosses_per_90,
+              leagueValue: leagueRoundedAverages.Crosses_per_90,
+              csteamValue: csteamRoundedAverages.Crosses_per_90
             },
             {
               label: "Accurate crosses %",
@@ -1626,7 +1810,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
+              playerValue: found.Touches_in_box_per_90,
+              teamValue: roundedAverages.Touches_in_box_per_90,
+              leagueValue: leagueRoundedAverages.Touches_in_box_per_90,
+              csteamValue: csteamRoundedAverages.Touches_in_box_per_90
             }
           ]
         }
@@ -1649,7 +1837,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             },
             {
               label: "Defensive duels won %",
@@ -1663,7 +1855,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -1677,7 +1873,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Pass completion %",
@@ -1691,7 +1891,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             }
           ]
         }
@@ -1721,42 +1925,65 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             },
             {
               label: "Key passes per 90",
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Interceptions per 90",
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Dribbles per 90",
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Defensive duels per 90",
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             }
           ]
         }
@@ -1779,7 +2006,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             },
             {
               label: "Defensive duels won %",
@@ -1793,7 +2024,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Pass completion %",
@@ -1807,14 +2042,22 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             }
           ]
         }
@@ -1837,35 +2080,55 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Assists_per_90 / maxValues.Assists_per_90) * 100).toFixed(2)),
+              playerValue: found.Assists_per_90,
+              teamValue: roundedAverages.Assists_per_90,
+              leagueValue: leagueRoundedAverages.Assists_per_90,
+              csteamValue: csteamRoundedAverages.Assists_per_90
             },
             {
               label: "Key passes per 90",
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Dribbles per 90",
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Shots per 90",
               player: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_per_90,
+              teamValue: roundedAverages.Shots_per_90,
+              leagueValue: leagueRoundedAverages.Shots_per_90,
+              csteamValue: csteamRoundedAverages.Shots_per_90
             },
             {
               label: "xG per 90",
               player: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
+              playerValue: found.xG_per_90,
+              teamValue: roundedAverages.xG_per_90,
+              leagueValue: leagueRoundedAverages.xG_per_90,
+              csteamValue: csteamRoundedAverages.xG_per_90
             },
             {
               label: "Successful dribbles %",
@@ -1902,7 +2165,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
+              playerValue: found.Crosses_per_90,
+              teamValue: roundedAverages.Crosses_per_90,
+              leagueValue: leagueRoundedAverages.Crosses_per_90,
+              csteamValue: csteamRoundedAverages.Crosses_per_90
             },
             {
               label: "Accurate crosses %",
@@ -1916,7 +2183,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Successful dribbles %",
@@ -1930,21 +2201,33 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Offensive duels per 90",
               player: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Offensive_duels_per_90,
+              teamValue: roundedAverages.Offensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Offensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Offensive_duels_per_90
             },
             {
               label: "Touches in box per 90",
               player: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
+              playerValue: found.Touches_in_box_per_90,
+              teamValue: roundedAverages.Touches_in_box_per_90,
+              leagueValue: leagueRoundedAverages.Touches_in_box_per_90,
+              csteamValue: csteamRoundedAverages.Touches_in_box_per_90
             }
           ]
         }
@@ -1967,7 +2250,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Crosses_per_90 / maxValues.Crosses_per_90) * 100).toFixed(2)),
+              playerValue: found.Crosses_per_90,
+              teamValue: roundedAverages.Crosses_per_90,
+              leagueValue: leagueRoundedAverages.Crosses_per_90,
+              csteamValue: csteamRoundedAverages.Crosses_per_90
             },
             {
               label: "Accurate crosses %",
@@ -1981,7 +2268,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Successful dribbles %",
@@ -1995,21 +2286,33 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Offensive duels per 90",
               player: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Offensive_duels_per_90,
+              teamValue: roundedAverages.Offensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Offensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Offensive_duels_per_90
             },
             {
               label: "Touches in box per 90",
               player: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
+              playerValue: found.Touches_in_box_per_90,
+              teamValue: roundedAverages.Touches_in_box_per_90,
+              leagueValue: leagueRoundedAverages.Touches_in_box_per_90,
+              csteamValue: csteamRoundedAverages.Touches_in_box_per_90
             }
           ]
         }
@@ -2032,14 +2335,22 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Goals_per_90,
+              teamValue: roundedAverages.Goals_per_90,
+              leagueValue: leagueRoundedAverages.Goals_per_90,
+              csteamValue: csteamRoundedAverages.Goals_per_90
             },
             {
               label: "Shots per 90",
               player: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_per_90,
+              teamValue: roundedAverages.Shots_per_90,
+              leagueValue: leagueRoundedAverages.Shots_per_90,
+              csteamValue: csteamRoundedAverages.Shots_per_90
             },
             {
               label: "Shots on target %",
@@ -2053,28 +2364,44 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
+              playerValue: found.xG_per_90,
+              teamValue: roundedAverages.xG_per_90,
+              leagueValue: leagueRoundedAverages.xG_per_90,
+              csteamValue: csteamRoundedAverages.xG_per_90
             },
             {
               label: "Dribbles per 90",
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Offensive duels per 90",
               player: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Offensive_duels_per_90,
+              teamValue: roundedAverages.Offensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Offensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Offensive_duels_per_90
             },
             {
               label: "Non-penalty goals per 90",
               player: parseFloat(((found.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Non_penalty_goals_per_90,
+              teamValue: roundedAverages.Non_penalty_goals_per_90,
+              leagueValue: leagueRoundedAverages.Non_penalty_goals_per_90,
+              csteamValue: csteamRoundedAverages.Non_penalty_goals_per_90
             }
           ]
         }
@@ -2264,28 +2591,44 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Goals_per_90 / maxValues.Goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Goals_per_90,
+              teamValue: roundedAverages.Goals_per_90,
+              leagueValue: leagueRoundedAverages.Goals_per_90,
+              csteamValue: csteamRoundedAverages.Goals_per_90
             },
             {
               label: "Non-penalty goals per 90",
               player: parseFloat(((found.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Non_penalty_goals_per_90 / maxValues.Non_penalty_goals_per_90) * 100).toFixed(2)),
+              playerValue: found.Non_penalty_goals_per_90,
+              teamValue: roundedAverages.Non_penalty_goals_per_90,
+              leagueValue: leagueRoundedAverages.Non_penalty_goals_per_90,
+              csteamValue: csteamRoundedAverages.Non_penalty_goals_per_90
             },
             {
               label: "xG per 90",
               player: parseFloat(((found.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.xG_per_90 / maxValues.xG_per_90) * 100).toFixed(2)),
+              playerValue: found.xG_per_90,
+              teamValue: roundedAverages.xG_per_90,
+              leagueValue: leagueRoundedAverages.xG_per_90,
+              csteamValue: csteamRoundedAverages.xG_per_90
             },
             {
               label: "Shots per 90",
               player: parseFloat(((found.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_per_90 / maxValues.Shots_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_per_90,
+              teamValue: roundedAverages.Shots_per_90,
+              leagueValue: leagueRoundedAverages.Shots_per_90,
+              csteamValue: csteamRoundedAverages.Shots_per_90
             },
             {
               label: "Shots on target %",
@@ -2306,14 +2649,22 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Dribbles_per_90 / maxValues.Dribbles_per_90) * 100).toFixed(2)),
+              playerValue: found.Dribbles_per_90,
+              teamValue: roundedAverages.Dribbles_per_90,
+              leagueValue: leagueRoundedAverages.Dribbles_per_90,
+              csteamValue: csteamRoundedAverages.Dribbles_per_90
             },
             {
               label: "Offensive duels per 90",
               player: parseFloat(((found.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Offensive_duels_per_90 / maxValues.Offensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Offensive_duels_per_90,
+              teamValue: roundedAverages.Offensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Offensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Offensive_duels_per_90
             },
             {
               label: "Offensive duels won %",
@@ -2327,7 +2678,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Touches_in_box_per_90 / maxValues.Touches_in_box_per_90) * 100).toFixed(2)),
+              playerValue: found.Touches_in_box_per_90,
+              teamValue: roundedAverages.Touches_in_box_per_90,
+              leagueValue: leagueRoundedAverages.Touches_in_box_per_90,
+              csteamValue: csteamRoundedAverages.Touches_in_box_per_90
             }
           ]
         }
@@ -2358,35 +2713,55 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_per_90 / maxValues.Passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_per_90,
+              teamValue: roundedAverages.Passes_per_90,
+              leagueValue: leagueRoundedAverages.Passes_per_90,
+              csteamValue: csteamRoundedAverages.Passes_per_90
             },
             {
               label: "Progressive passes per 90",
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
+              teamValue: roundedAverages.Progressive_passes_per_90,
+              leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
+              csteamValue: csteamRoundedAverages.Progressive_passes_per_90
             },
             {
               label: "Key passes per 90",
               player: parseFloat(((found.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Key_passes_per_90 / maxValues.Key_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Key_passes_per_90,
+              teamValue: roundedAverages.Key_passes_per_90,
+              leagueValue: leagueRoundedAverages.Key_passes_per_90,
+              csteamValue: csteamRoundedAverages.Key_passes_per_90
             },
             {
               label: "Passes to final third per 90",
               player: parseFloat(((found.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_to_final_third_per_90 / maxValues.Passes_to_final_third_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_to_final_third_per_90,
+              teamValue: roundedAverages.Passes_to_final_third_per_90,
+              leagueValue: leagueRoundedAverages.Passes_to_final_third_per_90,
+              csteamValue: csteamRoundedAverages.Passes_to_final_third_per_90
             },
             {
               label: "Passes to penalty area per 90",
               player: parseFloat(((found.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Passes_to_penalty_area_per_90 / maxValues.Passes_to_penalty_area_per_90) * 100).toFixed(2)),
+              playerValue: found.Passes_to_penalty_area_per_90,
+              teamValue: roundedAverages.Passes_to_penalty_area_per_90,
+              leagueValue: leagueRoundedAverages.Passes_to_penalty_area_per_90,
+              csteamValue: csteamRoundedAverages.Passes_to_penalty_area_per_90
             },
             {
               label: "Accurate passes to final third %",
@@ -2400,14 +2775,22 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Smart_passes_per_90 / maxValues.Smart_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Smart_passes_per_90,
+              teamValue: roundedAverages.Smart_passes_per_90,
+              leagueValue: leagueRoundedAverages.Smart_passes_per_90,
+              csteamValue: csteamRoundedAverages.Smart_passes_per_90
             },
             {
               label: "Through passes per 90",
               player: parseFloat(((found.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Through_passes_per_90 / maxValues.Through_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Through_passes_per_90,
+              teamValue: roundedAverages.Through_passes_per_90,
+              leagueValue: leagueRoundedAverages.Through_passes_per_90,
+              csteamValue: csteamRoundedAverages.Through_passes_per_90
             },
             {
               label: "Accurate through passes %",
@@ -2438,14 +2821,22 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Interceptions_per_90 / maxValues.Interceptions_per_90) * 100).toFixed(2)),
+              playerValue: found.Interceptions_per_90,
+              teamValue: roundedAverages.Interceptions_per_90,
+              leagueValue: leagueRoundedAverages.Interceptions_per_90,
+              csteamValue: csteamRoundedAverages.Interceptions_per_90
             },
             {
               label: "Defensive duels per 90",
               player: parseFloat(((found.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Defensive_duels_per_90 / maxValues.Defensive_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Defensive_duels_per_90,
+              teamValue: roundedAverages.Defensive_duels_per_90,
+              leagueValue: leagueRoundedAverages.Defensive_duels_per_90,
+              csteamValue: csteamRoundedAverages.Defensive_duels_per_90
             },
             {
               label: "Defensive duels won %",
@@ -2459,7 +2850,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Aerial_duels_per_90 / maxValues.Aerial_duels_per_90) * 100).toFixed(2)),
+              playerValue: found.Aerial_duels_per_90,
+              teamValue: roundedAverages.Aerial_duels_per_90,
+              leagueValue: leagueRoundedAverages.Aerial_duels_per_90,
+              csteamValue: csteamRoundedAverages.Aerial_duels_per_90
             },
             {
               label: "Aerial duels won %",
@@ -2473,21 +2868,33 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Shots_blocked_per_90 / maxValues.Shots_blocked_per_90) * 100).toFixed(2)),
+              playerValue: found.Shots_blocked_per_90,
+              teamValue: roundedAverages.Shots_blocked_per_90,
+              leagueValue: leagueRoundedAverages.Shots_blocked_per_90,
+              csteamValue: csteamRoundedAverages.Shots_blocked_per_90
             },
             {
               label: "Sliding tackles per 90",
               player: parseFloat(((found.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.Sliding_tackles_per_90 / maxValues.Sliding_tackles_per_90) * 100).toFixed(2)),
+              playerValue: found.Sliding_tackles_per_90,
+              teamValue: roundedAverages.Sliding_tackles_per_90,
+              leagueValue: leagueRoundedAverages.Sliding_tackles_per_90,
+              csteamValue: csteamRoundedAverages.Sliding_tackles_per_90
             },
             {
               label: "PAdj Sliding tackles",
               player: parseFloat(((found.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2))
+              csteam: parseFloat(((csteamRoundedAverages.PAdj_Sliding_tackles / maxValues.PAdj_Sliding_tackles) * 100).toFixed(2)),
+              playerValue: found.PAdj_Sliding_tackles,
+              teamValue: roundedAverages.PAdj_Sliding_tackles,
+              leagueValue: leagueRoundedAverages.PAdj_Sliding_tackles,
+              csteamValue: csteamRoundedAverages.PAdj_Sliding_tackles
             }
           ]
         }
