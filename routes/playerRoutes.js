@@ -950,7 +950,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Successful_dribbles_percentage,
               team: roundedAverages.Successful_dribbles_percentage,
               league: leagueRoundedAverages.Successful_dribbles_percentage,
-              csteam: csteamRoundedAverages.Successful_dribbles_percentage
+              csteam: csteamRoundedAverages.Successful_dribbles_percentage,
+              playerValue: found.Successful_dribbles_percentage,
+              teamValue: roundedAverages.Successful_dribbles_percentage,
+              leagueValue: leagueRoundedAverages.Successful_dribbles_percentage,
+              csteamValue: csteamRoundedAverages.Successful_dribbles_percentage
             },
             {
               label: "Key passes per 90",
@@ -979,7 +983,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Shots_on_target_percentage,
               team: roundedAverages.Shots_on_target_percentage,
               league: leagueRoundedAverages.Shots_on_target_percentage,
-              csteam: csteamRoundedAverages.Shots_on_target_percentage
+              csteam: csteamRoundedAverages.Shots_on_target_percentage,
+              playerValue: found.Shots_on_target_percentage,
+              teamValue: roundedAverages.Shots_on_target_percentage,
+              leagueValue: leagueRoundedAverages.Shots_on_target_percentage,
+              csteamValue: csteamRoundedAverages.Shots_on_target_percentage
             },
             {
               label: "Non-penalty goals per 90",
@@ -1010,7 +1018,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Defensive_duels_won_percentage,
               team: roundedAverages.Defensive_duels_won_percentage,
               league: leagueRoundedAverages.Defensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Defensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Defensive_duels_won_percentage,
+              playerValue: found.Defensive_duels_won_percentage,
+              teamValue: roundedAverages.Defensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Defensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Defensive_duels_won_percentage
             },
             {
               label: "Interceptions per 90",
@@ -1050,7 +1062,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             },
             {
               label: "Fouls per 90",
@@ -1103,7 +1119,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -1187,14 +1207,22 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_to_final_third_percentage,
               team: roundedAverages.Accurate_passes_to_final_third_percentage,
               league: leagueRoundedAverages.Accurate_passes_to_final_third_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_to_final_third_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_to_final_third_percentage,
+              playerValue: found.Accurate_passes_to_final_third_percentage,
+              teamValue: roundedAverages.Accurate_passes_to_final_third_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_to_final_third_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_to_final_third_percentage
             },
             {
               label: "Accurate through passes %",
               player: found.Accurate_through_passes_percentage,
               team: roundedAverages.Accurate_through_passes_percentage,
               league: leagueRoundedAverages.Accurate_through_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_through_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_through_passes_percentage,
+              playerValue: found.Accurate_through_passes_percentage,
+              teamValue: roundedAverages.Accurate_through_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_through_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_through_passes_percentage
             }
           ],
           Duels: [
@@ -1214,7 +1242,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Offensive_duels_won_percentage,
               team: roundedAverages.Offensive_duels_won_percentage,
               league: leagueRoundedAverages.Offensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Offensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Offensive_duels_won_percentage,
+              playerValue: found.Offensive_duels_won_percentage,
+              teamValue: roundedAverages.Offensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Offensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Offensive_duels_won_percentage
             },
             {
               label: "Aerial duels per 90",
@@ -1232,7 +1264,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             }
           ]
         }
@@ -1315,7 +1351,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -1346,7 +1386,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Save_rate_percentage,
               team: roundedAverages.Save_rate_percentage,
               league: leagueRoundedAverages.Save_rate_percentage,
-              csteam: csteamRoundedAverages.Save_rate_percentage
+              csteam: csteamRoundedAverages.Save_rate_percentage,
+              playerValue: found.Save_rate_percentage,
+              teamValue: roundedAverages.Save_rate_percentage,
+              leagueValue: leagueRoundedAverages.Save_rate_percentage,
+              csteamValue: csteamRoundedAverages.Save_rate_percentage
             },
             {
               label: "Conceded goals per 90",
@@ -1397,7 +1441,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             }
           ],
           Passing: [
@@ -1406,7 +1454,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes to final third per 90",
@@ -1448,7 +1500,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Duels_won_percentage,
               team: roundedAverages.Duels_won_percentage,
               league: leagueRoundedAverages.Duels_won_percentage,
-              csteam: csteamRoundedAverages.Duels_won_percentage
+              csteam: csteamRoundedAverages.Duels_won_percentage,
+              playerValue: found.Duels_won_percentage,
+              teamValue: roundedAverages.Duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Duels_won_percentage
             },
             {
               label: "Aerial duels per 90",
@@ -1466,7 +1522,11 @@ router.get("/get/:id/graph/overall", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             }
           ]
         }
@@ -1631,7 +1691,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Save_rate_percentage,
               team: roundedAverages.Save_rate_percentage,
               league: leagueRoundedAverages.Save_rate_percentage,
-              csteam: csteamRoundedAverages.Save_rate_percentage
+              csteam: csteamRoundedAverages.Save_rate_percentage,
+              playerValue: found.Save_rate_percentage,
+              teamValue: roundedAverages.Save_rate_percentage,
+              leagueValue: leagueRoundedAverages.Save_rate_percentage,
+              csteamValue: csteamRoundedAverages.Save_rate_percentage
             },
             {
               label: "Conceded goals per 90",
@@ -1682,7 +1746,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             },
             {
               label: "Interceptions per 90",
@@ -1700,7 +1768,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -1756,7 +1828,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Defensive_duels_won_percentage,
               team: roundedAverages.Defensive_duels_won_percentage,
               league: leagueRoundedAverages.Defensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Defensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Defensive_duels_won_percentage,
+              playerValue: found.Defensive_duels_won_percentage,
+              teamValue: roundedAverages.Defensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Defensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Defensive_duels_won_percentage
             },
             {
               label: "Aerial duels per 90",
@@ -1774,7 +1850,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Successful_dribbles_percentage,
               team: roundedAverages.Successful_dribbles_percentage,
               league: leagueRoundedAverages.Successful_dribbles_percentage,
-              csteam: csteamRoundedAverages.Successful_dribbles_percentage
+              csteam: csteamRoundedAverages.Successful_dribbles_percentage,
+              playerValue: found.Successful_dribbles_percentage,
+              teamValue: roundedAverages.Successful_dribbles_percentage,
+              leagueValue: leagueRoundedAverages.Successful_dribbles_percentage,
+              csteamValue: csteamRoundedAverages.Successful_dribbles_percentage
             },
             {
               label: "Key passes per 90",
@@ -1803,7 +1883,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_crosses_percentage,
               team: roundedAverages.Accurate_crosses_percentage,
               league: leagueRoundedAverages.Accurate_crosses_percentage,
-              csteam: csteamRoundedAverages.Accurate_crosses_percentage
+              csteam: csteamRoundedAverages.Accurate_crosses_percentage,
+              playerValue: found.Accurate_crosses_percentage,
+              teamValue: roundedAverages.Accurate_crosses_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_crosses_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_crosses_percentage
             },
             {
               label: "Touches in box per 90",
@@ -1848,7 +1932,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Defensive_duels_won_percentage,
               team: roundedAverages.Defensive_duels_won_percentage,
               league: leagueRoundedAverages.Defensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Defensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Defensive_duels_won_percentage,
+              playerValue: found.Defensive_duels_won_percentage,
+              teamValue: roundedAverages.Defensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Defensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Defensive_duels_won_percentage
             },
             {
               label: "Aerial duels per 90",
@@ -1866,7 +1954,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             },
             {
               label: "Interceptions per 90",
@@ -1884,7 +1976,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Progressive passes per 90",
@@ -1918,7 +2014,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -2017,7 +2117,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Defensive_duels_won_percentage,
               team: roundedAverages.Defensive_duels_won_percentage,
               league: leagueRoundedAverages.Defensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Defensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Defensive_duels_won_percentage,
+              playerValue: found.Defensive_duels_won_percentage,
+              teamValue: roundedAverages.Defensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Defensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Defensive_duels_won_percentage
             },
             {
               label: "Interceptions per 90",
@@ -2035,7 +2139,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -2135,14 +2243,22 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Successful_dribbles_percentage,
               team: roundedAverages.Successful_dribbles_percentage,
               league: leagueRoundedAverages.Successful_dribbles_percentage,
-              csteam: csteamRoundedAverages.Successful_dribbles_percentage
+              csteam: csteamRoundedAverages.Successful_dribbles_percentage,
+              playerValue: found.Successful_dribbles_percentage,
+              teamValue: roundedAverages.Successful_dribbles_percentage,
+              leagueValue: leagueRoundedAverages.Successful_dribbles_percentage,
+              csteamValue: csteamRoundedAverages.Successful_dribbles_percentage
             },
             {
               label: "Pass completion %",
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             }
           ]
         }
@@ -2176,7 +2292,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_crosses_percentage,
               team: roundedAverages.Accurate_crosses_percentage,
               league: leagueRoundedAverages.Accurate_crosses_percentage,
-              csteam: csteamRoundedAverages.Accurate_crosses_percentage
+              csteam: csteamRoundedAverages.Accurate_crosses_percentage,
+              playerValue: found.Accurate_crosses_percentage,
+              teamValue: roundedAverages.Accurate_crosses_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_crosses_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_crosses_percentage
             },
             {
               label: "Dribbles per 90",
@@ -2194,7 +2314,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Successful_dribbles_percentage,
               team: roundedAverages.Successful_dribbles_percentage,
               league: leagueRoundedAverages.Successful_dribbles_percentage,
-              csteam: csteamRoundedAverages.Successful_dribbles_percentage
+              csteam: csteamRoundedAverages.Successful_dribbles_percentage,
+              playerValue: found.Successful_dribbles_percentage,
+              teamValue: roundedAverages.Successful_dribbles_percentage,
+              leagueValue: leagueRoundedAverages.Successful_dribbles_percentage,
+              csteamValue: csteamRoundedAverages.Successful_dribbles_percentage
             },
             {
               label: "Key passes per 90",
@@ -2261,7 +2385,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Accurate_crosses_percentage,
               team: roundedAverages.Accurate_crosses_percentage,
               league: leagueRoundedAverages.Accurate_crosses_percentage,
-              csteam: csteamRoundedAverages.Accurate_crosses_percentage
+              csteam: csteamRoundedAverages.Accurate_crosses_percentage,
+              playerValue: found.Accurate_crosses_percentage,
+              teamValue: roundedAverages.Accurate_crosses_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_crosses_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_crosses_percentage
             },
             {
               label: "Dribbles per 90",
@@ -2279,7 +2407,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Successful_dribbles_percentage,
               team: roundedAverages.Successful_dribbles_percentage,
               league: leagueRoundedAverages.Successful_dribbles_percentage,
-              csteam: csteamRoundedAverages.Successful_dribbles_percentage
+              csteam: csteamRoundedAverages.Successful_dribbles_percentage,
+              playerValue: found.Successful_dribbles_percentage,
+              teamValue: roundedAverages.Successful_dribbles_percentage,
+              leagueValue: leagueRoundedAverages.Successful_dribbles_percentage,
+              csteamValue: csteamRoundedAverages.Successful_dribbles_percentage
             },
             {
               label: "Key passes per 90",
@@ -2357,7 +2489,11 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: found.Shots_on_target_percentage,
               team: roundedAverages.Shots_on_target_percentage,
               league: leagueRoundedAverages.Shots_on_target_percentage,
-              csteam: csteamRoundedAverages.Shots_on_target_percentage
+              csteam: csteamRoundedAverages.Shots_on_target_percentage,
+              playerValue: found.Shots_on_target_percentage,
+              teamValue: roundedAverages.Shots_on_target_percentage,
+              leagueValue: leagueRoundedAverages.Shots_on_target_percentage,
+              csteamValue: csteamRoundedAverages.Shots_on_target_percentage
             },
             {
               label: "xG per 90",
@@ -2635,14 +2771,22 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Shots_on_target_percentage,
               team: roundedAverages.Shots_on_target_percentage,
               league: leagueRoundedAverages.Shots_on_target_percentage,
-              csteam: csteamRoundedAverages.Shots_on_target_percentage
+              csteam: csteamRoundedAverages.Shots_on_target_percentage,
+              playerValue: found.Shots_on_target_percentage,
+              teamValue: roundedAverages.Shots_on_target_percentage,
+              leagueValue: leagueRoundedAverages.Shots_on_target_percentage,
+              csteamValue: csteamRoundedAverages.Shots_on_target_percentage
             },
             {
               label: "Goal conversion %",
               player: found.Goal_conversion_percentage,
               team: roundedAverages.Goal_conversion_percentage,
               league: leagueRoundedAverages.Goal_conversion_percentage,
-              csteam: csteamRoundedAverages.Goal_conversion_percentage
+              csteam: csteamRoundedAverages.Goal_conversion_percentage,
+              playerValue: found.Goal_conversion_percentage,
+              teamValue: roundedAverages.Goal_conversion_percentage,
+              leagueValue: leagueRoundedAverages.Goal_conversion_percentage,
+              csteamValue: csteamRoundedAverages.Goal_conversion_percentage
             },
             {
               label: "Dribbles per 90",
@@ -2671,7 +2815,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Offensive_duels_won_percentage,
               team: roundedAverages.Offensive_duels_won_percentage,
               league: leagueRoundedAverages.Offensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Offensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Offensive_duels_won_percentage,
+              playerValue: found.Offensive_duels_won_percentage,
+              teamValue: roundedAverages.Offensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Offensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Offensive_duels_won_percentage
             },
             {
               label: "Touches in box per 90",
@@ -2706,7 +2854,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Passes per 90",
@@ -2768,7 +2920,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Accurate_passes_percentage,
               team: roundedAverages.Accurate_passes_percentage,
               league: leagueRoundedAverages.Accurate_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_passes_percentage,
+              playerValue: found.Accurate_passes_percentage,
+              teamValue: roundedAverages.Accurate_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_passes_percentage
             },
             {
               label: "Smart passes per 90",
@@ -2797,7 +2953,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Accurate_through_passes_percentage,
               team: roundedAverages.Accurate_through_passes_percentage,
               league: leagueRoundedAverages.Accurate_through_passes_percentage,
-              csteam: csteamRoundedAverages.Accurate_through_passes_percentage
+              csteam: csteamRoundedAverages.Accurate_through_passes_percentage,
+              playerValue: found.Accurate_through_passes_percentage,
+              teamValue: roundedAverages.Accurate_through_passes_percentage,
+              leagueValue: leagueRoundedAverages.Accurate_through_passes_percentage,
+              csteamValue: csteamRoundedAverages.Accurate_through_passes_percentage
             },
           ]
         }
@@ -2843,7 +3003,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Defensive_duels_won_percentage,
               team: roundedAverages.Defensive_duels_won_percentage,
               league: leagueRoundedAverages.Defensive_duels_won_percentage,
-              csteam: csteamRoundedAverages.Defensive_duels_won_percentage
+              csteam: csteamRoundedAverages.Defensive_duels_won_percentage,
+              playerValue: found.Defensive_duels_won_percentage,
+              teamValue: roundedAverages.Defensive_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Defensive_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Defensive_duels_won_percentage
             },
             {
               label: "Aerial duels per 90",
@@ -2861,7 +3025,11 @@ router.get("/get/:id/graph/advanced", verifyToken, async (req, res, next) => {
               player: found.Aerial_duels_won_percentage,
               team: roundedAverages.Aerial_duels_won_percentage,
               league: leagueRoundedAverages.Aerial_duels_won_percentage,
-              csteam: csteamRoundedAverages.Aerial_duels_won_percentage
+              csteam: csteamRoundedAverages.Aerial_duels_won_percentage,
+              playerValue: found.Aerial_duels_won_percentage,
+              teamValue: roundedAverages.Aerial_duels_won_percentage,
+              leagueValue: leagueRoundedAverages.Aerial_duels_won_percentage,
+              csteamValue: csteamRoundedAverages.Aerial_duels_won_percentage
             },
             {
               label: "Shots blocked per 90",

@@ -10,7 +10,15 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    fullname: {
+    // fullname: {
+    //     type: String,
+    //     required: true
+    // },
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
         type: String,
         required: true
     },

@@ -30,10 +30,10 @@ async function createTeamPassword(plainPassword, team, maxUses) {
 
 // POST route for creating a user
 router.post('/register', async (req, res) => {
-  const { email, fullname, username, password, role, team } = req.body;
+  const { email, firstname, lastname, username, password, role, team } = req.body;
 
   // Basic input validation
-  if (!email || !fullname || !username || !password || !role || !team) {
+  if (!email || !firstname || !lastname || !username || !password || !role || !team) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
@@ -63,7 +63,8 @@ router.post('/register', async (req, res) => {
     // Create a new user instance with the hashed password
     const newUser = new User({
       email,
-      fullname,
+      firstname,
+      lastname,
       username,
       password: hashedPassword,  // Use the hashed password
       role,
@@ -73,7 +74,7 @@ router.post('/register', async (req, res) => {
     // Save the user to the database
     await newUser.save();
 
-    res.status(201).json({ message: 'User created successfully', user: { username, email, fullname, role, team } });
+    res.status(201).json({ message: 'User created successfully', user: { username, email, firstname, lastname, role, team } });
   } catch (error) {
     return res.status(500).json({ error: 'Server error' });
   }
@@ -94,7 +95,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'Invalid password' });
     }
     // Create a JWT payload containing userId and username
-    const payload = { id: user._id, username: user.username, team: user.team, role: user.role };
+    const payload = { id: user._id, username: user.username, firstname: user.firstname, lastname: user.lastname, team: user.team, role: user.role };
     // Sign the JWT with the secret key and set expiration
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '8h' });
     // Send the JWT token to the client
@@ -110,7 +111,7 @@ router.get("/getUser", verifyToken, async (req, res, next) => {
     const userId = req.user.id;
     let found = await User.findOne(
       { _id: userId }, 
-      { username: 1, email: 1, fullname: 1, role: 1, team: 1 }
+      { username: 1, email: 1, firstname: 1, lastname: 1, role: 1, team: 1 }
   );
   
   if (found) {
@@ -140,7 +141,7 @@ router.get("/getTeamsList", async (req, res, next) => {
 
 // Route to allow the user to update either fullname or password
 router.put('/update', verifyToken, async (req, res) => {
-  const { fullname, oldPassword, newPassword } = req.body;
+  const { firstname, lastname, oldPassword, newPassword } = req.body;
   const userId = req.user.id; // Extract userId from req.user (set by verifyToken)
 
   try {
@@ -150,9 +151,14 @@ router.put('/update', verifyToken, async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    // Update fullname if provided
-    if (fullname) {
-      user.fullname = fullname;
+    // Update firstname if provided
+    if (firstname) {
+      user.firstname = firstname;
+    }
+
+    // Update lastname if provided
+    if (lastname) {
+      user.lastname = lastname;
     }
 
     // Update password if provided
@@ -172,7 +178,7 @@ router.put('/update', verifyToken, async (req, res) => {
     // Save the updated user data
     await user.save();
 
-    res.json({ message: 'Profile updated successfully', user: { fullname: user.fullname } });
+    res.json({ message: 'Profile updated successfully', user: { firstname: user.firstname, lastname: user.lastname } });
   } catch (error) {
     console.error('Error updating profile:', error);
     res.status(500).json({ error: 'Server error' });
@@ -181,7 +187,7 @@ router.put('/update', verifyToken, async (req, res) => {
 
 // POST Registration Route to allow users to sign up with a pre-defined Team password
 router.post('/register2', async (req, res) => {
-  const { email, fullname, username, password, role, teamPassword } = req.body;
+  const { email, firstname, lastname, username, password, role, teamPassword } = req.body;
 
   try {
     // Fetch all team passwords and attempt to find a match
@@ -220,7 +226,8 @@ router.post('/register2', async (req, res) => {
     // Create a new user
     const newUser = new User({
       email,
-      fullname,
+      firstname,
+      lastname,
       username,
       password: hashedPassword,  // Use the hashed password
       role,
