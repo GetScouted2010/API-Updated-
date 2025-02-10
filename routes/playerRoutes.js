@@ -634,10 +634,10 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           ...(selectPosition && { Position: selectPosition }),   // Filter by Position if specified
           ...(minScoreValue !== null && { Total_Score: { $gte: minScoreValue } }),
           ...(maxScoreValue !== null && { Total_Score: { $lte: maxScoreValue } }),
-          ...(minAgeValue !== null && { Age: { $gte: minAgeValue } }),
-          ...(maxAgeValue !== null && { Age: { $lte: maxAgeValue } }),
-          ...(minMarketValueValue !== null && { Market_value: { $gte: minMarketValueValue } }),
-          ...(maxMarketValueValue !== null && { Market_value: { $lte: maxMarketValueValue } }),
+          ...(minAgeValue !== null && maxAgeValue !== null && { Age: { $gte: minAgeValue, $lte: maxAgeValue } }),
+          // ...(maxAgeValue !== null && { Age: { $lte: maxAgeValue } }),
+          ...(minMarketValueValue !== null && maxMarketValueValue !== null && { Market_value: { $gte: minMarketValueValue, $lte: maxMarketValueValue } }),
+          // ...(maxMarketValueValue !== null && { Market_value: { $lte: maxMarketValueValue } }),
         },
       },
       {
