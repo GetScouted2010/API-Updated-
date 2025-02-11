@@ -6,19 +6,19 @@ const CBSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
+    'Wide_Centre_Back_(LCB)': {
+        type: Number,
+        required: true
+    },
     No_Nonsense_Centre_Back: {
         type: Number,
         required: true
     },
-    Wide_Centre_Back: {
+    'Wide_Centre_Back_(RCB)': {
         type: Number,
         required: true
     },
-    Ball_Playing_Defender: {
-        type: Number,
-        required: true
-    },
-    Central_Defender: {
+    Libero: {
         type: Number,
         required: true
     }

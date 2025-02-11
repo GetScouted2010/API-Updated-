@@ -6,7 +6,11 @@ const FWDSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    Advanced_Forward: {
+    Deep_Lying_Forward: {
+        type: Number,
+        required: true
+    },
+    Target_Forward: {
         type: Number,
         required: true
     },
@@ -18,19 +22,15 @@ const FWDSchema = new Schema({
         type: Number,
         required: true
     },
+    Advanced_Forward: {
+        type: Number,
+        required: true
+    },
     Pressing_Forward: {
         type: Number,
         required: true
     },
-    Target_Man: {
-        type: Number,
-        required: true
-    },
-    Shadow_Striker: {
-        type: Number,
-        required: true
-    },
-    Deep_Lying_Forward: {
+    Trequartista: {
         type: Number,
         required: true
     }

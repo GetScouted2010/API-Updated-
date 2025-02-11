@@ -6,7 +6,7 @@ const RBSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    No_Nonsense_Full_Back: {
+    Full_Back: {
         type: Number,
         required: true
     },
@@ -14,15 +14,19 @@ const RBSchema = new Schema({
         type: Number,
         required: true
     },
+    Wing_Back: {
+        type: Number,
+        required: true
+    },
+    Inverted_Full_Back: {
+        type: Number,
+        required: true
+    },
     Inverted_Wing_Back: {
         type: Number,
         required: true
     },
-    Full_Back: {
-        type: Number,
-        required: true
-    },
-    Wing_Back: {
+    No_Nonsense_Full_Back: {
         type: Number,
         required: true
     }

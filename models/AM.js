@@ -6,7 +6,7 @@ const AMSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    Attacking_Midfielder: {
+    Shadow_Striker: {
         type: Number,
         required: true
     },

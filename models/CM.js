@@ -6,27 +6,23 @@ const CMSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    Deep_Lying_Playmaker: {
+    Box_To_Box_Midfielder: {
         type: Number,
         required: true
     },
-    Central_Midfielder: {
+    Carrilero: {
         type: Number,
         required: true
     },
-    Advanced_Playmaker: {
+    'Ball_Winning_Midfielder_(Defend)': {
         type: Number,
         required: true
     },
-    Ball_Winning_Midfielder: {
+    'Advanced_Playmaker_(Attack)': {
         type: Number,
         required: true
     },
-    Roaming_Playmaker: {
-        type: Number,
-        required: true
-    },
-    Box_to_Box_Midfielder: {
+    'Advanced_Playmaker_(Support)': {
         type: Number,
         required: true
     },

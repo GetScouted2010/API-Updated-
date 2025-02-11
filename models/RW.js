@@ -6,19 +6,7 @@ const RWSchema = new Schema({
         type: Number,
         ref: 'Player'
     },
-    Defensive_Winger: {
-        type: Number,
-        required: true
-    },
-    Wide_Playmaker: {
-        type: Number,
-        required: true
-    },
-    Wide_Midfielder: {
-        type: Number,
-        required: true
-    },
-    Winger: {
+    Winger_Support: {
         type: Number,
         required: true
     },
@@ -26,11 +14,19 @@ const RWSchema = new Schema({
         type: Number,
         required: true
     },
-    Raumdeuter: {
+    Advanced_Playmaker_Attack: {
         type: Number,
         required: true
     },
-    Wide_Target_Man: {
+    Inside_Forward: {
+        type: Number,
+        required: true
+    },
+    Winger_Defend: {
+        type: Number,
+        required: true
+    },
+    Advanced_Playmaker_Support: {
         type: Number,
         required: true
     }

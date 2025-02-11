@@ -10,7 +10,15 @@ const LBSchema = new Schema({
         type: Number,
         required: true
     },
+    Full_Back: {
+        type: Number,
+        required: true
+    },
     Complete_Wing_Back: {
+        type: Number,
+        required: true
+    },
+    Wing_Back: {
         type: Number,
         required: true
     },
@@ -18,11 +26,7 @@ const LBSchema = new Schema({
         type: Number,
         required: true
     },
-    Full_Back: {
-        type: Number,
-        required: true
-    },
-    Wing_Back: {
+    Inverted_Full_Back: {
         type: Number,
         required: true
     }
