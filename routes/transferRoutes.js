@@ -68,38 +68,77 @@ router.get('/getAverages', verifyToken, async (req, res) => {
       Fee_Cleaned: { min: Infinity, max: -Infinity, sum: 0, count: 0 },
     };
 
-    // Calculate stats
-    records.forEach(record => {
-      if (record.is_loan === false && record.loan_status === "NA" && record.Movement === "arrival") {
-        // Ensure values are numbers and not null/undefined
-        const age = record.Age || 0;
-        const marketValue = record.Market_Value ? parseFloat((record.Market_Value / 1000000).toFixed(2)) : 0; // Convert Market_Value to millions, round to 2 decimal places
+    /*
+      13/02/2025 - If Club is "Watford", only compute for "championship" league
+    */
+    if (Club === "Watford" || UniqueID === 231) {
+      records.forEach(record => {
+        if (record.is_loan === false && record.loan_status === "NA" && record.Movement === "arrival" && record.League_Name === "championship") {
+          // Ensure values are numbers and not null/undefined
+          const age = record.Age || 0;
+          const marketValue = record.Market_Value ? parseFloat((record.Market_Value / 1000000).toFixed(2)) : 0; // Convert Market_Value to millions, round to 2 decimal places
 
-        // Convert Fee to Fee_Cleaned (millions) if Fee is valid
-        const fee = record.Fee;
-        const feeCleaned = typeof fee === "number" && fee > 0 ? parseFloat((fee / 1000000).toFixed(2)) : null; // Convert to millions
+          // Convert Fee to Fee_Cleaned (millions) if Fee is valid
+          const fee = record.Fee;
+          const feeCleaned = typeof fee === "number" && fee > 0 ? parseFloat((fee / 1000000).toFixed(2)) : null; // Convert to millions
 
-        // Age calculations
-        stats.Age.min = Math.min(stats.Age.min, age);
-        stats.Age.max = Math.max(stats.Age.max, age);
-        stats.Age.sum += age;
-        stats.Age.count++;
+          // Age calculations
+          stats.Age.min = Math.min(stats.Age.min, age);
+          stats.Age.max = Math.max(stats.Age.max, age);
+          stats.Age.sum += age;
+          stats.Age.count++;
 
-        // Market_Value calculations
-        stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
-        stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
-        stats.Market_Value.sum += marketValue;
-        stats.Market_Value.count++;
+          // Market_Value calculations
+          stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
+          stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
+          stats.Market_Value.sum += marketValue;
+          stats.Market_Value.count++;
 
-        // Fee_Cleaned calculations
-        if (feeCleaned !== null) {
-          stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
-          stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
-          stats.Fee_Cleaned.sum += feeCleaned;
-          stats.Fee_Cleaned.count++;
+          // Fee_Cleaned calculations
+          if (feeCleaned !== null) {
+            stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
+            stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
+            stats.Fee_Cleaned.sum += feeCleaned;
+            stats.Fee_Cleaned.count++;
+          }
         }
-      }
-    });
+      });
+    }
+    else {
+      // Else - Calculate stats normally
+      records.forEach(record => {
+        if (record.is_loan === false && record.loan_status === "NA" && record.Movement === "arrival") {
+          // Ensure values are numbers and not null/undefined
+          const age = record.Age || 0;
+          const marketValue = record.Market_Value ? parseFloat((record.Market_Value / 1000000).toFixed(2)) : 0; // Convert Market_Value to millions, round to 2 decimal places
+
+          // Convert Fee to Fee_Cleaned (millions) if Fee is valid
+          const fee = record.Fee;
+          const feeCleaned = typeof fee === "number" && fee > 0 ? parseFloat((fee / 1000000).toFixed(2)) : null; // Convert to millions
+
+          // Age calculations
+          stats.Age.min = Math.min(stats.Age.min, age);
+          stats.Age.max = Math.max(stats.Age.max, age);
+          stats.Age.sum += age;
+          stats.Age.count++;
+
+          // Market_Value calculations
+          stats.Market_Value.min = Math.min(stats.Market_Value.min, marketValue);
+          stats.Market_Value.max = Math.max(stats.Market_Value.max, marketValue);
+          stats.Market_Value.sum += marketValue;
+          stats.Market_Value.count++;
+
+          // Fee_Cleaned calculations
+          if (feeCleaned !== null) {
+            stats.Fee_Cleaned.min = Math.min(stats.Fee_Cleaned.min, feeCleaned);
+            stats.Fee_Cleaned.max = Math.max(stats.Fee_Cleaned.max, feeCleaned);
+            stats.Fee_Cleaned.sum += feeCleaned;
+            stats.Fee_Cleaned.count++;
+          }
+        }
+      });
+    }
+
 
 
     // Compute averages and round as specified

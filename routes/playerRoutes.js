@@ -2036,7 +2036,8 @@ router.get("/get/:id/graph/positional", verifyToken, async (req, res, next) => {
               player: parseFloat(((found.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               team: parseFloat(((roundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
               league: parseFloat(((leagueRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
-              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),playerValue: found.Progressive_passes_per_90,
+              csteam: parseFloat(((csteamRoundedAverages.Progressive_passes_per_90 / maxValues.Progressive_passes_per_90) * 100).toFixed(2)),
+              playerValue: found.Progressive_passes_per_90,
               teamValue: roundedAverages.Progressive_passes_per_90,
               leagueValue: leagueRoundedAverages.Progressive_passes_per_90,
               csteamValue: csteamRoundedAverages.Progressive_passes_per_90
