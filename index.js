@@ -14,7 +14,7 @@ const PORT = 3000;
 // Import routes for collection mapping to API
 const playerRoutes = require("./routes/playerRoutes");
 const compatibilityRoutes = require("./routes/compatibilityRoutes");
-const transferRoutes = require("./routes/transferRoutes");
+const { router: transferRoutes } = require("./routes/transferRoutes");
 const positionRoutes = require("./routes/positionRoutes");
 const playstyleRoutes = require("./routes/playstyleRoutes");
 const shortlistRoutes = require("./routes/shortlistRoutes");

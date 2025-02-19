@@ -28,57 +28,57 @@ async function createTeamPassword(plainPassword, team, maxUses) {
   }
 }
 
-// POST route for creating a user
-router.post('/register', async (req, res) => {
-  const { email, firstname, lastname, username, password, role, team } = req.body;
+// POST route for creating a user - Commented out to disable route in production during testing
+// router.post('/register', async (req, res) => {
+//   const { email, firstname, lastname, username, password, role, team } = req.body;
 
-  // Basic input validation
-  if (!email || !firstname || !lastname || !username || !password || !role || !team) {
-    return res.status(400).json({ error: 'All fields are required' });
-  }
+//   // Basic input validation
+//   if (!email || !firstname || !lastname || !username || !password || !role || !team) {
+//     return res.status(400).json({ error: 'All fields are required' });
+//   }
 
-  try {
-    // Check if the user already exists (via email)
-    const existingUserEmail = await User.findOne({ email });
-    if (existingUserEmail) {
-      return res.status(400).json({ error: 'User with this email already exists' });
-    }
+//   try {
+//     // Check if the user already exists (via email)
+//     const existingUserEmail = await User.findOne({ email });
+//     if (existingUserEmail) {
+//       return res.status(400).json({ error: 'User with this email already exists' });
+//     }
 
-    // Check if the user already exists (via username)
-    const existingUser = await User.findOne({ username });
-    if (existingUser) {
-      return res.status(400).json({ error: 'This username is taken' });
-    }
+//     // Check if the user already exists (via username)
+//     const existingUser = await User.findOne({ username });
+//     if (existingUser) {
+//       return res.status(400).json({ error: 'This username is taken' });
+//     }
 
-    // Check if the team exists against the playstyles table
-    const validTeam = await Team.findOne({ Team: team });
-    if (!validTeam) {
-      return res.status(400).json({ error: 'Invalid team. Please select a valid team.' });
-    }
+//     // Check if the team exists against the playstyles table
+//     const validTeam = await Team.findOne({ Team: team });
+//     if (!validTeam) {
+//       return res.status(400).json({ error: 'Invalid team. Please select a valid team.' });
+//     }
 
-    // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+//     // Hash the password
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create a new user instance with the hashed password
-    const newUser = new User({
-      email,
-      firstname,
-      lastname,
-      username,
-      password: hashedPassword,  // Use the hashed password
-      role,
-      team
-    });
+//     // Create a new user instance with the hashed password
+//     const newUser = new User({
+//       email,
+//       firstname,
+//       lastname,
+//       username,
+//       password: hashedPassword,  // Use the hashed password
+//       role,
+//       team
+//     });
 
-    // Save the user to the database
-    await newUser.save();
+//     // Save the user to the database
+//     await newUser.save();
 
-    res.status(201).json({ message: 'User created successfully', user: { username, email, firstname, lastname, role, team } });
-  } catch (error) {
-    return res.status(500).json({ error: 'Server error' });
-  }
-});
+//     res.status(201).json({ message: 'User created successfully', user: { username, email, firstname, lastname, role, team } });
+//   } catch (error) {
+//     return res.status(500).json({ error: 'Server error' });
+//   }
+// });
 
 // Login Route: Authenticate user and issue a JWT
 router.post('/login', async (req, res) => {

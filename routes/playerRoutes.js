@@ -15,6 +15,8 @@ const RW = require("../models/RW");
 const CompatibilityScores = require("../models/compatibilityScores");
 const Playstyles = require('../models/playstyles');
 
+const { getTransferAverages } = require('./transferRoutes')
+
 const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 
 const fs = require('fs');
@@ -98,21 +100,58 @@ router.get("/getAll", verifyToken, async (req, res, next) => {
 });
 
 // Return element in the 'players' collection with a UniqueID matching that of the id parameter
-router.get("/get/:id", verifyToken, async ({ params: { id }, user }, res, next) => {
+router.get("/get/:id", verifyToken, async (req, res, next) => {
+  const { id } = req.params;
+  const csteam = req.query.csteam;
+  const user = req.user;
+  let score;
   try {
     const found = await Player.findOne({ UniqueID: id });
 
     if (!found) return next({ status: 404, message: `No Player with the ID: ${id}` });
 
-    // Fetch Compatibility Score based on the logged in user's team
-    const team = user.team;
-    const additionalData = await CompatibilityScores.findOne({ UniqueID: id }).lean();
-    const score = additionalData ? additionalData[team] : null;
+    // Fetch Compatibility Score
+    if (csteam) {
+      // Fetch Compatibility Score based on the passed in csteam parameter
+      const additionalData = await CompatibilityScores.findOne({ UniqueID: id }).lean();
+      score = additionalData ? additionalData[csteam] : null;
+    }
+    else {
+      // Fetch Compatibility Score based on the logged in user's team
+      const team = user.team;
+      const additionalData = await CompatibilityScores.findOne({ UniqueID: id }).lean();
+      score = additionalData ? additionalData[team] : null;
+    }
+
+    // Fetch Financial Fit
+    let externalData;
+    if (csteam) {
+      externalData = await getTransferAverages(csteam, null, found.Position)
+    }
+    else {
+      externalData = await getTransferAverages(user.team, null, found.Position)
+    }
+
+    let financial_Fit = 'Poor';
+    if (found.Age >= externalData.Great_Fit.ageMin && found.Age <= externalData.Great_Fit.ageMax
+      && found.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && found.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Great';
+    }
+    else if (found.Age >= externalData.Moderate_Fit.ageMin && found.Age <= externalData.Moderate_Fit.ageMax
+      && found.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && found.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Moderate'
+    }
+    else {
+      financial_Fit = 'Poor'
+    }
 
     const transformedResult = {
       _id: found._id,
       UniqueID: found.UniqueID,
       Compatibility_Score: score,
+      Financial_Fit: financial_Fit,
       Player: found.Player,
       League: found.League,
       Season: found.Season,
@@ -686,7 +725,32 @@ router.get('/csfilter', verifyToken, async (req, res) => {
     // Step 7: Execute pagination query
     const playersWithFilteredRatings = await Player.aggregate(paginatedPipeline);
 
-    // Step 8: Construct response with pagination metadata
+    // Step 8: Add Financial Fit Data
+    const externalData = await getTransferAverages(team, null, selectPosition);
+
+    const financialFitResults = playersWithFilteredRatings.map(record => {
+      let financial_Fit = 'Poor';
+
+      if (record.Age >= externalData.Great_Fit.ageMin && record.Age <= externalData.Great_Fit.ageMax
+        && record.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && record.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+      ) {
+        financial_Fit = 'Great';
+      }
+      else if (record.Age >= externalData.Moderate_Fit.ageMin && record.Age <= externalData.Moderate_Fit.ageMax
+        && record.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && record.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+      ) {
+        financial_Fit = 'Moderate'
+      }
+      else {
+        financial_Fit = 'Poor'
+      }
+      return {
+        ...record,
+        Financial_Fit: financial_Fit
+      }
+    });
+
+    // Step 9: Construct response with pagination metadata
     const response = {
       pageInfo: {
         totalRecords,
@@ -696,7 +760,7 @@ router.get('/csfilter', verifyToken, async (req, res) => {
         hasNextPage: pageNumber < totalPages,
         hasPreviousPage: pageNumber > 1,
       },
-      data: playersWithFilteredRatings,
+      data: financialFitResults,
     }
 
     res.json(response);
