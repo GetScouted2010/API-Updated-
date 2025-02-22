@@ -126,6 +126,12 @@ async function getTransferAverages(Club, UniqueID, Position) {
       marketValueMax: stats.Market_Value.count ? Math.round(((stats.Market_Value.sum / stats.Market_Value.count) * 1.5) * 2) / 2 : "N/A",
       ageMin: stats.Age.count ? Math.round(stats.Age.sum / stats.Age.count) - 4 : "N/A",
       ageMax: stats.Age.count ? Math.round(stats.Age.sum / stats.Age.count) + 4 : "N/A",
+    },
+    Poor_Fit: {
+      marketValueMin: stats.Market_Value.min === Infinity ? "N/A" : stats.Market_Value.min,
+      marketValueMax: stats.Market_Value.max === -Infinity ? "N/A" : stats.Market_Value.max,
+      ageMin: stats.Age.min === Infinity ? "N/A" : stats.Age.min,
+      ageMax: stats.Age.max === -Infinity ? "N/A" : stats.Age.max,
     }
   };
 
