@@ -22,6 +22,31 @@ const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 const fs = require('fs');
 const path = require('path');
 
+// Configure Position Mapping
+const positionMapping = {
+  "AMF": "AM",
+  "CB": "CB",
+  "CF": "FWD",
+  "DMF": "DM",
+  "GK": "GK",
+  "LAMF": "AM",
+  "LB": "LB",
+  "LCB": "CB",
+  "LCMF": "CM",
+  "LDMF": "DM",
+  "LW": "LW",
+  "LWB": "LW",
+  "LWF": "LW",
+  "RAMF": "AM",
+  "RB": "RB",
+  "RCB": "RB",
+  "RCMF": "CM",
+  "RDMF": "DM",
+  "RW": "RW",
+  "RWB": "RW",
+  "RWF": "RW"
+};
+
 // Load the field mapping
 const mappingFilePath = path.join(__dirname, '../cs_field_mapping.json');
 let fieldMapping;
@@ -46,6 +71,31 @@ function getOriginalFieldName(sanitizedFieldName) {
 function getSanitizedFieldName(originalFieldName) {
   return fieldMapping[originalFieldName] || originalFieldName;
 }
+
+const calculateFinancialFit = async (teamField, position, playerData) => {
+  // Use playerData to determine the team for transfer averages
+  let externalData = await getTransferAverages(teamField, null, position);
+
+  let financial_Fit = 'Poor';
+
+  // Financial Fit based on Age and Market Value
+  if (playerData.Age >= externalData.Great_Fit.ageMin && playerData.Age <= externalData.Great_Fit.ageMax
+    && playerData.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+  ) {
+    financial_Fit = 'Great';
+  } else if (playerData.Age >= externalData.Moderate_Fit.ageMin && playerData.Age <= externalData.Moderate_Fit.ageMax
+    && playerData.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+  ) {
+    financial_Fit = 'Moderate';
+  }
+
+  return {
+    financial_Fit,
+    marketValue: externalData.Market_Value,
+    age: externalData.Age,
+    fee: externalData.Fee_Cleaned
+  };
+};
 
 // Function to calculate percentage difference between two specified values
 function calculateSignedPercentageDifference(value1, value2) {
@@ -3381,6 +3431,118 @@ router.get('/compare/:id1/:id2', verifyToken, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'An error occurred while comparing players.' });
+  }
+});
+
+// GET route to fetch all playable Positions for a particular player
+router.get('/get/:id/positions', verifyToken, async (req, res) => {
+  try {
+    // Step 1: Get the UniqueID from the request parameters
+    const playerId = req.params.id;
+
+    // Step 2: Fetch the player data from MongoDB
+    const player = await Player.findOne({ UniqueID: playerId });
+
+    if (!player) {
+      return res.status(404).json({ message: "Player not found" });
+    }
+
+    // Step 3: Check if Positions is a string, then split it into an array
+    let positions = player.Positions;
+
+    // If Positions is a string, split it by commas and trim spaces
+    if (typeof positions === 'string') {
+      positions = positions.split(',').map(position => position.trim()); // Split and trim spaces
+    }
+
+    // Ensure positions is an array
+    if (!Array.isArray(positions)) {
+      return res.status(400).json({ message: "Positions is not in a valid format" });
+    }
+
+    // Step 4: Simplify the Positions field using the positionMapping
+    const simplifiedPositions = positions
+      .map(position => positionMapping[position])  // Map detailed positions to simplified ones
+      .filter((value, index, self) => value && self.indexOf(value) === index);  // Remove duplicates
+
+    // Step 5: Send the response
+    res.json(simplifiedPositions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred" });
+  }
+});
+
+router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
+  try {
+    // Step 1: Get the UniqueID from the request parameters
+    const playerId = req.params.id;
+
+    // Step 2: Fetch the player compatibility scores from the database
+    const compatibilityRecord = await CompatibilityScores.findOne({ UniqueID: playerId });
+
+    if (!compatibilityRecord) {
+      return res.status(404).json({ message: "Compatibility scores not found" });
+    }
+
+    // Step 3: Fetch the player record to get Age and Market_value (to pass to calculateFinancialFit)
+    const playerRecord = await Player.findOne({ UniqueID: playerId });
+
+    if (!playerRecord) {
+      return res.status(404).json({ message: "Player not found" });
+    }
+
+    // Step 4: Default Position Logic
+    const position = req.query.Position || compatibilityRecord.Position; // Use query param Position or fallback to Player's Position
+
+    // Step 5: Extract all team-related fields and sort them by value
+    const teams = Object.keys(compatibilityRecord.toObject()) // Convert to a plain object and extract keys
+      .filter(field => field !== "UniqueID" && field !== "_id" && field !== "Position") // Exclude the UniqueID, _id, and Position fields
+      .map(field => ({ name: field, value: compatibilityRecord[field] })) // Create an array of {team, score}
+      .sort((a, b) => b.value - a.value); // Sort in descending order of compatibility score
+
+    // Step 6: Extract query parameters (minAge, maxAge, etc.)
+    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee } = req.query;
+
+    // Step 7: Process each team
+    const processedTeams = [];
+    for (let team of teams) {
+      const { name, value } = team;
+      
+      // Get the original team name using the helper function
+      const originalTeamName = getOriginalFieldName(name);
+
+      // Get external data for the team and calculate Financial Fit
+      const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
+      
+      // Check if the team meets the filters set by the user
+      const meetsFilters = (
+        (minAge ? externalData.age.avg >= minAge : true) &&
+        (maxAge ? externalData.age.avg <= maxAge : true) &&
+        (minMarketValue ? externalData.marketValue.avg >= minMarketValue : true) &&
+        (maxMarketValue ? externalData.marketValue.avg <= maxMarketValue : true) &&
+        (minFee ? externalData.fee.avg >= minFee : true) &&
+        (maxFee ? externalData.fee.avg <= maxFee : true)
+      );
+
+      if (meetsFilters) {
+        processedTeams.push({
+          Team: originalTeamName, // Return the formatted team name
+          Compatibility_Score: value,
+          Financial_Fit: externalData.financial_Fit,
+          Market_Value: externalData.marketValue,
+          Age: externalData.age,
+          Fee: externalData.fee
+        });
+      }
+    }
+
+    // Step 8: Return the processed teams
+    res.json(processedTeams);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred" });
   }
 });
 
