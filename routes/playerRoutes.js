@@ -22,6 +22,8 @@ const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 const fs = require('fs');
 const path = require('path');
 
+// TO DO - Move mapping data to individual files for ease of updating and readability
+
 // Configure Position Mapping
 const positionMapping = {
   "AMF": "AM",
@@ -47,6 +49,35 @@ const positionMapping = {
   "RWF": "RW"
 };
 
+// Configure League Mapping
+const leagueMapping = {
+  "Allsvenskan (Sweden)": ["AIK", "Djurgården", "Elfsborg", "Halmstad", "Häcken", "IFK Göteborg", "IFK Norrköping", "Kalmar", "Malmö FF", "Sirius", "Värnamo", "Västerås SK"],
+  "Bundesliga (Austria)": [],
+  "Bundesliga (Germany)": ["Augsburg", "Bayer Leverkusen", "Bayern München", "Bochum", "Borussia Dortmund", "Borussia M'gladbach", "Eintracht Frankfurt", "Freiburg", "Heidenheim", "Hoffenheim", "Holstein Kiel", "Mainz 05", "RB Leipzig", "St. Pauli", "Stuttgart", "Union Berlin", "Werder Bremen", "Wolfsburg"],
+  "Bundesliga 2": [],
+  "Challenger Pro League": [],
+  "EFL Championship": ["Blackburn Rovers", "Bristol City", "Cardiff City", "Coventry City", "Derby County", "Hull City", "Millwall", "Middlesbrough", "Norwich City", "Oxford United", "Plymouth Argyle", "Portsmouth", "Preston North End", "Queens Park Rangers", "Sheffield Wednesday", "Stoke City", "Sunderland", "Swansea City", "Watford", "West Bromwich Albion"],
+  "EFL League One": [],
+  "Eerste Divisie": [],
+  "Eliteserien": [],
+  "Eredivisie (Netherlands)": ["Ajax", "Almere City", "Feyenoord", "Fortuna Sittard", "Go Ahead Eagles", "Groningen", "Heerenveen", "Heracles", "NAC Breda", "NEC", "PSV", "RKC Waalwijk", "Sparta Rotterdam", "Twente", "Utrecht", "Willem II"],
+  "La Liga (Spain)": ["Athletic Bilbao", "Atlético Madrid", "Barcelona", "Celta de Vigo", "Deportivo Alavés", "Espanyol", "Getafe", "Girona", "Las Palmas", "Leganés", "Mallorca", "Osasuna", "Rayo Vallecano", "Real Betis", "Real Madrid", "Real Sociedad", "Real Valladolid", "Sevilla", "Valencia", "Villarreal"],
+  "La Liga 2": [],
+  "Liga Portugal 2": [],
+  "Ligue 1 (France)": ["Angers SCO", "Auxerre", "Brest", "Le Havre", "Lens", "Lille", "Lyon", "Marseille", "Monaco", "Montpellier", "Nantes", "Nice", "PSG", "Reims", "Rennes", "Saint-Étienne", "Strasbourg", "Toulouse"],
+  "Ligue 2 (France)": [],
+  "MLS (USA)": ["Atlanta United", "Austin FC", "CF Montréal", "Chicago Fire", "Cincinnati", "Colorado Rapids", "Columbus Crew", "Dallas", "Houston Dynamo", "Inter Miami", "LA Galaxy", "Los Angeles FC", "Minnesota United", "Nashville SC", "New England Revolution", "New York City FC", "New York Red Bulls", "Orlando City", "Philadelphia Union", "Portland Timbers", "Real Salt Lake", "San Jose Earthquakes", "Seattle Sounders", "St. Louis City", "Toronto FC", "Vancouver Whitecaps"],
+  "Premier League (England)": ["Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "Crystal Palace", "Everton", "Fulham", "Ipswich Town", "Leicester City", "Liverpool", "Luton Town", "Manchester City", "Manchester United", "Newcastle United", "Nottingham Forest", "Sheffield United", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"],
+  "Primeira Liga (Portugal)": ["Arouca", "Benfica", "Boavista", "Casa Pia AC", "Estoril", "Estrela Amadora", "Famalicão", "Farense", "Gil Vicente", "Moreirense", "Porto", "Rio Ave", "Sporting Braga", "Sporting CP", "Vitória Guimarães"],
+  "Pro League (Belgium)": ["Anderlecht", "Antwerp", "Club Brugge", "Genk", "Union Saint-Gilloise"],
+  "SPL": ["Aberdeen", "Celtic", "Hearts", "Rangers"],
+  "Serie A (Brazil)": [],
+  "Serie A (Italy)": ["Atalanta", "Bologna", "Cagliari", "Como", "Empoli", "Fiorentina", "Genoa", "Internazionale", "Juventus", "Lazio", "Lecce", "Milan", "Monza", "Napoli", "Parma", "Roma", "Torino", "Udinese", "Venezia"],
+  "Serie B": [],
+  "Super Lig (Turkey)": [],
+  "Superliga (Denmark)": ["AGF", "AaB", "Brøndby", "København", "Lyngby", "Midtjylland", "Nordsjælland", "Randers", "Silkeborg", "SønderjyskE", "Viborg"]
+};
+
 // Load the field mapping
 const mappingFilePath = path.join(__dirname, '../cs_field_mapping.json');
 let fieldMapping;
@@ -67,6 +98,14 @@ function getOriginalFieldName(sanitizedFieldName) {
   }
   return sanitizedFieldName; // Return as-is if no match found
 }
+
+// Helper function to find the league of a team
+const findTeamLeague = (teamName) => {
+  for (const [league, teams] of Object.entries(leagueMapping)) {
+      if (teams.includes(teamName)) return league;
+  }
+  return "Unknown League";
+};
 
 function getSanitizedFieldName(originalFieldName) {
   return fieldMapping[originalFieldName] || originalFieldName;
@@ -3501,20 +3540,33 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
       .map(field => ({ name: field, value: compatibilityRecord[field] })) // Create an array of {team, score}
       .sort((a, b) => b.value - a.value); // Sort in descending order of compatibility score
 
-    // Step 6: Extract query parameters (minAge, maxAge, etc.)
-    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee } = req.query;
+    // Step 6: Extract query parameters (minAge, maxAge, League, Financial_Fit, etc.)
+    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee, Financial_Fit } = req.query;
+    const leagueFilter = req.query.League ? req.query.League.split(',') : null;
+
+    // Define allowed financial fit values based on the filter
+    const financialFitMapping = {
+      "Great": ["Great"],
+      "Moderate": ["Great", "Moderate"],
+      "Poor": ["Great", "Moderate", "Poor"]
+    };
+
+    const allowedFinancialFits = financialFitMapping[Financial_Fit] || ["Great", "Moderate", "Poor"];
 
     // Step 7: Process each team
     const processedTeams = [];
     for (let team of teams) {
       const { name, value } = team;
-      
+
       // Get the original team name using the helper function
       const originalTeamName = getOriginalFieldName(name);
 
+      // Find the league for the team
+      const teamLeague = findTeamLeague(originalTeamName);
+
       // Get external data for the team and calculate Financial Fit
       const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
-      
+
       // Check if the team meets the filters set by the user
       const meetsFilters = (
         (minAge ? externalData.age.avg >= minAge : true) &&
@@ -3525,9 +3577,16 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
         (maxFee ? externalData.fee.avg <= maxFee : true)
       );
 
-      if (meetsFilters) {
+      // Check if the team is in the allowed leagues
+      const inAllowedLeague = !leagueFilter || leagueFilter.includes(teamLeague);
+
+      // Check if the Financial Fit matches the allowed values
+      const inAllowedFinancialFit = allowedFinancialFits.includes(externalData.financial_Fit);
+
+      if (meetsFilters && inAllowedLeague && inAllowedFinancialFit) {
         processedTeams.push({
           Team: originalTeamName, // Return the formatted team name
+          League: teamLeague,
           Compatibility_Score: value,
           Financial_Fit: externalData.financial_Fit,
           Market_Value: externalData.marketValue,
@@ -3544,6 +3603,11 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "An error occurred" });
   }
+});
+
+router.get('/compatibilityLeagues', verifyToken, async (req, res) => {
+  const leaguesWithTeams = Object.keys(leagueMapping).filter(league => leagueMapping[league].length > 0);
+  res.json(leaguesWithTeams);
 });
 
 module.exports = router;
