@@ -102,7 +102,7 @@ function getOriginalFieldName(sanitizedFieldName) {
 // Helper function to find the league of a team
 const findTeamLeague = (teamName) => {
   for (const [league, teams] of Object.entries(leagueMapping)) {
-      if (teams.includes(teamName)) return league;
+    if (teams.includes(teamName)) return league;
   }
   return "Unknown League";
 };
@@ -3524,7 +3524,7 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
       return res.status(404).json({ message: "Compatibility scores not found" });
     }
 
-    // Step 3: Fetch the player record to get Age and Market_value (to pass to calculateFinancialFit)
+    // Step 3: Fetch the player record to get Age and Market_value (for financial calculations)
     const playerRecord = await Player.findOne({ UniqueID: playerId });
 
     if (!playerRecord) {
@@ -3535,69 +3535,88 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
     const position = req.query.Position || compatibilityRecord.Position; // Use query param Position or fallback to Player's Position
 
     // Step 5: Extract all team-related fields and sort them by value
-    const teams = Object.keys(compatibilityRecord.toObject()) // Convert to a plain object and extract keys
-      .filter(field => field !== "UniqueID" && field !== "_id" && field !== "Position") // Exclude the UniqueID, _id, and Position fields
-      .map(field => ({ name: field, value: compatibilityRecord[field] })) // Create an array of {team, score}
+    const teams = Object.keys(compatibilityRecord.toObject())
+      .filter(field => field !== "UniqueID" && field !== "_id" && field !== "Position") // Exclude unnecessary fields
+      .map(field => ({ name: field, value: compatibilityRecord[field] })) // Create {team, score}
       .sort((a, b) => b.value - a.value); // Sort in descending order of compatibility score
 
-    // Step 6: Extract query parameters (minAge, maxAge, League, Financial_Fit, etc.)
-    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee, Financial_Fit } = req.query;
-    const leagueFilter = req.query.League ? req.query.League.split(',') : null;
+    // Step 6: Extract query parameters (filters)
+    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee, League, Financial_Fit, minCompatibility, maxCompatibility, sort, page = 1, limit = 10 } = req.query;
 
-    // Define allowed financial fit values based on the filter
-    const financialFitMapping = {
-      "Great": ["Great"],
-      "Moderate": ["Great", "Moderate"],
-      "Poor": ["Great", "Moderate", "Poor"]
-    };
+    const pageNum = Math.max(parseInt(page, 10), 1);
+    const limitNum = Math.max(parseInt(limit, 10), 1);
+    const sortNum = parseInt(sort, 10);
 
-    const allowedFinancialFits = financialFitMapping[Financial_Fit] || ["Great", "Moderate", "Poor"];
+    // Convert compatibility filters to numbers (or set default ranges)
+    const minComp = minCompatibility !== undefined ? parseFloat(minCompatibility) : -Infinity;
+    const maxComp = maxCompatibility !== undefined ? parseFloat(maxCompatibility) : Infinity;
 
-    // Step 7: Process each team
+    // Step 7: League filtering (convert League query param into an array)
+    const selectedLeagues = League ? League.split(',').map(league => league.trim()) : [];
+
+    // Financial Fit mapping order (to allow "Moderate" to include "Great")
+    const financialFitLevels = { "Poor": 1, "Moderate": 2, "Great": 3 };
+    const minFinancialFit = financialFitLevels[Financial_Fit] || 1; // Default to lowest filter level
+
+    // Step 8: Process each team
     const processedTeams = [];
     for (let team of teams) {
       const { name, value } = team;
 
-      // Get the original team name using the helper function
+      // Get the original team name
       const originalTeamName = getOriginalFieldName(name);
-
-      // Find the league for the team
-      const teamLeague = findTeamLeague(originalTeamName);
 
       // Get external data for the team and calculate Financial Fit
       const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
 
-      // Check if the team meets the filters set by the user
+      // Check if the team meets the filters
       const meetsFilters = (
         (minAge ? externalData.age.avg >= minAge : true) &&
         (maxAge ? externalData.age.avg <= maxAge : true) &&
         (minMarketValue ? externalData.marketValue.avg >= minMarketValue : true) &&
         (maxMarketValue ? externalData.marketValue.avg <= maxMarketValue : true) &&
         (minFee ? externalData.fee.avg >= minFee : true) &&
-        (maxFee ? externalData.fee.avg <= maxFee : true)
+        (maxFee ? externalData.fee.avg <= maxFee : true) &&
+        (minComp <= value && value <= maxComp) && // Compatibility Score filter
+        (financialFitLevels[externalData.financial_Fit] >= minFinancialFit) // Financial Fit filter
       );
 
-      // Check if the team is in the allowed leagues
-      const inAllowedLeague = !leagueFilter || leagueFilter.includes(teamLeague);
-
-      // Check if the Financial Fit matches the allowed values
-      const inAllowedFinancialFit = allowedFinancialFits.includes(externalData.financial_Fit);
-
-      if (meetsFilters && inAllowedLeague && inAllowedFinancialFit) {
-        processedTeams.push({
-          Team: originalTeamName, // Return the formatted team name
-          League: teamLeague,
-          Compatibility_Score: value,
-          Financial_Fit: externalData.financial_Fit,
-          Market_Value: externalData.marketValue,
-          Age: externalData.age,
-          Fee: externalData.fee
-        });
+      // League filtering (only add team if it's in the selected leagues)
+      if (meetsFilters) {
+        if (selectedLeagues.length === 0 || selectedLeagues.some(league => leagueMapping[league]?.includes(originalTeamName))) {
+          processedTeams.push({
+            Team: originalTeamName,
+            Compatibility_Score: value,
+            Financial_Fit: externalData.financial_Fit,
+            Market_Value: externalData.marketValue,
+            Age: externalData.age,
+            Fee: externalData.fee
+          });
+        }
       }
     }
 
-    // Step 8: Return the processed teams
-    res.json(processedTeams);
+    // Step 9: Sorting
+    if (sortNum === 1) {
+      processedTeams.sort((a, b) => b.Compatibility_Score - a.Compatibility_Score);
+    } else if (sortNum === 2) {
+      processedTeams.sort((a, b) => financialFitLevels[b.Financial_Fit] - financialFitLevels[a.Financial_Fit]);
+    }
+
+    // Step 10: Pagination
+    const totalResults = processedTeams.length;
+    const totalPages = Math.ceil(totalResults / limitNum);
+    const paginatedTeams = processedTeams.slice((pageNum - 1) * limitNum, pageNum * limitNum);
+
+    // Step 11: Return response
+    res.json({
+      totalResults,
+      totalPages,
+      currentPage: pageNum,
+      resultsPerPage: limitNum,
+      sortBy: sortNum === 1 ? "Compatibility_Score" : sortNum === 2 ? "Financial_Fit" : "None",
+      teams: paginatedTeams
+    });
 
   } catch (error) {
     console.error(error);
