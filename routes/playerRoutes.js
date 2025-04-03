@@ -3569,6 +3569,11 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
       // Get external data for the team and calculate Financial Fit
       const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
 
+      // Find the league this team belongs to
+      const teamLeague = Object.keys(leagueMapping).find(league =>
+        leagueMapping[league].includes(originalTeamName)
+      ) || "Unknown"; // Default to "Unknown" if no league is found
+
       // Check if the team meets the filters
       const meetsFilters = (
         (minAge ? externalData.age.avg >= minAge : true) &&
@@ -3583,9 +3588,10 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
 
       // League filtering (only add team if it's in the selected leagues)
       if (meetsFilters) {
-        if (selectedLeagues.length === 0 || selectedLeagues.some(league => leagueMapping[league]?.includes(originalTeamName))) {
+        if (selectedLeagues.length === 0 || selectedLeagues.includes(teamLeague)) {
           processedTeams.push({
             Team: originalTeamName,
+            League: teamLeague, // ✅ Added League here
             Compatibility_Score: value,
             Financial_Fit: externalData.financial_Fit,
             Market_Value: externalData.marketValue,
