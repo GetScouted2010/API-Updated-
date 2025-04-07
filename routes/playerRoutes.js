@@ -3635,4 +3635,46 @@ router.get('/compatibilityLeagues', verifyToken, async (req, res) => {
   res.json(leaguesWithTeams);
 });
 
+router.get('/get/:id/compatibility/sliders', verifyToken, async (req, res) => {
+  try {
+    const playerId = req.params.id;
+    const playerRecord = await Player.findOne({ UniqueID: playerId });
+
+    if (!playerRecord) {
+      return res.status(404).json({ error: 'Player not found' });
+    }
+
+    const marketValueInMillions = playerRecord.Market_value / 1_000_000;
+    const age = playerRecord.Age;
+
+    const boundedAge = (min, max) => ({
+      ageMin: Math.max(min, 15),
+      ageMax: Math.min(max, 40)
+    });
+
+    const response = {
+      Great: {
+        marketValueMin: +(marketValueInMillions * 0.75).toFixed(2),
+        marketValueMax: +(marketValueInMillions * 1.25).toFixed(2),
+        ...boundedAge(age - 2, age + 2)
+      },
+      Moderate: {
+        marketValueMin: +(marketValueInMillions * 0.5).toFixed(2),
+        marketValueMax: +(marketValueInMillions * 1.5).toFixed(2),
+        ...boundedAge(age - 4, age + 4)
+      },
+      Poor: {
+        marketValueMin: +(marketValueInMillions * 0.25).toFixed(2),
+        marketValueMax: +(marketValueInMillions * 1.75).toFixed(2),
+        ...boundedAge(age - 6, age + 6)
+      }
+    };
+
+    res.json(response);
+  } catch (err) {
+    console.error('Error fetching player:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
