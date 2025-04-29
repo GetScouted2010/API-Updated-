@@ -2599,114 +2599,121 @@ router.get('/get/:id/positions', verifyToken, async (req, res) => {
 
 router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
   try {
-    // Step 1: Get the UniqueID from the request parameters
     const playerId = req.params.id;
 
-    // Step 2: Fetch the player compatibility scores from the database
-    const compatibilityRecord = await CompatibilityScores.findOne({ UniqueID: playerId });
+    // Step 1: Fetch CompatibilityScores
+    let compatibilityRecord = await CompatibilityScores.findOne({ UniqueID: playerId });
+    let fallbackMode = false;
 
     if (!compatibilityRecord) {
-      return res.status(404).json({ message: "Compatibility scores not found" });
+      fallbackMode = true;
+      compatibilityRecord = await CompatibilityScores.findOne();
+      if (!compatibilityRecord) {
+        return res.status(404).json({ message: "No compatibility records available" });
+      }
     }
 
-    // Step 3: Fetch the player record to get Age and Market_value (for financial calculations)
+    // Step 2: Fetch Player Record
     const playerRecord = await Player.findOne({ UniqueID: playerId });
-
     if (!playerRecord) {
       return res.status(404).json({ message: "Player not found" });
     }
 
-    // Step 4: Default Position Logic
-    const position = req.query.Position || compatibilityRecord.Position; // Use query param Position or fallback to Player's Position
+    const position = req.query.Position || compatibilityRecord.Position;
 
-    // Step 5: Extract all team-related fields and sort them by value
-    const teams = Object.keys(compatibilityRecord.toObject())
-      .filter(field => field !== "UniqueID" && field !== "_id" && field !== "Position") // Exclude unnecessary fields
-      .map(field => ({ name: field, value: compatibilityRecord[field] })) // Create {team, score}
-      .sort((a, b) => b.value - a.value); // Sort in descending order of compatibility score
+    // Step 3: Extract query params
+    const {
+      minAge, maxAge, minMarketValue, maxMarketValue,
+      minFee, maxFee, minCompatibility, maxCompatibility,
+      financialFit, League, page = 1, limit = 10, sort
+    } = req.query;
 
-    // Step 6: Extract query parameters (filters)
-    const { minAge, maxAge, minMarketValue, maxMarketValue, minFee, maxFee, League, Financial_Fit, minCompatibility, maxCompatibility, sort, page = 1, limit = 10 } = req.query;
-
-    const pageNum = Math.max(parseInt(page, 10), 1);
-    const limitNum = Math.max(parseInt(limit, 10), 1);
-    const sortNum = parseInt(sort, 10);
-
-    // Convert compatibility filters to numbers (or set default ranges)
-    const minComp = minCompatibility !== undefined ? parseFloat(minCompatibility) : -Infinity;
-    const maxComp = maxCompatibility !== undefined ? parseFloat(maxCompatibility) : Infinity;
-
-    // Step 7: League filtering (convert League query param into an array)
+    const minComp = minCompatibility ? Number(minCompatibility) : 0;
+    const maxComp = maxCompatibility ? Number(maxCompatibility) : 100;
     const selectedLeagues = League ? League.split(',').map(league => league.trim()) : [];
 
-    // Financial Fit mapping order (to allow "Moderate" to include "Great")
     const financialFitLevels = { "Poor": 1, "Moderate": 2, "Great": 3 };
-    const minFinancialFit = financialFitLevels[Financial_Fit] || 1; // Default to lowest filter level
+    const minFinancialFit = financialFitLevels[financialFit] || 1;
 
-    // Step 8: Process each team
+    // Step 4: Prepare Teams
+    const teams = Object.keys(compatibilityRecord.toObject())
+      .filter(field => field !== "UniqueID" && field !== "_id" && field !== "Position")
+      .map(field => ({
+        name: field,
+        value: fallbackMode ? "Pending" : compatibilityRecord[field]
+      }));
+
+    if (!fallbackMode) {
+      teams.sort((a, b) => b.value - a.value);
+    }
+
+    // Step 5: Process Teams
     const processedTeams = [];
+
     for (let team of teams) {
       const { name, value } = team;
-
-      // Get the original team name
       const originalTeamName = getOriginalFieldName(name);
 
-      // Get external data for the team and calculate Financial Fit
       const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
 
-      // Find the league this team belongs to
       const teamLeague = Object.keys(leagueMapping).find(league =>
         leagueMapping[league].includes(originalTeamName)
-      ) || "Unknown"; // Default to "Unknown" if no league is found
+      ) || "Unknown";
 
-      // Check if the team meets the filters
-      const meetsFilters = (
-        (minAge ? externalData.age.avg >= minAge : true) &&
-        (maxAge ? externalData.age.avg <= maxAge : true) &&
-        (minMarketValue ? externalData.marketValue.avg >= minMarketValue : true) &&
-        (maxMarketValue ? externalData.marketValue.avg <= maxMarketValue : true) &&
-        (minFee ? externalData.fee.avg >= minFee : true) &&
-        (maxFee ? externalData.fee.avg <= maxFee : true) &&
-        (minComp <= value && value <= maxComp) && // Compatibility Score filter
-        (financialFitLevels[externalData.financial_Fit] >= minFinancialFit) // Financial Fit filter
+      const withinLeague = selectedLeagues.length === 0 || selectedLeagues.includes(teamLeague);
+      const ageFilter = (!minAge || externalData.age.avg >= minAge) && (!maxAge || externalData.age.avg <= maxAge);
+      const marketValueFilter = (!minMarketValue || externalData.marketValue.avg >= minMarketValue) && (!maxMarketValue || externalData.marketValue.avg <= maxMarketValue);
+      const feeAvg = externalData.fee.avg;
+      const feeFilter = (
+        (feeAvg === "N/A" && Number(minFee || 0) === 0) || // include "N/A" when minFee is 0
+        (feeAvg !== "N/A" &&
+          (!minFee || feeAvg >= Number(minFee)) &&
+          (!maxFee || feeAvg <= Number(maxFee)))
       );
 
-      // League filtering (only add team if it's in the selected leagues)
-      if (meetsFilters) {
-        if (selectedLeagues.length === 0 || selectedLeagues.includes(teamLeague)) {
-          processedTeams.push({
-            Team: originalTeamName,
-            League: teamLeague,
-            Compatibility_Score: value,
-            Financial_Fit: externalData.financial_Fit,
-            Market_Value: externalData.marketValue,
-            Age: externalData.age,
-            Fee: externalData.fee
-          });
-        }
+      const compatibilityFilter = (fallbackMode || (value >= minComp && value <= maxComp));
+      const financialFitFilter = (financialFitLevels[externalData.financial_Fit] >= minFinancialFit);
+
+      if (withinLeague && ageFilter && marketValueFilter && feeFilter && compatibilityFilter && financialFitFilter) {
+        processedTeams.push({
+          Team: originalTeamName,
+          League: teamLeague,
+          Compatibility_Score: value,
+          Financial_Fit: externalData.financial_Fit,
+          Market_Value: externalData.marketValue,
+          Age: externalData.age,
+          Fee: externalData.fee
+        });
       }
     }
 
-    // Step 9: Sorting
-    if (sortNum === 1) {
+    // Step 6: Sort processed results
+    let sortBy = "None";
+    if (sort == 1 && !fallbackMode) {
       processedTeams.sort((a, b) => b.Compatibility_Score - a.Compatibility_Score);
-    } else if (sortNum === 2) {
-      processedTeams.sort((a, b) => financialFitLevels[b.Financial_Fit] - financialFitLevels[a.Financial_Fit]);
+      sortBy = "Compatibility_Score";
+    } else if (sort == 2) {
+      const fitOrder = { "Great": 3, "Moderate": 2, "Poor": 1, "Pending": 0 };
+      processedTeams.sort((a, b) => fitOrder[b.Financial_Fit] - fitOrder[a.Financial_Fit]);
+      sortBy = "Financial_Fit";
     }
 
-    // Step 10: Pagination
+    // Step 7: Pagination
     const totalResults = processedTeams.length;
-    const totalPages = Math.ceil(totalResults / limitNum);
-    const paginatedTeams = processedTeams.slice((pageNum - 1) * limitNum, pageNum * limitNum);
+    const totalPages = Math.ceil(totalResults / limit);
+    const currentPage = Math.max(Number(page), 1);
+    const startIndex = (currentPage - 1) * limit;
+    const endIndex = startIndex + Number(limit);
+    const paginatedResults = processedTeams.slice(startIndex, endIndex);
 
-    // Step 11: Return response
+    // Step 8: Response
     res.json({
       totalResults,
       totalPages,
-      currentPage: pageNum,
-      resultsPerPage: limitNum,
-      sortBy: sortNum === 1 ? "Compatibility_Score" : sortNum === 2 ? "Financial_Fit" : "None",
-      teams: paginatedTeams
+      currentPage,
+      resultsPerPage: Number(limit),
+      sortBy,
+      teams: paginatedResults
     });
 
   } catch (error) {
