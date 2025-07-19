@@ -111,21 +111,33 @@ function getSanitizedFieldName(originalFieldName) {
   return fieldMapping[originalFieldName] || originalFieldName;
 }
 
-const calculateFinancialFit = async (teamField, position, playerData) => {
+const calculateFinancialFit = async (teamField, position, playerData, customMarketValue) => {
   // Use playerData to determine the team for transfer averages
   let externalData = await getTransferAverages(teamField, null, position);
 
   let financial_Fit = 'Poor';
-
-  // Financial Fit based on Age and Market Value
-  if (playerData.Age >= externalData.Great_Fit.ageMin && playerData.Age <= externalData.Great_Fit.ageMax
-    && playerData.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
-  ) {
-    financial_Fit = 'Great';
-  } else if (playerData.Age >= externalData.Moderate_Fit.ageMin && playerData.Age <= externalData.Moderate_Fit.ageMax
-    && playerData.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
-  ) {
-    financial_Fit = 'Moderate';
+  if (!customMarketValue) {
+    // Financial Fit based on Age and Market Value
+    if (playerData.Age >= externalData.Great_Fit.ageMin && playerData.Age <= externalData.Great_Fit.ageMax
+      && playerData.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Great';
+    } else if (playerData.Age >= externalData.Moderate_Fit.ageMin && playerData.Age <= externalData.Moderate_Fit.ageMax
+      && playerData.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && playerData.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Moderate';
+    }
+  }
+  else{
+    if (playerData.Age >= externalData.Great_Fit.ageMin && playerData.Age <= externalData.Great_Fit.ageMax
+      && customMarketValue >= (externalData.Great_Fit.marketValueMin * 1000000) && customMarketValue <= (externalData.Great_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Great';
+    } else if (playerData.Age >= externalData.Moderate_Fit.ageMin && playerData.Age <= externalData.Moderate_Fit.ageMax
+      && customMarketValue >= (externalData.Moderate_Fit.marketValueMin * 1000000) && customMarketValue <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+    ) {
+      financial_Fit = 'Moderate';
+    }
   }
 
   return {
@@ -817,7 +829,9 @@ router.get('/csfilter', verifyToken, async (req, res) => {
           Contract_expires: 1,
           Goals: 1,
           Assists: 1,
-          Foot: 1
+          Foot: 1,
+          Height: 1,
+          Weight: 1
         },
       }
     ];
@@ -2625,7 +2639,8 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
     const {
       minAge, maxAge, minMarketValue, maxMarketValue,
       minFee, maxFee, minCompatibility, maxCompatibility,
-      financialFit, League, page = 1, limit = 10, sort
+      financialFit, League, page = 1, limit = 10, sort,
+      customMarketValue
     } = req.query;
 
     const minComp = minCompatibility ? Number(minCompatibility) : 0;
@@ -2654,7 +2669,13 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
       const { name, value } = team;
       const originalTeamName = getOriginalFieldName(name);
 
-      const externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
+      let externalData;
+      if(!customMarketValue){
+        externalData = await calculateFinancialFit(originalTeamName, position, playerRecord);
+      }
+      else{
+        externalData = await calculateFinancialFit(originalTeamName, position, playerRecord, customMarketValue);
+      }
 
       const teamLeague = Object.keys(leagueMapping).find(league =>
         leagueMapping[league].includes(originalTeamName)
