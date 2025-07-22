@@ -2710,6 +2710,9 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
 
     // Step 6: Sort processed results
     let sortBy = "None";
+    if(!sort){
+      sort = 1;
+    }
     if (sort == 1 && !fallbackMode) {
       processedTeams.sort((a, b) => b.Compatibility_Score - a.Compatibility_Score);
       sortBy = "Compatibility_Score";
