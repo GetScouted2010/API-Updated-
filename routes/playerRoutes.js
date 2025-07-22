@@ -2639,11 +2639,9 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
     const {
       minAge, maxAge, minMarketValue, maxMarketValue,
       minFee, maxFee, minCompatibility, maxCompatibility,
-      financialFit, League, page = 1, limit = 10,
+      financialFit, League, page = 1, limit = 10, sort,
       customMarketValue
     } = req.query;
-
-    let sort = req.query;
 
     const minComp = minCompatibility ? Number(minCompatibility) : 0;
     const maxComp = maxCompatibility ? Number(maxCompatibility) : 100;
@@ -2712,8 +2710,9 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
 
     // Step 6: Sort processed results
     let sortBy = "None";
-    if(!sort){
-      sort = 1;
+    if(!sort || sort == 0){
+      processedTeams.sort((a, b) => b.Compatibility_Score - a.Compatibility_Score);
+      sortBy = "Compatibility_Score";
     }
     if (sort == 1 && !fallbackMode) {
       processedTeams.sort((a, b) => b.Compatibility_Score - a.Compatibility_Score);
