@@ -2639,9 +2639,11 @@ router.get('/get/:id/compatibility', verifyToken, async (req, res) => {
     const {
       minAge, maxAge, minMarketValue, maxMarketValue,
       minFee, maxFee, minCompatibility, maxCompatibility,
-      financialFit, League, page = 1, limit = 10, sort,
+      financialFit, League, page = 1, limit = 10,
       customMarketValue
     } = req.query;
+
+    let sort = req.query;
 
     const minComp = minCompatibility ? Number(minCompatibility) : 0;
     const maxComp = maxCompatibility ? Number(maxCompatibility) : 100;
