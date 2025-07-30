@@ -7,6 +7,11 @@ const Player = require("../models/player");
 const Compatibility_Score = require("../models/compatibilityScores");
 const { getTransferAverages } = require('./transferRoutes');
 
+const {
+  getOriginalFieldName,
+  getSanitizedFieldName
+} = require('../utils/fieldMapper');
+
 // Route to get all lists created by the currently logged in user
 router.get("/getLists", verifyToken, async (req, res, next) => {
   try {
@@ -51,59 +56,87 @@ router.get("/getLists", verifyToken, async (req, res, next) => {
 });
 
 // Route to get all lists created by the currently logged in user
-router.get("/getList/:id", verifyToken, async (req, res, next) => {
+router.get("/getList/:id", verifyToken, async (req, res) => {
   try {
     const userId = req.user.id;
     const listId = req.params.id;
-    const team = req.user.team;
-    // Fetch the specific shortlist by user ID and list ID
-    const found = await Shortlist.find({ user_id: userId, _id: listId }).lean();
 
-    if (!found.length) {
+    const found = await Shortlist.findOne({ user_id: userId, _id: listId }).lean();
+
+    if (!found) {
       return res.status(404).json({ message: 'List not found' });
     }
 
-    for (const doc of found) {
-      // Populate the shortlist with player details
-      const players = await Player.find({ UniqueID: { $in: doc.shortlist } });
-      doc.shortlist = [];
+    const shortlist = found.shortlist || [];
 
-      for (const player of players) {
-        // Fetch the Compatibility_Score for this player and the specified team
-        const compatibilityRecord = await Compatibility_Score.findOne({
-          UniqueID: player.UniqueID
-        });
+    // Step 1: Extract playerIds and create a map from playerId to team
+    const playerTeamMap = new Map();
+    for (const entry of shortlist) {
+      playerTeamMap.set(entry.playerId, entry.team);
+    }
 
-        const compatibilityScore = compatibilityRecord?.[team] || null;
+    const playerIds = [...playerTeamMap.keys()];
 
-        // Add Financial Fit Data
-        const externalData = await getTransferAverages(team, null, player.Position);
+    // Step 2: Batch-fetch players and compatibility scores
+    const players = await Player.find({ UniqueID: { $in: playerIds } }).lean();
+    const compatScores = await Compatibility_Score.find({ UniqueID: { $in: playerIds } }).lean();
 
-        let financial_Fit = 'Poor';
+    // Create maps for fast lookup
+    const playerMap = new Map(players.map(p => [p.UniqueID, p]));
+    const scoreMap = new Map(compatScores.map(s => [s.UniqueID, s]));
 
-        if (player.Age >= externalData.Great_Fit.ageMin && player.Age <= externalData.Great_Fit.ageMax
-          && player.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) && player.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+    // Step 3: Build enriched shortlist
+    const enrichedShortlist = [];
+
+    for (const playerId of playerIds) {
+      const player = playerMap.get(playerId);
+      const team = playerTeamMap.get(playerId);
+      const scoreDoc = scoreMap.get(playerId);
+
+      if (!player) continue;
+
+      // Compatibility Score per player's assigned team
+      const compatibilityScore = scoreDoc?.[team] ?? null;
+
+      // Financial Fit
+      let financial_Fit = 'Poor';
+      try {
+        const transferAverages = await getTransferAverages(team, null, player.Position);
+
+        if (
+          player.Age >= transferAverages.Great_Fit.ageMin &&
+          player.Age <= transferAverages.Great_Fit.ageMax &&
+          player.Market_value >= (transferAverages.Great_Fit.marketValueMin * 1000000) &&
+          player.Market_value <= (transferAverages.Great_Fit.marketValueMax * 1000000)
         ) {
           financial_Fit = 'Great';
-        }
-        else if (player.Age >= externalData.Moderate_Fit.ageMin && player.Age <= externalData.Moderate_Fit.ageMax
-          && player.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) && player.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+        } else if (
+          player.Age >= transferAverages.Moderate_Fit.ageMin &&
+          player.Age <= transferAverages.Moderate_Fit.ageMax &&
+          player.Market_value >= (transferAverages.Moderate_Fit.marketValueMin * 1000000) &&
+          player.Market_value <= (transferAverages.Moderate_Fit.marketValueMax * 1000000)
         ) {
-          financial_Fit = 'Moderate'
+          financial_Fit = 'Moderate';
         }
-
-        // Add the Compatibility_Score & Financial_Fit fields to the player object
-        doc.shortlist.push({
-          ...player.toObject(),
-          Compatibility_Score: compatibilityScore,
-          Financial_Fit: financial_Fit
-        });
+      } catch (e) {
+        console.warn(`Could not fetch transfer averages for ${team} - ${player.Position}`, e);
       }
+
+      enrichedShortlist.push({
+        ...player,
+        Compatibility_Team: getSanitizedFieldName(team), // include the team this player was added with
+        Compatibility_Score: compatibilityScore,
+        Financial_Fit: financial_Fit
+      });
     }
+
+    // Attach enriched list back to the doc
+    found.shortlist = enrichedShortlist;
 
     return res.json(found);
   } catch (error) {
-    return res.status(400).json({ message: "Error fetching Shortlists", error })
+    console.error('Error fetching shortlist:', error);
+    return res.status(400).json({ message: "Error fetching shortlist", error });
   }
 });
 
@@ -140,18 +173,20 @@ router.post('/createList', verifyToken, async (req, res) => {
 
 // Route to add a player to the shortlist
 router.post('/addToList', verifyToken, async (req, res) => {
-  const { listId, playerId } = req.body;
+  const { listId, playerId, team } = req.body;
 
   // Validate inputs
-  if (!listId || !playerId) {
-    return res.status(400).json({ error: 'listId and playerId are required' });
+  if (!listId || !playerId || !team) {
+    return res.status(400).json({ error: 'listId, playerId and team are required' });
   }
+
+  let sanitizedTeam = getSanitizedFieldName(team);
 
   try {
     // Update the record by pushing the playerId to the shortlist array
     const updatedRecord = await Shortlist.findByIdAndUpdate(
       listId,
-      { $push: { shortlist: playerId } },
+      { $push: { shortlist: { playerId, sanitizedTeam } } },
       { new: true } // Return the updated document
     );
 
@@ -172,19 +207,21 @@ router.post('/addToList', verifyToken, async (req, res) => {
 
 // Route to remove a player from a shortlist
 router.post('/removeFromList', verifyToken, async (req, res) => {
-  const { listId, playerId } = req.body;
+  const { listId, playerId, team } = req.body;
 
   // Validate inputs
-  if (!listId || !playerId) {
-    return res.status(400).json({ error: 'listId and playerId are required' });
+  if (!listId || !playerId || !team) {
+    return res.status(400).json({ error: 'listId, playerId and team are required' });
   }
+
+  let originalTeam = getOriginalFieldName(team);
 
   try {
 
     // Update the record by removing the playerId from the shortlist array
     const updatedRecord = await Shortlist.findByIdAndUpdate(
       listId,
-      { $pull: { shortlist: playerId } }, // Remove objectId from shortlist array
+      { $pull: { shortlist: { playerId, originalTeam } } }, // Remove objectId from shortlist array
       { new: true } // Return the updated document
     );
 
@@ -235,7 +272,6 @@ router.post('/deleteList', verifyToken, async (req, res) => {
 // Route to Search for players inside a specified shortlist
 router.get('/searchList', verifyToken, async (req, res) => {
   const { listId, playerName } = req.query;
-  const team = req.user.team;
 
   if (!listId) {
     return res.status(400).json({ error: 'listId query parameter is required' });
@@ -246,61 +282,82 @@ router.get('/searchList', verifyToken, async (req, res) => {
   }
 
   try {
-    // Create a regular expression to match the playerName at the beginning of any word
-    const regex = new RegExp(`\\b${playerName}`, 'i'); // \b ensures word boundary, 'i' makes it case insensitive
+    const regex = new RegExp(`\\b${playerName}`, 'i');
 
-    // Fetch the shortlist document
-    const shortlist = await Shortlist.findById(listId).lean();
+    // Fetch shortlist
+    const shortlistDoc = await Shortlist.findById(listId).lean();
 
-    if (!shortlist) {
+    if (!shortlistDoc) {
       return res.status(404).json({ error: 'List not found' });
     }
 
-    // Fetch players whose UniqueID is in the shortlist and match the playerName
+    const shortlist = shortlistDoc.shortlist || [];
+
+    // Build playerId → team map
+    const playerTeamMap = new Map();
+    for (const entry of shortlist) {
+      playerTeamMap.set(entry.playerId, entry.team);
+    }
+
+    const playerIds = [...playerTeamMap.keys()];
+
+    // Find players matching name in shortlist
     const players = await Player.find({
-      UniqueID: { $in: shortlist.shortlist },
+      UniqueID: { $in: playerIds },
       Player: { $regex: regex }
-    });
+    }).lean();
 
-    // Fetch compatibility scores for the players and add them to the players
-    const playerIDs = players.map(player => player.UniqueID);
-    const compatibilityRecords = await Compatibility_Score.find({
-      UniqueID: { $in: playerIDs }
-    });
+    if (!players.length) {
+      return res.json({ listId: shortlistDoc._id, players: [] });
+    }
 
-    // Map the compatibility scores to a dictionary for fast lookup
-    const compatibilityMap = compatibilityRecords.reduce((map, record) => {
-      map[record.UniqueID] = record[team] || null;  // Assuming team is a field name in Compatibility_Score
-      return map;
-    }, {});
+    // Fetch Compatibility_Score for matching players
+    const compatScores = await Compatibility_Score.find({
+      UniqueID: { $in: players.map(p => p.UniqueID) }
+    }).lean();
 
-    // Compute Financial Fit for each player & add Compatability Score
-    const enhancedPlayers = await Promise.all(players.map(async (player) => {
-      // Fetch externalData for financial fit
-      const externalData = await getTransferAverages(team, null, player.Position);
+    const compatMap = new Map(compatScores.map(score => [score.UniqueID, score]));
+
+    // Build result set
+    const enhancedPlayers = await Promise.all(players.map(async player => {
+      const team = playerTeamMap.get(player.UniqueID);
+      const scoreDoc = compatMap.get(player.UniqueID);
+      const compatibilityScore = scoreDoc?.[team] ?? null;
+      const sanitizedTeam = getSanitizedFieldName(team);
 
       let financial_Fit = 'Poor';
+      try {
+        const externalData = await getTransferAverages(team, null, player.Position);
 
-      if (player.Age >= externalData.Great_Fit.ageMin && player.Age <= externalData.Great_Fit.ageMax
-        && player.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000)
-        && player.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)) {
-        financial_Fit = 'Great';
-      }
-      else if (player.Age >= externalData.Moderate_Fit.ageMin && player.Age <= externalData.Moderate_Fit.ageMax
-        && player.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000)
-        && player.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)) {
-        financial_Fit = 'Moderate';
+        if (
+          player.Age >= externalData.Great_Fit.ageMin &&
+          player.Age <= externalData.Great_Fit.ageMax &&
+          player.Market_value >= (externalData.Great_Fit.marketValueMin * 1000000) &&
+          player.Market_value <= (externalData.Great_Fit.marketValueMax * 1000000)
+        ) {
+          financial_Fit = 'Great';
+        } else if (
+          player.Age >= externalData.Moderate_Fit.ageMin &&
+          player.Age <= externalData.Moderate_Fit.ageMax &&
+          player.Market_value >= (externalData.Moderate_Fit.marketValueMin * 1000000) &&
+          player.Market_value <= (externalData.Moderate_Fit.marketValueMax * 1000000)
+        ) {
+          financial_Fit = 'Moderate';
+        }
+      } catch (e) {
+        console.warn(`Failed to get financial fit for ${player.Player} / ${team}`, e);
       }
 
       return {
-        ...player.toObject(),
-        Compatibility_Score: compatibilityMap[player.UniqueID] || null,
+        ...player,
+        Compatibility_Team: sanitizedTeam,
+        Compatibility_Score: compatibilityScore,
         Financial_Fit: financial_Fit
       };
     }));
 
     res.json({
-      listId: shortlist._id,
+      listId: shortlistDoc._id,
       players: enhancedPlayers
     });
   } catch (error) {
@@ -308,5 +365,6 @@ router.get('/searchList', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 
 module.exports = router;

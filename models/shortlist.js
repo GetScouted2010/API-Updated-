@@ -11,10 +11,18 @@ const shortlistSchema = new Schema({
         type: String,
         required: true
     },
-    shortlist: {
-        type: [Number],
-        default: []
-    }
+    shortlist: [
+    {
+      playerId: {
+        type: Number,
+        required: true,
+      },
+      team: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 }, { collection: 'shortlist' })
 
 module.exports = mongoose.model("shortlist", shortlistSchema);

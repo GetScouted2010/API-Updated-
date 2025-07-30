@@ -17,6 +17,11 @@ const Playstyles = require('../models/playstyles');
 
 const { getTransferAverages } = require('./transferRoutes')
 
+const {
+  getOriginalFieldName,
+  getSanitizedFieldName
+} = require('../utils/fieldMapper');
+
 const models = { AM, CB, CM, DM, FWD, LB, LW, RB, RW };
 
 const fs = require('fs');
@@ -78,26 +83,6 @@ const leagueMapping = {
   "Superliga (Denmark)": ["AGF", "AaB", "Brøndby", "København", "Lyngby", "Midtjylland", "Nordsjælland", "Randers", "Silkeborg", "SønderjyskE", "Viborg"]
 };
 
-// Load the field mapping
-const mappingFilePath = path.join(__dirname, '../cs_field_mapping.json');
-let fieldMapping;
-
-try {
-  fieldMapping = JSON.parse(fs.readFileSync(mappingFilePath, 'utf-8'));
-  console.log('Field mapping loaded.');
-} catch (error) {
-  console.error('Error loading cs_field_mapping.json:', error.message);
-}
-
-// Helper functions to use the mapping
-function getOriginalFieldName(sanitizedFieldName) {
-  for (const [original, sanitized] of Object.entries(fieldMapping)) {
-    if (sanitized === sanitizedFieldName) {
-      return original;
-    }
-  }
-  return sanitizedFieldName; // Return as-is if no match found
-}
 
 // Helper function to find the league of a team
 const findTeamLeague = (teamName) => {
@@ -106,10 +91,6 @@ const findTeamLeague = (teamName) => {
   }
   return "Unknown League";
 };
-
-function getSanitizedFieldName(originalFieldName) {
-  return fieldMapping[originalFieldName] || originalFieldName;
-}
 
 const calculateFinancialFit = async (teamField, position, playerData, customMarketValue) => {
   // Use playerData to determine the team for transfer averages
