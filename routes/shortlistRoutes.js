@@ -124,7 +124,7 @@ router.get("/getList/:id", verifyToken, async (req, res) => {
 
       enrichedShortlist.push({
         ...player,
-        Compatibility_Team: getSanitizedFieldName(team), // include the team this player was added with
+        Compatibility_Team: getOriginalFieldName(team), // include the team this player was added with
         Compatibility_Score: compatibilityScore,
         Financial_Fit: financial_Fit
       });
@@ -180,13 +180,13 @@ router.post('/addToList', verifyToken, async (req, res) => {
     return res.status(400).json({ error: 'listId, playerId and team are required' });
   }
 
-  let sanitizedTeam = getSanitizedFieldName(team);
+  let originalTeam = getOriginalFieldName(team);
 
   try {
     // Update the record by pushing the playerId to the shortlist array
     const updatedRecord = await Shortlist.findByIdAndUpdate(
       listId,
-      { $push: { shortlist: { playerId, sanitizedTeam } } },
+      { $push: { shortlist: { playerId, originalTeam } } },
       { new: true } // Return the updated document
     );
 
@@ -214,14 +214,14 @@ router.post('/removeFromList', verifyToken, async (req, res) => {
     return res.status(400).json({ error: 'listId, playerId and team are required' });
   }
 
-  let originalTeam = getOriginalFieldName(team);
+  let sanitizedTeam = getSanitizedFieldName(team);
 
   try {
 
     // Update the record by removing the playerId from the shortlist array
     const updatedRecord = await Shortlist.findByIdAndUpdate(
       listId,
-      { $pull: { shortlist: { playerId, originalTeam } } }, // Remove objectId from shortlist array
+      { $pull: { shortlist: { playerId, sanitizedTeam } } }, // Remove objectId from shortlist array
       { new: true } // Return the updated document
     );
 
@@ -323,7 +323,7 @@ router.get('/searchList', verifyToken, async (req, res) => {
       const team = playerTeamMap.get(player.UniqueID);
       const scoreDoc = compatMap.get(player.UniqueID);
       const compatibilityScore = scoreDoc?.[team] ?? null;
-      const sanitizedTeam = getSanitizedFieldName(team);
+      const originalTeam = getOriginalFieldName(team);
 
       let financial_Fit = 'Poor';
       try {
@@ -350,7 +350,7 @@ router.get('/searchList', verifyToken, async (req, res) => {
 
       return {
         ...player,
-        Compatibility_Team: sanitizedTeam,
+        Compatibility_Team: originalTeam,
         Compatibility_Score: compatibilityScore,
         Financial_Fit: financial_Fit
       };
