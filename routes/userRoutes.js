@@ -203,7 +203,7 @@ router.post('/register2', async (req, res) => {
       }
     }
 
-    if (validTeamPassword.currentUses >= validTeamPassword.maxUses || !validTeamPassword) {
+    if (!validTeamPassword || validTeamPassword.currentUses >= validTeamPassword.maxUses) {
       return res.status(400).json({ error: 'Invalid or exhausted team password.' });
     }
 
