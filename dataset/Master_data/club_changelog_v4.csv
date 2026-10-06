@@ -1,0 +1,376 @@
+change,club_id,club_or_alias,old_value,new_value,reason
+name trim,NC0001,Esenler Erokspor,' Esenler Erokspor',Esenler Erokspor,trailing space
+name trim,NC0002,Gamle Oslo,' Gamle Oslo',Gamle Oslo,trailing space
+name trim,NC0003,NEOM,' NEOM',NEOM,trailing space
+name trim,NC0004,Northern Virginia,' Northern Virginia',Northern Virginia,trailing space
+name trim,NC0005,Shenzhen Peng City,' Shenzhen Peng City',Shenzhen Peng City,trailing space
+team type,NC0009,2 de Mayo,B-reserve,first team,reviewer decision
+merge,NC2411,AC Sparta Prague,,NC1468,reviewer decision
+team type,NC0029,AZ II,B-reserve,B-reserve,reviewer decision
+parent,NC0029,AZ II,,CLB0044,reviewer decision
+team type,NC0030,AZ U19,U19,U19,reviewer decision
+parent,NC0030,AZ U19,,CLB0044,reviewer decision
+merge,NC0039,Académico de Viseu F.C.,,NC0037,reviewer decision
+team type,NC1798,Adana Demirspor Res.,B-reserve,B-reserve,reviewer decision
+parent,NC1798,Adana Demirspor Res.,,NC0042,reviewer decision
+country fix,NC1799,Adanaspor,Portugal,Turkey,reviewer note
+team type,NC0141,Anderlecht II,B-reserve,B-reserve,reviewer decision
+parent,NC0141,Anderlecht II,,CLB0161,reviewer decision
+team type,NC0142,Anderlecht U18,U19,U19,reviewer decision
+parent,NC0142,Anderlecht U18,,CLB0161,reviewer decision
+team type,NC0143,Anderlecht U21,U23-U21,U23-U21,reviewer decision
+parent,NC0143,Anderlecht U21,,CLB0161,reviewer decision
+team type,NC0145,Angers SCO U19,U19,U19,reviewer decision
+parent,NC0145,Angers SCO U19,,CLB0082,reviewer decision
+team type,NC2435,Antlers U18,U19,U19,reviewer decision
+parent,NC2435,Antlers U18,,UNRESOLVED:Antlers,reviewer decision - unresolved
+team type,NC0154,Antwerp U18,U19,U19,reviewer decision
+parent,NC0154,Antwerp U18,,CLB0158,reviewer decision
+team type,NC0155,Antwerp U19,U19,U19,reviewer decision
+parent,NC0155,Antwerp U19,,CLB0158,reviewer decision
+team type,NC1831,Aris U19,U19,U19,reviewer decision
+parent,NC1831,Aris U19,,CLB0094,reviewer decision
+team type,NC0181,Atalanta U23,U23-U21,U23-U21,reviewer decision
+parent,NC0181,Atalanta U23,,CLB0169,reviewer decision
+team type,NC0194,Atlético Madrid B,B-reserve,B-reserve,reviewer decision
+parent,NC0194,Atlético Madrid B,,CLB0064,reviewer decision
+merge,NC2442,Austria Vienna,,NC0215,reviewer decision
+team type,NC0216,Auxerre II,B-reserve,B-reserve,reviewer decision
+parent,NC0216,Auxerre II,,CLB0084,reviewer decision
+team type,NC1843,Auxerre U19,U19,U19,reviewer decision
+parent,NC1843,Auxerre U19,,CLB0084,reviewer decision
+team type,NC0217,Auxerre U21,U23-U21,U23-U21,reviewer decision
+parent,NC0217,Auxerre U21,,CLB0084,reviewer decision
+team type,NC2445,B. Jerusalem,B-reserve,first team,reviewer decision
+team type,NC0223,B.93,B-reserve,first team,reviewer decision
+team type,NC2446,Barça Atlètic,B-reserve,B-reserve,reviewer decision
+parent,NC2446,Barça Atlètic,,CLB0067,reviewer decision
+merge,NC2447,Basaksehir,,CLB0203,reviewer decision
+merge,NC0252,Beerschot-Wilrijk,,NC0251,reviewer decision
+team type,NC2448,Benfica B,B-reserve,B-reserve,reviewer decision
+parent,NC2448,Benfica B,,CLB0146,reviewer decision
+merge,NC0258,Benfica II,,NC2448,reviewer decision
+team type,NC0258,Benfica II,B-reserve,B-reserve,reviewer decision
+parent,NC0258,Benfica II,,CLB0146,reviewer decision
+team type,NC2449,Benfica U19,U19,U19,reviewer decision
+parent,NC2449,Benfica U19,,CLB0146,reviewer decision
+team type,NC0259,Benfica U23,U23-U21,U23-U21,reviewer decision
+parent,NC0259,Benfica U23,,CLB0146,reviewer decision
+team type,NC1859,Bohemians 1905 II,B-reserve,B-reserve,reviewer decision
+parent,NC1859,Bohemians 1905 II,,NC0278,reviewer decision
+team type,NC0291,Borussia M'gladbach II,B-reserve,B-reserve,reviewer decision
+parent,NC0291,Borussia M'gladbach II,,CLB0006,reviewer decision
+merge,NC1861,Borussia M'gladbach U19,,NC2551,reviewer decision
+team type,NC1861,Borussia M'gladbach U19,U19,U19,reviewer decision
+parent,NC1861,Borussia M'gladbach U19,,CLB0006,reviewer decision
+team type,NC0312,Brighton U21,U23-U21,U23-U21,reviewer decision
+parent,NC0312,Brighton U21,,CLB0104,reviewer decision
+team type,NC1866,Burnley Res.,B-reserve,B-reserve,reviewer decision
+parent,NC1866,Burnley Res.,,CLB0105,reviewer decision
+merge,NC2458,CA Talleres,,NC1536,reviewer decision
+merge,NC2413,CR Flamengo,,NC0598,reviewer decision
+merge,NC2414,Club Atlético Platense,,NC1212,reviewer decision
+team type,NC0412,Club Brugge II,B-reserve,B-reserve,reviewer decision
+parent,NC0412,Club Brugge II,,CLB0151,reviewer decision
+team type,NC0413,Club Brugge U19,U19,U19,reviewer decision
+parent,NC0413,Club Brugge U19,,CLB0151,reviewer decision
+team type,NC2471,Copenhagen U19,U19,U19,reviewer decision
+parent,NC2471,Copenhagen U19,,NC0859,reviewer decision
+team type,NC0476,Dender U21,U23-U21,U23-U21,reviewer decision
+parent,NC0476,Dender U21,,CLB0152,reviewer decision
+team type,NC1916,Deportivo Toluca U19,U19,U19,reviewer decision
+parent,NC1916,Deportivo Toluca U19,,UNRESOLVED:Deportivo Toluca,reviewer decision - unresolved
+team type,NC0497,Deportivo Toluca U21,U23-U21,U23-U21,reviewer decision
+parent,NC0497,Deportivo Toluca U21,,UNRESOLVED:Deportivo Toluca,reviewer decision - unresolved
+merge,NC2490,Dukla Prague,,NC0525,reviewer decision
+merge,NC2492,Dynamo Moscow,,NC0509,reviewer decision
+team type,NC1936,Espanyol B,B-reserve,B-reserve,reviewer decision
+parent,NC1936,Espanyol B,,CLB0078,reviewer decision
+team type,NC0564,Estoril U23,U23-U21,U23-U21,reviewer decision
+parent,NC0564,Estoril U23,,CLB0142,reviewer decision
+team type,NC1939,Exeter City U18,U19,U19,reviewer decision
+parent,NC1939,Exeter City U18,,CLB0027,reviewer decision
+team type,NC2500,FC Bayern II,B-reserve,B-reserve,reviewer decision
+parent,NC2500,FC Bayern II,,CLB0009,reviewer decision
+team type,NC2501,FC Bayern U19,U19,U19,reviewer decision
+parent,NC2501,FC Bayern U19,,CLB0009,reviewer decision
+merge,NC1952,Fatih Karagümrük,,CLB0190,reviewer decision
+team type,NC1956,Feirense U19,U19,U19,reviewer decision
+parent,NC1956,Feirense U19,,CLB0144,reviewer decision
+team type,NC0594,Feyenoord U19,U19,U19,reviewer decision
+parent,NC0594,Feyenoord U19,,CLB0049,reviewer decision
+team type,NC0595,Feyenoord U21,U23-U21,U23-U21,reviewer decision
+parent,NC0595,Feyenoord U21,,CLB0049,reviewer decision
+team type,NC2510,GC Zürich U21,U23-U21,U23-U21,reviewer decision
+parent,NC2510,GC Zürich U21,,NC0656,reviewer decision
+team type,NC0638,Genk II,B-reserve,B-reserve,reviewer decision
+parent,NC0638,Genk II,,CLB0154,reviewer decision
+team type,NC0639,Genk U18,U19,U19,reviewer decision
+parent,NC0639,Genk U18,,CLB0154,reviewer decision
+team type,NC0640,Gent II,B-reserve,B-reserve,reviewer decision
+parent,NC0640,Gent II,,CLB0153,reviewer decision
+team type,NC0641,Gent U18,U19,U19,reviewer decision
+parent,NC0641,Gent U18,,CLB0153,reviewer decision
+team type,NC2516,Goiás EC U20,U23-U21,U23-U21,reviewer decision
+parent,NC2516,Goiás EC U20,,UNRESOLVED:Goiás EC,reviewer decision - unresolved
+merge,NC2415,Grasshopper Club Zurich,,NC0656,reviewer decision
+team type,NC2001,Hamburger SV II,B-reserve,B-reserve,reviewer decision
+parent,NC2001,Hamburger SV II,,CLB0012,reviewer decision
+team type,NC0706,Heidenheim U19,U19,U19,reviewer decision
+parent,NC0706,Heidenheim U19,,CLB0001,reviewer decision
+team type,NC0717,Hoffenheim II,B-reserve,B-reserve,reviewer decision
+parent,NC0717,Hoffenheim II,,CLB0016,reviewer decision
+team type,NC2521,Houston 2,B-reserve,B-reserve,reviewer decision
+parent,NC2521,Houston 2,,NC0722,reviewer decision
+team type,NC2523,Inter U18,U19,U19,reviewer decision
+parent,NC2523,Inter U18,,CLB0173,reviewer decision
+team type,NC2527,Jeonbuk H. U18,U19,U19,reviewer decision
+parent,NC2527,Jeonbuk H. U18,,UNRESOLVED:Jeonbuk H.,reviewer decision - unresolved
+team type,NC2530,Jinwee U18,U19,U19,reviewer decision
+parent,NC2530,Jinwee U18,,UNRESOLVED:Jinwee,reviewer decision - unresolved
+team type,NC2044,Juan Pablo II College,B-reserve,first team,reviewer decision
+team type,NC0806,KV Oostende U21,U23-U21,U23-U21,reviewer decision
+parent,NC0806,KV Oostende U21,,UNRESOLVED:KV Oostende,reviewer decision - unresolved
+team type,NC2538,Krasnodar 2,B-reserve,B-reserve,reviewer decision
+parent,NC2538,Krasnodar 2,,NC0847,reviewer decision
+team type,NC2061,LASK Juniors OÖ U18,U19,U19,reviewer decision
+parent,NC2061,LASK Juniors OÖ U18,,NC0861,reviewer decision
+team type,NC0881,Lecce U20,U23-U21,U23-U21,reviewer decision
+parent,NC0881,Lecce U20,,CLB0184,reviewer decision
+team type,NC2073,Lens U17,U19,U19,reviewer decision
+parent,NC2073,Lens U17,,CLB0095,reviewer decision
+team type,NC2074,Lens U19,U19,U19,reviewer decision
+parent,NC2074,Lens U19,,CLB0095,reviewer decision
+team type,NC0896,Lille U19,U19,U19,reviewer decision
+parent,NC0896,Lille U19,,CLB0089,reviewer decision
+team type,NC2551,M'gladbach U19,U19,U19,reviewer decision
+parent,NC2551,M'gladbach U19,,CLB0006,reviewer decision
+team type,NC0959,Mainz 05 II,B-reserve,B-reserve,reviewer decision
+parent,NC0959,Mainz 05 II,,CLB0003,reviewer decision
+team type,NC0960,Mallorca B,B-reserve,B-reserve,reviewer decision
+parent,NC0960,Mallorca B,,CLB0074,reviewer decision
+team type,NC2554,Man City U21,U23-U21,U23-U21,reviewer decision
+parent,NC2554,Man City U21,,CLB0112,reviewer decision
+team type,NC0979,Mechelen Res.,B-reserve,B-reserve,reviewer decision
+parent,NC0979,Mechelen Res.,,CLB0165,reviewer decision
+team type,NC0980,Mechelen U21,U23-U21,U23-U21,reviewer decision
+parent,NC0980,Mechelen U21,,CLB0165,reviewer decision
+team type,NC1018,Monaco  U19,U19,U19,reviewer decision
+parent,NC1018,Monaco  U19,,CLB0083,reviewer decision
+team type,NC2114,Monaco U21,U23-U21,U23-U21,reviewer decision
+parent,NC2114,Monaco U21,,CLB0083,reviewer decision
+team type,NC2123,NAC Breda Res.,B-reserve,B-reserve,reviewer decision
+parent,NC2123,NAC Breda Res.,,CLB0054,reviewer decision
+team type,NC1061,Neuhofen / Ried II,B-reserve,B-reserve,reviewer decision
+parent,NC1061,Neuhofen / Ried II,,UNRESOLVED:SV Ried,reviewer decision - unresolved
+team type,NC2566,Newcastle U21,U23-U21,U23-U21,reviewer decision
+parent,NC2566,Newcastle U21,,CLB0114,reviewer decision
+team type,NC1069,Nice II,B-reserve,B-reserve,reviewer decision
+parent,NC1069,Nice II,,CLB0090,reviewer decision
+team type,NC1070,Nice U17,U19,U19,reviewer decision
+parent,NC1070,Nice U17,,CLB0090,reviewer decision
+team type,NC1071,Nice U19,U19,U19,reviewer decision
+parent,NC1071,Nice U19,,CLB0090,reviewer decision
+team type,NC1072,Nice U21,U23-U21,U23-U21,reviewer decision
+parent,NC1072,Nice U21,,CLB0090,reviewer decision
+team type,NC1090,Nykøbing U19,U19,U19,reviewer decision
+parent,NC1090,Nykøbing U19,,UNRESOLVED:Nykøbing,reviewer decision - unresolved
+team type,NC2145,Orenburg II,B-reserve,B-reserve,reviewer decision
+parent,NC2145,Orenburg II,,CLB0014,reviewer decision
+merge,NC1153,PSG U19,,NC2581,reviewer decision
+team type,NC1153,PSG U19,U19,U19,reviewer decision
+parent,NC1153,PSG U19,,CLB0093,reviewer decision
+team type,NC1155,PSV II,B-reserve,B-reserve,reviewer decision
+parent,NC1155,PSV II,,CLB0057,reviewer decision
+team type,NC1156,PSV U19,U19,U19,reviewer decision
+parent,NC1156,PSV U19,,CLB0057,reviewer decision
+team type,NC2577,PSV U21,U23-U21,U23-U21,reviewer decision
+parent,NC2577,PSV U21,,CLB0057,reviewer decision
+team type,NC2581,Paris SG U19,U19,U19,reviewer decision
+parent,NC2581,Paris SG U19,,CLB0093,reviewer decision
+team type,NC2582,Paris SG U23,U23-U21,U23-U21,reviewer decision
+parent,NC2582,Paris SG U23,,CLB0093,reviewer decision
+team type,NC2590,Portland 2,B-reserve,B-reserve,reviewer decision
+parent,NC2590,Portland 2,,NC2589,reviewer decision
+team type,NC1236,Primavera SP,U23-U21,first team,reviewer decision
+team type,NC1261,RB Leipzig U17,U19,U19,reviewer decision
+parent,NC1261,RB Leipzig U17,,CLB0013,reviewer decision
+team type,NC2187,RB Leipzig U19,U19,U19,reviewer decision
+parent,NC2187,RB Leipzig U19,,CLB0013,reviewer decision
+team type,NC1264,RFC de Liège U21,U23-U21,U23-U21,reviewer decision
+parent,NC1264,RFC de Liège U21,,UNRESOLVED:RFC de Liège,reviewer decision - unresolved
+team type,NC1268,RWD Molenbeek Res,B-reserve,B-reserve,reviewer decision
+parent,NC1268,RWD Molenbeek Res,,NC1267,reviewer decision
+team type,NC2599,Rangers B,B-reserve,B-reserve,reviewer decision
+parent,NC2599,Rangers B,,CLB0130,reviewer decision
+merge,NC2417,Rapid Vienna,,NC1285,reviewer decision
+merge,NC2205,Reggina (OLD),,NC2204,reviewer decision
+team type,NC1319,Rennes U21,U23-U21,U23-U21,reviewer decision
+parent,NC1319,Rennes U21,,CLB0098,reviewer decision
+merge,NC2603,Royal Antwerp,,CLB0158,reviewer decision
+team type,NC1348,Royal Francs Borains U21,U23-U21,U23-U21,reviewer decision
+parent,NC1348,Royal Francs Borains U21,,UNRESOLVED:Royal Francs Borains,reviewer decision - unresolved
+merge,NC2606,SCR Altach,,NC1322,reviewer decision
+merge,NC2418,SK Slavia Prague,,NC1447,reviewer decision
+team type,NC2218,Sakaryaspor Res.,B-reserve,B-reserve,reviewer decision
+parent,NC2218,Sakaryaspor Res.,,CLB0186,reviewer decision
+team type,NC2219,Salford City Res.,B-reserve,B-reserve,reviewer decision
+parent,NC2219,Salford City Res.,,NC1370,reviewer decision
+merge,NC2610,San Martín (SJ),,NC1382,reviewer decision
+team type,NC2235,Sassuolo U20,U23-U21,U23-U21,reviewer decision
+parent,NC2235,Sassuolo U20,,CLB0185,reviewer decision
+team type,NC1416,Seraing U21,U23-U21,U23-U21,reviewer decision
+parent,NC1416,Seraing U21,,UNRESOLVED:Seraing,reviewer decision - unresolved
+team type,NC2239,Serra Branca U20,U23-U21,U23-U21,reviewer decision
+parent,NC2239,Serra Branca U20,,UNRESOLVED:Serra Branca,reviewer decision - unresolved
+team type,NC2619,Shin Tae-in U18,U19,U19,reviewer decision
+parent,NC2619,Shin Tae-in U18,,UNRESOLVED:Shin Tae-in,reviewer decision - unresolved
+team type,NC2621,Slavia U20,U23-U21,U23-U21,reviewer decision
+parent,NC2621,Slavia U20,,NC1447,reviewer decision
+merge,NC2419,Sociedade Esportiva Palmeiras,,NC1166,reviewer decision
+team type,NC2624,Spartak 2,B-reserve,B-reserve,reviewer decision
+parent,NC2624,Spartak 2,,NC1472,reviewer decision
+merge,NC2420,Spartak Moscow,,NC1472,reviewer decision
+merge,NC2625,Sporting,,CLB0148,reviewer decision
+team type,NC2272,Sporting CP II,B-reserve,B-reserve,reviewer decision
+parent,NC2272,Sporting CP II,,CLB0148,reviewer decision
+team type,NC2273,Sporting CP U19,U19,U19,reviewer decision
+parent,NC2273,Sporting CP U19,,CLB0148,reviewer decision
+team type,NC2274,Sporting CP U21,U23-U21,U23-U21,reviewer decision
+parent,NC2274,Sporting CP U21,,CLB0148,reviewer decision
+name trim,NC1496,St. Louis City,'St. Louis City ',St. Louis City,trailing space
+team type,NC1505,Standard Liège Res.,B-reserve,B-reserve,reviewer decision
+parent,NC1505,Standard Liège Res.,,CLB0163,reviewer decision
+team type,NC1518,Stuttgart II,B-reserve,B-reserve,reviewer decision
+parent,NC1518,Stuttgart II,,CLB0017,reviewer decision
+team type,NC2281,Stuttgart U19,U19,U19,reviewer decision
+parent,NC2281,Stuttgart U19,,CLB0017,reviewer decision
+team type,NC2290,São José PA U20,U23-U21,U23-U21,reviewer decision
+parent,NC2290,São José PA U20,,UNRESOLVED:São José PA,reviewer decision - unresolved
+merge,NC2632,TSV Hartberg,,NC0700,reviewer decision
+team type,NC2296,Talleres Córdoba Res.,B-reserve,B-reserve,reviewer decision
+parent,NC2296,Talleres Córdoba Res.,,NC1536,reviewer decision
+team type,NC2330,Udarnik Kurilovec U18,U19,U19,reviewer decision
+parent,NC2330,Udarnik Kurilovec U18,,UNRESOLVED:Udarnik Kurilovec,reviewer decision - unresolved
+team type,NC1603,Union Saint-Gilloise U21,U23-U21,U23-U21,reviewer decision
+parent,NC1603,Union Saint-Gilloise U21,,CLB0160,reviewer decision
+merge,NC2648,WSG Tirol,,NC1689,reviewer decision
+team type,NC1701,Westerlo U21,U23-U21,U23-U21,reviewer decision
+parent,NC1701,Westerlo U21,,CLB0155,reviewer decision
+team type,NC2656,Zenit 2 S-Pb,B-reserve,B-reserve,reviewer decision
+parent,NC2656,Zenit 2 S-Pb,,NC2657,reviewer decision
+new club,NEW001,Arema,,Brazil,removed false alias had no club of its own
+new club,NEW002,Atlante,,Mexico,removed false alias had no club of its own
+new club,NEW003,Atlético Huila,,Colombia,removed false alias had no club of its own
+new club,NEW004,Banga,,Croatia,removed false alias had no club of its own
+new club,NEW005,Goa,,,removed false alias had no club of its own
+new club,NEW006,Iberia 1999,,Czechia,removed false alias had no club of its own
+new club,NEW007,Narnese Calcio,,,removed false alias had no club of its own
+new club,NEW008,Obolon,,,removed false alias had no club of its own
+new club,NEW009,Paris 13 Atletico,,France,removed false alias had no club of its own
+new club,NEW010,Randers,,Denmark,removed false alias had no club of its own
+new club,NEW011,Sakaryaspor,,Türkiye,removed false alias had no club of its own
+new club,NEW012,Vestri,,,removed false alias had no club of its own
+new club,NEW013,Yverdon Sport,,Israel,removed false alias had no club of its own
+new club,NEW014,Água Santa,,Brazil,removed false alias had no club of its own
+new club,NEW015,Atlanta,,,removed false alias had no club of its own
+new club,NEW016,Atlantas,,,removed false alias had no club of its own
+new club,NEW017,Real Pilar,,,removed false alias had no club of its own
+new club,NEW018,Atl. Nacional,,,removed false alias had no club of its own
+new club,NEW019,Lyn,,,removed false alias had no club of its own
+alias removed,CLB0177,Arema,wyscout,NEW001 (new club),false alias - reviewer list
+alias removed,CLB0169,Atlante,wyscout,NEW002 (new club),false alias - reviewer list
+alias removed,CLB0062,Atlético Huila,wyscout,NEW003 (new club),false alias - reviewer list
+alias removed,CLB0147,Banga,wyscout,NEW004 (new club),false alias - reviewer list
+alias removed,CLB0105,Barnsley,wyscout,NC1851,false alias - reviewer list
+alias removed,CLB0174,Goa,wyscout,NEW005 (new club),false alias - reviewer list
+alias removed,CLB0126,Iberia 1999,wyscout,NEW006 (new club),false alias - reviewer list
+alias removed,CLB0173,Inter Miami,wyscout,NC2033,false alias - reviewer list
+alias removed,CLB0176,Juventud,wyscout,NC2046,false alias - reviewer list
+alias removed,CLB0095,León,wyscout,NC2078,false alias - reviewer list
+alias removed,CLB0087,Narnese Calcio,wyscout,NEW007 (new club),false alias - reviewer list
+alias removed,CLB0170,Obolon,wyscout,NEW008 (new club),false alias - reviewer list
+alias removed,CLB0064,Paris 13 Atletico,wyscout,NEW009 (new club),false alias - reviewer list
+alias removed,CLB0130,Randers,wyscout,NEW010 (new club),false alias - reviewer list
+alias removed,CLB0186,Sakaryaspor,wyscout,NEW011 (new club),false alias - reviewer list
+alias removed,CLB0142,Vestri,wyscout,NEW012 (new club),false alias - reviewer list
+alias removed,CLB0175,Yverdon Sport,wyscout,NEW013 (new club),false alias - reviewer list
+alias removed,CLB0136,Água Santa,wyscout,NEW014 (new club),false alias - reviewer list
+alias removed,CLB0169,Atlanta,wyscout,NEW015 (new club),false alias - reviewer list
+alias removed,CLB0169,Atlantas,wyscout,NEW016 (new club),false alias - reviewer list
+alias removed,CLB0081,Real Pilar,wyscout,NEW017 (new club),false alias - reviewer list
+alias removed,CLB0173,Inter Miami CF,transfers,NC2033,false alias - reviewer list
+alias removed,CLB0135,Atl. Nacional,transfers,NEW018 (new club),false alias - reviewer list
+alias removed,CLB0169,Atlanta,transfers,NEW015 (new club),false alias - reviewer list
+alias removed,CLB0126,Iberia 1999,transfers,NEW006 (new club),false alias - reviewer list
+alias removed,CLB0092,Lyn,transfers,NEW019 (new club),false alias - reviewer list
+alias removed,CLB0175,Yverdon Sport,transfers,NEW013 (new club),false alias - reviewer list
+alias removed,CLB0173,Inter Miami,playstyles,NC2033,false alias - reviewer list
+alias removed,CLB0130,Randers,playstyles,NEW010 (new club),false alias - reviewer list
+new club,NEW020,Wolfsberger AC,,Austria,removed false alias had no club of its own
+alias removed,CLB0018,Wolfsberger AC,VfL Wolfsburg,NEW020,"different country (Austria); moved 61 transfers, 17 players 25/26, 78 history rows"
+alias removed,CLB0110,DC United,Leeds United FC,NC2474,"different country (United States); moved 24 transfers, 17 players 25/26, 34 history rows"
+new club,NEW022,Orenburg,,Russia,removed false alias had no club of its own
+alias removed,CLB0014,Orenburg,SC Freiburg,NEW022,"different country (Russia); moved 0 transfers, 30 players 25/26, 3 history rows"
+new club,NEW023,Juventude,,Brazil,removed false alias had no club of its own
+alias removed,CLB0176,Juventude,Juventus FC,NEW023,"different country (Brazil); moved 0 transfers, 24 players 25/26, 49 history rows"
+new club,NEW024,Hartford Athletic,,United States,removed false alias had no club of its own
+alias removed,CLB0022,Hartford Athletic,Charlton Athletic FC,NEW024,"different country (United States); moved 6 transfers, 0 players 25/26, 1 history rows"
+new club,NEW025,Colón,,Argentina,removed false alias had no club of its own
+alias removed,CLB0010,Colón,FC Köln,NEW025,"different country (Uruguay); moved 0 transfers, 4 players 25/26, 1 history rows"
+new club,NEW026,Atlético Morelia,,Mexico,removed false alias had no club of its own
+alias removed,CLB0064,Atlético Morelia,Club Atlético de Madrid,NEW026,"different country (Mexico); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW027,Ajka,,Hungary,removed false alias had no club of its own
+alias removed,CLB0043,Ajka,AFC Ajax,NEW027,"different country (Hungary); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW028,Oriental,,Uruguay,removed false alias had no club of its own
+alias removed,CLB0085,Oriental,FC Lorient,NEW028,"different country (Uruguay); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW029,Orijent 1919,,Croatia,removed false alias had no club of its own
+alias removed,CLB0085,Orijent 1919,FC Lorient,NEW029,"different country (China); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW030,Dewa United,,Indonesia,removed false alias had no club of its own
+alias removed,CLB0123,Dewa United,Dundee United FC,NEW030,"different country (Netherlands); moved 0 transfers, 1 players 25/26, 2 history rows"
+new club,NEW031,Santa Cruz,,Brazil,removed false alias had no club of its own
+alias removed,CLB0136,Santa Cruz,CD Santa Clara,NEW031,"different country (Brazil); moved 0 transfers, 1 players 25/26, 0 history rows"
+country fix,NC1270,Racing,,Argentina,60 source rows
+country fix,CLB0094,Paris,France,Greece,49 source rows
+country fix,NC1413,Seoul,,South Korea,22 source rows
+country fix,NC2237,Seoul E-Land,Brazil,South Korea,20 source rows
+country fix,NC2347,Vegalta Sendai,Austria,Japan,18 source rows
+country fix,NC1523,Suwon,,South Korea,17 source rows
+country fix,NC1887,Chungnam Asan,Chile,South Korea,9 source rows
+country fix,NC1882,Cheonan City,Serbia,South Korea,6 source rows
+country fix,NC2022,Hwaseong,Serbia,South Korea,6 source rows
+country fix,NC2215,Rukh Lviv,Mexico,Ukraine,5 source rows
+country fix,NC0061,Al Dhafra,,United Arab Emirates,5 source rows
+country fix,NC2149,Pacific FC,Mexico,Canada,4 source rows
+country fix,NC1946,FK Auda,Cyprus,Latvia,4 source rows
+country fix,NC0730,Huracán,,Uruguay,4 source rows
+country fix,NC0156,Anyang,,South Korea,3 source rows
+country fix,NC2122,Mérida AD,Portugal,Spain,3 source rows
+parent,NC2435,Antlers U18,UNRESOLVED:Antlers,NC0820,resolved by full-name search
+parent,NC1916,Deportivo Toluca U19,UNRESOLVED:Deportivo Toluca,NC1564,resolved by full-name search
+parent,NC0497,Deportivo Toluca U21,UNRESOLVED:Deportivo Toluca,NC1564,resolved by full-name search
+parent,NC2516,Goiás EC U20,UNRESOLVED:Goiás EC,NC0649,resolved by full-name search
+parent,NC2527,Jeonbuk H. U18,UNRESOLVED:Jeonbuk H.,NC2416,resolved by full-name search
+new club,NEW032,Jinwee,,"Korea, South",parent club of Jinwee U18
+parent,NC2530,Jinwee U18,UNRESOLVED:Jinwee,NEW032,created parent as first team
+parent,NC0806,KV Oostende U21,UNRESOLVED:KV Oostende,NC1133,resolved by full-name search
+parent,NC1061,Neuhofen / Ried II,UNRESOLVED:SV Ried,NC1325,resolved by full-name search
+new club,NEW033,Nykøbing,,Denmark,parent club of Nykøbing U19
+parent,NC1090,Nykøbing U19,UNRESOLVED:Nykøbing,NEW033,created parent as first team
+parent,NC1264,RFC de Liège U21,UNRESOLVED:RFC de Liège,NC0904,resolved by full-name search
+parent,NC1348,Royal Francs Borains U21,UNRESOLVED:Royal Francs Borains,NC0617,resolved by full-name search
+parent,NC1416,Seraing U21,UNRESOLVED:Seraing,NC1263,resolved by full-name search
+new club,NEW034,Serra Branca,,Brazil,parent club of Serra Branca U20
+parent,NC2239,Serra Branca U20,UNRESOLVED:Serra Branca,NEW034,created parent as first team
+parent,NC2290,São José PA U20,UNRESOLVED:São José PA,NC0535,resolved by full-name search
+new club,NEW036,Udarnik Kurilovec,,Croatia,parent club of Udarnik Kurilovec U18
+parent,NC2330,Udarnik Kurilovec U18,UNRESOLVED:Udarnik Kurilovec,NEW036,created parent as first team
+alias removed,CLB0064,Atlético-MG,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
+alias removed,CLB0064,Club Atlético Mitre,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
+team type,NC2619,Shin Tae-in U18,U19,unknown,reviewer: not a club
+parent,NC2619,Shin Tae-in U18,NEW035,,reviewer: no parent
+exclude from analysis,NC2619,Shin Tae-in U18,,True,reviewer
+new club removed,NEW035,Shin Tae-in,,,"reviewer: person name, not a club"
+parent confirmed,NC2290,São José PA U20,NC0535,NC0535,reviewer: EC São José (Porto Alegre)
+merge,NC0786,Jeonbuk Motors,,NC2416,reviewer decision
+country fix,NEW028,Oriental,,Uruguay,"league of attached players: Primera División (Uruguay), 1 player"
