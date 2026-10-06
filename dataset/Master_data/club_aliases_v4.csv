@@ -55,7 +55,6 @@ NC0048,wyscout,Team,,Ajaccio,ajaccio,new_non_core,0,True,,Ajaccio
 CLB0043,wyscout,Team,,Ajax,ajax,exact_name,100,True,,AFC Ajax
 NC0049,wyscout,Team,,Ajax II,ajax ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Ajax II
 NC0050,wyscout,Team,,Ajax U19,ajax u19,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Ajax U19
-CLB0043,wyscout,Team,,Ajka,ajka,fuzzy_review,75,False,,AFC Ajax
 NC0051,wyscout,Team,,Ajman,ajman,new_non_core,0,True,,Ajman
 NC0052,wyscout,Team,,Akhmat Grozny,akhmat grozny,new_non_core,0,True,,Akhmat Grozny
 NC0053,wyscout,Team,,Akritas,akritas,new_non_core,0,True,,Akritas
@@ -219,7 +218,6 @@ CLB0064,wyscout,Team,,Atlético Madrid,atletico madrid,exact_name,100,True,,Club
 NC0194,wyscout,Team,,Atlético Madrid B,atletico madrid b,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Atlético Madrid B
 NC0195,wyscout,Team,,Atlético Malagueño,atletico malagueno,new_non_core,0,True,,Atlético Malagueño
 NC0196,wyscout,Team,,Atlético Mineiro,atletico mineiro,new_non_core,0,True,,Atlético Mineiro
-CLB0064,wyscout,Team,,Atlético Morelia,atletico morelia,fuzzy_review,77,False,,Club Atlético de Madrid
 NC0197,wyscout,Team,,Atlético Nacional,atletico nacional,new_non_core,0,True,,Atlético Nacional
 NC0198,wyscout,Team,,Atlético Ottawa,atletico ottawa,new_non_core,0,True,,Atlético Ottawa
 NC0199,wyscout,Team,,Atlético Rafaela,atletico rafaela,new_non_core,0,True,,Atlético Rafaela
@@ -480,7 +478,6 @@ NC0421,wyscout,Team,,Colorado Rapids,colorado rapids,new_non_core,0,True,,Colora
 NC0422,wyscout,Team,,Colorado Rapids II,colorado rapids ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Colorado Rapids II
 NC0423,wyscout,Team,,Colorno,colorno,new_non_core,0,True,,Colorno
 NC0424,wyscout,Team,,Columbus Crew,columbus crew,new_non_core,0,True,,Columbus Crew
-CLB0010,wyscout,Team,,Colón,colon,fuzzy_review,83,False,,FC Köln
 CLB0172,wyscout,Team,,Como,como,exact_name,100,True,,Calcio Como 1907
 NC0425,wyscout,Team,,Compostela,compostela,new_non_core,0,True,,Compostela
 NC0426,wyscout,Team,,Comunicaciones,comunicaciones,new_non_core,0,True,,Comunicaciones
@@ -521,7 +518,6 @@ NC0457,wyscout,Team,,Córdoba,cordoba,new_non_core,0,True,,Córdoba
 NC0458,wyscout,Team,,Công An Hà Nội,cong an ha noi,new_non_core,0,True,,Công An Hà Nội
 NC0459,wyscout,Team,,Cúcuta Deportivo,cucuta deportivo,new_non_core,0,True,,Cúcuta Deportivo
 NC0460,wyscout,Team,,DAC,dac,new_non_core,0,True,,DAC
-CLB0110,wyscout,Team,,DC United,dc united,fuzzy_review,76,False,,Leeds United FC
 NC0461,wyscout,Team,,Daegu,daegu,new_non_core,0,True,,Daegu
 NC0462,wyscout,Team,,Daejeon Citizen,daejeon citizen,new_non_core,0,True,,Daejeon Citizen
 NC0463,wyscout,Team,,Dagenham & Redbridge,dagenham redbridge,new_non_core,0,True,,Dagenham & Redbridge
@@ -566,7 +562,6 @@ CLB0024,wyscout,Team,,Derby County,derby county,exact_name,100,True,,Derby Count
 NC0499,wyscout,Team,,Derry City,derry city,new_non_core,0,True,,Derry City
 NC0500,wyscout,Team,,Des Moines Menace,des moines menace,new_non_core,0,True,,Des Moines Menace
 NC0501,wyscout,Team,,Dessel Sport,dessel,new_non_core,0,True,,Dessel Sport
-CLB0123,wyscout,Team,,Dewa United,dewa united,fuzzy_review,75,False,,Dundee United FC
 NC0502,wyscout,Team,,Dhamk,dhamk,new_non_core,0,True,,Dhamk
 NC0503,wyscout,Team,,Dibba Al Fujairah,dibba al fujairah,new_non_core,0,True,,Dibba Al Fujairah
 NC0504,wyscout,Team,,Dibba Al Hisn,dibba al hisn,new_non_core,0,True,,Dibba Al Hisn
@@ -803,7 +798,6 @@ NC0698,wyscout,Team,,Hapoel Tel Aviv,hapoel tel aviv,new_non_core,0,True,,Hapoel
 NC0699,wyscout,Team,,Harrogate Town,harrogate town,new_non_core,0,True,,Harrogate Town
 NC0700,wyscout,Team,,Hartberg,hartberg,new_non_core,0,True,,Hartberg
 NC0701,wyscout,Team,,Hartberg II,hartberg ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Hartberg II
-CLB0022,wyscout,Team,,Hartford Athletic,hartford athletic,fuzzy_review,82,False,,Charlton Athletic FC
 NC0702,wyscout,Team,,Hartlepool United,hartlepool united,new_non_core,0,True,,Hartlepool United
 CLB0187,wyscout,Team,,Hatayspor,hatayspor,fuzzy_review,80,False,,Antalyaspor
 NC0703,wyscout,Team,,Haugesund,haugesund,new_non_core,0,True,,Haugesund
@@ -913,7 +907,6 @@ NC0792,wyscout,Team,,Junior,junior,new_non_core,0,True,,Junior
 NC0793,wyscout,Team,,Junkeren/Mo,junkeren mo,new_non_core,0,True,,Junkeren/Mo
 NC0794,wyscout,Team,,Juve Stabia,juve stabia,new_non_core,0,True,,Juve Stabia
 NC0795,wyscout,Team,,Juventud Torremolinos,juventud torremolinos,new_non_core,0,True,,Juventud Torremolinos
-CLB0176,wyscout,Team,,Juventude,juventude,fuzzy_review,82,False,,Juventus FC
 CLB0176,wyscout,Team,,Juventus,juventus,exact_name,100,True,,Juventus FC
 NC0796,wyscout,Team,,Juventus Next Gen,juventus next gen,new_non_core,0,True,,Juventus Next Gen
 NC0797,wyscout,Team,,Juárez,juarez,new_non_core,0,True,,Juárez
@@ -1303,11 +1296,8 @@ NC1133,wyscout,Team,,Oostende,oostende,new_non_core,0,True,,Oostende
 NC1134,wyscout,Team,,Operário PR,operario pr,new_non_core,0,True,,Operário PR
 NC1135,wyscout,Team,,Orange County SC,orange county,new_non_core,0,True,,Orange County SC
 NC1136,wyscout,Team,,Ordabasy,ordabasy,new_non_core,0,True,,Ordabasy
-CLB0014,wyscout,Team,,Orenburg,orenburg,fuzzy_review,75,False,,SC Freiburg
 CLB0144,wyscout,Team,,Orense,orense,fuzzy_review,75,False,,Moreirense FC
-CLB0085,wyscout,Team,,Oriental,oriental,fuzzy_review,80,False,,FC Lorient
 NC1137,wyscout,Team,,Oriente Petrolero,oriente petrolero,new_non_core,0,True,,Oriente Petrolero
-CLB0085,wyscout,Team,,Orijent 1919,orijent,fuzzy_review,86,False,,FC Lorient
 NC1138,wyscout,Team,,Orlando City,orlando city,new_non_core,0,True,,Orlando City
 NC1139,wyscout,Team,,Orléans,orleans,new_non_core,0,True,,Orléans
 NC1140,wyscout,Team,,Os Limianos,os limianos,new_non_core,0,True,,Os Limianos
@@ -1593,7 +1583,6 @@ CLB0136,wyscout,Team,,Santa Clara,santa clara,exact_name,100,True,,CD Santa Clar
 NC1391,wyscout,Team,,Santa Clara U19,santa clara u19,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Santa Clara U19
 NC1392,wyscout,Team,,Santa Clara U23,santa clara u23,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Santa Clara U23
 CLB0136,wyscout,Team,,Santa Coloma,santa coloma,fuzzy_review,78,False,,CD Santa Clara
-CLB0136,wyscout,Team,,Santa Cruz,santa cruz,fuzzy_review,76,False,,CD Santa Clara
 NC1393,wyscout,Team,,Santa Fe,santa fe,new_non_core,0,True,,Santa Fe
 NC1394,wyscout,Team,,Santos,santos,new_non_core,0,True,,Santos
 NC1395,wyscout,Team,,Santos Laguna,santos laguna,new_non_core,0,True,,Santos Laguna
@@ -1955,7 +1944,6 @@ NC1709,wyscout,Team,,Winterthur,winterthur,new_non_core,0,True,,Winterthur
 NC1710,wyscout,Team,,Wisła Kraków,wisla krakow,new_non_core,0,True,,Wisła Kraków
 NC1711,wyscout,Team,,Wisła Kraków U17,wisla krakow u17,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Wisła Kraków U17
 NC1712,wyscout,Team,,Wisła Płock,wisla plock,new_non_core,0,True,,Wisła Płock
-CLB0018,wyscout,Team,,Wolfsberger AC,wolfsberger,fuzzy_review,80,False,,VfL Wolfsburg
 CLB0018,wyscout,Team,,Wolfsburg,wolfsburg,exact_name,100,True,,VfL Wolfsburg
 NC1713,wyscout,Team,,Wolfsburg U19,wolfsburg u19,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Wolfsburg U19
 CLB0119,wyscout,Team,,Wolverhampton Wanderers,wolverhampton wanderers,exact_name,100,True,,Wolverhampton Wanderers FC
@@ -2091,7 +2079,6 @@ CLB0043,wyscout,Team within selected timeframe,,Ajax,ajax,exact_name,100,True,,A
 NC0049,wyscout,Team within selected timeframe,,Ajax II,ajax ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Ajax II
 NC1804,wyscout,Team within selected timeframe,,Ajax U18,ajax u18,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Ajax U18
 NC1805,wyscout,Team within selected timeframe,,Ajax U21,ajax u21,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Ajax U21
-CLB0043,wyscout,Team within selected timeframe,,Ajka,ajka,fuzzy_review,75,False,,AFC Ajax
 NC0052,wyscout,Team within selected timeframe,,Akhmat Grozny,akhmat grozny,new_non_core,0,True,,Akhmat Grozny
 NC1806,wyscout,Team within selected timeframe,,Akhmat Grozny Youth,akhmat grozny youth,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Akhmat Grozny Youth
 NC0053,wyscout,Team within selected timeframe,,Akritas,akritas,new_non_core,0,True,,Akritas
@@ -2225,7 +2212,6 @@ NC0192,wyscout,Team within selected timeframe,,Atlético GO,atletico go,new_non_
 CLB0064,wyscout,Team within selected timeframe,,Atlético Madrid,atletico madrid,exact_name,100,True,,Club Atlético de Madrid
 NC0194,wyscout,Team within selected timeframe,,Atlético Madrid B,atletico madrid b,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Atlético Madrid B
 NC0196,wyscout,Team within selected timeframe,,Atlético Mineiro,atletico mineiro,new_non_core,0,True,,Atlético Mineiro
-CLB0064,wyscout,Team within selected timeframe,,Atlético Morelia,atletico morelia,fuzzy_review,77,False,,Club Atlético de Madrid
 NC0197,wyscout,Team within selected timeframe,,Atlético Nacional,atletico nacional,new_non_core,0,True,,Atlético Nacional
 NC0198,wyscout,Team within selected timeframe,,Atlético Ottawa,atletico ottawa,new_non_core,0,True,,Atlético Ottawa
 NC1836,wyscout,Team within selected timeframe,,Atlético Peñarol U18,atletico penarol u18,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Atlético Peñarol U18
@@ -2463,7 +2449,6 @@ NC1892,wyscout,Team within selected timeframe,,Civitanovese,civitanovese,new_non
 NC0406,wyscout,Team within selected timeframe,,Clermont,clermont,new_non_core,0,True,,Clermont
 NC0407,wyscout,Team within selected timeframe,,Clermont II,clermont ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Clermont II
 NC0411,wyscout,Team within selected timeframe,,Club Atlético Güemes,atletico guemes,new_non_core,0,True,,Club Atlético Güemes
-CLB0064,wyscout,Team within selected timeframe,,Club Atlético Mitre,atletico mitre,fuzzy_review,76,False,,Club Atlético de Madrid
 CLB0151,wyscout,Team within selected timeframe,,Club Brugge,brugge,exact_name,100,True,,Club Brugge KV
 NC0412,wyscout,Team within selected timeframe,,Club Brugge II,brugge ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Club Brugge II
 NC0415,wyscout,Team within selected timeframe,,Club Tijuana,tijuana,new_non_core,0,True,,Club Tijuana
@@ -2476,7 +2461,6 @@ NC0419,wyscout,Team within selected timeframe,,Colegiales,colegiales,new_non_cor
 NC0420,wyscout,Team within selected timeframe,,Colo Colo,colo colo,new_non_core,0,True,,Colo Colo
 NC0421,wyscout,Team within selected timeframe,,Colorado Rapids,colorado rapids,new_non_core,0,True,,Colorado Rapids
 NC0424,wyscout,Team within selected timeframe,,Columbus Crew,columbus crew,new_non_core,0,True,,Columbus Crew
-CLB0010,wyscout,Team within selected timeframe,,Colón,colon,fuzzy_review,83,False,,FC Köln
 NC1895,wyscout,Team within selected timeframe,,Comerciantes Unidos,comerciantes unidos,new_non_core,0,True,,Comerciantes Unidos
 CLB0172,wyscout,Team within selected timeframe,,Como,como,exact_name,100,True,,Calcio Como 1907
 NC0425,wyscout,Team within selected timeframe,,Compostela,compostela,new_non_core,0,True,,Compostela
@@ -2514,7 +2498,6 @@ NC0457,wyscout,Team within selected timeframe,,Córdoba,cordoba,new_non_core,0,T
 NC0459,wyscout,Team within selected timeframe,,Cúcuta Deportivo,cucuta deportivo,new_non_core,0,True,,Cúcuta Deportivo
 NC0460,wyscout,Team within selected timeframe,,DAC,dac,new_non_core,0,True,,DAC
 NC1902,wyscout,Team within selected timeframe,,DAC U19,dac u19,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,DAC U19
-CLB0110,wyscout,Team within selected timeframe,,DC United,dc united,fuzzy_review,76,False,,Leeds United FC
 NC1903,wyscout,Team within selected timeframe,,Da Nang,da nang,new_non_core,0,True,,Da Nang
 NC0463,wyscout,Team within selected timeframe,,Dagenham & Redbridge,dagenham redbridge,new_non_core,0,True,,Dagenham & Redbridge
 NC0464,wyscout,Team within selected timeframe,,Dalian Young Boy,dalian young boy,new_non_core,0,True,,Dalian Young Boy
@@ -2834,7 +2817,6 @@ NC0698,wyscout,Team within selected timeframe,,Hapoel Tel Aviv,hapoel tel aviv,n
 NC2010,wyscout,Team within selected timeframe,,Hapoel Umm al-Fahm,hapoel umm al fahm,new_non_core,0,True,,Hapoel Umm al-Fahm
 NC0699,wyscout,Team within selected timeframe,,Harrogate Town,harrogate town,new_non_core,0,True,,Harrogate Town
 NC0700,wyscout,Team within selected timeframe,,Hartberg,hartberg,new_non_core,0,True,,Hartberg
-CLB0022,wyscout,Team within selected timeframe,,Hartford Athletic,hartford athletic,fuzzy_review,82,False,,Charlton Athletic FC
 NC0702,wyscout,Team within selected timeframe,,Hartlepool United,hartlepool united,new_non_core,0,True,,Hartlepool United
 CLB0187,wyscout,Team within selected timeframe,,Hatayspor,hatayspor,fuzzy_review,80,False,,Antalyaspor
 NC0703,wyscout,Team within selected timeframe,,Haugesund,haugesund,new_non_core,0,True,,Haugesund
@@ -2941,7 +2923,6 @@ NC0792,wyscout,Team within selected timeframe,,Junior,junior,new_non_core,0,True
 NC2045,wyscout,Team within selected timeframe,,Juticalpa,juticalpa,new_non_core,0,True,,Juticalpa
 NC0794,wyscout,Team within selected timeframe,,Juve Stabia,juve stabia,new_non_core,0,True,,Juve Stabia
 NC2047,wyscout,Team within selected timeframe,,Juventud Unida Univ.,juventud unida univ,new_non_core,0,True,,Juventud Unida Univ.
-CLB0176,wyscout,Team within selected timeframe,,Juventude,juventude,fuzzy_review,82,False,,Juventus FC
 CLB0176,wyscout,Team within selected timeframe,,Juventus,juventus,exact_name,100,True,,Juventus FC
 NC0796,wyscout,Team within selected timeframe,,Juventus Next Gen,juventus next gen,new_non_core,0,True,,Juventus Next Gen
 NC0797,wyscout,Team within selected timeframe,,Juárez,juarez,new_non_core,0,True,,Juárez
@@ -3298,10 +3279,8 @@ NC1131,wyscout,Team within selected timeframe,,Once Caldas,once caldas,new_non_c
 NC1133,wyscout,Team within selected timeframe,,Oostende,oostende,new_non_core,0,True,,Oostende
 NC1134,wyscout,Team within selected timeframe,,Operário PR,operario pr,new_non_core,0,True,,Operário PR
 NC1136,wyscout,Team within selected timeframe,,Ordabasy,ordabasy,new_non_core,0,True,,Ordabasy
-CLB0014,wyscout,Team within selected timeframe,,Orenburg,orenburg,fuzzy_review,75,False,,SC Freiburg
 NC2145,wyscout,Team within selected timeframe,,Orenburg II,orenburg ii,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Orenburg II
 CLB0144,wyscout,Team within selected timeframe,,Orense,orense,fuzzy_review,75,False,,Moreirense FC
-CLB0085,wyscout,Team within selected timeframe,,Oriental,oriental,fuzzy_review,80,False,,FC Lorient
 NC1137,wyscout,Team within selected timeframe,,Oriente Petrolero,oriente petrolero,new_non_core,0,True,,Oriente Petrolero
 NC1138,wyscout,Team within selected timeframe,,Orlando City,orlando city,new_non_core,0,True,,Orlando City
 CLB0063,wyscout,Team within selected timeframe,,Osasuna,osasuna,exact_name,100,True,,CA Osasuna
@@ -3579,7 +3558,6 @@ NC1389,wyscout,Team within selected timeframe,,Sanfrecce Hiroshima,sanfrecce hir
 NC1390,wyscout,Team within selected timeframe,,Sanjoanense,sanjoanense,new_non_core,0,True,,Sanjoanense
 CLB0136,wyscout,Team within selected timeframe,,Santa Ana,santa ana,fuzzy_review,80,False,,CD Santa Clara
 CLB0136,wyscout,Team within selected timeframe,,Santa Clara,santa clara,exact_name,100,True,,CD Santa Clara
-CLB0136,wyscout,Team within selected timeframe,,Santa Cruz,santa cruz,fuzzy_review,76,False,,CD Santa Clara
 NC1393,wyscout,Team within selected timeframe,,Santa Fe,santa fe,new_non_core,0,True,,Santa Fe
 NC2230,wyscout,Team within selected timeframe,,Santa Fe U20,santa fe u20,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Santa Fe U20
 NC2231,wyscout,Team within selected timeframe,,Santiago Wanderers,santiago wanderers,new_non_core,0,True,,Santiago Wanderers
@@ -4002,7 +3980,6 @@ NC1710,wyscout,Team within selected timeframe,,Wisła Kraków,wisla krakow,new_n
 NC1712,wyscout,Team within selected timeframe,,Wisła Płock,wisla plock,new_non_core,0,True,,Wisła Płock
 NC2381,wyscout,Team within selected timeframe,,Wofoo Tai Po,wofoo tai po,new_non_core,0,True,,Wofoo Tai Po
 NC2382,wyscout,Team within selected timeframe,,Woking,woking,new_non_core,0,True,,Woking
-CLB0018,wyscout,Team within selected timeframe,,Wolfsberger AC,wolfsberger,fuzzy_review,80,False,,VfL Wolfsburg
 CLB0018,wyscout,Team within selected timeframe,,Wolfsburg,wolfsburg,exact_name,100,True,,VfL Wolfsburg
 CLB0119,wyscout,Team within selected timeframe,,Wolverhampton Wanderers,wolverhampton wanderers,exact_name,100,True,,Wolverhampton Wanderers FC
 NC2383,wyscout,Team within selected timeframe,,Wolverhampton Wanderers U21,wolverhampton wanderers u21,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Wolverhampton Wanderers U21
@@ -4169,7 +4146,6 @@ CLB0102,transfers,Dealing_Club (player_transfer_data.xlsx),,Aston Villa,aston vi
 NC0180,transfers,Dealing_Club (player_transfer_data.xlsx),,Aston Villa U21,aston villa u21,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Aston Villa U21
 NC2440,transfers,Dealing_Club (player_transfer_data.xlsx),,Astrakhan,astrakhan,new_non_core,0,True,,Astrakhan
 CLB0064,transfers,Dealing_Club (player_transfer_data.xlsx),,Atlético,atletico madrid,exact_name,100,True,,Club Atlético de Madrid
-CLB0064,transfers,Dealing_Club (player_transfer_data.xlsx),,Atlético-MG,atletico mg,fuzzy_review,77,False,,Club Atlético de Madrid
 NC2441,transfers,Dealing_Club (player_transfer_data.xlsx),,Atyrau,atyrau,new_non_core,0,True,,Atyrau
 CLB0008,transfers,Dealing_Club (player_transfer_data.xlsx),,Augsburg,augsburg,exact_name,100,True,,FC Augsburg
 NC0212,transfers,Dealing_Club (player_transfer_data.xlsx),,Austin,austin,new_non_core,0,True,,Austin FC
@@ -4406,7 +4382,6 @@ NC2528,transfers,Dealing_Club (player_transfer_data.xlsx),,Jeonju Uni,jeonju uni
 NC2529,transfers,Dealing_Club (player_transfer_data.xlsx),,Jihlava,jihlava,new_non_core,0,True,,Jihlava
 NC2530,transfers,Dealing_Club (player_transfer_data.xlsx),,Jinwee U18,jinwee u18,youth_no_match_to_master,0,True,youth/reserve side - never matched to a first team,Jinwee U18
 NC0794,transfers,Dealing_Club (player_transfer_data.xlsx),,Juve Stabia,juve stabia,new_non_core,0,True,,Juve Stabia
-CLB0176,transfers,Dealing_Club (player_transfer_data.xlsx),,Juventude,juventude,fuzzy_review,82,False,,Juventus FC
 CLB0176,transfers,Dealing_Club (player_transfer_data.xlsx),,Juventus,juventus,exact_name,100,True,,Juventus FC
 CLB0153,transfers,Dealing_Club (player_transfer_data.xlsx),,KAA Gent,gent,exact_name,100,True,,KAA Gent
 NC2531,transfers,Dealing_Club (player_transfer_data.xlsx),,KAS Eupen,kas eupen,new_non_core,0,True,,KAS Eupen
@@ -4525,7 +4500,6 @@ CLB0156,transfers,Dealing_Club (player_transfer_data.xlsx),,OH Leuven,oh leuven,
 NC2573,transfers,Dealing_Club (player_transfer_data.xlsx),,Odense BK,odense,new_non_core,0,True,,Odense BK
 NC1115,transfers,Dealing_Club (player_transfer_data.xlsx),,Olimpia,olimpia,new_non_core,0,True,,Olimpia
 NC2574,transfers,Dealing_Club (player_transfer_data.xlsx),,Olympiacos,olympiacos,new_non_core,0,True,,Olympiacos
-CLB0014,transfers,Dealing_Club (player_transfer_data.xlsx),,Orenburg,orenburg,fuzzy_review,75,False,,SC Freiburg
 NC2575,transfers,Dealing_Club (player_transfer_data.xlsx),,Orlando,orlando,new_non_core,0,True,,Orlando
 CLB0031,transfers,Dealing_Club (player_transfer_data.xlsx),,Oxford United,oxford united,exact_name,100,True,,Oxford United FC
 NC1148,transfers,Dealing_Club (player_transfer_data.xlsx),,PAOK,paok,new_non_core,0,True,,PAOK
@@ -4782,7 +4756,6 @@ CLB0101,transfers,Dealing_Club (player_transfer_data2.xlsx),,Arsenal,arsenal,exa
 CLB0102,transfers,Dealing_Club (player_transfer_data2.xlsx),,Aston Villa,aston villa,exact_name,100,True,,Aston Villa FC
 CLB0169,transfers,Dealing_Club (player_transfer_data2.xlsx),,Atalanta,atalanta,exact_name,100,True,,Atalanta Bergamasca Calcio
 CLB0064,transfers,Dealing_Club (player_transfer_data2.xlsx),,Atlético,atletico madrid,exact_name,100,True,,Club Atlético de Madrid
-CLB0064,transfers,Dealing_Club (player_transfer_data2.xlsx),,Atlético-MG,atletico mg,fuzzy_review,77,False,,Club Atlético de Madrid
 CLB0067,transfers,Dealing_Club (player_transfer_data2.xlsx),,Barcelona,barcelona,exact_name,100,True,,FC Barcelona
 NC2446,transfers,Dealing_Club (player_transfer_data2.xlsx),,Barça Atlètic,barca atletic,new_non_core,0,True,,Barça Atlètic
 NC0244,transfers,Dealing_Club (player_transfer_data2.xlsx),,Basel,basel,new_non_core,0,True,,Basel
@@ -4863,7 +4836,6 @@ CLB0016,transfers,Dealing_Club (player_transfer_data2.xlsx),,Hoffenheim,hoffenhe
 NC0757,transfers,Dealing_Club (player_transfer_data2.xlsx),,Internacional,internacional,new_non_core,0,True,,Internacional
 NC2524,transfers,Dealing_Club (player_transfer_data2.xlsx),,Ipswich,ipswich,new_non_core,0,True,,Ipswich
 NC2663,transfers,Dealing_Club (player_transfer_data2.xlsx),,Jagiellonia,jagiellonia,new_non_core,0,True,,Jagiellonia
-CLB0176,transfers,Dealing_Club (player_transfer_data2.xlsx),,Juventude,juventude,fuzzy_review,82,False,,Juventus FC
 CLB0176,transfers,Dealing_Club (player_transfer_data2.xlsx),,Juventus,juventus,exact_name,100,True,,Juventus FC
 NC2531,transfers,Dealing_Club (player_transfer_data2.xlsx),,KAS Eupen,kas eupen,new_non_core,0,True,,KAS Eupen
 CLB0165,transfers,Dealing_Club (player_transfer_data2.xlsx),,KV Mechelen,mechelen,exact_name,100,True,,YR KV Mechelen
@@ -5027,7 +4999,6 @@ NC0424,playstyles,Team,54.0,Columbus Crew,columbus crew,new_non_core,0,True,,Col
 CLB0172,playstyles,Team,55.0,Como,como,exact_name,100,True,,Calcio Como 1907
 CLB0023,playstyles,Team,56.0,Coventry City,coventry city,exact_name,100,True,,Coventry City FC
 CLB0107,playstyles,Team,57.0,Crystal Palace,crystal palace,exact_name,100,True,,Crystal Palace FC
-CLB0110,playstyles,Team,59.0,DC United,dc united,fuzzy_review,76,False,,Leeds United FC
 NC0465,playstyles,Team,58.0,Dallas,dallas,new_non_core,0,True,,Dallas
 CLB0152,playstyles,Team,60.0,Dender,dender,exact_name,100,True,,FC Verbroedering Dender Eendracht Hekelgem
 CLB0065,playstyles,Team,61.0,Deportivo Alavés,alaves,exact_name,100,True,,Deportivo Alavés
