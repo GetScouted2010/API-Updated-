@@ -322,7 +322,7 @@ new club,NEW026,Atlético Morelia,,Mexico,removed false alias had no club of its
 alias removed,CLB0064,Atlético Morelia,Club Atlético de Madrid,NEW026,"different country (Mexico); moved 0 transfers, 1 players 25/26, 0 history rows"
 new club,NEW027,Ajka,,Hungary,removed false alias had no club of its own
 alias removed,CLB0043,Ajka,AFC Ajax,NEW027,"different country (Hungary); moved 0 transfers, 1 players 25/26, 0 history rows"
-new club,NEW028,Oriental,,,removed false alias had no club of its own
+new club,NEW028,Oriental,,Uruguay,removed false alias had no club of its own
 alias removed,CLB0085,Oriental,FC Lorient,NEW028,"different country (Uruguay); moved 0 transfers, 1 players 25/26, 0 history rows"
 new club,NEW029,Orijent 1919,,Croatia,removed false alias had no club of its own
 alias removed,CLB0085,Orijent 1919,FC Lorient,NEW029,"different country (China); moved 0 transfers, 1 players 25/26, 0 history rows"
@@ -362,10 +362,15 @@ parent,NC1348,Royal Francs Borains U21,UNRESOLVED:Royal Francs Borains,NC0617,re
 parent,NC1416,Seraing U21,UNRESOLVED:Seraing,NC1263,resolved by full-name search
 new club,NEW034,Serra Branca,,Brazil,parent club of Serra Branca U20
 parent,NC2239,Serra Branca U20,UNRESOLVED:Serra Branca,NEW034,created parent as first team
-new club,NEW035,Shin Tae-in,,"Korea, South",parent club of Shin Tae-in U18
-parent,NC2619,Shin Tae-in U18,UNRESOLVED:Shin Tae-in,NEW035,created parent as first team
 parent,NC2290,São José PA U20,UNRESOLVED:São José PA,NC0535,resolved by full-name search
 new club,NEW036,Udarnik Kurilovec,,Croatia,parent club of Udarnik Kurilovec U18
 parent,NC2330,Udarnik Kurilovec U18,UNRESOLVED:Udarnik Kurilovec,NEW036,created parent as first team
 alias removed,CLB0064,Atlético-MG,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
 alias removed,CLB0064,Club Atlético Mitre,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
+team type,NC2619,Shin Tae-in U18,U19,unknown,reviewer: not a club
+parent,NC2619,Shin Tae-in U18,NEW035,,reviewer: no parent
+exclude from analysis,NC2619,Shin Tae-in U18,,True,reviewer
+new club removed,NEW035,Shin Tae-in,,,"reviewer: person name, not a club"
+parent confirmed,NC2290,São José PA U20,NC0535,NC0535,reviewer: EC São José (Porto Alegre)
+merge,NC0786,Jeonbuk Motors,,NC2416,reviewer decision
+country fix,NEW028,Oriental,,Uruguay,"league of attached players: Primera División (Uruguay), 1 player"
