@@ -307,3 +307,65 @@ alias removed,CLB0092,Lyn,transfers,NEW019 (new club),false alias - reviewer lis
 alias removed,CLB0175,Yverdon Sport,transfers,NEW013 (new club),false alias - reviewer list
 alias removed,CLB0173,Inter Miami,playstyles,NC2033,false alias - reviewer list
 alias removed,CLB0130,Randers,playstyles,NEW010 (new club),false alias - reviewer list
+new club,NEW020,Wolfsberger AC,,Austria,removed false alias had no club of its own
+alias removed,CLB0018,Wolfsberger AC,VfL Wolfsburg,NEW020,"different country (Austria); moved 61 transfers, 17 players 25/26, 78 history rows"
+alias removed,CLB0110,DC United,Leeds United FC,NC2474,"different country (United States); moved 24 transfers, 17 players 25/26, 34 history rows"
+new club,NEW022,Orenburg,,Russia,removed false alias had no club of its own
+alias removed,CLB0014,Orenburg,SC Freiburg,NEW022,"different country (Russia); moved 0 transfers, 30 players 25/26, 3 history rows"
+new club,NEW023,Juventude,,Brazil,removed false alias had no club of its own
+alias removed,CLB0176,Juventude,Juventus FC,NEW023,"different country (Brazil); moved 0 transfers, 24 players 25/26, 49 history rows"
+new club,NEW024,Hartford Athletic,,United States,removed false alias had no club of its own
+alias removed,CLB0022,Hartford Athletic,Charlton Athletic FC,NEW024,"different country (United States); moved 6 transfers, 0 players 25/26, 1 history rows"
+new club,NEW025,Colón,,Argentina,removed false alias had no club of its own
+alias removed,CLB0010,Colón,FC Köln,NEW025,"different country (Uruguay); moved 0 transfers, 4 players 25/26, 1 history rows"
+new club,NEW026,Atlético Morelia,,Mexico,removed false alias had no club of its own
+alias removed,CLB0064,Atlético Morelia,Club Atlético de Madrid,NEW026,"different country (Mexico); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW027,Ajka,,Hungary,removed false alias had no club of its own
+alias removed,CLB0043,Ajka,AFC Ajax,NEW027,"different country (Hungary); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW028,Oriental,,,removed false alias had no club of its own
+alias removed,CLB0085,Oriental,FC Lorient,NEW028,"different country (Uruguay); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW029,Orijent 1919,,Croatia,removed false alias had no club of its own
+alias removed,CLB0085,Orijent 1919,FC Lorient,NEW029,"different country (China); moved 0 transfers, 1 players 25/26, 0 history rows"
+new club,NEW030,Dewa United,,Indonesia,removed false alias had no club of its own
+alias removed,CLB0123,Dewa United,Dundee United FC,NEW030,"different country (Netherlands); moved 0 transfers, 1 players 25/26, 2 history rows"
+new club,NEW031,Santa Cruz,,Brazil,removed false alias had no club of its own
+alias removed,CLB0136,Santa Cruz,CD Santa Clara,NEW031,"different country (Brazil); moved 0 transfers, 1 players 25/26, 0 history rows"
+country fix,NC1270,Racing,,Argentina,60 source rows
+country fix,CLB0094,Paris,France,Greece,49 source rows
+country fix,NC1413,Seoul,,South Korea,22 source rows
+country fix,NC2237,Seoul E-Land,Brazil,South Korea,20 source rows
+country fix,NC2347,Vegalta Sendai,Austria,Japan,18 source rows
+country fix,NC1523,Suwon,,South Korea,17 source rows
+country fix,NC1887,Chungnam Asan,Chile,South Korea,9 source rows
+country fix,NC1882,Cheonan City,Serbia,South Korea,6 source rows
+country fix,NC2022,Hwaseong,Serbia,South Korea,6 source rows
+country fix,NC2215,Rukh Lviv,Mexico,Ukraine,5 source rows
+country fix,NC0061,Al Dhafra,,United Arab Emirates,5 source rows
+country fix,NC2149,Pacific FC,Mexico,Canada,4 source rows
+country fix,NC1946,FK Auda,Cyprus,Latvia,4 source rows
+country fix,NC0730,Huracán,,Uruguay,4 source rows
+country fix,NC0156,Anyang,,South Korea,3 source rows
+country fix,NC2122,Mérida AD,Portugal,Spain,3 source rows
+parent,NC2435,Antlers U18,UNRESOLVED:Antlers,NC0820,resolved by full-name search
+parent,NC1916,Deportivo Toluca U19,UNRESOLVED:Deportivo Toluca,NC1564,resolved by full-name search
+parent,NC0497,Deportivo Toluca U21,UNRESOLVED:Deportivo Toluca,NC1564,resolved by full-name search
+parent,NC2516,Goiás EC U20,UNRESOLVED:Goiás EC,NC0649,resolved by full-name search
+parent,NC2527,Jeonbuk H. U18,UNRESOLVED:Jeonbuk H.,NC2416,resolved by full-name search
+new club,NEW032,Jinwee,,"Korea, South",parent club of Jinwee U18
+parent,NC2530,Jinwee U18,UNRESOLVED:Jinwee,NEW032,created parent as first team
+parent,NC0806,KV Oostende U21,UNRESOLVED:KV Oostende,NC1133,resolved by full-name search
+parent,NC1061,Neuhofen / Ried II,UNRESOLVED:SV Ried,NC1325,resolved by full-name search
+new club,NEW033,Nykøbing,,Denmark,parent club of Nykøbing U19
+parent,NC1090,Nykøbing U19,UNRESOLVED:Nykøbing,NEW033,created parent as first team
+parent,NC1264,RFC de Liège U21,UNRESOLVED:RFC de Liège,NC0904,resolved by full-name search
+parent,NC1348,Royal Francs Borains U21,UNRESOLVED:Royal Francs Borains,NC0617,resolved by full-name search
+parent,NC1416,Seraing U21,UNRESOLVED:Seraing,NC1263,resolved by full-name search
+new club,NEW034,Serra Branca,,Brazil,parent club of Serra Branca U20
+parent,NC2239,Serra Branca U20,UNRESOLVED:Serra Branca,NEW034,created parent as first team
+new club,NEW035,Shin Tae-in,,"Korea, South",parent club of Shin Tae-in U18
+parent,NC2619,Shin Tae-in U18,UNRESOLVED:Shin Tae-in,NEW035,created parent as first team
+parent,NC2290,São José PA U20,UNRESOLVED:São José PA,NC0535,resolved by full-name search
+new club,NEW036,Udarnik Kurilovec,,Croatia,parent club of Udarnik Kurilovec U18
+parent,NC2330,Udarnik Kurilovec U18,UNRESOLVED:Udarnik Kurilovec,NEW036,created parent as first team
+alias removed,CLB0064,Atlético-MG,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
+alias removed,CLB0064,Club Atlético Mitre,Club Atlético de Madrid,,play-style alias check: different club (Brazil/Argentina)
