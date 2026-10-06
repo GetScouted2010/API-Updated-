@@ -130,7 +130,7 @@ CLB0156,Oud-Heverlee Leuven,Pro League (Belgium),Belgium,True,club,playstyles;tr
 CLB0031,Oxford United FC,Championship (England),England,True,club,playstyles;transfers;wyscout,149,True,True,True,True,,first team,,England
 CLB0056,PEC Zwolle,Eredivisie,Netherlands,True,club,playstyles;wyscout,102,True,True,False,True,,first team,,Netherlands
 CLB0057,PSV Eindhoven,Eredivisie,Netherlands,True,club,playstyles;transfers;wyscout,122,True,True,True,True,,first team,,Netherlands
-CLB0094,Paris,Ligue 1,France,True,club,transfers;wyscout,267,True,True,True,False,,first team,,France
+CLB0094,Paris,Ligue 1,Greece,True,club,transfers;wyscout,267,True,True,True,False,,first team,,France
 CLB0093,Paris Saint-Germain FC,Ligue 1,France,True,club,playstyles;transfers;wyscout,243,True,True,True,True,,first team,,France
 CLB0177,Parma Calcio 1913,Serie A (Italy),Italy,True,club,playstyles;transfers;wyscout,159,True,True,True,True,,first team,,Italy
 CLB0178,Pisa Sporting Club,Serie A (Italy),Italy,True,club,transfers;wyscout,88,True,True,True,False,,first team,,Italy
@@ -299,7 +299,7 @@ NC0057,Al Ahly,,,False,non_core_club,wyscout,4,True,False,False,False,,first tea
 NC0058,Al Ain,,,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,
 NC0059,Al Akhdoud,,,False,non_core_club,wyscout,6,True,False,False,False,,first team,,Sweden
 NC0060,Al Arabi,,,False,non_core_club,wyscout,4,True,False,False,False,,first team,,
-NC0061,Al Dhafra,,,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,Brazil
+NC0061,Al Dhafra,,United Arab Emirates,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,Brazil
 NC0062,Al Draih,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Greece
 NC0063,Al Duhail,,,False,non_core_club,wyscout,8,True,False,False,False,,first team,,England
 NC0064,Al Ettifaq,,,False,non_core_club,wyscout,9,True,False,False,False,,first team,,
@@ -418,12 +418,12 @@ NC1826,Anorthosis U19,,Cyprus,False,non_core_club,wyscout,1,True,False,False,Fal
 NC2434,Ansan Greeners,,"Korea, South",False,non_core_club,transfers,1,False,False,True,False,,first team,,"Korea, South"
 NC0150,Antequera,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Bulgaria
 NC0151,Antigua GFC,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,Colombia
-NC2435,Antlers U18,,Japan,False,non_core_club,transfers,3,False,False,True,False,,U19,UNRESOLVED:Antlers,Japan
+NC2435,Antlers U18,,Japan,False,non_core_club,transfers,3,False,False,True,False,,U19,NC0820,Japan
 NC0152,Antofagasta,,,False,non_core_club,wyscout,5,True,False,False,False,,first team,,Uruguay
 NC0153,Antwerp U16,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Belgium
 NC0154,Antwerp U18,,,False,non_core_club,wyscout,1,True,False,False,False,,U19,CLB0158,Belgium
 NC0155,Antwerp U19,,,False,non_core_club,wyscout,1,True,False,False,False,,U19,CLB0158,Belgium
-NC0156,Anyang,,,False,non_core_club,transfers;wyscout,6,True,False,True,False,,first team,,Brazil
+NC0156,Anyang,,South Korea,False,non_core_club,transfers;wyscout,6,True,False,True,False,,first team,,Brazil
 NC1827,Anzoátegui FC,,Argentina,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Argentina
 NC0157,Aparecidense,,,False,non_core_club,wyscout,45,True,False,False,False,,first team,,
 NC0158,Apollon,,,False,non_core_club,wyscout,106,True,False,False,False,,first team,,Cyprus
@@ -748,7 +748,7 @@ NC0391,Cheltenham Town,,,False,non_core_club,wyscout,111,True,False,False,False,
 NC2466,Chelyabinsk,,Russia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Russia
 NC0392,Chengdu Rongcheng,,,False,non_core_club,wyscout,36,True,False,False,False,,first team,,China
 NC0393,Chengdu Rongcheng II,,,False,non_core_club,wyscout,1,True,False,False,False,,B-reserve,NC0392,China
-NC1882,Cheonan City,,Serbia,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,Serbia
+NC1882,Cheonan City,,South Korea,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,Serbia
 NC2467,Cheongju FC,,"Korea, South",False,non_core_club,transfers,1,False,False,True,False,,first team,,"Korea, South"
 NC0394,Cherno More,,,False,non_core_club,wyscout,37,True,False,False,False,,first team,,Bulgaria
 NC1883,Chernomorets,,Russia,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Russia
@@ -765,7 +765,7 @@ NC0399,Chongqing Tongliang Long,,,False,non_core_club,wyscout,7,True,False,False
 NC1886,Chrobry Głogów,,Poland,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Poland
 NC0400,Chrudim,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,Czechia
 NC0401,Chungbuk Cheongju,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Colombia
-NC1887,Chungnam Asan,,Chile,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Chile
+NC1887,Chungnam Asan,,South Korea,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Chile
 NC0402,Châteauroux,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,France
 NC1888,Cianorte,,Brazil,False,non_core_club,wyscout,3,True,False,False,False,,first team,,Brazil
 NC1889,Cibao,,Colombia,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Colombia
@@ -905,8 +905,8 @@ NC0495,Deportivo Riestra,,,False,non_core_club,wyscout,53,True,False,False,False
 NC1914,Deportivo Santaní,,Paraguay,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Paraguay
 NC0496,Deportivo Saprissa,,,False,non_core_club,wyscout,62,True,False,False,False,,first team,,Costa Rica
 NC1915,Deportivo Saprissa U20,,Costa Rica,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC0496,Costa Rica
-NC1916,Deportivo Toluca U19,,Mexico,False,non_core_club,wyscout,1,True,False,False,False,,U19,UNRESOLVED:Deportivo Toluca,Mexico
-NC0497,Deportivo Toluca U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:Deportivo Toluca,Mexico
+NC1916,Deportivo Toluca U19,,Mexico,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1564,Mexico
+NC0497,Deportivo Toluca U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC1564,Mexico
 NC0498,Deportivo Táchira,,,False,non_core_club,wyscout,6,True,False,False,False,,first team,,Venezuela
 NC2485,Derby,,England,False,non_core_club,transfers,4,False,False,True,False,,first team,,England
 NC0499,Derry City,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Ireland
@@ -1040,7 +1040,7 @@ NC2504,FC Turan,,Kazakhstan,False,non_core_club,transfers,1,False,False,True,Fal
 NC2505,FC Wacker,,Austria,False,non_core_club,transfers,1,False,False,True,False,,first team,,Austria
 NC0580,FCS Bucureşti,,,False,non_core_club,wyscout,59,True,False,False,False,,first team,,
 NC1945,FH,,Sweden,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Sweden
-NC1946,FK Auda,,Cyprus,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Cyprus
+NC1946,FK Auda,,Latvia,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Cyprus
 NC0581,FK Liepāja,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,
 NC1947,FK Sloven Ruma,,Bosnia and Herzegovina,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Bosnia and Herzegovina
 NC2506,FK TSC,,Serbia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Serbia
@@ -1151,7 +1151,7 @@ NC0648,Godoy Cruz,,,False,non_core_club,wyscout,58,True,False,False,False,,first
 NC1976,Goianésia,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Brazil
 NC1977,Goiatuba EC,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Brazil
 NC0649,Goiás,,,False,non_core_club,wyscout,155,True,False,False,False,,first team,,Brazil
-NC2516,Goiás EC U20,,Brazil,False,non_core_club,transfers,1,False,False,True,False,,U23-U21,UNRESOLVED:Goiás EC,Brazil
+NC2516,Goiás EC U20,,Brazil,False,non_core_club,transfers,1,False,False,True,False,,U23-U21,NC0649,Brazil
 NC0650,Gokulam Kerala,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,
 NC0651,Gol Gohar Sirjan,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Brazil
 NC0652,Gorica,,,False,non_core_club,wyscout,116,True,False,False,False,,first team,,Croatia
@@ -1282,9 +1282,9 @@ NC0727,Huddersfield Town,,,False,non_core_club,wyscout,96,True,False,False,False
 NC0728,Huddersfield Town U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC0727,England
 NC0729,Huesca,,,False,non_core_club,wyscout,75,True,False,False,False,,first team,,Spain
 NC2021,Humenné,,Slovakia,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Slovakia
-NC0730,Huracán,,,False,non_core_club,transfers;wyscout,75,True,False,True,False,,first team,,Argentina
+NC0730,Huracán,,Uruguay,False,non_core_club,transfers;wyscout,75,True,False,True,False,,first team,,Argentina
 NC0731,Hvidovre,,,False,non_core_club,transfers;wyscout,54,True,False,True,False,,first team,,Poland
-NC2022,Hwaseong,,Serbia,False,non_core_club,transfers;wyscout,5,True,False,True,False,,first team,,Serbia
+NC2022,Hwaseong,,South Korea,False,non_core_club,transfers;wyscout,5,True,False,True,False,,first team,,Serbia
 NC0732,Häcken,,,False,non_core_club,playstyles;wyscout,56,True,False,False,True,,first team,,Sweden
 NC2023,Hässleholms IF,,Sweden,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Sweden
 NC0733,Hødd,,,False,non_core_club,wyscout,8,True,False,False,False,,first team,,Denmark
@@ -1366,7 +1366,7 @@ NC0783,Javor Ivanjica,,,False,non_core_club,wyscout,40,True,False,False,False,,f
 NC0784,Jedinstvo Ub,,,False,non_core_club,wyscout,63,True,False,False,False,,first team,,
 NC2043,Jedinstvo Ub U19,,Serbia,False,non_core_club,wyscout,2,True,False,False,False,,U19,NC0784,Serbia
 NC0785,Jeju SK,,,False,non_core_club,transfers;wyscout,4,True,False,True,False,,first team,,"Korea, South"
-NC2527,Jeonbuk H. U18,,"Korea, South",False,non_core_club,transfers,2,False,False,True,False,,U19,UNRESOLVED:Jeonbuk H.,"Korea, South"
+NC2527,Jeonbuk H. U18,,"Korea, South",False,non_core_club,transfers,2,False,False,True,False,,U19,NC2416,"Korea, South"
 NC2416,Jeonbuk Hyundai Motors,,,False,non_core_club,transfers,63,False,False,True,False,,first team,,"Korea, South"
 NC0786,Jeonbuk Motors,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,China
 NC2528,Jeonju Uni,,"Korea, South",False,non_core_club,transfers,1,False,False,True,False,,first team,,"Korea, South"
@@ -1374,7 +1374,7 @@ NC0787,Jeonnam Dragons,,,False,non_core_club,wyscout,3,True,False,False,False,,f
 NC0788,Jerv,,,False,non_core_club,wyscout,37,True,False,False,False,,first team,,
 NC0789,Jiangxi Lushan,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,
 NC2529,Jihlava,,Czech Republic,False,non_core_club,transfers,1,False,False,True,False,,first team,,Czech Republic
-NC2530,Jinwee U18,,"Korea, South",False,non_core_club,transfers,2,False,False,True,False,,U19,UNRESOLVED:Jinwee,"Korea, South"
+NC2530,Jinwee U18,,"Korea, South",False,non_core_club,transfers,2,False,False,True,False,,U19,NEW032,"Korea, South"
 NC0790,Johor Darul Ta'zim,,,False,non_core_club,wyscout,7,True,False,False,False,,first team,,Malaysia
 NC0791,Joinville,,,False,non_core_club,wyscout,4,True,False,False,False,,first team,,
 NC2044,Juan Pablo II College,,Mexico,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Mexico
@@ -1399,7 +1399,7 @@ NC0804,KPV,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,
 NC0805,KR,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,
 NC2532,KS Samara,,Russia,False,non_core_club,transfers,4,False,False,True,False,,first team,,Russia
 NC2049,KTP,,Turkey,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Turkey
-NC0806,KV Oostende U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:KV Oostende,Belgium
+NC0806,KV Oostende U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC1133,Belgium
 NC0807,Kabel Novi Sad,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Bosnia and Herzegovina
 NC2050,Kairat,,Poland,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Poland
 NC0808,Kaiserslautern,,,False,non_core_club,wyscout,106,True,False,False,False,,first team,,Germany
@@ -1734,7 +1734,7 @@ NC1036,Mura,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,
 NC2562,Murom,,Russia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Russia
 NC1037,Mushuc Runa,,,False,non_core_club,wyscout,58,True,False,False,False,,first team,,Uruguay
 NC1038,Málaga,,,False,non_core_club,wyscout,114,True,False,False,False,,first team,,Spain
-NC2122,Mérida AD,,Portugal,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Portugal
+NC2122,Mérida AD,,Spain,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Portugal
 NC2123,NAC Breda Res.,,Netherlands,False,non_core_club,wyscout,1,True,False,False,False,,B-reserve,CLB0054,Netherlands
 NC2563,NK Olimpija,,Slovenia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Slovenia
 NC2564,NK Osijek,,Croatia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Croatia
@@ -1767,7 +1767,7 @@ NC2129,Necaxa U23,,Mexico,False,non_core_club,wyscout,2,True,False,False,False,,
 NC1059,Neftchi,,,False,non_core_club,wyscout,5,True,False,False,False,,first team,,Cyprus
 NC2565,Neftekhimik,,Russia,False,non_core_club,transfers,2,False,False,True,False,,first team,,Russia
 NC1060,Neuchâtel Xamax,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,
-NC1061,Neuhofen / Ried II,,,False,non_core_club,wyscout,2,True,False,False,False,,B-reserve,UNRESOLVED:SV Ried,
+NC1061,Neuhofen / Ried II,,,False,non_core_club,wyscout,2,True,False,False,False,,B-reserve,NC1325,
 NC1062,New England,,,False,non_core_club,playstyles;transfers;wyscout,49,True,False,True,True,,first team,,USA
 NC1063,New England II,,,False,non_core_club,wyscout,1,True,False,False,False,,B-reserve,NC1062,
 NC1064,New Mexico United,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,United States
@@ -1807,7 +1807,7 @@ NC2133,Novi Pazar U19,,Serbia,False,non_core_club,wyscout,1,True,False,False,Fal
 NC2134,Novo Horizonte,,Bosnia and Herzegovina,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Bosnia and Herzegovina
 NC2571,Novorizontino,,Brazil,False,non_core_club,transfers,2,False,False,True,False,,first team,,Brazil
 NC1089,Nueva Chicago,,,False,non_core_club,transfers;wyscout,3,True,False,True,False,,first team,,Uruguay
-NC1090,Nykøbing U19,,,False,non_core_club,wyscout,1,True,False,False,False,,U19,UNRESOLVED:Nykøbing,
+NC1090,Nykøbing U19,,,False,non_core_club,wyscout,1,True,False,False,False,,U19,NEW033,
 NC2572,Nyíregyháza,,Hungary,False,non_core_club,transfers,1,False,False,True,False,,first team,,Hungary
 NC1091,Nyíregyháza Spartacus,,,False,non_core_club,wyscout,61,True,False,False,False,,first team,,Hungary
 NC1092,Náutico,,,False,non_core_club,wyscout,61,True,False,False,False,,first team,,Brazil
@@ -1898,7 +1898,7 @@ NC1157,PVF-CAND,,,False,non_core_club,wyscout,1,True,False,False,False,,first te
 NC1158,Pachuca,,,False,non_core_club,wyscout,62,True,False,False,False,,first team,,Mexico
 NC1159,Pachuca U21,,,False,non_core_club,wyscout,2,True,False,False,False,,U23-U21,NC1158,Mexico
 NC2148,Pachuca U23,,Mexico,False,non_core_club,wyscout,4,True,False,False,False,,U23-U21,NC1158,Mexico
-NC2149,Pacific FC,,Mexico,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Mexico
+NC2149,Pacific FC,,Canada,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Mexico
 NC1160,Paderborn,,,False,non_core_club,transfers;wyscout,53,True,False,True,False,,first team,,Germany
 NC2150,Paderborn II,,Germany,False,non_core_club,wyscout,3,True,False,False,False,,B-reserve,NC1160,Germany
 NC1161,Padova,,,False,non_core_club,wyscout,54,True,False,False,False,,first team,,Italy
@@ -2059,7 +2059,7 @@ NC1261,RB Leipzig U17,,,False,non_core_club,wyscout,1,True,False,False,False,,U1
 NC2187,RB Leipzig U19,,Germany,False,non_core_club,wyscout,2,True,False,False,False,,U19,CLB0013,Germany
 NC1262,RB Omiya Ardija,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Japan
 NC1263,RFC Seraing,,,False,non_core_club,wyscout,104,True,False,False,False,,first team,,Belgium
-NC1264,RFC de Liège U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:RFC de Liège,
+NC1264,RFC de Liège U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC0904,
 NC1265,RFS,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Latvia
 NC1266,RKC Waalwijk,,,False,non_core_club,playstyles;wyscout,107,True,False,False,True,,first team,,Netherlands
 NC2596,RM Castilla,,Spain,False,non_core_club,transfers,6,False,False,True,False,,B-reserve,CLB0075,Spain
@@ -2068,7 +2068,7 @@ NC1267,RWD Molenbeek,,,False,non_core_club,wyscout,87,True,False,False,False,,fi
 NC1268,RWD Molenbeek Res,,,False,non_core_club,wyscout,5,True,False,False,False,,B-reserve,NC1267,Belgium
 NC1269,RWD Molenbeek U21,,,False,non_core_club,wyscout,2,True,False,False,False,,U23-U21,NC1267,Belgium
 NC2188,Rabotnički,,Bosnia and Herzegovina,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Bosnia and Herzegovina
-NC1270,Racing,,,False,non_core_club,transfers;wyscout,196,True,False,True,False,,first team,,Uruguay
+NC1270,Racing,,Argentina,False,non_core_club,transfers;wyscout,196,True,False,True,False,,first team,,Uruguay
 NC2189,Racing Club U20,,Argentina,False,non_core_club,wyscout,2,True,False,False,False,,U23-U21,NC1270,Argentina
 NC2190,Racing Córdoba,,Argentina,False,non_core_club,wyscout,3,True,False,False,False,,first team,,Argentina
 NC1271,Racing Ferrol,,,False,non_core_club,wyscout,52,True,False,False,False,,first team,,Spain
@@ -2178,14 +2178,14 @@ NC1346,Rotherham United,,,False,non_core_club,wyscout,101,True,False,False,False
 NC2602,Rotor Volgograd,,Russia,False,non_core_club,transfers,2,False,False,True,False,,first team,,Russia
 NC1347,Rouen,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,France
 NC2603,Royal Antwerp,,Belgium,False,non_core_club,transfers,3,False,False,True,False,CLB0158,first team,,Belgium
-NC1348,Royal Francs Borains U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:Royal Francs Borains,
+NC1348,Royal Francs Borains U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC0617,
 NC1349,Rubin Kazan',,,False,non_core_club,wyscout,56,True,False,False,False,,first team,,Russia
 NC2213,Rubin Kazan' U18,,Russia,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1349,Russia
 NC2214,Rubin Kazan' Youth,,Russia,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1349,Russia
 NC1350,Rubio Ñú,,,False,non_core_club,wyscout,4,True,False,False,False,,first team,,Brazil
 NC1351,Ruch Chorzów,,,False,non_core_club,wyscout,4,True,False,False,False,,first team,,Sweden
 NC1352,Rudar Prijedor,,,False,non_core_club,wyscout,41,True,False,False,False,,first team,,Bosnia and Herzegovina
-NC2215,Rukh Lviv,,Mexico,False,non_core_club,transfers;wyscout,2,True,False,True,False,,first team,,Mexico
+NC2215,Rukh Lviv,,Ukraine,False,non_core_club,transfers;wyscout,2,True,False,True,False,,first team,,Mexico
 NC1353,Ružomberok,,,False,non_core_club,transfers;wyscout,52,True,False,True,False,,first team,,Slovakia
 NC1354,Ružomberok U19,,,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1353,Slovakia
 NC2604,S. Kostroma,,Russia,False,non_core_club,transfers,1,False,False,True,False,,first team,,Russia
@@ -2280,15 +2280,15 @@ NC2236,Schweinfurt,,Czech Republic,False,non_core_club,wyscout,1,True,False,Fals
 NC2615,Seattle,,United States,False,non_core_club,transfers,1,False,False,True,False,,first team,,United States
 NC1411,Seattle Sounders,,,False,non_core_club,playstyles;wyscout,89,True,False,False,True,,first team,,USA
 NC1412,Semen Padang,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,Brazil
-NC1413,Seoul,,,False,non_core_club,transfers;wyscout,9,True,False,True,False,,first team,,Croatia
-NC2237,Seoul E-Land,,Brazil,False,non_core_club,transfers;wyscout,5,True,False,True,False,,first team,,Brazil
+NC1413,Seoul,,South Korea,False,non_core_club,transfers;wyscout,9,True,False,True,False,,first team,,Croatia
+NC2237,Seoul E-Land,,South Korea,False,non_core_club,transfers;wyscout,5,True,False,True,False,,first team,,Brazil
 NC1414,Sepsi,,,False,non_core_club,wyscout,38,True,False,False,False,,first team,,Norway
 NC2616,Sepsi OSK,,Romania,False,non_core_club,transfers,1,False,False,True,False,,first team,,Romania
 NC2238,Sepsi U17,,Romania,False,non_core_club,wyscout,2,True,False,False,False,,U19,NC1414,Romania
 NC1415,Septemvri Sofia,,,False,non_core_club,wyscout,36,True,False,False,False,,first team,,Bulgaria
-NC1416,Seraing U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:Seraing,
+NC1416,Seraing U21,,,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC1263,
 NC1417,Serik Belediyespor,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Türkiye
-NC2239,Serra Branca U20,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:Serra Branca,Brazil
+NC2239,Serra Branca U20,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NEW034,Brazil
 NC1418,Servette,,,False,non_core_club,transfers;wyscout,103,True,False,True,False,,first team,,Switzerland
 NC1419,Servette II,,,False,non_core_club,wyscout,2,True,False,False,False,,B-reserve,NC1418,Switzerland
 NC2240,Servette U19,,Switzerland,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1418,Switzerland
@@ -2310,7 +2310,7 @@ NC1431,Shenzhen Juniors,,,False,non_core_club,wyscout,5,True,False,False,False,,
 NC1432,Sheriff,,,False,non_core_club,wyscout,8,True,False,False,False,,first team,,Belgium
 NC1433,Shimizu S-Pulse,,,False,non_core_club,wyscout,26,True,False,False,False,,first team,,Japan
 NC2242,Shimshon Kfar Qasem,,Israel,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Israel
-NC2619,Shin Tae-in U18,,"Korea, South",False,non_core_club,transfers,1,False,False,True,False,,U19,UNRESOLVED:Shin Tae-in,"Korea, South"
+NC2619,Shin Tae-in U18,,"Korea, South",False,non_core_club,transfers,1,False,False,True,False,,U19,NEW035,"Korea, South"
 NC1434,Shkupi,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,
 NC1435,Shonan Bellmare,,,False,non_core_club,transfers;wyscout,45,True,False,True,False,,first team,,Japan
 NC1436,Shrewsbury Town,,,False,non_core_club,wyscout,127,True,False,False,False,,first team,,England
@@ -2452,7 +2452,7 @@ NC2629,Sun Moon Uni.,,"Korea, South",False,non_core_club,transfers,1,False,False
 NC1520,SuperSport United,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,
 NC1521,Surkhon,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Serbia
 NC1522,Sutton United,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,England
-NC1523,Suwon,,,False,non_core_club,transfers;wyscout,6,True,False,True,False,,first team,,Brazil
+NC1523,Suwon,,South Korea,False,non_core_club,transfers;wyscout,6,True,False,True,False,,first team,,Brazil
 NC2283,Suwon Bluewings,,Greece,False,non_core_club,transfers;wyscout,2,True,False,True,False,,first team,,Greece
 NC2284,Suzhou Dongwu,,Turkey,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Turkey
 NC2630,Swansea,,Wales,False,non_core_club,transfers,1,False,False,True,False,,first team,,Wales
@@ -2466,7 +2466,7 @@ NC1527,São Bento,,,False,non_core_club,wyscout,7,True,False,False,False,,first 
 NC1528,São Bernardo FC,,,False,non_core_club,transfers;wyscout,74,True,False,True,False,,first team,,Brazil
 NC2288,São Caetano,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Brazil
 NC2289,São José EC,,Brazil,False,non_core_club,wyscout,4,True,False,False,False,,first team,,Brazil
-NC2290,São José PA U20,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,UNRESOLVED:São José PA,Brazil
+NC2290,São José PA U20,,Brazil,False,non_core_club,wyscout,1,True,False,False,False,,U23-U21,NC0535,Brazil
 NC1529,São João Ver,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,
 NC2291,São Luiz,,Brazil,False,non_core_club,wyscout,5,True,False,False,False,,first team,,Brazil
 NC1530,São Paulo,,,False,non_core_club,transfers;wyscout,97,True,False,True,False,,first team,,Brazil
@@ -2581,7 +2581,7 @@ NC2328,UTA Arad U17,,Romania,False,non_core_club,wyscout,2,True,False,False,Fals
 NC2329,UTA Arad U19,,Romania,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1595,Romania
 NC1596,UTC Cajamarca,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,Colombia
 NC1597,Uberlândia,,,False,non_core_club,wyscout,7,True,False,False,False,,first team,,Brazil
-NC2330,Udarnik Kurilovec U18,,Croatia,False,non_core_club,wyscout,1,True,False,False,False,,U19,UNRESOLVED:Udarnik Kurilovec,Croatia
+NC2330,Udarnik Kurilovec U18,,Croatia,False,non_core_club,wyscout,1,True,False,False,False,,U19,NEW036,Croatia
 NC1598,Ufa,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Russia
 NC1599,Ulm,,,False,non_core_club,wyscout,33,True,False,False,False,,first team,,Norway
 NC1600,Ulsan Hyundai,,,False,non_core_club,wyscout,3,True,False,False,False,,first team,,"Korea, South"
@@ -2644,7 +2644,7 @@ NC2346,Varnsdorf,,Czech Republic,False,non_core_club,wyscout,2,True,False,False,
 NC1635,Varzim,,,False,non_core_club,wyscout,9,True,False,False,False,,first team,,
 NC1636,Vasas,,,False,non_core_club,wyscout,2,True,False,False,False,,first team,,
 NC1637,Vasco da Gama,,,False,non_core_club,transfers;wyscout,147,True,False,True,False,,first team,,Brazil
-NC2347,Vegalta Sendai,,Austria,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Austria
+NC2347,Vegalta Sendai,,Japan,False,non_core_club,wyscout,1,True,False,False,False,,first team,,Austria
 NC1638,Vejle,,,False,non_core_club,playstyles;transfers;wyscout,166,True,False,True,True,,first team,,Denmark
 NC1639,Vejle U15,,,False,non_core_club,wyscout,1,True,False,False,False,,first team,,
 NC2348,Vejle U17,,Denmark,False,non_core_club,wyscout,1,True,False,False,False,,U19,NC1638,Denmark
@@ -2886,3 +2886,19 @@ NEW016,Atlantas,,,,,,,,,,,,first team,,
 NEW017,Real Pilar,,,,,,,,,,,,first team,,
 NEW018,Atl. Nacional,,,,,,,,,,,,first team,,
 NEW019,Lyn,,,,,,,,,,,,first team,,
+NEW020,Wolfsberger AC,,Austria,,,,,,,,,,first team,,
+NEW022,Orenburg,,Russia,,,,,,,,,,first team,,
+NEW023,Juventude,,Brazil,,,,,,,,,,first team,,
+NEW024,Hartford Athletic,,United States,,,,,,,,,,first team,,
+NEW025,Colón,,Argentina,,,,,,,,,,first team,,
+NEW026,Atlético Morelia,,Mexico,,,,,,,,,,first team,,
+NEW027,Ajka,,Hungary,,,,,,,,,,first team,,
+NEW028,Oriental,,,,,,,,,,,,first team,,
+NEW029,Orijent 1919,,Croatia,,,,,,,,,,first team,,
+NEW030,Dewa United,,Indonesia,,,,,,,,,,first team,,
+NEW031,Santa Cruz,,Brazil,,,,,,,,,,first team,,
+NEW032,Jinwee,,"Korea, South",,,,,,,,,,first team,,
+NEW033,Nykøbing,,Denmark,,,,,,,,,,first team,,
+NEW034,Serra Branca,,Brazil,,,,,,,,,,first team,,
+NEW035,Shin Tae-in,,"Korea, South",,,,,,,,,,first team,,
+NEW036,Udarnik Kurilovec,,Croatia,,,,,,,,,,first team,,
